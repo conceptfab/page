@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://conceptfab.com/timeflow/sitemap.xml

@@ -1,0 +1,14 @@
+# Wymuszenie ładowania index.html jako strony głównej
+DirectoryIndex index.html
+
+# Wyłączenie listowania plików w folderze (bezpieczeństwo)
+Options -Indexes
+
+# Zapobieganie błędom 403 przy braku slash na końcu URL
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /timeflow/
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_URI} !(.*)\/$
+    RewriteRule ^(.*)$ https://conceptfab.com/timeflow/$1/ [L,R=301]
+</IfModule>
