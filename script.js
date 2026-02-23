@@ -460,21 +460,58 @@
         });
       };
 
+      const heroCopy = document.querySelector(".hero-copy");
+
       const selectSlide = (index, options = {}) => {
         const shouldScrollThumb = options.scrollThumb !== false;
+        const prevIndex = activeIndex;
         activeIndex = ((index % slides.length) + slides.length) % slides.length;
         const slide = slides[activeIndex];
         if (!slide) return;
 
-        updateStageImage(slide);
-        updateCopy(slide);
+        const isFirstLoad = options.scrollThumb === false && prevIndex === 0;
+        const isSameSlide = prevIndex === activeIndex;
+
+        if (prefersReducedMotion || isFirstLoad || isSameSlide) {
+          updateStageImage(slide);
+          updateCopy(slide);
+          updateThumbs();
+          updateDots();
+          updateCounter();
+          if (shouldScrollThumb) focusThumbInRail();
+          return;
+        }
+
+        heroSliderStage.classList.add("is-transitioning");
+        heroSliderStage.classList.remove("is-entering");
+        if (heroCopy) heroCopy.classList.add("is-copy-transitioning");
+
         updateThumbs();
         updateDots();
         updateCounter();
+        if (shouldScrollThumb) focusThumbInRail();
 
-        if (shouldScrollThumb) {
-          focusThumbInRail();
-        }
+        setTimeout(() => {
+          updateStageImage(slide);
+          updateCopy(slide);
+
+          heroSliderStage.classList.remove("is-transitioning");
+          heroSliderStage.classList.add("is-entering");
+          if (heroCopy) {
+            heroCopy.classList.remove("is-copy-transitioning");
+            heroCopy.classList.add("is-copy-entering");
+          }
+
+          const onEnterEnd = () => {
+            heroSliderStage.classList.remove("is-entering");
+            heroSliderStage.removeEventListener("animationend", onEnterEnd);
+          };
+          heroSliderStage.addEventListener("animationend", onEnterEnd);
+
+          if (heroCopy) {
+            setTimeout(() => heroCopy.classList.remove("is-copy-entering"), 350);
+          }
+        }, 300);
       };
 
       thumbCards.forEach((card, thumbIndex) => {

@@ -585,6 +585,17 @@ li {
   left: -5px;
   z-index: 1;
   padding: 0.9rem 0.25rem 0.25rem;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.hero-copy.is-copy-transitioning {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+.hero-copy.is-copy-entering {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .eyebrow {
@@ -1202,6 +1213,36 @@ li {
   gap: 0.5rem;
   position: relative;
   overflow: visible;
+}
+
+.shot-card.shot-main.is-transitioning .shot-frame {
+  animation: slideOut 0.3s ease forwards;
+}
+
+.shot-card.shot-main.is-entering .shot-frame {
+  animation: slideIn 0.35s ease forwards;
+}
+
+@keyframes slideOut {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.97) translateY(8px);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.97) translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 .hero-stage-frame-wrap {
