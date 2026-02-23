@@ -16,7 +16,7 @@
   <meta property="og:title" content="TIMEFLOW | Desktopowy time tracker dla freelancerów (beta)" />
   <meta property="og:description"
     content="Automatyczny tracking czasu, sesje dzienne, analityka i lokalne AI — bez obciążania sprzętu. Działa offline, dane lokalne. Szukamy freelancerów do testów beta." />
-  <meta property="og:image" content="https://conceptfab.com/timeflow/screens/dashboard-main.png" />
+  <meta property="og:image" content="https://conceptfab.com/timeflow/screens/dashboard-main_wynik.webp" />
   <meta property="og:image:alt" content="Zrzut ekranu dashboardu aplikacji TIMEFLOW" />
   <meta property="og:image:width" content="2875" />
   <meta property="og:image:height" content="1743" />
@@ -25,7 +25,7 @@
   <meta name="twitter:title" content="TIMEFLOW | Desktopowy time tracker dla freelancerów (beta)" />
   <meta name="twitter:description"
     content="Lekki time tracker dla freelancerów. Automatyczny tracking, sesje, analityka i AI — bez obciążania sprzętu. TIMEFLOW beta szuka testerów." />
-  <meta name="twitter:image" content="https://conceptfab.com/timeflow/screens/dashboard-main.png" />
+  <meta name="twitter:image" content="https://conceptfab.com/timeflow/screens/dashboard-main_wynik.webp" />
   <title>TIMEFLOW | Desktopowy time tracker dla freelancerów (beta)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -40,6 +40,11 @@
   <link rel="icon" type="image/png" sizes="196x196" href="./icons/favicon-196x196.png" />
   <link rel="apple-touch-icon" sizes="152x152" href="./icons/apple-touch-icon-152x152.png" />
   <link rel="stylesheet" href="./styles.css" />
+  <noscript>
+    <style>
+      [data-reveal] { opacity: 1 !important; transform: none !important; }
+    </style>
+  </noscript>
   <link rel="canonical" href="https://conceptfab.com/timeflow/" />
   <link rel="alternate" hreflang="pl" href="https://conceptfab.com/timeflow/" />
   <link rel="alternate" hreflang="en" href="https://conceptfab.com/timeflow/en/" />
@@ -191,7 +196,7 @@
                   </button>
                   <div class="shot-frame ratio-desktop">
                     <img id="heroShotImage" class="shot-image" src="./screens/dashboard-main_wynik.webp"
-                      alt="Zrzut ekranu <span class=" tf-style">TIMEFLOW</span> Dashboard"
+                      alt="TIMEFLOW Dashboard – widok dzienny z metrykami i timeline"
                     loading="eager"
                     decoding="async"
                     />
@@ -260,8 +265,8 @@
                     <em>widok główny</em>
                   </figcaption>
                   <div class="shot-frame ratio-thumb">
-                    <img class="shot-image" src="./screens/dashboard-main_wynik.webp" alt="Zrzut ekranu <span class="
-                      tf-style">TIMEFLOW</span> Dashboard"
+                    <img class="shot-image" src="./screens/dashboard-main_wynik.webp"
+                      alt="TIMEFLOW Dashboard – widok dzienny z metrykami i timeline"
                     loading="lazy"
                     decoding="async"
                     />
@@ -278,8 +283,8 @@
                     <em>foldery + statusy</em>
                   </figcaption>
                   <div class="shot-frame ratio-thumb">
-                    <img class="shot-image" src="./screens/projects_wynik.webp" alt="Zrzut ekranu <span class="
-                      tf-style">TIMEFLOW</span> Projects"
+                    <img class="shot-image" src="./screens/projects_wynik.webp"
+                      alt="TIMEFLOW Projects – foldery projektowe i auto-detekcja"
                     loading="lazy"
                     decoding="async"
                     />
@@ -307,8 +312,8 @@
                     <em>sesje + przypisania</em>
                   </figcaption>
                   <div class="shot-frame ratio-thumb">
-                    <img class="shot-image" src="./screens/sessions_wynik.webp" alt="Zrzut ekranu <span class="
-                      tf-style">TIMEFLOW</span> Sessions"
+                    <img class="shot-image" src="./screens/sessions_wynik.webp"
+                      alt="TIMEFLOW Sessions – pogrupowane sesje z przypisaniami AI"
                     loading="lazy"
                     decoding="async"
                     />
@@ -344,8 +349,8 @@
                     <em>wykresy + heatmapa</em>
                   </figcaption>
                   <div class="shot-frame ratio-thumb">
-                    <img class="shot-image" src="./screens/analysis_wynik.webp" alt="Zrzut ekranu <span class="
-                      tf-style">TIMEFLOW</span> Time Analysis"
+                    <img class="shot-image" src="./screens/analysis_wynik.webp"
+                      alt="TIMEFLOW Time Analysis – heatmapa i wykresy czasu pracy"
                     loading="lazy"
                     decoding="async"
                     />
@@ -380,8 +385,8 @@
                     <em>stawki + mnożniki + wyceny</em>
                   </figcaption>
                   <div class="shot-frame ratio-thumb">
-                    <img class="shot-image" src="./screens/estimates_wynik.webp" alt="Zrzut ekranu <span class="
-                      tf-style">TIMEFLOW</span> Estimates"
+                    <img class="shot-image" src="./screens/estimates_wynik.webp"
+                      alt="TIMEFLOW Estimates – wycena wartości pracy freelancera"
                     loading="lazy"
                     decoding="async"
                     />
@@ -407,8 +412,8 @@
                     <em>sugestie + model</em>
                   </figcaption>
                   <div class="shot-frame ratio-thumb">
-                    <img class="shot-image" src="./screens/ai-model_wynik.webp" alt="Zrzut ekranu <span class="
-                      tf-style">TIMEFLOW</span> AI i model przypisań"
+                    <img class="shot-image" src="./screens/ai-model_wynik.webp"
+                      alt="TIMEFLOW AI Model – sugestie przypisań i tryb auto_safe"
                     loading="lazy"
                     decoding="async"
                     />
@@ -1068,7 +1073,7 @@
               Wypełnij formularz — odezwiemy się z dostępem i szczegółami.
             </p>
 
-            <input type="text" name="website" tabindex="-1" autocomplete="off" class="hp-field" aria-hidden="true" />
+            <input type="text" name="fax_number" tabindex="-1" autocomplete="off" class="hp-field" aria-hidden="true" />
 
             <label>
               Imię / nick
@@ -1138,7 +1143,7 @@
           <a href="#funkcje">Funkcje</a>
           <a href="#roadmap">Roadmapa</a>
           <a href="#faq">FAQ</a>
-          <a href="#beta">Beta testy</a>
+          <a href="#beta">Testy beta</a>
           <a href="./polityka-prywatnosci.html">Polityka prywatności</a>
         </nav>
       </div>
@@ -1150,6 +1155,7 @@
     </footer>
   </div>
 
+  <script src="./consent.js"></script>
   <script src="./script.js"></script>
 </body>
 

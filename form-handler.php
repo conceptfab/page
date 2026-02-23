@@ -184,8 +184,8 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST') {
     ]);
 }
 
-$website = str_field('website', 255);
-if ($website !== '') {
+$honeypot = str_field('fax_number', 255);
+if ($honeypot !== '') {
     // Honeypot hit: udaj sukces, żeby nie dawać sygnału botom.
     respond(200, [
         'ok' => true,

@@ -702,4 +702,86 @@
     });
   }
   wrapTimeflowTextNodes(document.body);
+
+  // --- GA4 event tracking ---
+  const ga = (...args) => { if (typeof gtag === "function") gtag(...args); };
+
+  // Form submit: generate_lead
+  if (betaForm) {
+    betaForm.addEventListener("submit", () => {
+      const roleEl = betaForm.elements.namedItem("role");
+      ga("event", "generate_lead", {
+        event_category: "beta_signup",
+        event_label: (roleEl instanceof HTMLSelectElement && roleEl.value) || "unknown",
+      });
+    });
+  }
+
+  // CTA clicks
+  document.querySelectorAll('a[href="#beta"]').forEach((link) => {
+    link.addEventListener("click", () => {
+      ga("event", "click_cta_beta", {
+        event_category: "engagement",
+        event_label: link.textContent.trim(),
+      });
+    });
+  });
+
+  // FAQ expand
+  document.querySelectorAll(".faq-item").forEach((item) => {
+    item.addEventListener("toggle", () => {
+      if (item instanceof HTMLDetailsElement && item.open) {
+        const q = item.querySelector("summary");
+        ga("event", "faq_expand", {
+          event_category: "engagement",
+          event_label: q ? q.textContent.trim().slice(0, 80) : "",
+        });
+      }
+    });
+  });
+
+  // Language switch
+  document.querySelectorAll(".lang-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      ga("event", "language_switch", {
+        event_category: "engagement",
+        event_label: link.getAttribute("hreflang") || link.textContent.trim(),
+      });
+    });
+  });
+
+  // Scroll depth (25%, 50%, 75%, 100%)
+  const scrollDepthMarks = new Set();
+  window.addEventListener("scroll", () => {
+    const scrollPct = Math.round(
+      ((window.scrollY + window.innerHeight) / document.documentElement.scrollHeight) * 100
+    );
+    [25, 50, 75, 100].forEach((mark) => {
+      if (scrollPct >= mark && !scrollDepthMarks.has(mark)) {
+        scrollDepthMarks.add(mark);
+        ga("event", "scroll_depth", {
+          event_category: "engagement",
+          event_label: mark + "%",
+          value: mark,
+        });
+      }
+    });
+  }, { passive: true });
+
+  // Section view (IntersectionObserver)
+  const trackedSections = document.querySelectorAll("section[id]");
+  if (trackedSections.length && "IntersectionObserver" in window) {
+    const sectionObs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          ga("event", "section_view", {
+            event_category: "engagement",
+            event_label: entry.target.id,
+          });
+          sectionObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    trackedSections.forEach((s) => sectionObs.observe(s));
+  }
 })();

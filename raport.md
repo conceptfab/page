@@ -1,469 +1,372 @@
 # Raport analityczny: TIMEFLOW Landing Page
 
-**URL PL:** <https://conceptfab.com/timeflow/>  
-**URL EN:** <https://conceptfab.com/timeflow/en/>  
-**Data analizy:** 23 lutego 2026  
-**PrzygotowaĹ:** Perplexity AI dla CONCEPTFAB
+**URL PL:** <https://conceptfab.com/timeflow/>
+**URL EN:** <https://conceptfab.com/timeflow/en/>
+**Data pierwszej analizy:** 23 lutego 2026 (Perplexity AI)
+**Aktualizacja:** 23 lutego 2026 (weryfikacja kodu źródłowego)
+**Przygotował:** Perplexity AI + Claude Code dla CONCEPTFAB
 
 ---
 
-## Spis treĹci
+## Spis treści
 
-1. [SpĂłjnoĹÄ PL â EN](#1-spĂłjnoĹÄ-pl--en)
-2. [SEO â audyt techniczny](#2-seo--audyt-techniczny)
-3. [Google Analytics & GDPR](#3-google-analytics--gdpr)
-4. [UX i konwersja](#4-ux-i-konwersja)
-5. [Priorytetyzowana lista poprawek](#5-priorytetyzowana-lista-poprawek)
-6. [Szablony kodu do wdroĹźenia](#6-szablony-kodu-do-wdroĹźenia)
+1. [Status wdrożeń z pierwszej analizy](#1-status-wdrożeń-z-pierwszej-analizy)
+2. [Spójność PL ↔ EN](#2-spójność-pl--en)
+3. [SEO – audyt techniczny](#3-seo--audyt-techniczny)
+4. [Google Analytics & GDPR](#4-google-analytics--gdpr)
+5. [Kod i wydajność](#5-kod-i-wydajność)
+6. [UX i konwersja](#6-ux-i-konwersja)
+7. [Priorytetyzowana lista poprawek](#7-priorytetyzowana-lista-poprawek)
 
 ---
 
-## 1. SpĂłjnoĹÄ PL â EN
+## 1. Status wdrożeń z pierwszej analizy
 
-### 1.1 NiespĂłjnoĹci krytyczne
+Weryfikacja kodu źródłowego (pliki `index.html`, `en/index.html`, `consent.js`, `script.js`, `sitemap.xml`, `robots.txt`) wykazała, że wiele punktów z oryginalnego raportu zostało wdrożonych — ale nie wszystkie, a kilka wdrożeń ma problemy.
+
+### Wdrożone poprawnie ✅
+
+| Punkt | Status | Szczegóły |
+|---|---|---|
+| Meta description | ✅ Wdrożone | PL i EN mają unikalne opisy, dobra długość |
+| hreflang tags | ✅ Wdrożone | `pl`, `en`, `x-default` w obu wersjach |
+| Open Graph tags | ✅ Wdrożone | `og:title`, `og:description`, `og:locale`, `og:url` — poprawne |
+| Twitter Cards | ✅ Wdrożone | `summary_large_image` z tytułem i opisem |
+| Schema.org | ✅ Wdrożone | `SoftwareApplication` + `FAQPage` (JSON-LD) |
+| Canonical tags | ✅ Wdrożone | Poprawne URL-e na obu wersjach |
+| Pisownia TIMEFLOW | ✅ Naprawione | EN nie używa już „TimeFlow" — wszędzie `TIMEFLOW` |
+| Link #demo | ✅ Naprawione | `id="demo"` dodane do `div.hero-showcase` |
+| sitemap.xml | ✅ Istnieje | Z hreflang alternates dla PL i EN |
+| robots.txt | ✅ Istnieje | Poprawny, wskazuje na sitemap |
+| Cookie consent (kod) | ✅ Napisany | `consent.js` — Consent Mode v2 + banner |
+
+### Wdrożone z błędami ⚠️
+
+| Punkt | Problem |
+|---|---|
+| **og:image** | Wskazuje na `screens/dashboard-main.png` — plik **nie istnieje** na serwerze. Jedyny plik to `dashboard-main_wynik.webp`. Social sharing (Facebook, LinkedIn, Twitter, Discord) nie wyświetli obrazka. |
+| **consent.js** | Plik istnieje i jest poprawnie napisany, ale **nie jest załadowany** na żadnej stronie — brak `<script src="./consent.js">` w HTML. GA4 i cookie banner są nieaktywne. |
+| **Alt-texty obrazów** | Raport wskazywał błąd tylko w PL — w rzeczywistości **obie wersje** (PL i EN) mają uszkodzone alt-texty z surowym HTML: `<span class="tf-style">TIMEFLOW</span>` |
+
+### Niewdrożone ❌
+
+| Punkt | Status |
+|---|---|
+| H1 z keyword „time tracker" | ❌ H1 zmienione na nowe hasło, ale nadal bez frazy kluczowej |
+| Noscript fallback | ❌ Brak (slider, animacje, formularz wymagają JS) |
+
+---
+
+## 2. Spójność PL ↔ EN
+
+### 2.1 Niespójności do naprawienia
 
 | Element | Wersja PL | Wersja EN | Problem |
 |---|---|---|---|
-| Nazwa produktu w opisie | `TIMEFLOW` | `TimeFlow` | RĂłĹźna pisownia â EN uĹźywa camelCase zamiast all-caps |
-| Docelowa grupa w hero | âNajlepiej dziaĹa dla: **grafikĂłw**" | âWorks best for: **designers**" | PL zawÄĹźa do grafikĂłw, EN szeroko do wszystkich designerĂłw |
-| H1 tagline | âKontroluj czas pracy bez zabijania **flow**." | âStay on top of your work time without breaking **flow**." | RĂłĹźny ton: PL imperatyw vs. EN sugestywny; angielskie âflow" w polskim tekĹcie |
-| Alt-text obrazĂłw | `Zrzut ekranu <span class=TIMEFLOW Dashboard"` | `TIMEFLOW Dashboard screenshot` | PL ma uszkodzony alt-text (broken HTML w atrybucie) |
-| PodtytuĹ sekcji workflow | âOd surowych sesji do gotowego **rozliczenia**." | âFrom raw sessions to a finished **invoice**." | Rozliczenie â  invoice; rozliczenie to szerszy termin |
+| Alt-text obrazów | `Zrzut ekranu <span class="tf-style">TIMEFLOW</span> Dashboard"` | `<span class="tf-style">TIMEFLOW</span> Dashboard screenshot"` | **Obie wersje** mają broken HTML w alt-text (cudzysłowy w `<span>` przerywają atrybut `alt`) |
+| Rotator w hero | „grafików" | „designers" | PL zawęża do grafików, EN ogólne „designers" — różna precyzja |
+| Link w nav PL | „Testy beta" | — | — |
+| Link w footer PL | „Beta testy" | — | Niespójna kolejność słów: nav → „Testy beta", footer → „Beta testy" |
+| Podtytuł workflow | „Od surowych sesji do gotowego **rozliczenia**." | „From raw sessions to a finished **invoice**." | Rozliczenie ≠ invoice; rozliczenie to szerszy termin niż faktura |
 
-### 1.2 NiespĂłjnoĹci drobne
+### 2.2 Elementy spójne ✅
 
-| Element | PL | EN | Rekomendacja |
-|---|---|---|---|
-| Link nawigacyjny | Testy beta | Beta testing | UjednoliciÄ strukturÄ etykiet |
-| Footer link | Beta testy | Beta testing | Jak wyĹźej |
-| Sekcja technologiczna | âStack technologiczny" | âTech stack" | Drobna rĂłĹźnica tonu â OK, ale warto sprawdziÄ |
-| NagĹĂłwek sekcji about | âZaufanie i kontakt" | âTrust and contact" | OK â |
-| FAQ intro | âNajczÄstsze pytania przed zgĹoszeniem do bety." | âMost common questions before signing up for beta." | OK â |
-
-### 1.3 Elementy spĂłjne â
-
-- Struktura nawigacji (kolejnoĹÄ sekcji)
-- Statystyki liczb (10+ moduĹĂłw, 1 platforma, 3 tryby AI)
-- Opcje select w formularzu
+- Struktura nawigacji (kolejność sekcji)
+- Statystyki liczb (10+ modułów, 1 platforma, 3 tryby AI)
+- Opcje select w formularzu beta
 - Kotwice anchor (#stack, #workflow, #roadmap, #beta)
-- Polityka prywatnoĹci i checkbox RODO
-- Stopka z rokiem ÂŠ 2026
-- Wszystkie sekcje funkcji (TRACKING CORE, DASHBOARD, PROJECTS, SESSIONS, AI, ANALYSIS, ESTIMATES, DATA & SYNC, DAEMON & OPS)
+- Polityka prywatności i checkbox RODO
+- Stopka z dynamicznym rokiem ©
+- Wszystkie 9 sekcji funkcji (identyczna lista)
+- Pisownia TIMEFLOW (caps) — spójna
+- Schema.org JSON-LD (SoftwareApplication + FAQPage) — spójne per język
 
 ---
 
-## 2. SEO â audyt techniczny
+## 3. SEO – audyt techniczny
 
-### 2.1 Title Tags
+### 3.1 Title Tags ✅
 
 | Wersja | Title | Ocena |
 |---|---|---|
-| PL | `TIMEFLOW \| Desktopowy time tracker dla freelancerĂłw (beta)` | â dobry, 57 znakĂłw |
-| EN | `TIMEFLOW \| Desktop time tracker for freelancers (beta)` | â dobry, 55 znakĂłw |
+| PL | `TIMEFLOW \| Desktopowy time tracker dla freelancerów (beta)` | ✅ dobry, 57 znaków |
+| EN | `TIMEFLOW \| Desktop time tracker for freelancers (beta)` | ✅ dobry, 55 znaków |
 
-**Uwaga:** SĹowo `(beta)` moĹźe obniĹźaÄ CTR â uĹźytkownicy mogÄ postrzegaÄ beta jako niestabilne. RozwaĹźyÄ usuniÄcie lub zastÄpienie â(Early Access)".
+**Uwaga:** `(beta)` może obniżać CTR. Rozważyć „(Early Access)" lub usunięcie.
 
----
+### 3.2 Meta Description ✅
 
-### 2.2 Meta Description â BRAK â ď¸
+Wdrożone poprawnie. PL i EN mają unikalne, dobrze napisane opisy.
 
-Ĺťadna z wersji nie ma widocznego tagu `<meta name="description">` w treĹci. To jeden z najwaĹźniejszych brakĂłw SEO. Google bÄdzie generowaÄ wĹasne opisy ze snippetĂłw, co obniĹźa CTR.
+### 3.3 Nagłówki H1 — BEZ KEYWORD ⚠️
 
-**Propozycja PL:**
-
-```html
-<meta name="description" content="TIMEFLOW to desktopowy time tracker dla freelancerĂłw. Automatyczny tracking, AI sugestie przypisaĹ, analityka i lokalne dane. DziaĹa offline. Pobierz betÄ na Windows.">
-```
-
-**Propozycja EN:**
-
-```html
-<meta name="description" content="TIMEFLOW is a desktop time tracker for freelancers. Automatic tracking, AI assignment suggestions, analytics and local data. Works offline. Get beta access for Windows.">
-```
-
----
-
-### 2.3 NagĹĂłwki H1
-
-| Wersja | H1 | Problem |
+| Wersja | Aktualny H1 | Problem |
 |---|---|---|
-| PL | âKontroluj czas pracy bez zabijania flow." | Brak sĹowa kluczowego âtime tracker" / âtracker czasu" |
-| EN | âStay on top of your work time without breaking flow." | Brak frazy âtime tracker for freelancers" |
+| PL | „Pracujesz i widzisz jak zarabiasz." | Brak „time tracker" / „tracker czasu" |
+| EN | „You work. You see what you're earning." | Brak „time tracker for freelancers" |
 
-**Rekomendacja:** H1 powinien zawieraÄ gĹĂłwnÄ frazÄ docelowÄ. Propozycja:
+H1 jest chwytliwy i marketingowy, ale nie zawiera frazy kluczowej. Opcje:
+- Zmienić H1 na frazę z keyword
+- LUB dodać widoczny `<h2>` pod H1 z frazą „Desktopowy time tracker dla freelancerów" (PL) / „Desktop time tracker for freelancers" (EN)
 
-- PL: âTracker czasu dla freelancerĂłw â bez przerywania flow."
-- EN: âThe time tracker for freelancers that doesn't break your flow."
+### 3.4 Alt-texty obrazów — BŁĄD KRYTYCZNY ❌
 
----
-
-### 2.4 Alt-texty obrazĂłw â BĹÄD KRYTYCZNY â ď¸
-
-W wersji PL alt-texty sÄ uszkodzone â zawierajÄ niesparsowany HTML:
+**Obie wersje** (PL i EN) mają uszkodzone alt-texty. W atrybucie `alt` znajduje się surowy HTML:
 
 ```
-Zrzut ekranu <span class=TIMEFLOW Dashboard" loading="eager" ...
+alt="Zrzut ekranu <span class=" tf-style">TIMEFLOW</span> Dashboard"
 ```
 
-Prawdopodobna przyczyna: bĹÄd w template rendering lub escape'owaniu cudzysĹowĂłw. Wersja EN dziaĹa poprawnie:
+Cudzysłowy wewnątrz `<span class="...">` przerywają atrybut `alt`, przez co:
+- przeglądarki widzą `alt="Zrzut ekranu <span class="` jako cały alt
+- reszta staje się nieznanymi atrybutami HTML
+- Google widzi uszkodzony markup
+- czytniki ekranowe odczytają nonsensowny tekst
+
+**Przyczyna:** W HTML wpisano `<span class="tf-style">TIMEFLOW</span>` wewnątrz atrybutu `alt`, ale nie zaescapowano cudzysłowów. Alt-text to plain text — nie może zawierać HTML.
+
+**Dotyczy 14 elementów `<img>`** (7 w PL, 7 w EN) — główny obraz hero + 6 miniaturek.
+
+**Poprawka PL:**
 
 ```
-TIMEFLOW Dashboard screenshot
+alt="TIMEFLOW Dashboard – widok dzienny z metrykami i timeline"
+alt="TIMEFLOW Projects – foldery projektowe i auto-detekcja"
+alt="TIMEFLOW Sessions – pogrupowane sesje z przypisaniami AI"
+alt="TIMEFLOW Time Analysis – heatmapa i wykresy czasu pracy"
+alt="TIMEFLOW Estimates – wycena wartości pracy freelancera"
+alt="TIMEFLOW AI Model – sugestie przypisań i tryb auto_safe"
 ```
 
-**Poprawka PL** â przykĹadowe alt-texty:
+**Poprawka EN:**
 
-- `alt="TIMEFLOW Dashboard â widok dzienny z metrykami i timeline"`
-- `alt="TIMEFLOW Projects â foldery projektowe i auto-detekcja"`
-- `alt="TIMEFLOW Sessions â pogrupowane sesje z przypisaniami AI"`
-- `alt="TIMEFLOW Time Analysis â heatmapa i wykresy czasu pracy"`
-- `alt="TIMEFLOW Estimates â wycena wartoĹci pracy freelancera"`
-- `alt="TIMEFLOW AI Model â sugestie przypisaĹ i tryb auto_safe"`
-
----
-
-### 2.5 Tagi hreflang â BRAK â ď¸
-
-Strona ma dwie wersje jÄzykowe, ale nie sygnalizuje tego Google przez tagi `hreflang`. Bez nich Google moĹźe:
-
-- indeksowaÄ tylko jednÄ wersjÄ
-- traktowaÄ je jako duplicate content
-- serwowaÄ zĹÄ wersjÄ jÄzykowÄ uĹźytkownikom
-
-**Poprawka** â dodaÄ w `<head>` obu wersji:
-
-```html
-<!-- Na wersji PL (/timeflow/) -->
-<link rel="alternate" hreflang="pl" href="https://conceptfab.com/timeflow/" />
-<link rel="alternate" hreflang="en" href="https://conceptfab.com/timeflow/en/" />
-<link rel="alternate" hreflang="x-default" href="https://conceptfab.com/timeflow/" />
-
-<!-- Na wersji EN (/timeflow/en/) -->
-<link rel="alternate" hreflang="pl" href="https://conceptfab.com/timeflow/" />
-<link rel="alternate" hreflang="en" href="https://conceptfab.com/timeflow/en/" />
-<link rel="alternate" hreflang="x-default" href="https://conceptfab.com/timeflow/" />
+```
+alt="TIMEFLOW Dashboard – daily view with metrics and timeline"
+alt="TIMEFLOW Projects – project folders and auto-detection"
+alt="TIMEFLOW Sessions – grouped sessions with AI assignments"
+alt="TIMEFLOW Time Analysis – heatmap and work time charts"
+alt="TIMEFLOW Estimates – freelancer work value estimates"
+alt="TIMEFLOW AI Model – assignment suggestions and auto_safe mode"
 ```
 
----
+### 3.5 hreflang, Canonical, Schema.org ✅
 
-### 2.6 Open Graph i Twitter Cards â BRAK â ď¸
+Wszystkie wdrożone poprawnie.
 
-Brak tagĂłw OG oznacza, Ĺźe linki udostÄpnione na LinkedIn, Twitterze, Facebooku lub Discordzie bÄdÄ wyglÄdaÄ nieatrakcyjnie (brak obrazka, tytuĹu, opisu).
+### 3.6 Open Graph / Twitter — PROBLEM Z OBRAZKIEM ⚠️
 
-**Propozycja (wspĂłlna dla obu wersji, dostosowaÄ per jÄzyk):**
+Tagi OG i Twitter Card są wdrożone poprawnie, ale **og:image i twitter:image wskazują na nieistniejący plik:**
 
-```html
-<!-- Open Graph -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://conceptfab.com/timeflow/" />
-<meta property="og:title" content="TIMEFLOW â Desktopowy time tracker dla freelancerĂłw" />
-<meta property="og:description" content="Automatyczny tracking czasu, AI sugestie i lokalna analityka. DziaĹa offline. Beta na Windows." />
-<meta property="og:image" content="https://conceptfab.com/timeflow/og-image.png" />
-<meta property="og:locale" content="pl_PL" />
-<meta property="og:locale:alternate" content="en_US" />
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="TIMEFLOW â Desktop time tracker for freelancers" />
-<meta name="twitter:description" content="Automatic time tracking, AI suggestions and local analytics. Works offline. Beta on Windows." />
-<meta name="twitter:image" content="https://conceptfab.com/timeflow/og-image.png" />
+```
+https://conceptfab.com/timeflow/screens/dashboard-main.png
 ```
 
-**Zalecany rozmiar og:image:** 1200Ă630 px, format PNG/JPG
+Na serwerze istnieje tylko `screens/dashboard-main_wynik.webp`. Potrzeba:
+- Wygenerować plik `screens/dashboard-main.png` (1200×630 px, optymalne dla social sharing)
+- LUB zmienić ścieżkę na istniejący plik (uwaga: nie wszystkie platformy wspierają WebP w OG)
 
----
+**Rekomendacja:** Stworzyć dedykowany `og-image.png` 1200×630 px z brandingiem TIMEFLOW i zrzutem dashboardu.
 
-### 2.7 Schema.org Structured Data â BRAK
+### 3.7 Link #demo ✅
 
-Brak danych strukturalnych uniemoĹźliwia pojawienie siÄ Rich Results w Google (np. oceny, cena, platforma aplikacji).
+Naprawione — `id="demo"` dodane do `div.hero-showcase`. Przycisk „Zobacz demo" / „View demo" przewija do sekcji ze screenshotami.
 
-**Propozycja â SoftwareApplication schema:**
-
-```html
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "TIMEFLOW",
-  "applicationCategory": "BusinessApplication",
-  "operatingSystem": "Windows",
-  "description": "Desktopowy time tracker dla freelancerĂłw z automatycznym trackingiem, AI sugestiami i lokalnÄ analitykÄ.",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "PLN",
-    "availability": "https://schema.org/PreOrder"
-  },
-  "author": {
-    "@type": "Organization",
-    "name": "CONCEPTFAB",
-    "url": "https://conceptfab.com"
-  },
-  "url": "https://conceptfab.com/timeflow/",
-  "inLanguage": ["pl", "en"]
-}
-</script>
-```
-
----
-
-### 2.8 Canonical Tags
-
-JeĹli strony sÄ dostÄpne pod kilkoma URL (z/bez trailing slash, http/https), naleĹźy dodaÄ:
-
-```html
-<link rel="canonical" href="https://conceptfab.com/timeflow/" />
-<!-- lub dla EN: -->
-<link rel="canonical" href="https://conceptfab.com/timeflow/en/" />
-```
-
----
-
-### 2.9 BrakujÄcy link demo
-
-CTA âZobacz demo" / âView demo" wskazuje na `#demo`, ale na stronie nie istnieje sekcja o ID `#demo`. Link prowadzi donikÄd (broken anchor). To zarĂłwno problem UX, jak i sygnaĹ jakoĹci dla Google.
-
----
-
-### 2.10 Podsumowanie SEO Score
+### 3.8 Podsumowanie SEO Score (zaktualizowane)
 
 | Obszar | Status | Priorytet |
 |---|---|---|
-| Title tags | â OK | â |
-| Meta description | â BRAK | đ´ Wysoki |
-| H1 z keyword | â ď¸ SĹaby | đĄ Ĺredni |
-| Alt-texty PL | â Uszkodzone | đ´ Wysoki |
-| hreflang | â BRAK | đ´ Wysoki |
-| Open Graph | â BRAK | đĄ Ĺredni |
-| Twitter Cards | â BRAK | đĄ Ĺredni |
-| Schema.org | â BRAK | đĄ Ĺredni |
-| Canonical | â Nieznany | đĄ Ĺredni |
-| Broken anchor #demo | â BĹÄD | đ´ Wysoki |
+| Title tags | ✅ OK | – |
+| Meta description | ✅ OK | – |
+| H1 z keyword | ⚠️ Brak frazy kluczowej | 🟡 Średni |
+| Alt-texty PL + EN | ❌ Uszkodzone (oba!) | 🔴 Wysoki |
+| hreflang | ✅ OK | – |
+| Open Graph | ⚠️ Brak działającego obrazka | 🔴 Wysoki |
+| Twitter Cards | ⚠️ Brak działającego obrazka | 🔴 Wysoki |
+| Schema.org | ✅ OK (SoftwareApplication + FAQPage) | – |
+| Canonical | ✅ OK | – |
+| Link #demo | ✅ OK | – |
+| sitemap.xml | ✅ OK | – |
+| robots.txt | ✅ OK | – |
 
 ---
 
-## 3. Google Analytics & GDPR
+## 4. Google Analytics & GDPR
 
-### 3.1 Implementacja GA4 â status nieznany
+### 4.1 consent.js — napisany, ale NIEZAŁADOWANY ❌
 
-Z treĹci strony nie moĹźna potwierdziÄ obecnoĹci Google Analytics. JeĹli GA jest zaimplementowane, naleĹźy sprawdziÄ poniĹźsze punkty.
+Plik `consent.js` jest poprawnie napisany i zawiera:
+- Consent Mode v2 z domyślnym `denied`
+- Ładowanie GA4 (ID: `G-679Z08CKLW`)
+- Cookie banner z tłumaczeniami PL/EN
+- Zapis preferencji w `localStorage`
+- `anonymize_ip: true`
 
-### 3.2 GDPR / Consent Mode v2 â KRYTYCZNE dla rynku PL/EU
+**Problem:** Ani `index.html`, ani `en/index.html` nie zawierają `<script src="./consent.js">`. Plik jest martwy — GA4 nie zbiera danych, banner cookies nie jest wyświetlany.
 
-Strona zbiera dane osobowe (email, imiÄ) przez formularz i jest kierowana do uĹźytkownikĂłw z UE. Wymagania:
-
-1. **Cookie consent banner** â BRAK widoczny w treĹci. Bez niego uruchamianie GA (cookies analityczne) jest niezgodne z RODO i dyrektywÄ ePrivacy.
-2. **Google Consent Mode v2** â obowiÄzkowy od marca 2024 dla zachowania danych w GA4 i Google Ads.
-3. **Formularz beta** â ma checkbox RODO â, ale brak osobnego systemu zarzÄdzania zgodami na cookies.
-
-**Minimalna implementacja Consent Mode v2:**
+**Poprawka** — dodać przed zamknięciem `</body>` w obu plikach HTML:
 
 ```html
-<!-- W <head>, PRZED tagiem GA4 -->
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+<!-- PL: index.html -->
+<script src="./consent.js"></script>
+<script src="./script.js"></script>
 
-  // DomyĹlnie odmawiamy przed wyraĹźeniem zgody
-  gtag('consent', 'default', {
-    'analytics_storage': 'denied',
-    'ad_storage': 'denied',
-    'ad_user_data': 'denied',
-    'ad_personalization': 'denied',
-    'wait_for_update': 500
-  });
-</script>
-
-<!-- Tag GA4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
+<!-- EN: en/index.html -->
+<script src="../consent.js"></script>
+<script src="./script.js"></script>
 ```
 
-Po wyraĹźeniu zgody przez uĹźytkownika:
+**Uwaga:** `consent.js` powinien ładować się **przed** `script.js`, aby `gtag()` była dostępna globalnie, gdyby w przyszłości dodano eventy w `script.js`.
 
-```javascript
-gtag('consent', 'update', {
-  'analytics_storage': 'granted'
-});
-```
-
-### 3.3 Kluczowe zdarzenia do Ĺledzenia w GA4
+### 4.2 Kluczowe zdarzenia do śledzenia w GA4
 
 | Zdarzenie | Trigger | Opis |
 |---|---|---|
-| `generate_lead` | Submit formularza beta | Konwersja gĹĂłwna |
-| `click_cta_beta` | Klik âDoĹÄcz do testĂłw" / âJoin the beta" | Zainteresowanie |
-| `click_demo` | Klik âZobacz demo" / âView demo" | ZaangaĹźowanie |
+| `generate_lead` | Submit formularza beta | Konwersja główna |
+| `click_cta_beta` | Klik „Poproś o dostęp do bety" / „Request beta access" | Zainteresowanie |
+| `click_demo` | Klik „Zobacz demo" / „View demo" | Zaangażowanie |
 | `scroll_depth` | 25%, 50%, 75%, 100% | Czytanie strony |
-| `language_switch` | Klik PL/EN | Preferencja jÄzykowa |
-| `faq_expand` | RozwiniÄcie pytania FAQ | Zainteresowanie |
-| `section_view` | WidocznoĹÄ sekcji (IntersectionObserver) | Analiza flow |
+| `language_switch` | Klik PL/EN | Preferencja językowa |
+| `faq_expand` | Rozwinięcie pytania FAQ | Zainteresowanie |
+| `section_view` | Widoczność sekcji (IntersectionObserver) | Analiza flow |
 
-**PrzykĹad â tracking konwersji formularza:**
+### 4.3 Alternatywa GDPR-friendly
 
-```javascript
-document.querySelector('form').addEventListener('submit', () => {
-  gtag('event', 'generate_lead', {
-    'event_category': 'beta_signup',
-    'event_label': document.querySelector('[aria-label="BranĹźa"]')?.value || 'unknown'
-  });
-});
-```
-
-### 3.4 Alternatywa GDPR-friendly
-
-Dla uproszczenia i peĹnej zgodnoĹci z RODO rozwaĹźyÄ **Plausible Analytics** (self-hosted lub cloud) â nie uĹźywa cookies, nie wymaga bannera zgody, zgodny z RODO out-of-the-box.
+Dla uproszczenia i pełnej zgodności z RODO rozważyć **Plausible Analytics** (self-hosted lub cloud) — nie używa cookies, nie wymaga bannera zgody, zgodny z RODO out-of-the-box.
 
 ---
 
-## 4. UX i konwersja
+## 5. Kod i wydajność
 
-### 4.1 Broken CTA âZobacz demo"
+### 5.1 Duplikacja JS — PL i EN ⚠️
 
-ZarĂłwno `#demo` (PL) jak i `#demo` (EN) prowadzi do nieistniejÄcej sekcji. JeĹli demo nie istnieje, naleĹźy:
+`script.js` (726 linii) i `en/script.js` (705 linii) są niemal identyczne. Różnią się tylko:
+- Tekstami w obiekcie `slideCopyByLabel` (opisy slajdów)
+- Listą ról w rotatorze hero (`grafików` vs `designers`)
+- Komunikatami walidacji formularza
+- Aria-labelami
 
-- UsunÄÄ przycisk demo z CTA
-- LUB dodaÄ sekcjÄ demo (np. embed wideo, GIF, interaktywne demo)
+**Rekomendacja:** Wydzielić wspólną logikę do jednego pliku (np. `app.js`) i przekazywać tłumaczenia przez obiekt konfiguracyjny lub atrybuty `data-*` w HTML. Zmniejszy to maintenance i ryzyko rozbieżności.
 
-### 4.2 Brak przycisku pobierania
+### 5.2 CSS — pojedynczy plik 4800 linii ⚠️
 
-Na caĹej stronie nie ma bezpoĹredniego linka do pobrania aplikacji. Jedyne CTA to formularz beta. RozwaĹźyÄ:
+`styles.css` to jeden monolityczny plik bez minifikacji. Nie ma krytycznego (critical) CSS ani podziału na moduły.
 
-- JeĹli build jest gotowy â dodaÄ przycisk âPobierz beta dla Windows"
-- JeĹli tylko przez formularz â klarownie to komunikowaÄ (jest opisane w tekĹcie, ale CTA mogĹoby byÄ wyraĹşniejsze)
+**Rekomendacja:**
+- Minifikować CSS przed deplojem (np. `cssnano`, `lightningcss`)
+- Rozważyć inline critical CSS w `<head>` i lazy-load reszty
+- Opcjonalnie podzielić na moduły (topbar, hero, features, form, footer)
 
-### 4.3 Social proof â BRAK
-
-Brak:
-
-- liczby zapisanych testerĂłw
-- cytatĂłw / testimoniali
-- ocen
-- logotypĂłw klientĂłw
-
-Nawet prosty licznik âDoĹÄczyĹo juĹź X freelancerĂłw" moĹźe istotnie zwiÄkszyÄ konwersjÄ formularza.
-
-### 4.4 Demo / wideo produktowe
-
-Sekcja ze screenami jest dobra, ale statyczne screenshoty nie oddajÄ dynamiki aplikacji. RozwaĹźyÄ:
-
-- KrĂłtkie wideo (30-60s) lub GIF demonstracyjny
-- Interaktywne demo (np. przez Arcade, Loom, lub wĹasnÄ implementacjÄ)
-
-### 4.5 Preloader / czas Ĺadowania
-
-Screenshoty aplikacji Ĺadowane lazy-loading (â) i eager dla pierwszego (â) â poprawnie. SprawdziÄ Core Web Vitals w PageSpeed Insights.
-
----
-
-## 5. Priorytetyzowana lista poprawek
-
-### đ´ Krytyczne (naprawiÄ natychmiast)
-
-1. **NaprawiÄ uszkodzone alt-texty w wersji PL** â broken HTML w atrybucie alt (bĹÄd renderowania)
-2. **DodaÄ meta description** do obu wersji
-3. **NaprawiÄ broken link `#demo`** â usuĹ lub dodaj sekcjÄ demo
-4. **DodaÄ tagi hreflang** w `<head>` obu wersji
-5. **WdroĹźyÄ Consent Mode v2 + cookie banner** (wymĂłg RODO)
-
-### đĄ WaĹźne (zrobiÄ w ciÄgu 1-2 tygodni)
-
-1. **UjednoliciÄ pisowniÄ TIMEFLOW** â wersja EN opisowa uĹźywa âTimeFlow" zamiast âTIMEFLOW"
-2. **DodaÄ Open Graph + Twitter Card metatagi**
-3. **UjednoliciÄ grupÄ docelowÄ** â PL: âgrafikĂłw" vs EN: âdesigners"
-4. **ZoptymalizowaÄ H1** â dodaÄ sĹowo kluczowe âtime tracker" / âtracker czasu"
-5. **DodaÄ Schema.org SoftwareApplication**
-
-### đ˘ Dobre praktyki (zaplanowaÄ)
-
-1. **WdroĹźyÄ tracking GA4** z konwersjami formularza
-2. **DodaÄ licznik/social proof** przy formularzu beta
-3. **RozwaĹźyÄ usuniÄcie â(beta)" z title** lub zmianÄ na âEarly Access"
-4. **Canonical tags** na obu wersjach
-5. **Wideo lub animowany GIF** demonstracyjny w sekcji interfejsu
-6. **Raport PDF / CSV** â wspomniany w roadmapie, warto powoĹaÄ siÄ w FAQ
-7. **Sitemap.xml** â sprawdziÄ czy zawiera obie wersje jÄzykowe
-
----
-
-## 6. Szablony kodu do wdroĹźenia
-
-### 6.1 Kompletny `<head>` dla wersji PL
+### 5.3 Google Fonts — render-blocking ⚠️
 
 ```html
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700;800&display=swap" rel="stylesheet" />
+```
 
-  <!-- SEO podstawowe -->
-  <title>TIMEFLOW | Desktopowy time tracker dla freelancerĂłw</title>
-  <meta name="description" content="TIMEFLOW to desktopowy time tracker dla freelancerĂłw. Automatyczny tracking, AI sugestie przypisaĹ, analityka i lokalne dane. DziaĹa offline. Beta na Windows." />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://conceptfab.com/timeflow/" />
+Font jest ładowany synchronicznie, co blokuje rendering. `display=swap` jest ustawiony (dobrze), ale samo żądanie CSS blokuje FCP (First Contentful Paint).
 
-  <!-- hreflang -->
-  <link rel="alternate" hreflang="pl" href="https://conceptfab.com/timeflow/" />
-  <link rel="alternate" hreflang="en" href="https://conceptfab.com/timeflow/en/" />
-  <link rel="alternate" hreflang="x-default" href="https://conceptfab.com/timeflow/" />
+**Rekomendacja:**
+- Dodać `rel="preload"` lub użyć `media="print" onload="this.media='all'"` trick
+- Lub self-hostować font (jeden plik WOFF2) dla eliminacji zewnętrznego żądania
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://conceptfab.com/timeflow/" />
-  <meta property="og:title" content="TIMEFLOW â Desktopowy time tracker dla freelancerĂłw" />
-  <meta property="og:description" content="Automatyczny tracking czasu, AI sugestie i lokalna analityka. DziaĹa offline. Beta na Windows." />
-  <meta property="og:image" content="https://conceptfab.com/timeflow/og-image.png" />
-  <meta property="og:locale" content="pl_PL" />
-  <meta property="og:locale:alternate" content="en_US" />
+### 5.4 Formularz — pole honeypot ⚠️
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="TIMEFLOW â Tracker czasu dla freelancerĂłw" />
-  <meta name="twitter:description" content="Automatyczny tracking, AI sugestie i analityka. DziaĹa offline. Beta na Windows." />
-  <meta name="twitter:image" content="https://conceptfab.com/timeflow/og-image.png" />
+```html
+<input type="text" name="website" tabindex="-1" autocomplete="off" class="hp-field" aria-hidden="true" />
+```
 
-  <!-- Schema.org -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "TIMEFLOW",
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Windows",
-    "description": "Desktopowy time tracker dla freelancerĂłw z automatycznym trackingiem, AI sugestiami i lokalnÄ analitykÄ.",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "PLN" },
-    "author": { "@type": "Organization", "name": "CONCEPTFAB", "url": "https://conceptfab.com" },
-    "url": "https://conceptfab.com/timeflow/"
-  }
-  </script>
+Pole honeypot nosi nazwę `website` — niektóre przeglądarki i menedżery haseł mogą je autouzupełnić mimo `autocomplete="off"`, co spowoduje fałszywe odrzucenie zgłoszenia.
 
-  <!-- Consent Mode v2 (PRZED GA4) -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('consent', 'default', {
-      'analytics_storage': 'denied',
-      'ad_storage': 'denied',
-      'wait_for_update': 500
-    });
-  </script>
+**Rekomendacja:** Zmienić `name` na coś mniej typowego, np. `name="fax_number"` lub `name="company_url_do_not_fill"`.
 
-  <!-- GA4 (zastÄp G-XXXXXXXXXX swoim ID) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
-</head>
+### 5.5 Brak `<noscript>` ⚠️
+
+Strona nie ma żadnego fallbacku `<noscript>`. Przy wyłączonym JS:
+- Slider screenshotów nie działa (brak nawigacji)
+- Animacje reveal się nie pokażą (elementy mają `opacity: 0` domyślnie)
+- Formularz nie ma walidacji client-side
+- Cookie banner się nie pojawi
+- Rok w stopce będzie pusty
+
+**Minimalna poprawka:**
+
+```html
+<noscript>
+  <style>
+    [data-reveal] { opacity: 1 !important; transform: none !important; }
+  </style>
+</noscript>
 ```
 
 ---
 
-*Raport wygenerowany automatycznie przez Perplexity AI na podstawie analizy live treĹci strony.*  
-*Analiza obejmuje treĹÄ HTML, strukturÄ i widoczne elementy. Elementy sieciowe (nagĹĂłwki HTTP, robots.txt, sitemap.xml) wymagajÄ osobnej weryfikacji.*
+## 6. UX i konwersja
+
+### 6.1 CTA „Zobacz demo" ✅
+
+Naprawione — link prowadzi do sekcji ze sliderem screenshotów. Slider działa dobrze (nawigacja strzałkami, klawiatura, miniaturki).
+
+### 6.2 Brak przycisku pobierania
+
+Na stronie nie ma bezpośredniego linka do pobrania aplikacji. Jedyne CTA to formularz beta. Jeśli build jest gotowy do dystrybucji — dodać CTA „Pobierz beta dla Windows". Jeśli tylko przez formularz — obecne rozwiązanie jest OK, ale warto to klarowniej komunikować w tekście CTA.
+
+### 6.3 Social proof — BRAK
+
+Brak:
+- liczby zapisanych testerów
+- cytatów / testimoniali
+- ocen
+- logotypów klientów
+
+Nawet prosty licznik „Dołączyło już X freelancerów" może zwiększyć konwersję formularza.
+
+### 6.4 Demo / wideo produktowe
+
+Sekcja ze screenami jest dobra (slider z 6 zrzutami + dynamiczna zmiana headline'u i opisu per slajd), ale statyczne screenshoty nie oddają dynamiki aplikacji. Rozważyć:
+- Krótkie wideo (30-60s) lub GIF demonstracyjny
+- Interaktywne demo (np. przez Arcade, Loom)
+
+### 6.5 Obrazy — fallback mock UI ✅
+
+Dobra praktyka — każdy screenshot ma fallback w postaci mock UI renderowanego w CSS (`.shot-fallback`), widoczny gdy obraz się nie załaduje. Klasy `.is-loaded` / `.is-missing` zarządzają widocznością.
+
+### 6.6 Preloader / czas ładowania
+
+- Pierwszy screenshot: `loading="eager"` ✅
+- Pozostałe: `loading="lazy"` ✅
+- `preconnect` do Google Fonts ✅
+- Obrazy w formacie WebP ✅ (dobra kompresja)
+- Brak minifikacji CSS/JS ⚠️
+
+---
+
+## 7. Priorytetyzowana lista poprawek
+
+### 🔴 Krytyczne (naprawić natychmiast)
+
+1. **Naprawić uszkodzone alt-texty w PL i EN** — broken HTML (`<span>`) w atrybucie `alt` 14 obrazów. Usunąć HTML, wstawić plain text.
+2. **Załadować consent.js** — dodać `<script src="./consent.js">` w obu plikach HTML (PL: `./consent.js`, EN: `../consent.js`). Bez tego GA4 nie działa i baner cookies nie jest wyświetlany.
+3. **Naprawić og:image** — plik `screens/dashboard-main.png` nie istnieje. Stworzyć dedykowany `og-image.png` (1200×630 px) lub zmienić ścieżkę na istniejący plik.
+
+### 🟡 Ważne (zrobić w ciągu 1-2 tygodni)
+
+1. **Ujednolicić nav/footer w PL** — nav mówi „Testy beta", footer mówi „Beta testy". Ujednolicić.
+2. **Dodać `<noscript>` fallback** — minimum: nadpisać `opacity: 0` elementom `[data-reveal]`.
+3. **Zoptymalizować H1** — dodać frazę kluczową „time tracker" (np. jako widoczny `<h2>` pod H1).
+4. **Ujednolicić rotator hero** — PL: „grafików" vs EN: „designers" (różna precyzja grupy docelowej).
+5. **Zmienić nazwę honeypot** — `name="website"` może być autouzupełniane przez przeglądarki.
+
+### 🟢 Dobre praktyki (zaplanować)
+
+1. **Zrefaktorować JS** — wydzielić wspólną logikę z PL i EN `script.js` do jednego pliku z konfiguracją per język.
+2. **Minifikować CSS/JS** — `styles.css` (4800 linii) i `script.js` (726 linii) serwowane bez minifikacji.
+3. **Zoptymalizować ładowanie fontów** — self-hosting lub `rel="preload"` dla Inter.
+4. **Dodać tracking zdarzeń GA4** — `generate_lead`, `click_cta_beta`, `scroll_depth`, `faq_expand`.
+5. **Dodać social proof** — licznik testerów, testimoniale.
+6. **Rozważyć zmianę „(beta)" w title** na „(Early Access)".
+7. **Wideo lub animowany GIF** demonstracyjny w sekcji interfejsu.
+8. **Sprawdzić Core Web Vitals** w PageSpeed Insights po wdrożeniu poprawek.
+
+---
+
+*Raport pierwotnie wygenerowany przez Perplexity AI (23 lutego 2026), zaktualizowany na podstawie analizy kodu źródłowego przez Claude Code.*
+*Weryfikacja objęła: `index.html`, `en/index.html`, `styles.css`, `script.js`, `en/script.js`, `consent.js`, `form-handler.php`, `sitemap.xml`, `robots.txt`, `.htaccess`, katalog `screens/`.*
