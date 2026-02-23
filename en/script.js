@@ -1,97 +1,38 @@
 (() => {
-  const WORDMARK_TEXT = "TIMEFLOW";
-  const WORDMARK_CLASS = "wordmark-inline";
+  const TIMEFLOW_WORDMARK_HTML = '<span class="tf-style">TIMEFLOW</span>';
+  const TIMEFLOW_REGEX = /\bTIMEFLOW\b/g;
 
-  const buildWordmarkFragment = (text) => {
-    const value = String(text ?? "");
-    const fragment = document.createDocumentFragment();
-    let cursor = 0;
+  const withTimeflowWordmark = (value) =>
+    String(value ?? "").replace(TIMEFLOW_REGEX, TIMEFLOW_WORDMARK_HTML);
 
-    while (cursor < value.length) {
-      const matchIndex = value.indexOf(WORDMARK_TEXT, cursor);
-      if (matchIndex === -1) {
-        if (cursor < value.length) {
-          fragment.append(document.createTextNode(value.slice(cursor)));
-        }
-        break;
-      }
-
-      if (matchIndex > cursor) {
-        fragment.append(document.createTextNode(value.slice(cursor, matchIndex)));
-      }
-
-      const wordmarkEl = document.createElement("span");
-      wordmarkEl.className = WORDMARK_CLASS;
-      wordmarkEl.textContent = WORDMARK_TEXT;
-      fragment.append(wordmarkEl);
-
-      cursor = matchIndex + WORDMARK_TEXT.length;
-    }
-
-    return fragment;
+  const setTextWithTimeflowWordmark = (el, value) => {
+    if (!(el instanceof HTMLElement)) return;
+    el.innerHTML = withTimeflowWordmark(value);
   };
 
-  const setTextWithWordmark = (element, text) => {
-    if (!(element instanceof HTMLElement)) return;
-    element.replaceChildren(buildWordmarkFragment(text));
-  };
+  const wrapTimeflowTextNodes = (root) => {
+    if (!(root instanceof Node)) return;
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    const textNodes = [];
 
-  const decorateExistingWordmarks = (root) => {
-    if (!(root instanceof HTMLElement)) return;
-
-    const nodesToReplace = [];
-    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
-      acceptNode(node) {
-        const value = node.nodeValue || "";
-        if (!value.includes(WORDMARK_TEXT)) return NodeFilter.FILTER_SKIP;
-
-        const parent = node.parentElement;
-        if (!parent) return NodeFilter.FILTER_SKIP;
-        if (parent.closest(`.${WORDMARK_CLASS}`)) return NodeFilter.FILTER_SKIP;
-        if (
-          parent.closest("script, style, noscript, textarea, option, code, pre, kbd, samp") ||
-          parent.isContentEditable
-        ) {
-          return NodeFilter.FILTER_SKIP;
-        }
-
-        return NodeFilter.FILTER_ACCEPT;
-      },
-    });
-
-    let currentNode = walker.nextNode();
-    while (currentNode) {
-      nodesToReplace.push(currentNode);
-      currentNode = walker.nextNode();
+    for (let node = walker.nextNode(); node; node = walker.nextNode()) {
+      if (!(node instanceof Text)) continue;
+      if (!node.nodeValue || !node.nodeValue.includes("TIMEFLOW")) continue;
+      const parent = node.parentElement;
+      if (!parent) continue;
+      if (parent.closest(".tf-style")) continue;
+      if (parent.closest("script, style, noscript, textarea, option")) continue;
+      textNodes.push(node);
     }
 
-    for (const textNode of nodesToReplace) {
-      textNode.replaceWith(buildWordmarkFragment(textNode.nodeValue || ""));
+    for (const textNode of textNodes) {
+      const original = textNode.nodeValue || "";
+      const next = withTimeflowWordmark(original);
+      if (next === original) continue;
+      const range = document.createRange();
+      range.selectNode(textNode);
+      textNode.replaceWith(range.createContextualFragment(next));
     }
-  };
-
-  let isDecoratingWordmarks = false;
-  let wordmarkDecorateQueued = false;
-
-  const decorateWordmarksSafely = (root) => {
-    if (isDecoratingWordmarks) return;
-    isDecoratingWordmarks = true;
-    try {
-      decorateExistingWordmarks(root);
-    } finally {
-      isDecoratingWordmarks = false;
-    }
-  };
-
-  const scheduleWordmarkDecorate = () => {
-    if (wordmarkDecorateQueued) return;
-    wordmarkDecorateQueued = true;
-    requestAnimationFrame(() => {
-      wordmarkDecorateQueued = false;
-      if (document.body) {
-        decorateWordmarksSafely(document.body);
-      }
-    });
   };
 
   const yearEl = document.getElementById("year");
@@ -104,7 +45,6 @@
     const syncTopbarScrollState = () => {
       topbar.classList.toggle("is-scrolled", window.scrollY > 12);
     };
-
     syncTopbarScrollState();
     window.addEventListener("scroll", syncTopbarScrollState, { passive: true });
   }
@@ -387,64 +327,13 @@
       heroShotImage.addEventListener("load", markStageLoaded);
       heroShotImage.addEventListener("error", markStageMissing);
 
-      const normalizeHeadlinePart = (value) =>
-        String(value || "")
-          .replace(/<br\s*\/?>/gi, " ")
-          .replace(/\s+/g, " ")
-          .trim();
-
-      const renderHeroHeadline = (title, accent) => {
-        const titleText = normalizeHeadlinePart(title);
-        const accentText = normalizeHeadlinePart(accent);
-        const titleEl = document.createElement("span");
-        titleEl.className = "hero-headline-line";
-        titleEl.append(buildWordmarkFragment(titleText));
-        const accentEl = document.createElement("span");
-        accentEl.className = "hero-headline-line hero-headline-accent";
-        accentEl.append(buildWordmarkFragment(accentText));
-        heroHeadline.replaceChildren(titleEl, accentEl);
-      };
-
-      const fitHeroHeadline = () => {
-        const lineEls = Array.from(heroHeadline.querySelectorAll(".hero-headline-line"));
-        if (!lineEls.length) return;
-
-        heroHeadline.style.removeProperty("font-size");
-        const maxWidth = heroHeadline.getBoundingClientRect().width;
-        if (!maxWidth) return;
-
-        let fontSize = Number.parseFloat(window.getComputedStyle(heroHeadline).fontSize);
-        if (!Number.isFinite(fontSize)) return;
-
-        const viewport = window.innerWidth || 0;
-        const minFontSize = viewport <= 720 ? 16 : viewport <= 1180 ? 18 : 22;
-        let guard = 0;
-
-        const isOverflowing = () =>
-          lineEls.some((line) => line.getBoundingClientRect().width > maxWidth + 0.5);
-
-        while (isOverflowing() && fontSize > minFontSize && guard < 80) {
-          fontSize -= 1;
-          heroHeadline.style.fontSize = `${fontSize}px`;
-          guard += 1;
-        }
-      };
-
       const updateCopy = (slide) => {
         const copy = slideCopyByLabel[slide.label] || slideCopyByLabel.Dashboard;
-        renderHeroHeadline(copy.heroTitle, copy.heroAccent);
-        fitHeroHeadline();
-        requestAnimationFrame(fitHeroHeadline);
-        setTextWithWordmark(heroLead, copy.heroLead);
-        setTextWithWordmark(showcaseHeadline, copy.showcaseTitle);
-        setTextWithWordmark(showcaseNote, copy.showcaseNote);
+        heroHeadline.innerHTML = `${copy.heroTitle} <span>${copy.heroAccent}</span>`;
+        setTextWithTimeflowWordmark(heroLead, copy.heroLead);
+        setTextWithTimeflowWordmark(showcaseHeadline, copy.showcaseTitle);
+        setTextWithTimeflowWordmark(showcaseNote, copy.showcaseNote);
       };
-
-      window.addEventListener("resize", fitHeroHeadline);
-      window.addEventListener("load", fitHeroHeadline);
-      if (document.fonts && typeof document.fonts.ready?.then === "function") {
-        document.fonts.ready.then(() => fitHeroHeadline()).catch(() => {});
-      }
 
       const updateStageImage = (slide) => {
         heroShotCaptionLabel.textContent = slide.label || "";
@@ -812,19 +701,5 @@
       }
     });
   }
-
-  if (document.body) {
-    decorateWordmarksSafely(document.body);
-
-    const wordmarkObserver = new MutationObserver(() => {
-      if (isDecoratingWordmarks) return;
-      scheduleWordmarkDecorate();
-    });
-
-    wordmarkObserver.observe(document.body, {
-      childList: true,
-      subtree: true,
-      characterData: true,
-    });
-  }
+  wrapTimeflowTextNodes(document.body);
 })();
