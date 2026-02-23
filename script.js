@@ -217,9 +217,7 @@
       };
     };
 
-    const slides = [extractSlideData(heroSliderStage), ...thumbCards.map(extractSlideData)].filter(
-      (slide) => slide.src
-    );
+    const slides = thumbCards.map(extractSlideData).filter((slide) => slide.src);
 
     const slideCopyByLabel = {
       Dashboard: {
@@ -282,7 +280,6 @@
       const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       let activeIndex = 0;
       const dotButtons = [];
-
       const markStageLoaded = () => {
         heroSliderStage.classList.add("is-loaded");
         heroSliderStage.classList.remove("is-missing");
@@ -325,11 +322,59 @@
         }
       };
 
+      const updateThumbCard = (card, slide) => {
+        if (!(card instanceof HTMLElement) || !slide) return;
+
+        const labelEl = card.querySelector(".shot-caption span");
+        const metaEl = card.querySelector(".shot-caption em");
+        const imgEl = card.querySelector(".shot-image");
+
+        if (labelEl) {
+          labelEl.textContent = slide.label || "";
+        }
+        if (metaEl) {
+          metaEl.textContent = slide.meta || "";
+        }
+
+        if (imgEl instanceof HTMLImageElement) {
+          const currentSrc = imgEl.getAttribute("src") || "";
+          if (currentSrc !== slide.src) {
+            card.classList.remove("is-loaded", "is-missing");
+            imgEl.setAttribute("src", slide.src);
+          }
+
+          imgEl.setAttribute("alt", slide.alt || slide.label || "Zrzut ekranu TimeFlow");
+
+          if (imgEl.complete) {
+            if (imgEl.naturalWidth > 0 && imgEl.naturalHeight > 0) {
+              card.classList.add("is-loaded");
+              card.classList.remove("is-missing");
+            } else {
+              card.classList.add("is-missing");
+              card.classList.remove("is-loaded");
+            }
+          }
+        }
+      };
+
       const updateThumbs = () => {
         thumbCards.forEach((card, thumbIndex) => {
-          const isActive = activeIndex === thumbIndex + 1;
+          if (!(card instanceof HTMLElement)) return;
+          const slide = slides[thumbIndex];
+
+          if (!slide) {
+            card.hidden = true;
+            card.removeAttribute("data-slide-index");
+            return;
+          }
+
+          card.hidden = false;
+          card.dataset.slideIndex = String(thumbIndex);
+          const isActive = thumbIndex === activeIndex;
           card.classList.toggle("is-active", isActive);
           card.setAttribute("aria-pressed", String(isActive));
+          card.setAttribute("aria-label", `Pokaż screen: ${slide.label || "widok"}`);
+          updateThumbCard(card, slide);
         });
       };
 
@@ -347,10 +392,10 @@
       };
 
       const focusThumbInRail = () => {
-        if (activeIndex < 1) return;
-        const activeThumb = thumbCards[activeIndex - 1];
-        if (!(activeThumb instanceof HTMLElement)) return;
-        activeThumb.scrollIntoView({
+        if (activeIndex < 0) return;
+        const thumb = thumbCards[activeIndex];
+        if (!(thumb instanceof HTMLElement)) return;
+        thumb.scrollIntoView({
           block: "nearest",
           inline: "center",
           behavior: prefersReducedMotion ? "auto" : "smooth",
@@ -379,16 +424,19 @@
 
         card.setAttribute("role", "button");
         card.setAttribute("tabindex", "0");
-        card.setAttribute("aria-label", `Pokaż screen: ${slides[thumbIndex + 1]?.label || "widok"}`);
 
         card.addEventListener("click", () => {
-          selectSlide(thumbIndex + 1);
+          const slideIndex = Number.parseInt(card.dataset.slideIndex || "", 10);
+          if (Number.isNaN(slideIndex)) return;
+          selectSlide(slideIndex);
         });
 
         card.addEventListener("keydown", (event) => {
           if (event.key !== "Enter" && event.key !== " ") return;
           event.preventDefault();
-          selectSlide(thumbIndex + 1);
+          const slideIndex = Number.parseInt(card.dataset.slideIndex || "", 10);
+          if (Number.isNaN(slideIndex)) return;
+          selectSlide(slideIndex);
         });
       });
 
