@@ -113,9 +113,9 @@ function maybe_send_email(array $payload): string
         return 'invalid_target';
     }
 
-    $subject = 'TimeFlow beta - nowe zgłoszenie';
+    $subject = 'TIMEFLOW beta - nowe zgłoszenie';
     $lines = [
-        'Nowe zgłoszenie do testów beta TimeFlow',
+        'Nowe zgłoszenie do testów beta TIMEFLOW',
         '',
         'Data: ' . ($payload['created_at'] ?? ''),
         'Imię / nick: ' . ($payload['name'] ?? ''),
@@ -150,7 +150,7 @@ function maybe_send_email(array $payload): string
 
     $fromNameRaw = env_string('TIMEFLOW_BETA_EMAIL_FROM_NAME');
     if ($fromNameRaw === '') {
-        $fromNameRaw = 'TimeFlow Beta';
+        $fromNameRaw = 'TIMEFLOW Beta';
     }
     $fromNameSafe = str_replace(["\r", "\n"], '', $fromNameRaw);
     $fromHeader = 'From: ' . $fromAddress;
@@ -162,7 +162,7 @@ function maybe_send_email(array $payload): string
         'MIME-Version: 1.0',
         'Content-Type: text/plain; charset=UTF-8',
         $fromHeader,
-        'X-Mailer: TimeFlow Beta Form (PHP mail)',
+        'X-Mailer: TIMEFLOW Beta Form (PHP mail)',
     ];
     if ($safeEmail !== '' && filter_var($safeEmail, FILTER_VALIDATE_EMAIL)) {
         $headers[] = 'Reply-To: ' . $safeEmail;
@@ -257,7 +257,7 @@ try {
     append_csv_row($csvPath, array_values($record));
     $mailStatus = maybe_send_email($record);
     if (!in_array($mailStatus, ['sent', 'disabled'], true)) {
-        error_log('[TimeFlow beta form] Mail notification status: ' . $mailStatus);
+        error_log('[TIMEFLOW beta form] Mail notification status: ' . $mailStatus);
     }
 } catch (Throwable $e) {
     respond(500, [

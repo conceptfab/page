@@ -20,10 +20,10 @@ To największy problem strukturalny strony. Te same funkcje pojawiają się w mi
 |---|---|
 | Hero | krótkie wyliczenie funkcji |
 | „MODUŁY W APLIKACJI" | 9+ modułów z opisami |
-| „Co TimeFlow robi już teraz" | Te same 8 modułów powtórzone |
+| „Co TIMEFLOW robi już teraz" | Te same 8 modułów powtórzone |
 | Roadmapa „Teraz / Beta" | Znowu te same funkcje |
 
-Warto scalić sekcję „Moduły" i „Co TimeFlow robi" w jedną lub wyraźnie zróżnicować ich perspektywę.
+Warto scalić sekcję „Moduły" i „Co TIMEFLOW robi" w jedną lub wyraźnie zróżnicować ich perspektywę.
 
 ## Brak social proof
 

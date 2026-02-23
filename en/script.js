@@ -164,7 +164,7 @@
         heroTitle: "Stay on top of your work time",
         heroAccent: "without breaking flow.",
         heroLead:
-          "TimeFlow automatically collects data, organizes sessions and helps you assign time to projects. Today: tracking + analytics + AI suggestions + import/export + online sync. Coming next: a full project manager with a custom folder tree.",
+          "TIMEFLOW automatically collects data, organizes sessions and helps you assign time to projects. Today: tracking + analytics + AI suggestions + import/export + online sync. Coming next: a full project manager with a custom folder tree.",
         showcaseTitle: "Dashboard, projects, sessions and analytics in one workflow",
         showcaseNote:
           "The main view shows your work dashboard. Below are the key modules that build a freelancer's daily workflow: Projects, Sessions, Analysis, Estimates and AI.",
@@ -173,7 +173,7 @@
         heroTitle: "Organize your projects",
         heroAccent: "and folders without the chaos.",
         heroLead:
-          "Build your client and project structure, assign apps, sessions and statuses. TimeFlow helps you go from raw tracking to real order.",
+          "Build your client and project structure, assign apps, sessions and statuses. TIMEFLOW helps you go from raw tracking to real order.",
         showcaseTitle: "Projects: folders, statuses and quick assignments",
         showcaseNote:
           "The Projects view organizes your work structure. Build your tree, set statuses and map sessions to projects faster.",
@@ -185,7 +185,7 @@
           "Session grouping, quick corrections and AI suggestions cut down the time you spend sorting through your day. Less clicking, more actual work.",
         showcaseTitle: "Sessions: daily sessions, grouping and assignments",
         showcaseNote:
-          "See raw entries and organize them into a project workflow. TimeFlow supports manual corrections and assignment suggestions based on your work history.",
+          "See raw entries and organize them into a project workflow. TIMEFLOW supports manual corrections and assignment suggestions based on your work history.",
       },
       "Time Analysis": {
         heroTitle: "See where your time goes",
@@ -248,7 +248,7 @@
           heroSliderStage.classList.remove("is-loaded", "is-missing");
           heroShotImage.setAttribute("src", slide.src);
         }
-        heroShotImage.setAttribute("alt", slide.alt || slide.label || "TimeFlow screenshot");
+        heroShotImage.setAttribute("alt", slide.alt || slide.label || "TIMEFLOW screenshot");
         if (heroShotImage.complete) {
           if (heroShotImage.naturalWidth > 0 && heroShotImage.naturalHeight > 0) {
             markStageLoaded();
@@ -279,7 +279,7 @@
             imgEl.setAttribute("src", slide.src);
           }
 
-          imgEl.setAttribute("alt", slide.alt || slide.label || "TimeFlow screenshot");
+          imgEl.setAttribute("alt", slide.alt || slide.label || "TIMEFLOW screenshot");
 
           if (imgEl.complete) {
             if (imgEl.naturalWidth > 0 && imgEl.naturalHeight > 0) {

@@ -231,7 +231,7 @@
         heroTitle: "Kontroluj czas pracy",
         heroAccent: "bez zabijania flow.",
         heroLead:
-          "TimeFlow automatycznie zbiera dane, porządkuje sesje i pomaga przypisać czas do projektów. Dziś: tracking + analityka + AI sugestie + import/export + sync MVP. Jutro: pełny menedżer projektów z customowym drzewem folderów.",
+          "TIMEFLOW automatycznie zbiera dane, porządkuje sesje i pomaga przypisać czas do projektów. Dziś: tracking + analityka + AI sugestie + import/export + sync MVP. Jutro: pełny menedżer projektów z customowym drzewem folderów.",
         showcaseTitle: "Dashboard, projekty, sesje i analityka w jednym workflow",
         showcaseNote:
           "Główny widok pokazuje dashboard pracy. Poniżej najważniejsze moduły, które budują codzienny workflow freelancera: Projects, Sessions, Analysis, Estimates i AI.",
@@ -240,7 +240,7 @@
         heroTitle: "Uporządkuj projekty",
         heroAccent: "i foldery bez chaosu.",
         heroLead:
-          "Buduj strukturę klientów i projektów, przypisuj aplikacje, sesje i statusy. TimeFlow pomaga przejść od surowego trackingu do realnego porządku pracy.",
+          "Buduj strukturę klientów i projektów, przypisuj aplikacje, sesje i statusy. TIMEFLOW pomaga przejść od surowego trackingu do realnego porządku pracy.",
         showcaseTitle: "Projects: foldery, statusy i szybkie przypisania",
         showcaseNote:
           "Widok Projects porządkuje strukturę pracy freelancera i studia. Możesz budować drzewo, oznaczać statusy oraz szybciej mapować sesje do projektów.",
@@ -252,7 +252,7 @@
           "Grupowanie sesji, szybkie korekty i sugestie AI skracają czas ręcznego porządkowania dnia pracy. Mniej klikania, więcej realnej pracy.",
         showcaseTitle: "Sessions: dzienne sesje, grupowanie i przypisania",
         showcaseNote:
-          "Zobacz surowe wpisy i uporządkuj je w workflow projektowy. TimeFlow wspiera ręczne poprawki oraz sugestie przypisań na podstawie historii pracy.",
+          "Zobacz surowe wpisy i uporządkuj je w workflow projektowy. TIMEFLOW wspiera ręczne poprawki oraz sugestie przypisań na podstawie historii pracy.",
       },
       "Time Analysis": {
         heroTitle: "Zobacz gdzie znika czas",
@@ -318,7 +318,7 @@
           heroShotImage.setAttribute("src", slide.src);
         }
 
-        heroShotImage.setAttribute("alt", slide.alt || slide.label || "Zrzut ekranu TimeFlow");
+        heroShotImage.setAttribute("alt", slide.alt || slide.label || "Zrzut ekranu TIMEFLOW");
 
         if (heroShotImage.complete) {
           if (heroShotImage.naturalWidth > 0 && heroShotImage.naturalHeight > 0) {
@@ -350,7 +350,7 @@
             imgEl.setAttribute("src", slide.src);
           }
 
-          imgEl.setAttribute("alt", slide.alt || slide.label || "Zrzut ekranu TimeFlow");
+          imgEl.setAttribute("alt", slide.alt || slide.label || "Zrzut ekranu TIMEFLOW");
 
           if (imgEl.complete) {
             if (imgEl.naturalWidth > 0 && imgEl.naturalHeight > 0) {

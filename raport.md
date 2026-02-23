@@ -1,7 +1,7 @@
 Przeanalizowałem obie wersje językowe Twojego landing page'a pod kątem grupy docelowej (freelancerów i designerów) oraz spójności przekazu. Poniżej znajduje się gotowy raport w formacie Markdown, z którego usunąłem deweloperski żargon, skupiając się na realnych korzyściach dla użytkowników. Możesz go skopiować i zapisać bezpośrednio jako plik `.md`. [conceptfab](https://conceptfab.com/timeflow/)
 
 ```markdown
-# Raport Audytu Landing Page'a: TimeFlow (PL / EN)
+# Raport Audytu Landing Page'a: TIMEFLOW (PL / EN)
 **Data:** 23 Luty 2026
 **Cel:** Optymalizacja pod kątem freelancerów (design/3D/video), eliminacja żargonu technologicznego i "bełkotu AI", ujednolicenie wersji językowych.
 
@@ -45,7 +45,7 @@ Twoje obecne zdanie: *"Lokalny model uczy się na twoich korektach — bez wysy�
 ## 4. Analiza UX i Copywritingu
 
 * **Hero Section:** *"ZAJMIJ SIĘ TWORZENIEM, MY ZAJMIEMY SIĘ CZASEM"* [page:1] – doskonałe hasło. Idealnie rezonuje z problemem ręcznego zliczania godzin.
-* **Brak Social Proof:** Aplikacja mocno zyska, jeśli dodasz krótką notkę autorską pod formularzem bety: *"Stworzyłem TimeFlow, bo jako freelancer miałem dość trackerów, które zabijały mój workflow."* To uwiarygadnia aplikację w oczach testerów.
+* **Brak Social Proof:** Aplikacja mocno zyska, jeśli dodasz krótką notkę autorską pod formularzem bety: *"Stworzyłem TIMEFLOW, bo jako freelancer miałem dość trackerów, które zabijały mój workflow."* To uwiarygadnia aplikację w oczach testerów.
 * **Projekty oparte o foldery:** Wyciągnij tę funkcję wyżej [page:1]. Automatyczne przypisywanie czasu do klienta na podstawie otwartego folderu z plikami to "killer feature" dla każdego, kto skacze między trzema zleceniami dziennie.
 
 ---
