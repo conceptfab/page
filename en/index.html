@@ -75,6 +75,46 @@
         "isAccessibleForFree": true
       }
     </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does TimeFlow work offline?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. TimeFlow runs locally on desktop and stores data on the device. Online sync is optional."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Who can join the beta?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We prioritize freelancers and small studios who bill clients for time, but the form is also open to other industries."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which platform is the beta available on?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The current beta is available on Windows. macOS, Linux and a mobile app are planned."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is the beta paid?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Early beta testing is free and focused on collecting feedback for the next product iterations."
+            }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div class="site-shell">
@@ -123,7 +163,7 @@
             </p>
           </div>
 
-          <div class="hero-visual hero-showcase" data-reveal>
+          <div class="hero-visual hero-showcase" id="demo" data-reveal>
             <div class="showcase-shell" data-hero-slider>
               <div class="showcase-head">
                 <div>
@@ -395,7 +435,8 @@
               </div>
 
               <div class="hero-actions">
-                <a class="btn btn-primary" href="#beta">Sign up for beta</a>
+                <a class="btn btn-primary" href="#beta">Request beta access</a>
+                <a class="btn btn-ghost" href="#demo">View demo</a>
               </div>
             </div>
 
@@ -403,24 +444,24 @@
               <article class="stat-card" data-counter-card>
                 <p class="stat-label">Modules in app</p>
                 <p class="stat-value">
-                  <span data-counter="10">0</span>
+                  <span data-counter="10">10</span>
                   <span class="stat-suffix">+</span>
                 </p>
-                <p class="stat-note">Dashboard, projects, sessions, AI, analytics, estimates, daemon and more</p>
+                <p class="stat-note">Dashboard, projects, sessions, AI, analytics, estimates, background service and more</p>
               </article>
               <article class="stat-card" data-counter-card>
                 <p class="stat-label">Desktop platforms (now)</p>
                 <p class="stat-value">
-                  <span data-counter="1">0</span>
+                  <span data-counter="1">1</span>
                 </p>
                 <p class="stat-note">Windows • macOS, Linux and mobile app planned</p>
               </article>
               <article class="stat-card" data-counter-card>
                 <p class="stat-label">AI work modes</p>
                 <p class="stat-value">
-                  <span data-counter="3">0</span>
+                  <span data-counter="3">3</span>
                 </p>
-                <p class="stat-note">you decide how much AI gets involved — with rollback if it goes wrong</p>
+                <p class="stat-note">you decide how much AI gets involved — with an undo step if it goes wrong</p>
               </article>
             </div>
 
@@ -903,6 +944,84 @@
           </div>
         </section>
 
+        <section id="about" class="section section-neutral">
+          <div class="section-head compact" data-reveal>
+            <p class="eyebrow eyebrow-dark">Trust and contact</p>
+            <h2>Who is behind TimeFlow and how beta access works.</h2>
+            <p>
+              This is an early product version developed by CONCEPTFAB. The beta is used to iterate on
+              real freelancer and small studio workflows, not to collect random signups with no follow-up.
+            </p>
+          </div>
+
+          <div class="trust-grid">
+            <article class="trust-card" data-reveal>
+              <h3>About the project</h3>
+              <p>
+                TimeFlow is being built as a desktop-first time tracker for client-billed work.
+                Priorities are low overhead, local data and a fast workflow without manual time entry.
+              </p>
+              <ul>
+                <li>built by CONCEPTFAB</li>
+                <li>beta feedback directly shapes the roadmap</li>
+                <li>communication via form and follow-up email</li>
+              </ul>
+            </article>
+
+            <article class="trust-card" data-reveal data-delay="90">
+              <h3>How beta access works</h3>
+              <p>
+                After you apply, we collect context about your work (industry, needs) and then follow
+                up with build availability and next steps. This helps us prioritize people who actually
+                bill time to clients.
+              </p>
+              <ul>
+                <li>short form instead of long onboarding</li>
+                <li>confirmation after submitting the application</li>
+                <li>build access based on order and fit</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section id="faq" class="section section-light">
+          <div class="section-head compact" data-reveal>
+            <p class="eyebrow eyebrow-dark">FAQ</p>
+            <h2>Most common questions before signing up for beta.</h2>
+            <p>
+              Short answers to the key questions: platforms, data, cost and how testing works.
+            </p>
+          </div>
+
+          <div class="faq-list" data-reveal>
+            <details class="faq-item">
+              <summary>Does TimeFlow work offline?</summary>
+              <p>
+                Yes. Data is stored locally on your device, and online sync is optional.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary>Who is prioritized for beta testing?</summary>
+              <p>
+                Mainly freelancers and small studios billing clients for time, but the form is also
+                open to other industries.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary>Which platform is the current beta available on?</summary>
+              <p>
+                Windows is the current priority. macOS, Linux and a mobile app are on the roadmap.
+              </p>
+            </details>
+            <details class="faq-item">
+              <summary>Is the beta paid?</summary>
+              <p>
+                No. The current beta tests are free and focused on collecting feedback for future iterations.
+              </p>
+            </details>
+          </div>
+        </section>
+
         <section id="beta" class="section section-cta">
           <div class="cta-grid">
             <div class="cta-copy" data-reveal>
@@ -948,18 +1067,34 @@
 
               <label>
                 Name / handle
-                <input type="text" name="name" placeholder="e.g. Martha / studio_nova" required />
+                <input
+                  id="betaName"
+                  type="text"
+                  name="name"
+                  placeholder="e.g. Martha / studio_nova"
+                  autocomplete="name"
+                  required
+                />
               </label>
+              <p class="field-error" id="betaNameError" data-field-error-for="name" aria-live="polite"></p>
 
               <label>
                 Email
-                <input type="email" name="email" placeholder="your@email.com" required />
+                <input
+                  id="betaEmail"
+                  type="email"
+                  name="email"
+                  placeholder="your@email.com"
+                  autocomplete="email"
+                  required
+                />
               </label>
+              <p class="field-error" id="betaEmailError" data-field-error-for="email" aria-live="polite"></p>
 
               <label>
                 Industry
-                <select name="role" required>
-                  <option value="">Select…</option>
+                <select id="betaRole" name="role" required>
+                  <option value="" selected disabled>Select…</option>
                   <option>Graphic / Brand Designer</option>
                   <option>UI/UX / Product Designer</option>
                   <option>Motion / Video</option>
@@ -967,20 +1102,28 @@
                   <option>Other</option>
                 </select>
               </label>
+              <p class="field-error" id="betaRoleError" data-field-error-for="role" aria-live="polite"></p>
 
               <label>
                 What matters most to you?
-                <textarea
-                  name="needs"
-                  rows="4"
-                  placeholder="e.g. quick client project billing, folder organization, estimates, reports…"
-                ></textarea>
+                <textarea id="betaNeeds" name="needs" rows="4" aria-describedby="betaNeedsHint"></textarea>
               </label>
+              <p class="field-hint" id="betaNeedsHint">
+                Optional: describe your workflow, billing pain points, or the features you care about most.
+              </p>
 
               <label class="checkbox">
-                <input type="checkbox" name="consent" required />
-                <span>I want to take part in beta testing and be contacted about TimeFlow.</span>
+                <input id="betaConsent" type="checkbox" name="consent" required />
+                <span>
+                  I want to take part in beta testing and be contacted about TimeFlow. I have read the
+                  <a href="./privacy-policy.html">privacy policy</a>.
+                </span>
               </label>
+              <p class="field-error" id="betaConsentError" data-field-error-for="consent" aria-live="polite"></p>
+              <p class="form-legal-note">
+                We collect contact data only to process your beta application. Details are in the
+                <a href="./privacy-policy.html">privacy policy</a>.
+              </p>
 
               <button type="submit" class="btn btn-primary btn-block">Submit application</button>
               <p class="form-feedback" id="betaFormFeedback" aria-live="polite"></p>
@@ -1001,7 +1144,9 @@
           <nav class="footer-links" aria-label="Footer shortcuts">
             <a href="#features">Features</a>
             <a href="#roadmap">Roadmap</a>
+            <a href="#faq">FAQ</a>
             <a href="#beta">Beta testing</a>
+            <a href="./privacy-policy.html">Privacy policy</a>
           </nav>
         </div>
         <p class="footer-copy">

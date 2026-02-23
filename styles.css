@@ -720,7 +720,7 @@ textarea {
 
 .hero-meta-row {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: stretch;
   gap: 0.75rem;
   margin-top: 1.05rem;
@@ -760,7 +760,7 @@ textarea {
 
 .hero-actions {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: 0.75rem;
   margin-top: 0;
   align-items: stretch;
@@ -2529,6 +2529,96 @@ textarea {
   color: var(--paper-muted);
 }
 
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.trust-card {
+  border-radius: 12px;
+  border: 1px solid rgba(16, 20, 22, 0.08);
+  background:
+    radial-gradient(220px 110px at 0% 0%, rgba(75, 200, 255, 0.07), transparent 78%),
+    rgba(255, 255, 255, 0.54);
+  padding: 0.95rem;
+  display: grid;
+  gap: 0.5rem;
+  align-content: start;
+}
+
+.trust-card h3 {
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 1.02rem;
+  letter-spacing: -0.02em;
+}
+
+.trust-card p {
+  margin: 0;
+  color: var(--paper-muted);
+}
+
+.trust-card ul {
+  margin: 0;
+  padding-left: 1rem;
+  display: grid;
+  gap: 0.22rem;
+  color: #37404a;
+}
+
+.faq-list {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.faq-item {
+  border-radius: 12px;
+  border: 1px solid rgba(16, 20, 22, 0.08);
+  background: rgba(255, 255, 255, 0.52);
+  padding: 0.15rem 0.85rem;
+}
+
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--paper-ink);
+  padding: 0.7rem 1.5rem 0.7rem 0;
+  position: relative;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--paper-muted);
+  font-weight: 700;
+}
+
+.faq-item[open] summary::after {
+  content: "−";
+}
+
+.faq-item p {
+  margin: 0 0 0.7rem;
+  color: var(--paper-muted);
+}
+
+@media (max-width: 900px) {
+  .trust-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .roadmap-wrap {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2713,6 +2803,10 @@ textarea {
   color: var(--paper-ink);
 }
 
+.beta-form label.has-error {
+  color: #8f1717;
+}
+
 .hp-field {
   position: absolute;
   left: -9999px;
@@ -2741,6 +2835,13 @@ textarea {
   min-height: 104px;
 }
 
+.beta-form input[aria-invalid="true"],
+.beta-form select[aria-invalid="true"],
+.beta-form textarea[aria-invalid="true"] {
+  border-color: rgba(177, 25, 25, 0.42);
+  box-shadow: 0 0 0 3px rgba(177, 25, 25, 0.08);
+}
+
 .beta-form input:focus,
 .beta-form select:focus,
 .beta-form textarea:focus {
@@ -2761,11 +2862,53 @@ textarea {
   margin-top: 0.2rem;
 }
 
+.beta-form .checkbox a,
+.form-legal-note a {
+  color: #0b5d7b;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
+}
+
+.beta-form .checkbox a:hover,
+.beta-form .checkbox a:focus-visible,
+.form-legal-note a:hover,
+.form-legal-note a:focus-visible {
+  color: #083f53;
+}
+
+.field-hint {
+  margin: -0.22rem 0 0;
+  color: var(--paper-muted);
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.field-error {
+  margin: -0.28rem 0 0;
+  min-height: 1.05em;
+  color: #b11919;
+  font-size: 0.82rem;
+  line-height: 1.3;
+}
+
+.form-legal-note {
+  margin: -0.08rem 0 0;
+  color: var(--paper-muted);
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
 .form-feedback {
   margin: -0.05rem 0 0;
   min-height: 1.2em;
   font-size: 0.92rem;
   color: var(--paper-muted);
+}
+
+.form-feedback:focus-visible {
+  outline: 2px solid rgba(75, 200, 255, 0.35);
+  outline-offset: 2px;
+  border-radius: 6px;
 }
 
 .form-feedback.is-error {
@@ -3822,6 +3965,8 @@ textarea {
 .feature-card,
 .workflow-step,
 .platform-card,
+.trust-card,
+.faq-item,
 .cta-points > div,
 .beta-form,
 .roadmap-card,
@@ -3838,6 +3983,7 @@ textarea {
 .feature-card h3,
 .workflow-step h3,
 .platform-card h3,
+.trust-card h3,
 .roadmap-card h3,
 .stack-card h3,
 .persona-card h3,
@@ -3851,13 +3997,17 @@ textarea {
 .workflow-step p,
 .workflow-step ul,
 .platform-card p,
+.trust-card p,
+.trust-card ul,
+.trust-card li,
 .form-intro,
 .cta-copy > p:not(.eyebrow),
 .cta-points span,
 .roadmap-card p,
 .stack-card p,
 .stack-card li,
-.persona-card p {
+.persona-card p,
+.faq-item p {
   color: var(--muted);
 }
 
@@ -4207,6 +4357,8 @@ textarea {
   .feature-card,
   .workflow-step,
   .platform-card,
+  .trust-card,
+  .faq-item,
   .roadmap-card,
   .stack-card,
   .persona-card,
@@ -4259,6 +4411,32 @@ textarea {
 .footer-brand strong {
   font-size: 0.92rem;
   line-height: 1;
+}
+
+/* Explicit dark-theme fallback for post-report cards (prevents contrast regressions) */
+.trust-card,
+.faq-item {
+  border-color: rgba(41, 46, 66, 0.82);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.014), rgba(255, 255, 255, 0.008)),
+    rgba(27, 28, 39, 0.9);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+.trust-card h3,
+.faq-item summary {
+  color: var(--ink);
+}
+
+.trust-card p,
+.trust-card ul,
+.trust-card li,
+.faq-item p {
+  color: var(--muted);
+}
+
+.faq-item summary::after {
+  color: #c1c7d4;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -115,13 +115,20 @@
   const counters = Array.from(document.querySelectorAll("[data-counter]"));
   const animateCounter = (el) => {
     const target = Number(el.getAttribute("data-counter") || "0");
+    const startValue = Number(el.textContent || "0");
+    if (!Number.isFinite(target)) return;
+    if (Number.isFinite(startValue) && startValue === target) {
+      el.textContent = String(target);
+      return;
+    }
     const duration = 1200;
     const start = performance.now();
 
     const step = (now) => {
       const t = Math.min(1, (now - start) / duration);
       const eased = 1 - Math.pow(1 - t, 3);
-      el.textContent = String(Math.round(target * eased));
+      const base = Number.isFinite(startValue) ? startValue : 0;
+      el.textContent = String(Math.round(base + (target - base) * eased));
       if (t < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
@@ -478,30 +485,158 @@
   const formFeedback = document.getElementById("betaFormFeedback");
 
   if (betaForm && betaForm instanceof HTMLFormElement) {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const trackedFields = ["name", "email", "role", "consent"]
+      .map((name) => betaForm.elements.namedItem(name))
+      .filter(
+        (field) =>
+          field instanceof HTMLInputElement ||
+          field instanceof HTMLSelectElement ||
+          field instanceof HTMLTextAreaElement
+      );
+
+    const fieldMessages = {
+      name: "Podaj imię lub nick.",
+      email: "Podaj poprawny adres e-mail.",
+      role: "Wybierz branżę.",
+      consent: "Zaznacz zgodę na kontakt w sprawie testów beta.",
+    };
+
+    const getFieldErrorEl = (field) => {
+      if (!field.name) return null;
+      return betaForm.querySelector(`[data-field-error-for="${field.name}"]`);
+    };
+
+    const updateDescribedBy = (field, errorEl, shouldAttach) => {
+      if (!(errorEl instanceof HTMLElement) || !errorEl.id) return;
+      const current = (field.getAttribute("aria-describedby") || "")
+        .split(/\s+/)
+        .filter(Boolean);
+      const next = new Set(current);
+      if (shouldAttach) next.add(errorEl.id);
+      if (!shouldAttach) next.delete(errorEl.id);
+      if (next.size) {
+        field.setAttribute("aria-describedby", Array.from(next).join(" "));
+      } else {
+        field.removeAttribute("aria-describedby");
+      }
+    };
+
+    const clearFieldError = (field) => {
+      const errorEl = getFieldErrorEl(field);
+      field.removeAttribute("aria-invalid");
+      const labelEl = field.closest("label");
+      if (labelEl) labelEl.classList.remove("has-error");
+      if (errorEl instanceof HTMLElement) {
+        errorEl.textContent = "";
+        updateDescribedBy(field, errorEl, false);
+      }
+    };
+
+    const setFieldError = (field, message) => {
+      const errorEl = getFieldErrorEl(field);
+      field.setAttribute("aria-invalid", "true");
+      const labelEl = field.closest("label");
+      if (labelEl) labelEl.classList.add("has-error");
+      if (errorEl instanceof HTMLElement) {
+        errorEl.textContent = message;
+        updateDescribedBy(field, errorEl, true);
+      }
+    };
+
+    const validateField = (field) => {
+      clearFieldError(field);
+
+      const name = field.name;
+      if (name === "name") {
+        if (!String(field.value || "").trim()) {
+          setFieldError(field, fieldMessages.name);
+          return false;
+        }
+        return true;
+      }
+
+      if (name === "email") {
+        const value = String(field.value || "").trim();
+        if (!emailPattern.test(value)) {
+          setFieldError(field, fieldMessages.email);
+          return false;
+        }
+        return true;
+      }
+
+      if (name === "role") {
+        if (!String(field.value || "").trim()) {
+          setFieldError(field, fieldMessages.role);
+          return false;
+        }
+        return true;
+      }
+
+      if (name === "consent" && field instanceof HTMLInputElement) {
+        if (!field.checked) {
+          setFieldError(field, fieldMessages.consent);
+          return false;
+        }
+        return true;
+      }
+
+      return true;
+    };
+
+    const validateRequiredFields = () => {
+      let firstInvalid = null;
+      trackedFields.forEach((field) => {
+        const ok = validateField(field);
+        if (!ok && !firstInvalid) firstInvalid = field;
+      });
+      return { ok: !firstInvalid, firstInvalid };
+    };
+
+    trackedFields.forEach((field) => {
+      const onValidate = () => {
+        const isCheckbox = field instanceof HTMLInputElement && field.type === "checkbox";
+        const hasValue = isCheckbox ? field.checked : String(field.value || "").trim().length > 0;
+        if (hasValue || field.getAttribute("aria-invalid") === "true") {
+          validateField(field);
+        }
+      };
+
+      field.addEventListener("blur", onValidate);
+      field.addEventListener("change", onValidate);
+      if (!(field instanceof HTMLInputElement && field.type === "checkbox")) {
+        field.addEventListener("input", onValidate);
+      }
+    });
+
+    if (formFeedback instanceof HTMLElement) {
+      formFeedback.setAttribute("tabindex", "-1");
+    }
+
     betaForm.addEventListener("submit", async (event) => {
       event.preventDefault();
-      if (!formFeedback) return;
+      if (!(formFeedback instanceof HTMLElement)) return;
 
       formFeedback.classList.remove("is-error", "is-success");
-      const formData = new FormData(betaForm);
-      const name = String(formData.get("name") || "").trim();
-      const email = String(formData.get("email") || "").trim();
-      const role = String(formData.get("role") || "").trim();
-      const consent = formData.get("consent");
+      formFeedback.textContent = "";
 
-      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-      if (!name || !emailOk || !role || !consent) {
-        formFeedback.textContent =
-          "Uzupełnij imię, poprawny e-mail, branżę i zgodę na kontakt.";
+      const validation = validateRequiredFields();
+      if (!validation.ok) {
+        formFeedback.textContent = "Popraw oznaczone pola i spróbuj ponownie.";
         formFeedback.classList.add("is-error");
+        if (validation.firstInvalid instanceof HTMLElement) {
+          validation.firstInvalid.focus();
+        }
         return;
       }
 
+      const formData = new FormData(betaForm);
       const submitBtn = betaForm.querySelector('button[type="submit"]');
       const originalBtnText = submitBtn ? submitBtn.textContent : "";
+      betaForm.setAttribute("aria-busy", "true");
       if (submitBtn instanceof HTMLButtonElement) {
         submitBtn.disabled = true;
-        submitBtn.textContent = "Wysyłanie...";
+        submitBtn.textContent = "Wysyłanie…";
       }
 
       try {
@@ -534,6 +669,8 @@
           result.message || "Dziękujemy. Zgłoszenie zostało zapisane.";
         formFeedback.classList.add("is-success");
         betaForm.reset();
+        trackedFields.forEach((field) => clearFieldError(field));
+        formFeedback.focus({ preventScroll: true });
       } catch (error) {
         formFeedback.textContent =
           error instanceof Error && error.message
@@ -541,6 +678,7 @@
             : "Błąd połączenia. Spróbuj ponownie za chwilę.";
         formFeedback.classList.add("is-error");
       } finally {
+        betaForm.removeAttribute("aria-busy");
         if (submitBtn instanceof HTMLButtonElement) {
           submitBtn.disabled = false;
           submitBtn.textContent = originalBtnText || "Wyślij zgłoszenie";
