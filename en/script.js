@@ -13,7 +13,7 @@
   const wrapTimeflowTextNodes = (root) => {
     if (!(root instanceof Node)) return;
     const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
-    const textNodes = [];
+    const replacements = [];
 
     for (let node = walker.nextNode(); node; node = walker.nextNode()) {
       if (!(node instanceof Text)) continue;
@@ -22,16 +22,16 @@
       if (!parent) continue;
       if (parent.closest(".tf-style")) continue;
       if (parent.closest("script, style, noscript, textarea, option")) continue;
-      textNodes.push(node);
+      const original = node.nodeValue;
+      const next = withTimeflowWordmark(original);
+      if (next !== original) replacements.push({ node, html: next });
     }
 
-    for (const textNode of textNodes) {
-      const original = textNode.nodeValue || "";
-      const next = withTimeflowWordmark(original);
-      if (next === original) continue;
-      const range = document.createRange();
-      range.selectNode(textNode);
-      textNode.replaceWith(range.createContextualFragment(next));
+    // Batch all DOM writes in one pass — avoids repeated layout recalc
+    for (const { node, html } of replacements) {
+      const tpl = document.createElement("template");
+      tpl.innerHTML = html;
+      node.replaceWith(tpl.content);
     }
   };
 
@@ -701,7 +701,8 @@
       }
     });
   }
-  wrapTimeflowTextNodes(document.body);
+  // Defer DOM mutation to idle time — nie blokuje LCP
+  (window.requestIdleCallback || requestAnimationFrame)(() => wrapTimeflowTextNodes(document.body));
 
   // --- GA4 event tracking ---
   const ga = (...args) => { if (typeof gtag === "function") gtag(...args); };

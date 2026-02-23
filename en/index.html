@@ -27,10 +27,11 @@
     content="Lightweight desktop time tracker for freelancers. Automatic tracking, sessions, analytics and local AI — no internet required. TIMEFLOW beta is looking for testers." />
   <meta name="twitter:image" content="https://conceptfab.com/timeflow/screens/dashboard-main_wynik.webp" />
   <title>TIMEFLOW | Desktop time tracker for freelancers (beta)</title>
+  <link rel="preload" as="image" type="image/webp" href="../screens/dashboard-main_wynik.webp" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700;800&display=swap"
-    rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700;800&display=swap" /></noscript>
   <link rel="icon" type="image/x-icon" href="../icons/icon.ico" />
   <link rel="shortcut icon" type="image/x-icon" href="../icons/icon.ico" />
   <link rel="icon" type="image/png" sizes="16x16" href="../icons/favicon-16x16.png" />
@@ -39,7 +40,7 @@
   <link rel="icon" type="image/png" sizes="128x128" href="../icons/favicon-128.png" />
   <link rel="icon" type="image/png" sizes="196x196" href="../icons/favicon-196x196.png" />
   <link rel="apple-touch-icon" sizes="152x152" href="../icons/apple-touch-icon-152x152.png" />
-  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="../styles.min.css" />
   <noscript>
     <style>
       [data-reveal] { opacity: 1 !important; transform: none !important; }
@@ -154,7 +155,7 @@
         <div class="hero-glow hero-glow-b" aria-hidden="true"></div>
         <div class="hero-glow hero-glow-c" aria-hidden="true"></div>
 
-        <div class="hero-copy" data-reveal>
+        <div class="hero-copy">
           <p class="eyebrow">
             Desktop time tracker for freelancers — <strong>you focus on the work, we keep track of time.</strong>
           </p>
@@ -169,7 +170,7 @@
           </p>
         </div>
 
-        <div class="hero-visual hero-showcase" id="demo" data-reveal>
+        <div class="hero-visual hero-showcase" id="demo">
           <div class="showcase-shell" data-hero-slider>
             <div class="showcase-head">
               <div>
@@ -195,8 +196,11 @@
                   </button>
                   <div class="shot-frame ratio-desktop">
                     <img id="heroShotImage" class="shot-image" src="../screens/dashboard-main_wynik.webp"
+                      srcset="../screens/dashboard-main_480.webp 480w, ../screens/dashboard-main_960.webp 960w, ../screens/dashboard-main_wynik.webp 1440w"
+                      sizes="(max-width: 720px) 92vw, (max-width: 1200px) 62vw, 800px"
                       alt="TIMEFLOW Dashboard – daily view with metrics and timeline"
                     loading="eager"
+                    fetchpriority="high"
                     decoding="async"
                     />
                     <div class="shot-fallback mock-ui mock-dashboard">
@@ -265,6 +269,8 @@
                   </figcaption>
                   <div class="shot-frame ratio-thumb">
                     <img class="shot-image" src="../screens/dashboard-main_wynik.webp"
+                      srcset="../screens/dashboard-main_480.webp 480w, ../screens/dashboard-main_960.webp 960w, ../screens/dashboard-main_wynik.webp 1440w"
+                      sizes="(max-width: 720px) 28vw, 180px"
                       alt="TIMEFLOW Dashboard – daily view with metrics and timeline"
                     loading="lazy"
                     decoding="async"
@@ -283,6 +289,8 @@
                   </figcaption>
                   <div class="shot-frame ratio-thumb">
                     <img class="shot-image" src="../screens/projects_wynik.webp"
+                      srcset="../screens/projects_480.webp 480w, ../screens/projects_960.webp 960w, ../screens/projects_wynik.webp 1440w"
+                      sizes="(max-width: 720px) 28vw, 180px"
                       alt="TIMEFLOW Projects – project folders and auto-detection"
                     loading="lazy"
                     decoding="async"
@@ -312,6 +320,8 @@
                   </figcaption>
                   <div class="shot-frame ratio-thumb">
                     <img class="shot-image" src="../screens/sessions_wynik.webp"
+                      srcset="../screens/sessions_480.webp 480w, ../screens/sessions_960.webp 960w, ../screens/sessions_wynik.webp 1440w"
+                      sizes="(max-width: 720px) 28vw, 180px"
                       alt="TIMEFLOW Sessions – grouped sessions with AI assignments"
                     loading="lazy"
                     decoding="async"
@@ -349,6 +359,8 @@
                   </figcaption>
                   <div class="shot-frame ratio-thumb">
                     <img class="shot-image" src="../screens/analysis_wynik.webp"
+                      srcset="../screens/analysis_480.webp 480w, ../screens/analysis_960.webp 960w, ../screens/analysis_wynik.webp 1440w"
+                      sizes="(max-width: 720px) 28vw, 180px"
                       alt="TIMEFLOW Time Analysis – heatmap and work time charts"
                     loading="lazy"
                     decoding="async"
@@ -385,6 +397,8 @@
                   </figcaption>
                   <div class="shot-frame ratio-thumb">
                     <img class="shot-image" src="../screens/estimates_wynik.webp"
+                      srcset="../screens/estimates_480.webp 480w, ../screens/estimates_960.webp 960w, ../screens/estimates_wynik.webp 1440w"
+                      sizes="(max-width: 720px) 28vw, 180px"
                       alt="TIMEFLOW Estimates – freelancer work value estimates"
                     loading="lazy"
                     decoding="async"
@@ -412,6 +426,8 @@
                   </figcaption>
                   <div class="shot-frame ratio-thumb">
                     <img class="shot-image" src="../screens/ai-model_wynik.webp"
+                      srcset="../screens/ai-model_480.webp 480w, ../screens/ai-model_960.webp 960w, ../screens/ai-model_wynik.webp 1440w"
+                      sizes="(max-width: 720px) 28vw, 180px"
                       alt="TIMEFLOW AI Model – assignment suggestions and auto_safe mode"
                     loading="lazy"
                     decoding="async"
@@ -440,7 +456,7 @@
           </div>
         </div>
 
-        <div class="hero-tail" data-reveal>
+        <div class="hero-tail">
           <div class="hero-meta-row">
             <div class="hero-rotator" aria-live="polite">
               <span class="rotator-label">Works best for:</span>
@@ -1152,8 +1168,8 @@
     </footer>
   </div>
 
-  <script src="../consent.js"></script>
-  <script src="./script.js"></script>
+  <script src="../consent.min.js"></script>
+  <script src="./script.min.js"></script>
 </body>
 
 </html>

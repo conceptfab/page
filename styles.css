@@ -42,15 +42,23 @@
 
 html {
   scroll-behavior: smooth;
-  /* Globalny gradient przypięty do viewport — widoczny pod WSZYSTKIMI sekcjami */
+  background: var(--bg);
+}
+
+/* Gradient na osobnej warstwie GPU — brak repaintu przy scrollu */
+html::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  will-change: transform;
   background:
     radial-gradient(ellipse 1400px 1000px at 5% 5%, rgba(57, 211, 255, 0.28), transparent 50%),
     radial-gradient(ellipse 1200px 900px at 95% 3%, rgba(255, 79, 210, 0.22), transparent 48%),
     radial-gradient(ellipse 1100px 800px at 50% 55%, rgba(138, 92, 255, 0.18), transparent 50%),
     radial-gradient(ellipse 1600px 700px at 25% 85%, rgba(255, 79, 210, 0.14), transparent 45%),
-    radial-gradient(ellipse 800px 600px at 80% 70%, rgba(57, 211, 255, 0.12), transparent 50%),
-    var(--bg);
-  background-attachment: fixed;
+    radial-gradient(ellipse 800px 600px at 80% 70%, rgba(57, 211, 255, 0.12), transparent 50%);
 }
 
 body {

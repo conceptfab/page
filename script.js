@@ -13,7 +13,7 @@
   const wrapTimeflowTextNodes = (root) => {
     if (!(root instanceof Node)) return;
     const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
-    const textNodes = [];
+    const replacements = [];
 
     for (let node = walker.nextNode(); node; node = walker.nextNode()) {
       if (!(node instanceof Text)) continue;
@@ -22,16 +22,16 @@
       if (!parent) continue;
       if (parent.closest(".tf-style")) continue;
       if (parent.closest("script, style, noscript, textarea, option")) continue;
-      textNodes.push(node);
+      const original = node.nodeValue;
+      const next = withTimeflowWordmark(original);
+      if (next !== original) replacements.push({ node, html: next });
     }
 
-    for (const textNode of textNodes) {
-      const original = textNode.nodeValue || "";
-      const next = withTimeflowWordmark(original);
-      if (next === original) continue;
-      const range = document.createRange();
-      range.selectNode(textNode);
-      textNode.replaceWith(range.createContextualFragment(next));
+    // Batch all DOM writes in one pass — avoids repeated layout recalc
+    for (const { node, html } of replacements) {
+      const tpl = document.createElement("template");
+      tpl.innerHTML = html;
+      node.replaceWith(tpl.content);
     }
   };
 
@@ -256,6 +256,7 @@
         label: labelEl ? labelEl.textContent.trim() : "",
         meta: metaEl ? metaEl.textContent.trim() : "",
         src: imgEl instanceof HTMLImageElement ? imgEl.getAttribute("src") || "" : "",
+        srcset: imgEl instanceof HTMLImageElement ? imgEl.getAttribute("srcset") || "" : "",
         alt: imgEl instanceof HTMLImageElement ? imgEl.getAttribute("alt") || "" : "",
       };
     };
@@ -349,9 +350,16 @@
         heroShotCaptionMeta.textContent = slide.meta || "";
 
         const currentSrc = heroShotImage.getAttribute("src") || "";
-        if (currentSrc !== slide.src) {
+        const currentSrcset = heroShotImage.getAttribute("srcset") || "";
+
+        if (currentSrc !== slide.src || currentSrcset !== slide.srcset) {
           heroSliderStage.classList.remove("is-loaded", "is-missing");
           heroShotImage.setAttribute("src", slide.src);
+          if (slide.srcset) {
+            heroShotImage.setAttribute("srcset", slide.srcset);
+          } else {
+            heroShotImage.removeAttribute("srcset");
+          }
         }
 
         heroShotImage.setAttribute("alt", slide.alt || slide.label || "Zrzut ekranu TIMEFLOW");
@@ -381,9 +389,16 @@
 
         if (imgEl instanceof HTMLImageElement) {
           const currentSrc = imgEl.getAttribute("src") || "";
-          if (currentSrc !== slide.src) {
+          const currentSrcset = imgEl.getAttribute("srcset") || "";
+
+          if (currentSrc !== slide.src || currentSrcset !== slide.srcset) {
             card.classList.remove("is-loaded", "is-missing");
             imgEl.setAttribute("src", slide.src);
+            if (slide.srcset) {
+              imgEl.setAttribute("srcset", slide.srcset);
+            } else {
+              imgEl.removeAttribute("srcset");
+            }
           }
 
           imgEl.setAttribute("alt", slide.alt || slide.label || "Zrzut ekranu TIMEFLOW");
@@ -722,7 +737,8 @@
       }
     });
   }
-  wrapTimeflowTextNodes(document.body);
+  // Defer DOM mutation to idle time — nie blokuje LCP
+  (window.requestIdleCallback || requestAnimationFrame)(() => wrapTimeflowTextNodes(document.body));
 
   // --- GA4 event tracking ---
   const ga = (...args) => { if (typeof gtag === "function") gtag(...args); };
