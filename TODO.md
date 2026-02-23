@@ -1,0 +1,1 @@
+strzałki i auto przesuwanie slidera
