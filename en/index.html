@@ -35,7 +35,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="icon" type="image/x-icon" href="../icons/icon.ico" />
@@ -120,7 +120,6 @@
     <div class="site-shell">
       <header class="topbar">
         <a class="brand" href="#start" aria-label="TIMEFLOW - home">
-          <span class="brand-mark" aria-hidden="true"></span>
           <span class="brand-name">TIMEFLOW</span>
           <span class="brand-beta">Beta</span>
         </a>
@@ -225,6 +224,24 @@
                       </div>
                       <div class="mini-hint">Dashboard demo view</div>
                     </div>
+                    <button
+                      class="showcase-nav-btn showcase-nav-btn-overlay showcase-nav-btn-overlay-prev"
+                      type="button"
+                      data-hero-slider-prev
+                      aria-label="Previous view"
+                      title="Previous view"
+                    >
+                      <span aria-hidden="true">‹</span>
+                    </button>
+                    <button
+                      class="showcase-nav-btn showcase-nav-btn-overlay showcase-nav-btn-overlay-next"
+                      type="button"
+                      data-hero-slider-next
+                      aria-label="Next view"
+                      title="Next view"
+                    >
+                      <span aria-hidden="true">›</span>
+                    </button>
                   </div>
                   <p class="showcase-note showcase-note-overlay" id="showcaseNote">
                     The main view shows your work dashboard. Below are the key modules that build
@@ -232,8 +249,12 @@
                   </p>
                 </figure>
 
-                <div class="showcase-slider-dots-row" aria-label="Screen slider controls">
-                  <div class="showcase-slider-dots" data-hero-slider-dots aria-label="Select screen"></div>
+                <div class="showcase-slider-toolbar" aria-label="Screen slider controls">
+                  <div class="showcase-slider-controls">
+                    <div class="showcase-slider-dots-row">
+                      <div class="showcase-slider-dots" data-hero-slider-dots aria-label="Select screen"></div>
+                    </div>
+                  </div>
                 </div>
 
                 <div class="shot-rail">
@@ -1135,7 +1156,6 @@
       <footer class="footer">
         <div class="footer-main">
           <div class="footer-brand">
-            <span class="brand-mark" aria-hidden="true"></span>
             <div>
               <strong>TIMEFLOW</strong>
               <p>Time tracking for freelancers • beta</p>

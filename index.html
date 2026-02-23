@@ -35,7 +35,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="icon" type="image/x-icon" href="./icons/icon.ico" />
@@ -238,6 +238,24 @@
                       </div>
                       <div class="mini-hint">Widok demonstracyjny dashboardu</div>
                     </div>
+                    <button
+                      class="showcase-nav-btn showcase-nav-btn-overlay showcase-nav-btn-overlay-prev"
+                      type="button"
+                      data-hero-slider-prev
+                      aria-label="Poprzedni widok"
+                      title="Poprzedni widok"
+                    >
+                      <span aria-hidden="true">‹</span>
+                    </button>
+                    <button
+                      class="showcase-nav-btn showcase-nav-btn-overlay showcase-nav-btn-overlay-next"
+                      type="button"
+                      data-hero-slider-next
+                      aria-label="Następny widok"
+                      title="Następny widok"
+                    >
+                      <span aria-hidden="true">›</span>
+                    </button>
                   </div>
                   <p class="showcase-note showcase-note-overlay" id="showcaseNote">
                     Główny widok pokazuje dashboard pracy. Poniżej najważniejsze moduły, które budują
@@ -245,8 +263,12 @@
                   </p>
                 </figure>
 
-                <div class="showcase-slider-dots-row" aria-label="Sterowanie sliderem screenów">
-                  <div class="showcase-slider-dots" data-hero-slider-dots aria-label="Wybierz screen"></div>
+                <div class="showcase-slider-toolbar" aria-label="Sterowanie sliderem screenów">
+                  <div class="showcase-slider-controls">
+                    <div class="showcase-slider-dots-row">
+                      <div class="showcase-slider-dots" data-hero-slider-dots aria-label="Wybierz screen"></div>
+                    </div>
+                  </div>
                 </div>
 
                 <div class="shot-rail">
