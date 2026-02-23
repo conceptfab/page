@@ -1,144 +1,195 @@
 <!doctype html>
 <html lang="pl">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="noindex,follow" />
-    <title>TIMEFLOW | Polityka prywatności</title>
-    <style>
-      :root {
-        color-scheme: dark;
-        --bg: #0b0f13;
-        --panel: #111821;
-        --ink: #eef4fb;
-        --muted: #a5b1c1;
-        --line: rgba(255, 255, 255, 0.1);
-        --accent: #4bc8ff;
-      }
-      * { box-sizing: border-box; }
-      body {
-        margin: 0;
-        font: 16px/1.55 Inter, system-ui, sans-serif;
-        background: radial-gradient(900px 400px at 10% -10%, rgba(75, 200, 255, 0.12), transparent 70%), var(--bg);
-        color: var(--ink);
-      }
-      .wrap {
-        width: min(880px, calc(100% - 2rem));
-        margin: 2rem auto;
-        padding: 1.1rem;
-        border: 1px solid var(--line);
-        border-radius: 16px;
-        background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01)), var(--panel);
-      }
-      h1, h2 { line-height: 1.08; letter-spacing: -0.02em; margin: 0; }
-      h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); margin-bottom: 0.5rem; }
-      h2 { font-size: 1.05rem; margin-top: 1.2rem; margin-bottom: 0.35rem; }
-      p, li { color: var(--muted); }
-      ul { margin: 0.35rem 0 0; padding-left: 1.05rem; }
-      .meta { margin: 0 0 0.6rem; font-size: 0.95rem; color: var(--muted); }
-      .note {
-        margin: 0.8rem 0 0.6rem;
-        padding: 0.75rem 0.85rem;
-        border-radius: 12px;
-        border: 1px solid rgba(255, 194, 102, 0.25);
-        background: rgba(255, 194, 102, 0.06);
-        color: #ffd89c;
-      }
-      a { color: var(--accent); }
-      a:hover, a:focus-visible { color: #8fe1ff; }
-      .back { display: inline-flex; margin-top: 1rem; }
-      code {
-        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-        background: rgba(255,255,255,0.05);
-        border: 1px solid var(--line);
-        padding: 0.08rem 0.35rem;
-        border-radius: 6px;
-        color: var(--ink);
-      }
-    </style>
-  </head>
-  <body>
-    <main class="wrap">
-      <h1>Polityka prywatności TIMEFLOW</h1>
-      <p class="meta">Data aktualizacji: 23 lutego 2026</p>
 
-      <p class="note">
-        To wersja robocza przygotowana do wdrożenia linku RODO na landing page. Przed publikacją
-        uzupełnij pełne dane administratora (nazwa firmy, adres, kontakt) i zweryfikuj dokument
-        z prawnikiem / inspektorem ochrony danych.
-      </p>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,follow" />
+  <title>TIMEFLOW | Polityka prywatności</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b0f13;
+      --panel: #111821;
+      --ink: #eef4fb;
+      --muted: #a5b1c1;
+      --line: rgba(255, 255, 255, 0.1);
+      --accent: #4bc8ff;
+    }
 
-      <h2>1. Administrator danych</h2>
-      <p>
-        Administratorem danych osobowych jest <strong>CONCEPTFAB</strong> (właściciel projektu
-        TIMEFLOW).
-      </p>
-      <ul>
-        <li>Nazwa / forma prawna: <code>[UZUPEŁNIJ]</code></li>
-        <li>Adres: <code>[UZUPEŁNIJ]</code></li>
-        <li>E-mail kontaktowy: <code>[UZUPEŁNIJ]</code></li>
-      </ul>
+    * {
+      box-sizing: border-box;
+    }
 
-      <h2>2. Jakie dane zbieramy</h2>
-      <p>W formularzu zgłoszenia do testów beta możemy zbierać:</p>
-      <ul>
-        <li>imię / nick,</li>
-        <li>adres e-mail,</li>
-        <li>branżę / rolę zawodową,</li>
-        <li>opis potrzeb i workflow (jeśli wpiszesz go dobrowolnie),</li>
-        <li>dane techniczne związane z wysłaniem formularza (np. data zgłoszenia, logi serwera).</li>
-      </ul>
+    body {
+      margin: 0;
+      font: 16px/1.55 Inter, system-ui, sans-serif;
+      background: radial-gradient(900px 400px at 10% -10%, rgba(75, 200, 255, 0.12), transparent 70%), var(--bg);
+      color: var(--ink);
+    }
 
-      <h2>3. Cel i podstawa przetwarzania</h2>
-      <ul>
-        <li>obsługa zgłoszenia do testów beta i kontakt w sprawie dostępu do TIMEFLOW,</li>
-        <li>organizacja i priorytetyzacja testów beta,</li>
-        <li>obrona przed nadużyciami i spamem (uzasadniony interes administratora).</li>
-      </ul>
-      <p>
-        Podstawą przetwarzania jest zgoda użytkownika (art. 6 ust. 1 lit. a RODO) oraz uzasadniony
-        interes administratora (art. 6 ust. 1 lit. f RODO) w zakresie bezpieczeństwa formularza.
-      </p>
+    .wrap {
+      width: min(880px, calc(100% - 2rem));
+      margin: 2rem auto;
+      padding: 1.1rem;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0.01)), var(--panel);
+    }
 
-      <h2>4. Jak długo przechowujemy dane</h2>
-      <p>
-        Dane z formularza przechowujemy przez czas potrzebny do obsługi testów beta oraz kontaktu w
-        sprawie zgłoszenia, nie dłużej niż <code>[UZUPEŁNIJ np. 12 miesięcy]</code>, chyba że
-        wcześniej wycofasz zgodę.
-      </p>
+    h1,
+    h2 {
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
 
-      <h2>5. Odbiorcy danych</h2>
-      <p>
-        Dane mogą być przetwarzane przez podmioty wspierające hosting formularza i utrzymanie strony
-        (np. serwer / hosting), wyłącznie na podstawie odpowiednich umów i w zakresie niezbędnym do
-        działania usługi.
-      </p>
+    h1 {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      margin-bottom: 0.5rem;
+    }
 
-      <h2>6. Twoje prawa</h2>
-      <p>Masz prawo do:</p>
-      <ul>
-        <li>dostępu do danych,</li>
-        <li>sprostowania danych,</li>
-        <li>usunięcia danych,</li>
-        <li>ograniczenia przetwarzania,</li>
-        <li>przenoszenia danych,</li>
-        <li>wycofania zgody w dowolnym momencie (bez wpływu na zgodność wcześniejszego przetwarzania),</li>
-        <li>wniesienia skargi do Prezesa UODO.</li>
-      </ul>
+    h2 {
+      font-size: 1.05rem;
+      margin-top: 1.2rem;
+      margin-bottom: 0.35rem;
+    }
 
-      <h2>7. Dobrowolność podania danych</h2>
-      <p>
-        Podanie danych jest dobrowolne, ale brak imienia/nicku, adresu e-mail, branży lub zgody na
-        kontakt uniemożliwi obsługę zgłoszenia do testów beta.
-      </p>
+    p,
+    li {
+      color: var(--muted);
+    }
 
-      <h2>8. Kontakt w sprawach prywatności</h2>
-      <p>
-        W sprawach dotyczących danych osobowych skontaktuj się z administratorem przez adres e-mail:
-        <code>[UZUPEŁNIJ]</code>.
-      </p>
+    ul {
+      margin: 0.35rem 0 0;
+      padding-left: 1.05rem;
+    }
 
-      <a class="back" href="./">← Wróć do strony TIMEFLOW</a>
-    </main>
-  </body>
+    .meta {
+      margin: 0 0 0.6rem;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .note {
+      margin: 0.8rem 0 0.6rem;
+      padding: 0.75rem 0.85rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 194, 102, 0.25);
+      background: rgba(255, 194, 102, 0.06);
+      color: #ffd89c;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    a:hover,
+    a:focus-visible {
+      color: #8fe1ff;
+    }
+
+    .back {
+      display: inline-flex;
+      margin-top: 1rem;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--line);
+      padding: 0.08rem 0.35rem;
+      border-radius: 6px;
+      color: var(--ink);
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <h1>Polityka prywatności TIMEFLOW</h1>
+    <p class="meta">Data aktualizacji: 23 lutego 2026</p>
+
+    <h2>1. Administrator danych</h2>
+    <p>
+      Administratorem danych osobowych jest <strong>CONCEPTFAB</strong> (właściciel projektu
+      TIMEFLOW).
+    </p>
+    <ul>
+      <li>CONCEPTFAB</li>
+      <li>Adres: <code>Marco Polo 2/21, 02-776 Warszawa, Polska</code></li>
+      <li>E-mail kontaktowy: <code>michal@conceptfab.com</code></li>
+    </ul>
+
+    <h2>2. Jakie dane zbieramy</h2>
+    <p>W formularzu zgłoszenia do testów beta możemy zbierać:</p>
+    <ul>
+      <li>imię / nick,</li>
+      <li>adres e-mail,</li>
+      <li>branżę / rolę zawodową,</li>
+      <li>opis potrzeb i workflow (jeśli wpiszesz go dobrowolnie),</li>
+      <li>dane techniczne związane z wysłaniem formularza (np. data zgłoszenia, logi serwera).</li>
+    </ul>
+
+    <h2>3. Cel i podstawa przetwarzania</h2>
+    <ul>
+      <li>obsługa zgłoszenia do testów beta i kontakt w sprawie dostępu do TIMEFLOW,</li>
+      <li>organizacja i priorytetyzacja testów beta,</li>
+      <li>obrona przed nadużyciami i spamem (uzasadniony interes administratora).</li>
+    </ul>
+    <p>
+      Podstawą przetwarzania jest zgoda użytkownika (art. 6 ust. 1 lit. a RODO) oraz uzasadniony
+      interes administratora (art. 6 ust. 1 lit. f RODO) w zakresie bezpieczeństwa formularza.
+    </p>
+
+    <h2>4. Jak długo przechowujemy dane</h2>
+    <p>
+      Dane z formularza przechowujemy przez czas potrzebny do obsługi testów beta oraz kontaktu w
+      sprawie zgłoszenia, nie dłużej niż <strong>24 miesiące</strong>, chyba że
+      wcześniej wycofasz zgodę.
+    </p>
+
+    <h2>5. Odbiorcy danych</h2>
+    <p>
+      Dane mogą być przetwarzane przez podmioty wspierające hosting formularza i utrzymanie strony
+      (np. serwer / hosting), wyłącznie na podstawie odpowiednich umów i w zakresie niezbędnym do
+      działania usługi.
+    </p>
+
+    <h2>6. Twoje prawa</h2>
+    <p>Masz prawo do:</p>
+    <ul>
+      <li>dostępu do danych,</li>
+      <li>sprostowania danych,</li>
+      <li>usunięcia danych,</li>
+      <li>ograniczenia przetwarzania,</li>
+      <li>przenoszenia danych,</li>
+      <li>wycofania zgody w dowolnym momencie (bez wpływu na zgodność wcześniejszego przetwarzania),</li>
+      <li>wniesienia skargi do Prezesa UODO.</li>
+    </ul>
+
+    <h2>7. Dobrowolność podania danych</h2>
+    <p>
+      Podanie danych jest dobrowolne, ale brak imienia/nicku, adresu e-mail, branży lub zgody na
+      kontakt uniemożliwi obsługę zgłoszenia do testów beta.
+    </p>
+
+    <h2>8. Pliki cookie i analityka</h2>
+    <p>
+      Strona korzysta z Google Analytics 4 z włączonym trybem zgody (Consent Mode v2).
+      Skrypty analityczne uruchamiają się dopiero po wyrażeniu zgody za pomocą bannera cookie.
+      Jeśli odmówisz zgody, żadne pliki cookie analityczne nie będą zapisywane.
+      Strona ładuje czcionki z usługi Google Fonts.
+    </p>
+
+    <h2>9. Kontakt w sprawach prywatności</h2>
+    <p>
+      W sprawach dotyczących danych osobowych skontaktuj się z administratorem przez adres e-mail:
+      <code>michal@conceptfab.com</code>.
+    </p>
+
+    <a class="back" href="./">← Wróć do strony TIMEFLOW</a>
+  </main>
+</body>
+
 </html>

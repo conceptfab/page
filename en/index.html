@@ -19,7 +19,7 @@
       property="og:description"
       content="Automatic time tracking, daily sessions, analytics and local AI — no internet required. TIMEFLOW is in beta and looking for freelancers to test with."
     />
-    <meta property="og:image" content="https://conceptfab.com/timeflow/screens/dashboard-main.png" />
+    <meta property="og:image" content="https://conceptfab.com/timeflow/screens/dashboard-main_wynik.webp" />
     <meta property="og:image:alt" content="TIMEFLOW dashboard screenshot" />
     <meta property="og:image:width" content="2875" />
     <meta property="og:image:height" content="1743" />
@@ -30,7 +30,7 @@
       name="twitter:description"
       content="Lightweight desktop time tracker for freelancers. Automatic tracking, sessions, analytics and local AI — no internet required. TIMEFLOW beta is looking for testers."
     />
-    <meta name="twitter:image" content="https://conceptfab.com/timeflow/screens/dashboard-main.png" />
+    <meta name="twitter:image" content="https://conceptfab.com/timeflow/screens/dashboard-main_wynik.webp" />
     <title>TIMEFLOW | Desktop time tracker for freelancers (beta)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -124,7 +124,20 @@
           <span class="brand-beta">Beta</span>
         </a>
 
-        <nav class="topnav" aria-label="Navigation">
+        <button
+          class="topbar-menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="topbar-nav"
+          aria-label="Open menu"
+          data-menu-toggle
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
+
+        <nav class="topnav" id="topbar-nav" aria-label="Navigation">
           <a href="#features">Features</a>
           <a href="#stack">Stack</a>
           <a href="#workflow">How it works</a>
@@ -1177,6 +1190,7 @@
       </footer>
     </div>
 
+    <script src="../consent.js"></script>
     <script src="./script.js"></script>
   </body>
 </html>

@@ -104,8 +104,68 @@
     const syncTopbarScrollState = () => {
       topbar.classList.toggle("is-scrolled", window.scrollY > 12);
     };
+
     syncTopbarScrollState();
     window.addEventListener("scroll", syncTopbarScrollState, { passive: true });
+  }
+
+  const menuToggle = document.querySelector("[data-menu-toggle]");
+  const topnav = document.querySelector(".topnav");
+  if (
+    topbar instanceof HTMLElement &&
+    menuToggle instanceof HTMLButtonElement &&
+    topnav instanceof HTMLElement
+  ) {
+    const mobileMenuQuery = window.matchMedia("(max-width: 960px)");
+    let isMenuOpen = false;
+
+    const syncMenuReadyState = () => {
+      topbar.classList.toggle("has-mobile-menu", mobileMenuQuery.matches);
+      if (!mobileMenuQuery.matches && isMenuOpen) {
+        setMenuOpen(false);
+      }
+    };
+
+    const setMenuOpen = (nextOpen) => {
+      isMenuOpen = Boolean(nextOpen);
+      topbar.classList.toggle("is-menu-open", isMenuOpen);
+      menuToggle.setAttribute("aria-expanded", String(isMenuOpen));
+      menuToggle.setAttribute("aria-label", isMenuOpen ? "Close menu" : "Open menu");
+    };
+
+    menuToggle.addEventListener("click", () => {
+      if (!mobileMenuQuery.matches) return;
+      setMenuOpen(!isMenuOpen);
+    });
+
+    topnav.addEventListener("click", (event) => {
+      if (!mobileMenuQuery.matches) return;
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      if (!target.closest("a")) return;
+      setMenuOpen(false);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape" || !isMenuOpen) return;
+      setMenuOpen(false);
+      menuToggle.focus();
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!mobileMenuQuery.matches || !isMenuOpen) return;
+      const target = event.target;
+      if (!(target instanceof Node)) return;
+      if (topbar.contains(target)) return;
+      setMenuOpen(false);
+    });
+
+    syncMenuReadyState();
+    if (typeof mobileMenuQuery.addEventListener === "function") {
+      mobileMenuQuery.addEventListener("change", syncMenuReadyState);
+    } else if (typeof mobileMenuQuery.addListener === "function") {
+      mobileMenuQuery.addListener(syncMenuReadyState);
+    }
   }
 
   const revealEls = Array.from(document.querySelectorAll("[data-reveal]"));

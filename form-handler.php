@@ -177,19 +177,43 @@ function maybe_send_email(array $payload): string
     return $sent ? 'sent' : 'failed';
 }
 
+// --- i18n: detect language from source field ---
+$sourceLangRaw = str_field('source', 120);
+$isEnglish = str_contains($sourceLangRaw, '_en');
+
+$messages = $isEnglish ? [
+    'method'  => 'Method not allowed. Use POST.',
+    'honeypot'=> 'Thank you. Your application has been saved.',
+    'name'    => 'Please enter your name or handle (min. 2 characters).',
+    'email'   => 'Please enter a valid email address.',
+    'role'    => 'Please choose your industry.',
+    'consent' => 'Please confirm consent to contact you about beta testing.',
+    'storage' => 'Failed to save the application. Check storage directory permissions on the PHP host.',
+    'success' => 'Thank you. Your application has been saved. We will get back to you when the next beta builds are ready.',
+] : [
+    'method'  => 'Metoda niedozwolona. Użyj POST.',
+    'honeypot'=> 'Dziękujemy. Zgłoszenie zostało zapisane.',
+    'name'    => 'Podaj imię lub nick (min. 2 znaki).',
+    'email'   => 'Podaj poprawny adres e-mail.',
+    'role'    => 'Wybierz branżę.',
+    'consent' => 'Zaznacz zgodę na kontakt w sprawie testów beta.',
+    'storage' => 'Nie udało się zapisać zgłoszenia. Sprawdź uprawnienia katalogu storage na hostingu PHP.',
+    'success' => 'Dziękujemy. Zgłoszenie zostało zapisane. Skontaktujemy się po przygotowaniu kolejnych buildów beta.',
+];
+
 if (($_SERVER['REQUEST_METHOD'] ?? 'GET') !== 'POST') {
     respond(405, [
         'ok' => false,
-        'message' => 'Metoda niedozwolona. Użyj POST.',
+        'message' => $messages['method'],
     ]);
 }
 
 $website = str_field('website', 255);
 if ($website !== '') {
-    // Honeypot hit: udaj sukces, żeby nie dawać sygnału botom.
+    // Honeypot hit: pretend success so bots don't get a signal.
     respond(200, [
         'ok' => true,
-        'message' => 'Dziękujemy. Zgłoszenie zostało zapisane.',
+        'message' => $messages['honeypot'],
     ]);
 }
 
@@ -197,24 +221,24 @@ $name = str_field('name', 120);
 $email = str_field('email', 190);
 $role = str_field('role', 120);
 $needs = str_field('needs', 4000);
-$source = str_field('source', 120);
+$source = $sourceLangRaw;
 $submittedAtIso = str_field('submitted_at_iso', 64);
 $consent = bool_field('consent');
 
 if ($name === '' || strlen($name) < 2) {
-    respond(422, ['ok' => false, 'message' => 'Podaj imię lub nick (min. 2 znaki).']);
+    respond(422, ['ok' => false, 'message' => $messages['name']]);
 }
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    respond(422, ['ok' => false, 'message' => 'Podaj poprawny adres e-mail.']);
+    respond(422, ['ok' => false, 'message' => $messages['email']]);
 }
 
 if ($role === '') {
-    respond(422, ['ok' => false, 'message' => 'Wybierz branżę.']);
+    respond(422, ['ok' => false, 'message' => $messages['role']]);
 }
 
 if (!$consent) {
-    respond(422, ['ok' => false, 'message' => 'Zaznacz zgodę na kontakt w sprawie testów beta.']);
+    respond(422, ['ok' => false, 'message' => $messages['consent']]);
 }
 
 $createdAt = gmdate('c');
@@ -262,13 +286,13 @@ try {
 } catch (Throwable $e) {
     respond(500, [
         'ok' => false,
-        'message' => 'Nie udało się zapisać zgłoszenia. Sprawdź uprawnienia katalogu storage na hostingu PHP.',
+        'message' => $messages['storage'],
         'error' => $e->getMessage(),
     ]);
 }
 
 respond(200, [
     'ok' => true,
-    'message' => 'Dziękujemy. Zgłoszenie zostało zapisane. Skontaktujemy się po przygotowaniu kolejnych buildów beta.',
+    'message' => $messages['success'],
     'mail_status' => $mailStatus ?? 'disabled',
 ]);
