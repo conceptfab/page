@@ -30,8 +30,13 @@
   <link rel="preload" as="image" type="image/webp" href="./screens/dashboard-main_wynik.webp" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700;800&display=swap" /></noscript>
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700;800&display=swap"
+    onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700;800&display=swap" />
+  </noscript>
   <link rel="icon" type="image/x-icon" href="./icons/icon.ico" />
   <link rel="shortcut icon" type="image/x-icon" href="./icons/icon.ico" />
   <link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon-16x16.png" />
@@ -40,10 +45,13 @@
   <link rel="icon" type="image/png" sizes="128x128" href="./icons/favicon-128.png" />
   <link rel="icon" type="image/png" sizes="196x196" href="./icons/favicon-196x196.png" />
   <link rel="apple-touch-icon" sizes="152x152" href="./icons/apple-touch-icon-152x152.png" />
-  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./style.css" />
   <noscript>
     <style>
-      [data-reveal] { opacity: 1 !important; transform: none !important; }
+      [data-reveal] {
+        opacity: 1 !important;
+        transform: none !important;
+      }
     </style>
   </noscript>
   <link rel="canonical" href="https://conceptfab.com/timeflow/" />
@@ -187,23 +195,16 @@
                   <em id="heroShotCaptionMeta">widok główny</em>
                 </figcaption>
                 <div class="hero-stage-frame-wrap">
-                  <button
-                    type="button"
-                    class="showcase-nav-btn showcase-nav-btn-side showcase-nav-btn-prev"
-                    data-hero-slider-prev
-                    aria-label="Poprzedni ekran"
-                  >
+                  <button type="button" class="showcase-nav-btn showcase-nav-btn-side showcase-nav-btn-prev"
+                    data-hero-slider-prev aria-label="Poprzedni ekran">
                     <span aria-hidden="true">&lt;</span>
                   </button>
                   <div class="shot-frame ratio-desktop">
                     <img id="heroShotImage" class="shot-image" src="./screens/dashboard-main_wynik.webp"
                       srcset="./screens/dashboard-main_480.webp 480w, ./screens/dashboard-main_960.webp 960w, ./screens/dashboard-main_wynik.webp 1440w"
                       sizes="(max-width: 720px) 92vw, (max-width: 1200px) 62vw, 800px"
-                      alt="TIMEFLOW Dashboard – widok dzienny z metrykami i timeline"
-                    loading="eager"
-                    fetchpriority="high"
-                    decoding="async"
-                    />
+                      alt="TIMEFLOW Dashboard – widok dzienny z metrykami i timeline" loading="eager"
+                      fetchpriority="high" decoding="async" />
                     <div class="shot-fallback mock-ui mock-dashboard">
                       <div class="mini-toolbar">
                         <span class="mini-pill active">Today</span>
@@ -243,12 +244,8 @@
                       <div class="mini-hint">Widok demonstracyjny dashboardu</div>
                     </div>
                   </div>
-                  <button
-                    type="button"
-                    class="showcase-nav-btn showcase-nav-btn-side showcase-nav-btn-next"
-                    data-hero-slider-next
-                    aria-label="Następny ekran"
-                  >
+                  <button type="button" class="showcase-nav-btn showcase-nav-btn-side showcase-nav-btn-next"
+                    data-hero-slider-next aria-label="Następny ekran">
                     <span aria-hidden="true">&gt;</span>
                   </button>
                 </div>
@@ -272,10 +269,7 @@
                     <img class="shot-image" src="./screens/dashboard-main_wynik.webp"
                       srcset="./screens/dashboard-main_480.webp 480w, ./screens/dashboard-main_960.webp 960w, ./screens/dashboard-main_wynik.webp 1440w"
                       sizes="(max-width: 720px) 28vw, 180px"
-                      alt="TIMEFLOW Dashboard – widok dzienny z metrykami i timeline"
-                    loading="lazy"
-                    decoding="async"
-                    />
+                      alt="TIMEFLOW Dashboard – widok dzienny z metrykami i timeline" loading="lazy" decoding="async" />
                     <div class="shot-fallback mock-ui">
                       <div class="mini-panel-head">Dashboard</div>
                       <div class="mini-hint">Widok demonstracyjny</div>
@@ -292,10 +286,7 @@
                     <img class="shot-image" src="./screens/projects_wynik.webp"
                       srcset="./screens/projects_480.webp 480w, ./screens/projects_960.webp 960w, ./screens/projects_wynik.webp 1440w"
                       sizes="(max-width: 720px) 28vw, 180px"
-                      alt="TIMEFLOW Projects – foldery projektowe i auto-detekcja"
-                    loading="lazy"
-                    decoding="async"
-                    />
+                      alt="TIMEFLOW Projects – foldery projektowe i auto-detekcja" loading="lazy" decoding="async" />
                     <div class="shot-fallback mock-ui">
                       <div class="mini-panel-head">Project folders</div>
                       <div class="mini-folder-list">
@@ -323,10 +314,7 @@
                     <img class="shot-image" src="./screens/sessions_wynik.webp"
                       srcset="./screens/sessions_480.webp 480w, ./screens/sessions_960.webp 960w, ./screens/sessions_wynik.webp 1440w"
                       sizes="(max-width: 720px) 28vw, 180px"
-                      alt="TIMEFLOW Sessions – pogrupowane sesje z przypisaniami AI"
-                    loading="lazy"
-                    decoding="async"
-                    />
+                      alt="TIMEFLOW Sessions – pogrupowane sesje z przypisaniami AI" loading="lazy" decoding="async" />
                     <div class="shot-fallback mock-ui">
                       <div class="mini-panel-head">Grouped sessions</div>
                       <div class="mini-session-list">
@@ -362,10 +350,7 @@
                     <img class="shot-image" src="./screens/analysis_wynik.webp"
                       srcset="./screens/analysis_480.webp 480w, ./screens/analysis_960.webp 960w, ./screens/analysis_wynik.webp 1440w"
                       sizes="(max-width: 720px) 28vw, 180px"
-                      alt="TIMEFLOW Time Analysis – heatmapa i wykresy czasu pracy"
-                    loading="lazy"
-                    decoding="async"
-                    />
+                      alt="TIMEFLOW Time Analysis – heatmapa i wykresy czasu pracy" loading="lazy" decoding="async" />
                     <div class="shot-fallback mock-ui">
                       <div class="mini-panel-head">Charts + heatmap</div>
                       <div class="mini-bars compact">
@@ -400,10 +385,7 @@
                     <img class="shot-image" src="./screens/estimates_wynik.webp"
                       srcset="./screens/estimates_480.webp 480w, ./screens/estimates_960.webp 960w, ./screens/estimates_wynik.webp 1440w"
                       sizes="(max-width: 720px) 28vw, 180px"
-                      alt="TIMEFLOW Estimates – wycena wartości pracy freelancera"
-                    loading="lazy"
-                    decoding="async"
-                    />
+                      alt="TIMEFLOW Estimates – wycena wartości pracy freelancera" loading="lazy" decoding="async" />
                     <div class="shot-fallback mock-ui">
                       <div class="mini-rate-row">
                         <span>Global rate</span>
@@ -429,10 +411,7 @@
                     <img class="shot-image" src="./screens/ai-model_wynik.webp"
                       srcset="./screens/ai-model_480.webp 480w, ./screens/ai-model_960.webp 960w, ./screens/ai-model_wynik.webp 1440w"
                       sizes="(max-width: 720px) 28vw, 180px"
-                      alt="TIMEFLOW AI Model – sugestie przypisań i tryb auto_safe"
-                    loading="lazy"
-                    decoding="async"
-                    />
+                      alt="TIMEFLOW AI Model – sugestie przypisań i tryb auto_safe" loading="lazy" decoding="async" />
                     <div class="shot-fallback mock-ui">
                       <div class="mini-tag-row">
                         <span class="mini-tag active">suggest</span>
