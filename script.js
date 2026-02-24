@@ -323,6 +323,7 @@
     if (slides.length) {
       const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       let activeIndex = 0;
+      let transitionTimer = 0;
       const dotButtons = [];
       const markStageLoaded = () => {
         heroSliderStage.classList.add("is-loaded");
@@ -462,6 +463,13 @@
 
       const heroCopy = document.querySelector(".hero-copy");
 
+      const clearTransition = () => {
+        clearTimeout(transitionTimer);
+        transitionTimer = 0;
+        heroSliderStage.classList.remove("is-transitioning", "is-entering");
+        if (heroCopy) heroCopy.classList.remove("is-copy-transitioning", "is-copy-entering");
+      };
+
       const selectSlide = (index, options = {}) => {
         const shouldScrollThumb = options.scrollThumb !== false;
         const prevIndex = activeIndex;
@@ -471,6 +479,8 @@
 
         const isFirstLoad = options.scrollThumb === false && prevIndex === 0;
         const isSameSlide = prevIndex === activeIndex;
+
+        clearTransition();
 
         if (prefersReducedMotion || isFirstLoad || isSameSlide) {
           updateStageImage(slide);
@@ -483,7 +493,6 @@
         }
 
         heroSliderStage.classList.add("is-transitioning");
-        heroSliderStage.classList.remove("is-entering");
         if (heroCopy) heroCopy.classList.add("is-copy-transitioning");
 
         updateThumbs();
@@ -491,7 +500,8 @@
         updateCounter();
         if (shouldScrollThumb) focusThumbInRail();
 
-        setTimeout(() => {
+        transitionTimer = setTimeout(() => {
+          transitionTimer = 0;
           updateStageImage(slide);
           updateCopy(slide);
 
@@ -564,6 +574,41 @@
           selectSlide(activeIndex + 1);
         }
       });
+
+      // Touch / swipe support on the main stage
+      let touchStartX = 0;
+      let touchStartY = 0;
+      let isSwiping = false;
+
+      heroSliderStage.addEventListener("touchstart", (e) => {
+        if (e.touches.length !== 1) return;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        isSwiping = true;
+      }, { passive: true });
+
+      heroSliderStage.addEventListener("touchmove", (e) => {
+        if (!isSwiping || e.touches.length !== 1) return;
+        const dx = e.touches[0].clientX - touchStartX;
+        const dy = e.touches[0].clientY - touchStartY;
+        // If vertical scroll is dominant, cancel swipe detection
+        if (Math.abs(dy) > Math.abs(dx)) {
+          isSwiping = false;
+        }
+      }, { passive: true });
+
+      heroSliderStage.addEventListener("touchend", (e) => {
+        if (!isSwiping) return;
+        isSwiping = false;
+        const dx = (e.changedTouches[0] || {}).clientX - touchStartX;
+        const threshold = 40;
+        if (Math.abs(dx) < threshold) return;
+        if (dx < 0) {
+          selectSlide(activeIndex + 1);
+        } else {
+          selectSlide(activeIndex - 1);
+        }
+      }, { passive: true });
 
       selectSlide(0, { scrollThumb: false });
     }
