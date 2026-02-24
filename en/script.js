@@ -248,6 +248,7 @@
         label: labelEl ? labelEl.textContent.trim() : "",
         meta: metaEl ? metaEl.textContent.trim() : "",
         src: imgEl instanceof HTMLImageElement ? imgEl.getAttribute("src") || "" : "",
+        srcset: imgEl instanceof HTMLImageElement ? imgEl.getAttribute("srcset") || "" : "",
         alt: imgEl instanceof HTMLImageElement ? imgEl.getAttribute("alt") || "" : "",
       };
     };
@@ -319,6 +320,7 @@
         heroSliderStage.classList.add("is-loaded");
         heroSliderStage.classList.remove("is-missing");
       };
+
       const markStageMissing = () => {
         heroSliderStage.classList.add("is-missing");
         heroSliderStage.classList.remove("is-loaded");
@@ -338,12 +340,22 @@
       const updateStageImage = (slide) => {
         heroShotCaptionLabel.textContent = slide.label || "";
         heroShotCaptionMeta.textContent = slide.meta || "";
+
         const currentSrc = heroShotImage.getAttribute("src") || "";
-        if (currentSrc !== slide.src) {
+        const currentSrcset = heroShotImage.getAttribute("srcset") || "";
+
+        if (currentSrc !== slide.src || currentSrcset !== slide.srcset) {
           heroSliderStage.classList.remove("is-loaded", "is-missing");
           heroShotImage.setAttribute("src", slide.src);
+          if (slide.srcset) {
+            heroShotImage.setAttribute("srcset", slide.srcset);
+          } else {
+            heroShotImage.removeAttribute("srcset");
+          }
         }
+
         heroShotImage.setAttribute("alt", slide.alt || slide.label || "TIMEFLOW screenshot");
+
         if (heroShotImage.complete) {
           if (heroShotImage.naturalWidth > 0 && heroShotImage.naturalHeight > 0) {
             markStageLoaded();
@@ -369,9 +381,16 @@
 
         if (imgEl instanceof HTMLImageElement) {
           const currentSrc = imgEl.getAttribute("src") || "";
-          if (currentSrc !== slide.src) {
+          const currentSrcset = imgEl.getAttribute("srcset") || "";
+
+          if (currentSrc !== slide.src || currentSrcset !== slide.srcset) {
             card.classList.remove("is-loaded", "is-missing");
             imgEl.setAttribute("src", slide.src);
+            if (slide.srcset) {
+              imgEl.setAttribute("srcset", slide.srcset);
+            } else {
+              imgEl.removeAttribute("srcset");
+            }
           }
 
           imgEl.setAttribute("alt", slide.alt || slide.label || "TIMEFLOW screenshot");
@@ -489,13 +508,16 @@
 
       thumbCards.forEach((card, thumbIndex) => {
         if (!(card instanceof HTMLElement)) return;
+
         card.setAttribute("role", "button");
         card.setAttribute("tabindex", "0");
+
         card.addEventListener("click", () => {
           const slideIndex = Number.parseInt(card.dataset.slideIndex || "", 10);
           if (Number.isNaN(slideIndex)) return;
           selectSlide(slideIndex);
         });
+
         card.addEventListener("keydown", (event) => {
           if (event.key !== "Enter" && event.key !== " ") return;
           event.preventDefault();
@@ -519,6 +541,7 @@
       if (heroSliderPrev instanceof HTMLButtonElement) {
         heroSliderPrev.addEventListener("click", () => selectSlide(activeIndex - 1));
       }
+
       if (heroSliderNext instanceof HTMLButtonElement) {
         heroSliderNext.addEventListener("click", () => selectSlide(activeIndex + 1));
       }
