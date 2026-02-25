@@ -635,7 +635,8 @@
             </p>
             <ul>
               <li>auto refresh + file change detection</li>
-              <li>auto-import on startup</li>
+              <li>app aliases and tracking block for selected processes</li>
+              <li>auto-import on startup and automatic data archiving</li>
               <li>import status and archived file count</li>
             </ul>
           </article>
@@ -663,8 +664,9 @@
             </p>
             <ul>
               <li>Project Folders (roots) + browse folder</li>
+              <li>Freezing and auto-freezing of inactive tasks</li>
               <li>Folder Project Candidates + quick Create</li>
-              <li>Detected Projects (e.g. files opened repeatedly)</li>
+              <li>Detected Projects and Exclude (hide projects)</li>
             </ul>
           </article>
 
@@ -677,8 +679,10 @@
             </p>
             <ul>
               <li>project filters + focus from dashboard</li>
-              <li>right-click to assign / unpin</li>
-              <li>file details for app sessions</li>
+              <li>right-click to assign / unpin / notes</li>
+              <li>rate multipliers (x2 and custom)</li>
+              <li>manual session addition (meetings, calls)</li>
+              <li>Detailed (files) vs Compact (sessions) views</li>
             </ul>
           </article>
 
@@ -686,14 +690,14 @@
             <p class="feature-tag">AI &amp; Model</p>
             <h3>AI assignment suggestions + auto_safe mode</h3>
             <p>
-              A local model learns from your corrections — no data sent out, no hardware load.
-              <code>suggest</code> or <code>auto_safe</code> mode, configurable confidence
-              thresholds and rollback of the last batch.
+              Local ML engine (Rust) analyzes app context, time of day, and tokens from file/window names (strongest signal). 
+              Works 100% offline — privacy without external APIs or ChatGPT.
             </p>
             <ul>
-              <li>training status + reminder after corrections</li>
-              <li>accept/reject suggestions in sessions</li>
-              <li>rollback last auto-safe batch</li>
+              <li>Learning Center: model learns from your corrections</li>
+              <li>Modes: Suggest hints and Auto-Safe automation</li>
+              <li>Confidence Policy: Confidence, Evidence, and Margin parameters</li>
+              <li>Training reminder after gathering new knowledge</li>
             </ul>
           </article>
 
@@ -705,9 +709,11 @@
               no configuration needed.
             </p>
             <ul>
-              <li>heatmap day × hour</li>
-              <li>daily/weekly view</li>
-              <li>time distribution + CSV export</li>
+              <li>activity heatmap (hourly and daily)</li>
+              <li>monthly view with week numbers</li>
+              <li>intensity analysis and most effective hours</li>
+              <li>stacked bar charts and project timelines</li>
+              <li>export to CSV for external spreadsheets</li>
             </ul>
           </article>
 
@@ -720,9 +726,10 @@
             </p>
             <ul>
               <li>global hourly rate + project overrides</li>
-              <li>session rate multiplier</li>
-              <li>estimated value per project</li>
-              <li>project count and rate override summary</li>
+              <li>session rate multipliers and manual quotes</li>
+              <li>project profitability analysis (monthly/yearly)</li>
+              <li>estimated value per project + daily earnings</li>
+              <li>time value overview for task groups</li>
             </ul>
           </article>
 
@@ -734,6 +741,8 @@
               preview, snapshot sync online or USB transfer — data always under control.
             </p>
             <ul>
+              <li>ZIP Export of database or selected projects</li>
+              <li>Maintenance: SQLite database cleanup and optimization</li>
               <li>validate import + summary after import</li>
               <li>backup/export all or single project</li>
               <li>startup sync + interval sync + status/ACK</li>
@@ -750,9 +759,9 @@
             </p>
             <ul>
               <li>start / stop / restart daemon</li>
-              <li>logs with auto-refresh</li>
-              <li>autostart + status + PID</li>
-              <li>low system requirements for monitoring</li>
+              <li>logs with auto-refresh and PID status</li>
+              <li>Working Hours and Session Management (Gap Fill) config</li>
+              <li>autostart + low background monitoring requirement</li>
             </ul>
           </article>
         </div>

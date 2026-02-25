@@ -633,7 +633,8 @@
             </p>
             <ul>
               <li>auto refresh + wykrywanie zmian plików</li>
-              <li>auto-import przy starcie</li>
+              <li>aliasy aplikacji i blokowanie śledzenia wybranych procesów</li>
+              <li>auto-import przy starcie i automatyczna archiwizacja danych</li>
               <li>status importu i liczba plików zarchiwizowanych</li>
             </ul>
           </article>
@@ -661,8 +662,9 @@
             </p>
             <ul>
               <li>Project Folders (roots) + browse folder</li>
+              <li>Mrożenie (Freezing) i auto-freezing nieużywanych zadań</li>
               <li>Folder Project Candidates + szybkie Create</li>
-              <li>Detected Projects (np. pliki otwierane wielokrotnie)</li>
+              <li>Detected Projects i Exclude (ukrywanie projektów)</li>
             </ul>
           </article>
 
@@ -675,8 +677,10 @@
             </p>
             <ul>
               <li>filtry projektu + fokus z dashboardu</li>
-              <li>prawy klik do przypisywania / odpinania</li>
-              <li>szczegóły plików dla sesji aplikacji</li>
+              <li>prawy klik do przypisywania / odpinania / notatek</li>
+              <li>mnożniki stawek (Multiplier) x2 i własne</li>
+              <li>manualne dodawanie sesji (spotkania, telefony)</li>
+              <li>widoki Detailed (pliki) vs Compact (sesje)</li>
             </ul>
           </article>
 
@@ -684,14 +688,14 @@
             <p class="feature-tag">AI &amp; Model</p>
             <h3>AI sugestie przypisań + tryb auto_safe</h3>
             <p>
-              Lokalny model uczy się na twoich korektach — bez wysyłania danych na zewnątrz i bez
-              obciążania sprzętu. Tryb <code>suggest</code> albo <code>auto_safe</code>,
-              konfigurowalne progi pewności i rollback ostatniej paczki.
+              Lokalny silnik ML (Rust) analizuje kontekst aplikacji, pory dnia oraz tokeny z nazw plików i okien (najsilniejszy sygnał). 
+              Działa w 100% offline — prywatność bez zewnętrznych API i ChatGPT.
             </p>
             <ul>
-              <li>training status + reminder po korektach</li>
-              <li>accept/reject sugestii w sesjach</li>
-              <li>rollback last auto-safe batch</li>
+              <li>Learning Center: model uczy się na Twoich korektach</li>
+              <li>tryby: Suggest (podpowiedzi) i Auto-Safe (automatyzacja)</li>
+              <li>Confidence Policy: parametry Confidence, Evidence i Margin</li>
+              <li>Training reminder po zebraniu nowej wiedzy</li>
             </ul>
           </article>
 
@@ -703,9 +707,11 @@
               wszystko bez dodatkowej konfiguracji.
             </p>
             <ul>
-              <li>heatmapa dzień × godzina</li>
-              <li>daily/weekly view</li>
-              <li>time distribution + CSV export</li>
+              <li>heatmapa aktywności (godzinowa i dzienna)</li>
+              <li>widok miesięczny z numeracją tygodni</li>
+              <li>analiza intensywności i najefektywniejszych godzin</li>
+              <li>stacked bar charts i timeline projektów</li>
+              <li>eksport do CSV dla zewnętrznych arkuszy</li>
             </ul>
           </article>
 
@@ -718,9 +724,10 @@
             </p>
             <ul>
               <li>global hourly rate + project overrides</li>
-              <li>mnożnik stawki dla wybranej sesji</li>
-              <li>estimated value per project</li>
-              <li>liczba projektów i nadpisań stawek</li>
+              <li>mnożnik stawki dla wybranej sesji i manualne wyceny</li>
+              <li>analiza dochodowości projektów (widok miesięczny/roczny)</li>
+              <li>estimated value per project + zarobki dzienne</li>
+              <li>podgląd wartości czasu poświęconego na grupy zadań</li>
             </ul>
           </article>
 
@@ -732,6 +739,8 @@
               snapshot sync online lub przenoszenie przez USB — dane zawsze pod kontrolą.
             </p>
             <ul>
+              <li>ZIP Export całej bazy lub wybranych projektów</li>
+              <li>Maintenance: czyszczenie i optymalizacja bazy SQLite</li>
               <li>validate import + summary po imporcie</li>
               <li>backup/export all lub single project</li>
               <li>startup sync + interval sync + status/ACK</li>
@@ -748,9 +757,9 @@
             </p>
             <ul>
               <li>start / stop / restart daemon</li>
-              <li>logi z auto-refresh</li>
-              <li>autostart + status + PID</li>
-              <li>niskie wymagania do samego monitoringu</li>
+              <li>logi z auto-refresh i status PID</li>
+              <li>konfiguracja Working Hours i Session Management (Gap Fill)</li>
+              <li>autostart + niskie wymagania do monitoringu w tle</li>
             </ul>
           </article>
         </div>
