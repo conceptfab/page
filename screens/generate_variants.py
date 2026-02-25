@@ -23,6 +23,21 @@ WEBP_QUALITY = 80
 def generate_variants(widths: list[int]) -> None:
     sources = sorted(SCREENS_DIR.glob(f"*{SUFFIX}{EXT}"))
 
+    # Fallback: gdy nie ma plików *_wynik.webp, użyj bazowych *.webp
+    # i pomiń już wygenerowane warianty (np. *_480.webp, *_960.webp).
+    if not sources:
+        sources = []
+        for path in sorted(SCREENS_DIR.iterdir()):
+            if not path.is_file() or path.suffix.lower() != EXT:
+                continue
+            stem = path.stem
+            if "_" in stem and stem.rsplit("_", 1)[1].isdigit():
+                continue
+            sources.append(path)
+
+        if sources:
+            print(f"Nie znaleziono *{SUFFIX}{EXT}; używam bazowych plików {EXT}.")
+
     if not sources:
         print(f"Brak plików źródłowych (*{SUFFIX}{EXT}) w {SCREENS_DIR}")
         return

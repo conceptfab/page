@@ -16,18 +16,18 @@
   <meta property="og:title" content="TIMEFLOW | Desktopowy time tracker dla freelancerów (beta)" />
   <meta property="og:description"
     content="Automatyczny tracking czasu, sesje dzienne, analityka i lokalne AI — bez obciążania sprzętu. Działa offline, dane lokalne. Szukamy freelancerów do testów beta." />
-  <meta property="og:image" content="https://conceptfab.com/timeflow/screens/dashboard-main_wynik.webp" />
+  <meta property="og:image" content="https://conceptfab.com/timeflow/screens/dashboard-main.webp" />
   <meta property="og:image:alt" content="Zrzut ekranu dashboardu aplikacji TIMEFLOW" />
-  <meta property="og:image:width" content="2875" />
-  <meta property="og:image:height" content="1743" />
+  <meta property="og:image:width" content="1600" />
+  <meta property="og:image:height" content="1000" />
   <meta property="og:url" content="https://conceptfab.com/timeflow/" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="TIMEFLOW | Desktopowy time tracker dla freelancerów (beta)" />
   <meta name="twitter:description"
     content="Lekki time tracker dla freelancerów. Automatyczny tracking, sesje, analityka i AI — bez obciążania sprzętu. TIMEFLOW beta szuka testerów." />
-  <meta name="twitter:image" content="https://conceptfab.com/timeflow/screens/dashboard-main_wynik.webp" />
+  <meta name="twitter:image" content="https://conceptfab.com/timeflow/screens/dashboard-main.webp" />
   <title>TIMEFLOW | Desktopowy time tracker dla freelancerów (beta)</title>
-  <link rel="preload" as="image" type="image/webp" href="./screens/dashboard-main_wynik.webp" fetchpriority="high" />
+  <link rel="preload" as="image" type="image/webp" href="./screens/dashboard-main.webp" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="style"
@@ -46,6 +46,107 @@
   <link rel="icon" type="image/png" sizes="196x196" href="./icons/favicon-196x196.png" />
   <link rel="apple-touch-icon" sizes="152x152" href="./icons/apple-touch-icon-152x152.png" />
   <link rel="stylesheet" href="./style.css" />
+  <style>
+    /* V2: mocne zróżnicowanie grup sekcji */
+    .section.group-engine {
+      background:
+        linear-gradient(180deg, #0f1824f5, #11182af2),
+        radial-gradient(900px 380px at 8% 2%, #39d3ff1f 0%, transparent 60%);
+      border-color: #3dd9ff3d;
+    }
+
+    .section.group-proof {
+      background:
+        linear-gradient(180deg, #1b1022f2, #12182af2),
+        radial-gradient(850px 420px at 88% 5%, #ff4fd224 0%, transparent 62%);
+      border-color: #ff4fd252;
+    }
+
+    .section.group-trust {
+      background:
+        linear-gradient(180deg, #10161ef2, #101723f2),
+        radial-gradient(900px 430px at 10% 8%, #8a5cff1f 0%, transparent 64%);
+      border-color: #8a5cff45;
+    }
+
+    .section.group-cta {
+      background:
+        linear-gradient(180deg, #201124f5, #111a2af5),
+        radial-gradient(920px 460px at 50% 0%, #39d3ff1a 0%, transparent 60%),
+        radial-gradient(760px 360px at 85% 20%, #ff4fd21c 0%, transparent 58%);
+      border-color: #39d3ff45;
+    }
+
+    .group-engine .eyebrow {
+      color: #78e7ff;
+      letter-spacing: .14em;
+    }
+
+    .group-proof .eyebrow {
+      color: #ff8ce4;
+      letter-spacing: .14em;
+    }
+
+    .group-trust .eyebrow {
+      color: #bea5ff;
+      letter-spacing: .14em;
+    }
+
+    .group-engine .feature-card,
+    .group-engine .stack-card {
+      background: linear-gradient(180deg, #0f1d2ee8, #10182ae8);
+      border-color: #39d3ff3d;
+    }
+
+    .group-proof .feature-card,
+    .group-proof .workflow-step {
+      background: linear-gradient(180deg, #1a1425ed, #12182aed);
+      border-color: #ff4fd245;
+      box-shadow: inset 0 1px #ff4fd21a;
+    }
+
+    .group-trust .platform-card,
+    .group-trust .roadmap-card,
+    .group-trust .trust-card,
+    .group-trust .faq-item {
+      background: linear-gradient(180deg, #151c2bf2, #121a29f2);
+      border-color: #8a5cff40;
+    }
+
+    .group-proof .feature-tag {
+      color: #ffc3f0;
+      background: #ff4fd214;
+      border-color: #ff4fd245;
+    }
+
+    .group-engine .feature-tag,
+    .group-engine .stack-tag {
+      color: #a7f1ff;
+      background: #39d3ff14;
+      border-color: #39d3ff40;
+    }
+
+    .group-trust .platform-status,
+    .group-trust .roadmap-stage {
+      background: #8a5cff1a;
+      border-color: #8a5cff45;
+      color: #d2c1ff;
+    }
+
+    /* Miniatury slidera: spójnie 16:10 jak źródłowe screenshoty */
+    .ratio-thumb {
+      aspect-ratio: 16 / 10 !important;
+    }
+
+    @media (max-width: 860px) {
+      .section.group-engine,
+      .section.group-proof,
+      .section.group-trust,
+      .section.group-cta {
+        background-size: cover;
+      }
+    }
+  </style>
   <noscript>
     <style>
       [data-reveal] {
@@ -59,69 +160,69 @@
   <link rel="alternate" hreflang="en" href="https://conceptfab.com/timeflow/en/" />
   <link rel="alternate" hreflang="x-default" href="https://conceptfab.com/timeflow/" />
   <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "TIMEFLOW",
-        "applicationCategory": "BusinessApplication",
-        "applicationSubCategory": "Time Tracking",
-        "operatingSystem": "Windows",
-        "softwareVersion": "beta",
-        "inLanguage": "pl-PL",
-        "description": "Lekki desktopowy time tracker dla freelancerów. Automatyczny tracking w tle, sesje dzienne, analityka, projekty z folderami, lokalne AI i sync online — bez obciążania sprzętu.",
-        "featureList": "Automatyczny tracking aktywności, Sesje dzienne i tygodniowe, Analityka i heatmap pracy, Projekty z folderami i auto-detekcją, Lokalne AI sugestie bez wysyłania danych, Sync online, Eksport JSON, Transfer USB, Estymacje i stawki godzinowe",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "PLN"
-        },
-        "creator": {
-          "@type": "Organization",
-          "name": "CONCEPTFAB"
-        },
-        "isAccessibleForFree": true
-      }
-    </script>
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "TIMEFLOW",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "Time Tracking",
+      "operatingSystem": "Windows",
+      "softwareVersion": "beta",
+      "inLanguage": "pl-PL",
+      "description": "Lekki desktopowy time tracker dla freelancerów. Automatyczny tracking w tle, sesje dzienne, analityka, projekty z folderami, lokalne AI i sync online — bez obciążania sprzętu.",
+      "featureList": "Automatyczny tracking aktywności, Sesje dzienne i tygodniowe, Analityka i heatmap pracy, Projekty z folderami i auto-detekcją, Lokalne AI sugestie bez wysyłania danych, Sync online, Eksport JSON, Transfer USB, Estymacje i stawki godzinowe",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "PLN"
+      },
+      "creator": {
+        "@type": "Organization",
+        "name": "CONCEPTFAB"
+      },
+      "isAccessibleForFree": true
+    }
+  </script>
   <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Czy TIMEFLOW działa offline?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Tak. TIMEFLOW działa lokalnie na desktopie, a dane są zapisywane na urządzeniu. Synchronizacja online jest opcjonalna."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Kto może dołączyć do testów beta?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Priorytetowo zapraszamy freelancerów i małe studia rozliczające czas z klientami, ale formularz jest otwarty także dla innych branż."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Na jakiej platformie działa beta?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Aktualna beta jest dostępna na Windows. W planach są wersje na macOS, Linux oraz aplikacja mobilna."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Czy udział w becie jest płatny?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Nie. Wczesne testy beta są bezpłatne i służą zbieraniu feedbacku do kolejnych iteracji produktu."
-            }
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Czy TIMEFLOW działa offline?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tak. TIMEFLOW działa lokalnie na desktopie, a dane są zapisywane na urządzeniu. Synchronizacja online jest opcjonalna."
           }
-        ]
-      }
-    </script>
+        },
+        {
+          "@type": "Question",
+          "name": "Kto może dołączyć do testów beta?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Priorytetowo zapraszamy freelancerów i małe studia rozliczające czas z klientami, ale formularz jest otwarty także dla innych branż."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Na jakiej platformie działa beta?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aktualna beta jest dostępna na Windows. W planach są wersje na macOS, Linux oraz aplikacja mobilna."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy udział w becie jest płatny?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nie. Wczesne testy beta są bezpłatne i służą zbieraniu feedbacku do kolejnych iteracji produktu."
+          }
+        }
+      ]
+    }
+  </script>
 </head>
 
 <body>
@@ -171,10 +272,9 @@
             Pracujesz <span>i widzisz jak zarabiasz.</span>
           </h1>
           <p class="hero-lead" id="heroLead">
-            <span class="tf-style">TIMEFLOW</span> rejestruje aktywność w tle, porządkuje sesje i od razu przelicza je
-            na
-            wartość. Na koniec dnia widzisz ile godzin, przy których projektach i ile to warte.
-            Bez ręcznego wpisywania, bez zgadywania.
+            <span class="tf-style">TIMEFLOW</span> rejestruje aktywność w tle, stosując <strong>Algorytm Uczciwego Czasu</strong> — 
+            deduplikuje multitasking i sprawiedliwie dzieli sekundy między projekty. Widzisz realną wartość pracy, 
+            bez "pompowania" statystyk.
           </p>
 
         </div>
@@ -200,49 +300,11 @@
                     <span aria-hidden="true">&lt;</span>
                   </button>
                   <div class="shot-frame ratio-desktop">
-                    <img id="heroShotImage" class="shot-image" src="./screens/dashboard-main_wynik.webp"
-                      srcset="./screens/dashboard-main_480.webp 480w, ./screens/dashboard-main_960.webp 960w, ./screens/dashboard-main_wynik.webp 1440w"
+                    <img id="heroShotImage" class="shot-image" src="./screens/dashboard-main.webp"
+                      srcset="./screens/dashboard-main_480.webp 480w, ./screens/dashboard-main_960.webp 960w, ./screens/dashboard-main.webp 1600w"
                       sizes="(max-width: 720px) 92vw, (max-width: 1200px) 62vw, 800px"
                       alt="TIMEFLOW Dashboard – widok dzienny z metrykami i timeline" loading="eager"
                       fetchpriority="high" decoding="async" />
-                    <div class="shot-fallback mock-ui mock-dashboard">
-                      <div class="mini-toolbar">
-                        <span class="mini-pill active">Today</span>
-                        <span class="mini-pill">Week</span>
-                        <span class="mini-pill">Month</span>
-                        <span class="mini-status">Sync Ready</span>
-                      </div>
-                      <div class="mini-stat-grid">
-                        <div class="mini-stat"><span>Total</span><b>05:42</b></div>
-                        <div class="mini-stat"><span>Apps</span><b>14</b></div>
-                        <div class="mini-stat"><span>Projects</span><b>8</b></div>
-                        <div class="mini-stat"><span>Value</span><b>$680</b></div>
-                      </div>
-                      <div class="mini-split-grid">
-                        <div class="mini-panel">
-                          <div class="mini-panel-head">Timeline</div>
-                          <div class="mini-bars">
-                            <span style="--mb:34%"></span>
-                            <span style="--mb:46%"></span>
-                            <span style="--mb:62%"></span>
-                            <span style="--mb:76%"></span>
-                            <span style="--mb:54%"></span>
-                            <span style="--mb:68%"></span>
-                            <span style="--mb:82%"></span>
-                          </div>
-                        </div>
-                        <div class="mini-panel">
-                          <div class="mini-panel-head">Top Projects</div>
-                          <div class="mini-lines">
-                            <div class="mini-line w-90"></div>
-                            <div class="mini-line w-72"></div>
-                            <div class="mini-line w-58"></div>
-                            <div class="mini-line w-64"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="mini-hint">Widok demonstracyjny dashboardu</div>
-                    </div>
                   </div>
                   <button type="button" class="showcase-nav-btn showcase-nav-btn-side showcase-nav-btn-next"
                     data-hero-slider-next aria-label="Następny ekran">
@@ -266,14 +328,10 @@
                     <em>widok główny</em>
                   </figcaption>
                   <div class="shot-frame ratio-thumb">
-                    <img class="shot-image" src="./screens/dashboard-main_wynik.webp"
-                      srcset="./screens/dashboard-main_480.webp 480w, ./screens/dashboard-main_960.webp 960w, ./screens/dashboard-main_wynik.webp 1440w"
+                    <img class="shot-image" src="./screens/dashboard-main.webp"
+                      srcset="./screens/dashboard-main_480.webp 480w, ./screens/dashboard-main_960.webp 960w, ./screens/dashboard-main.webp 1600w"
                       sizes="(max-width: 720px) 28vw, 180px"
                       alt="TIMEFLOW Dashboard – widok dzienny z metrykami i timeline" loading="lazy" decoding="async" />
-                    <div class="shot-fallback mock-ui">
-                      <div class="mini-panel-head">Dashboard</div>
-                      <div class="mini-hint">Widok demonstracyjny</div>
-                    </div>
                   </div>
                 </figure>
 
@@ -283,25 +341,10 @@
                     <em>foldery + statusy</em>
                   </figcaption>
                   <div class="shot-frame ratio-thumb">
-                    <img class="shot-image" src="./screens/projects_wynik.webp"
-                      srcset="./screens/projects_480.webp 480w, ./screens/projects_960.webp 960w, ./screens/projects_wynik.webp 1440w"
+                    <img class="shot-image" src="./screens/projects.webp"
+                      srcset="./screens/projects_480.webp 480w, ./screens/projects.webp 960w"
                       sizes="(max-width: 720px) 28vw, 180px"
                       alt="TIMEFLOW Projects – foldery projektowe i auto-detekcja" loading="lazy" decoding="async" />
-                    <div class="shot-fallback mock-ui">
-                      <div class="mini-panel-head">Project folders</div>
-                      <div class="mini-folder-list">
-                        <div class="mini-folder-row"><span>/clients</span><b>root</b></div>
-                        <div class="mini-folder-row"><span>/Nova Studio</span><b>created</b></div>
-                        <div class="mini-folder-row"><span>/Aurora Brand</span><b>candidate</b></div>
-                        <div class="mini-folder-row"><span>/X Motion</span><b>tracked</b></div>
-                      </div>
-                      <div class="mini-tag-row">
-                        <span class="mini-tag">apps assign</span>
-                        <span class="mini-tag">manual session</span>
-                        <span class="mini-tag">auto-detect</span>
-                      </div>
-                      <div class="mini-hint">Widok demonstracyjny</div>
-                    </div>
                   </div>
                 </figure>
 
@@ -311,33 +354,10 @@
                     <em>sesje + przypisania</em>
                   </figcaption>
                   <div class="shot-frame ratio-thumb">
-                    <img class="shot-image" src="./screens/sessions_wynik.webp"
-                      srcset="./screens/sessions_480.webp 480w, ./screens/sessions_960.webp 960w, ./screens/sessions_wynik.webp 1440w"
+                    <img class="shot-image" src="./screens/sessions.webp"
+                      srcset="./screens/sessions_480.webp 480w, ./screens/sessions.webp 960w"
                       sizes="(max-width: 720px) 28vw, 180px"
                       alt="TIMEFLOW Sessions – pogrupowane sesje z przypisaniami AI" loading="lazy" decoding="async" />
-                    <div class="shot-fallback mock-ui">
-                      <div class="mini-panel-head">Grouped sessions</div>
-                      <div class="mini-session-list">
-                        <div class="mini-session-row">
-                          <span class="dot blue"></span>
-                          <div class="mini-session-copy">
-                            <b>Brand refresh</b>
-                            <small>Figma 09:12 - 10:36</small>
-                          </div>
-                          <em>1:24</em>
-                        </div>
-                        <div class="mini-session-row">
-                          <span class="dot gray"></span>
-                          <div class="mini-session-copy">
-                            <b>Unassigned</b>
-                            <small>Photoshop 10:40 - 11:05</small>
-                          </div>
-                          <em>0:25</em>
-                        </div>
-                        <div class="mini-ai-chip">AI: Landing redesign (92%)</div>
-                      </div>
-                      <div class="mini-hint">Widok demonstracyjny</div>
-                    </div>
                   </div>
                 </figure>
 
@@ -347,32 +367,10 @@
                     <em>wykresy + heatmapa</em>
                   </figcaption>
                   <div class="shot-frame ratio-thumb">
-                    <img class="shot-image" src="./screens/analysis_wynik.webp"
-                      srcset="./screens/analysis_480.webp 480w, ./screens/analysis_960.webp 960w, ./screens/analysis_wynik.webp 1440w"
+                    <img class="shot-image" src="./screens/analysis.webp"
+                      srcset="./screens/analysis_480.webp 480w, ./screens/analysis_960.webp 960w, ./screens/analysis.webp 1600w"
                       sizes="(max-width: 720px) 28vw, 180px"
                       alt="TIMEFLOW Time Analysis – heatmapa i wykresy czasu pracy" loading="lazy" decoding="async" />
-                    <div class="shot-fallback mock-ui">
-                      <div class="mini-panel-head">Charts + heatmap</div>
-                      <div class="mini-bars compact">
-                        <span style="--mb:28%"></span>
-                        <span style="--mb:44%"></span>
-                        <span style="--mb:51%"></span>
-                        <span style="--mb:70%"></span>
-                        <span style="--mb:64%"></span>
-                        <span style="--mb:82%"></span>
-                      </div>
-                      <div class="mini-heatmap" aria-hidden="true">
-                        <span></span><span class="i2"></span><span></span><span
-                          class="i3"></span><span></span><span></span>
-                        <span class="i1"></span><span class="i2"></span><span class="i3"></span><span
-                          class="i2"></span><span></span><span></span>
-                        <span></span><span></span><span class="i2"></span><span class="i3"></span><span
-                          class="i1"></span><span></span>
-                        <span></span><span class="i1"></span><span></span><span class="i2"></span><span
-                          class="i3"></span><span class="i2"></span>
-                      </div>
-                      <div class="mini-hint">Widok demonstracyjny</div>
-                    </div>
                   </div>
                 </figure>
 
@@ -382,23 +380,10 @@
                     <em>stawki + mnożniki + wyceny</em>
                   </figcaption>
                   <div class="shot-frame ratio-thumb">
-                    <img class="shot-image" src="./screens/estimates_wynik.webp"
-                      srcset="./screens/estimates_480.webp 480w, ./screens/estimates_960.webp 960w, ./screens/estimates_wynik.webp 1440w"
+                    <img class="shot-image" src="./screens/estimates.webp"
+                      srcset="./screens/estimates_480.webp 480w, ./screens/estimates_960.webp 960w, ./screens/estimates.webp 1600w"
                       sizes="(max-width: 720px) 28vw, 180px"
                       alt="TIMEFLOW Estimates – wycena wartości pracy freelancera" loading="lazy" decoding="async" />
-                    <div class="shot-fallback mock-ui">
-                      <div class="mini-rate-row">
-                        <span>Global rate</span>
-                        <b>$100/h</b>
-                        <button type="button">Save</button>
-                      </div>
-                      <div class="mini-table">
-                        <div class="mini-table-row"><span>Brand refresh</span><b>$1,240</b></div>
-                        <div class="mini-table-row"><span>E-commerce UI</span><b>$980</b></div>
-                        <div class="mini-table-row"><span>Motion campaign</span><b>$640</b></div>
-                      </div>
-                      <div class="mini-hint">Widok demonstracyjny</div>
-                    </div>
                   </div>
                 </figure>
 
@@ -408,27 +393,10 @@
                     <em>sugestie + model</em>
                   </figcaption>
                   <div class="shot-frame ratio-thumb">
-                    <img class="shot-image" src="./screens/ai-model_wynik.webp"
-                      srcset="./screens/ai-model_480.webp 480w, ./screens/ai-model_960.webp 960w, ./screens/ai-model_wynik.webp 1440w"
+                    <img class="shot-image" src="./screens/ai-model.webp"
+                      srcset="./screens/ai-model_480.webp 480w, ./screens/ai-model_960.webp 960w, ./screens/ai-model.webp 1600w"
                       sizes="(max-width: 720px) 28vw, 180px"
                       alt="TIMEFLOW AI Model – sugestie przypisań i tryb auto_safe" loading="lazy" decoding="async" />
-                    <div class="shot-fallback mock-ui">
-                      <div class="mini-tag-row">
-                        <span class="mini-tag active">suggest</span>
-                        <span class="mini-tag">auto_safe</span>
-                        <span class="mini-tag">train now</span>
-                      </div>
-                      <div class="mini-model-grid">
-                        <div class="mini-model-box"><span>Corrections</span><b>38</b></div>
-                        <div class="mini-model-box"><span>Last train</span><b>8s</b></div>
-                      </div>
-                      <div class="mini-progress-list">
-                        <div class="mini-progress"><label>Suggest 0.60</label><span style="--p:60%"></span></div>
-                        <div class="mini-progress"><label>Auto 0.85</label><span style="--p:85%"></span></div>
-                        <div class="mini-progress"><label>Evidence 3</label><span style="--p:48%"></span></div>
-                      </div>
-                      <div class="mini-hint">Widok demonstracyjny</div>
-                    </div>
                   </div>
                 </figure>
               </div>
@@ -445,7 +413,6 @@
 
             <div class="hero-actions">
               <a class="btn btn-primary" href="#beta">Poproś o dostęp do bety</a>
-              <a class="btn btn-ghost" href="#demo">Zobacz demo</a>
             </div>
           </div>
 
@@ -509,7 +476,7 @@
 
       </section>
 
-      <section id="stack" class="section section-dark stack-section">
+      <section id="stack" class="section section-dark stack-section group-engine">
         <div class="section-head" data-reveal>
           <p class="eyebrow">Stack technologiczny</p>
           <h2>Natywna aplikacja, nie web-app w okienku.</h2>
@@ -613,7 +580,7 @@
         </div>
       </section>
 
-      <section id="funkcje" class="section section-light">
+      <section id="funkcje" class="section section-light group-engine">
         <div class="section-head" data-reveal>
           <p class="eyebrow eyebrow-dark">Co <span class="tf-style">TIMEFLOW</span> robi już teraz</p>
           <h2>Realne funkcje, nie lista życzeń.</h2>
@@ -626,16 +593,16 @@
         <div class="feature-grid">
           <article class="feature-card" data-reveal>
             <p class="feature-tag">Tracking Core</p>
-            <h3>Monitoring czasu + auto-import z demona</h3>
+            <h3>Monitoring czasu + Algorytm Uczciwego Czasu</h3>
             <p>
-              Daemon zbiera dane w tle, dashboard importuje je przy starcie i odświeża wykryte
-              sesje — przetworzone pliki archiwizowane automatycznie.
+              Daemon zbiera dane w tle, stosując matematyczną deduplikację aktywności — multitasking 
+              nie "pompuje" godzin Twojemu klientowi.
             </p>
             <ul>
+              <li>zero "podwójnego liczenia" (Unique Time)</li>
+              <li>zasada Fair Share — podział sekund między projekty</li>
               <li>auto refresh + wykrywanie zmian plików</li>
-              <li>aliasy aplikacji i blokowanie śledzenia wybranych procesów</li>
-              <li>auto-import przy starcie i automatyczna archiwizacja danych</li>
-              <li>status importu i liczba plików zarchiwizowanych</li>
+              <li>status importu i automatyczna archiwizacja</li>
             </ul>
           </article>
 
@@ -701,16 +668,15 @@
 
           <article class="feature-card" data-reveal data-delay="120">
             <p class="feature-tag">Analysis</p>
-            <h3>Analityka czasu: heatmapa, wykresy i eksport CSV</h3>
+            <h3>Analityka i Proof of Work (Dowód Pracy)</h3>
             <p>
-              Rozkład czasu po dniach i godzinach, udział aplikacji w pracy oraz eksport CSV —
-              wszystko bez dodatkowej konfiguracji.
+              Statystyki to nie tylko liczby — każda sekunda jest podparta konkretną historią plików, 
+              budując relację z klientem opartą na faktach.
             </p>
             <ul>
+              <li>precyzyjny podgląd sesji i plików</li>
               <li>heatmapa aktywności (godzinowa i dzienna)</li>
-              <li>widok miesięczny z numeracją tygodni</li>
               <li>analiza intensywności i najefektywniejszych godzin</li>
-              <li>stacked bar charts i timeline projektów</li>
               <li>eksport do CSV dla zewnętrznych arkuszy</li>
             </ul>
           </article>
@@ -765,7 +731,7 @@
         </div>
       </section>
 
-      <section class="section section-dark">
+      <section class="section section-dark group-engine">
         <div class="section-head compact" data-reveal>
           <p class="eyebrow">Dla kogo działa najlepiej</p>
           <h2>Nie tylko mierzy czas. Pomaga go odzyskać.</h2>
@@ -815,7 +781,7 @@
         </div>
       </section>
 
-      <section id="workflow" class="section section-light">
+      <section id="workflow" class="section section-light group-proof">
         <div class="section-head" data-reveal>
           <p class="eyebrow eyebrow-dark">Jak to działa</p>
           <h2>Od surowych sesji do gotowego rozliczenia.</h2>
@@ -870,7 +836,90 @@
         </div>
       </section>
 
-      <section class="section section-neutral">
+      <section id="algorytm" class="section section-dark group-proof">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow eyebrow-dark">Algorytm Uczciwego Czasu (Unique Project Time)</p>
+          <h2>Twoja sprawność to nie koszt dla klienta.</h2>
+          <p>
+            Większość programów do śledzenia czasu popełnia ten sam błąd: sumują każdą otwartą aplikację, 
+            sztucznie pompując statystyki. W TIMEFLOW podeszliśmy do tego inaczej. Stworzyliśmy system, 
+            który gwarantuje Twojemu klientowi 100% uczciwości, a Tobie — czyste sumienie przy wystawianiu faktury.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card" data-reveal>
+            <p class="feature-tag">Ochrona przed zawyżaniem</p>
+            <h3>Zero "podwójnego liczenia"</h3>
+            <p>
+              Inne programy liczą multitasking osobno (3h pracy w 1h zegarowej). TIMEFLOW deduplikuje aktywność.
+            </p>
+            <ul>
+              <li>Automatyczna deduplikacja multitaskingu</li>
+              <li>Nalicza tylko unikalne minuty nad projektem</li>
+              <li>Najbardziej "fair" podejście na rynku</li>
+            </ul>
+          </article>
+
+          <article class="feature-card" data-reveal data-delay="60">
+            <p class="feature-tag">Sprawiedliwy podział</p>
+            <h3>Matematyczna precyzja podziału</h3>
+            <p>
+              Backend w Rust dzieli sekundy sprawiedliwie między projekty, gdy używasz wielu narzędzi naraz.
+            </p>
+            <ul>
+              <li>Sprawiedliwy podział każdej sekundy uwagi</li>
+              <li>Suma czasów nigdy nie przekracza realnego czasu</li>
+              <li>Klient płaci za czas, nie za otwarte okna</li>
+            </ul>
+          </article>
+
+          <article class="feature-card" data-reveal data-delay="120">
+            <p class="feature-tag">Dowód pracy</p>
+            <h3>Przejrzystość Dowodowa</h3>
+            <p>
+              Każda sekunda jest podparta historią plików — masz dowód pracy, jeśli klient pyta o szczegóły.
+            </p>
+            <ul>
+              <li>Precyzyjny podgląd sesji i plików</li>
+              <li>Wyklucza przypadkowe naliczanie czasu</li>
+              <li>Brak liczenia social mediów poza projektami</li>
+            </ul>
+          </article>
+
+          <article class="feature-card" data-reveal>
+            <p class="feature-tag">Lokalna wiarygodność</p>
+            <h3>Prywatność i Lokalna Wiarygodność</h3>
+            <p>Dane przetwarzane lokalnie w SQLite — nikt nie manipuluje statystykami "w chmurze".</p>
+            <ul>
+              <li>100% lokalne przetwarzanie danych</li>
+              <li>Ty kontrolujesz dostęp do raportów</li>
+            </ul>
+          </article>
+
+          <article class="feature-card" data-reveal data-delay="250">
+            <p class="feature-tag">Wartość dla klienta</p>
+            <h3>Realne zaangażowanie</h3>
+            <p>Czas unikalny, a nie czas "procesorowy" aplikacji.</p>
+            <ul>
+              <li>Czas pracy jest mierzony w sposób uczciwy</li>
+              <li>Brak naliczania czasu za otwarte okna</li>
+            </ul>
+          </article>
+
+          <article class="feature-card" data-reveal data-delay="300">
+            <p class="feature-tag">Transparentność</p>
+            <h3>Pełna transparentność</h3>
+            <p>Ucinasz dyskusje o zasadności stawek godzinowych dzięki twardym danym.</p>
+            <ul>
+              <li>Dokładne dane o czasie pracy</li>
+              <li>Brak manipulacji statystykami</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section-neutral group-trust">
         <div class="section-head compact" data-reveal>
           <p class="eyebrow eyebrow-dark">Platformy i status</p>
           <h2>Desktop-first dzisiaj. Więcej narzędzi jutro.</h2>
@@ -905,7 +954,7 @@
         </div>
       </section>
 
-      <section id="roadmap" class="section section-dark">
+      <section id="roadmap" class="section section-dark group-trust">
         <div class="section-head" data-reveal>
           <p class="eyebrow">Roadmapa kolejnej wersji</p>
           <h2>Menedżer projektów jako kolejny duży krok.</h2>
@@ -963,7 +1012,7 @@
         </div>
       </section>
 
-      <section id="o-projekcie" class="section section-neutral">
+      <section id="o-projekcie" class="section section-neutral group-trust">
         <div class="section-head compact" data-reveal>
           <p class="eyebrow eyebrow-dark">Zaufanie i kontakt</p>
           <h2>Kto stoi za TIMEFLOW i jak wygląda beta.</h2>
@@ -1004,7 +1053,7 @@
         </div>
       </section>
 
-      <section id="faq" class="section section-light">
+      <section id="faq" class="section section-light group-trust">
         <div class="section-head compact" data-reveal>
           <p class="eyebrow eyebrow-dark">FAQ</p>
           <h2>Najczęstsze pytania przed zgłoszeniem do bety.</h2>
@@ -1014,6 +1063,14 @@
         </div>
 
         <div class="faq-list" data-reveal>
+          <details class="faq-item">
+            <summary>Jak działa Algorytm Uczciwego Czasu?</summary>
+            <p>
+              Inne programy często sumują czas każdej otwartej aplikacji (np. 3h pracy w ciągu 1h zegarowej). 
+              <span class="tf-style">TIMEFLOW</span> deduplikuje multitasking i sprawiedliwie dzieli sekundy między projekty (Fair Share). 
+              Dzięki temu statystyki są w 100% uczciwe zarówno dla Ciebie, jak i Twojego klienta.
+            </p>
+          </details>
           <details class="faq-item">
             <summary>Czy <span class="tf-style">TIMEFLOW</span> działa offline?</summary>
             <p>
@@ -1043,7 +1100,7 @@
         </div>
       </section>
 
-      <section id="beta" class="section section-cta">
+      <section id="beta" class="section section-cta group-cta">
         <div class="cta-grid">
           <div class="cta-copy" data-reveal>
             <p class="eyebrow eyebrow-dark">Zgłoś się do testów beta</p>
