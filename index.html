@@ -45,108 +45,9 @@
   <link rel="icon" type="image/png" sizes="128x128" href="./icons/favicon-128.png" />
   <link rel="icon" type="image/png" sizes="196x196" href="./icons/favicon-196x196.png" />
   <link rel="apple-touch-icon" sizes="152x152" href="./icons/apple-touch-icon-152x152.png" />
-  <link rel="stylesheet" href="./style.css" />
-  <style>
-    /* V2: mocne zróżnicowanie grup sekcji */
-    .section.group-engine {
-      background:
-        linear-gradient(180deg, #0f1824f5, #11182af2),
-        radial-gradient(900px 380px at 8% 2%, #39d3ff1f 0%, transparent 60%);
-      border-color: #3dd9ff3d;
-    }
+  <link rel="stylesheet" href="./style.min.css" />
 
-    .section.group-proof {
-      background:
-        linear-gradient(180deg, #1b1022f2, #12182af2),
-        radial-gradient(850px 420px at 88% 5%, #ff4fd224 0%, transparent 62%);
-      border-color: #ff4fd252;
-    }
 
-    .section.group-trust {
-      background:
-        linear-gradient(180deg, #10161ef2, #101723f2),
-        radial-gradient(900px 430px at 10% 8%, #8a5cff1f 0%, transparent 64%);
-      border-color: #8a5cff45;
-    }
-
-    .section.group-cta {
-      background:
-        linear-gradient(180deg, #201124f5, #111a2af5),
-        radial-gradient(920px 460px at 50% 0%, #39d3ff1a 0%, transparent 60%),
-        radial-gradient(760px 360px at 85% 20%, #ff4fd21c 0%, transparent 58%);
-      border-color: #39d3ff45;
-    }
-
-    .group-engine .eyebrow {
-      color: #78e7ff;
-      letter-spacing: .14em;
-    }
-
-    .group-proof .eyebrow {
-      color: #ff8ce4;
-      letter-spacing: .14em;
-    }
-
-    .group-trust .eyebrow {
-      color: #bea5ff;
-      letter-spacing: .14em;
-    }
-
-    .group-engine .feature-card,
-    .group-engine .stack-card {
-      background: linear-gradient(180deg, #0f1d2ee8, #10182ae8);
-      border-color: #39d3ff3d;
-    }
-
-    .group-proof .feature-card,
-    .group-proof .workflow-step {
-      background: linear-gradient(180deg, #1a1425ed, #12182aed);
-      border-color: #ff4fd245;
-      box-shadow: inset 0 1px #ff4fd21a;
-    }
-
-    .group-trust .platform-card,
-    .group-trust .roadmap-card,
-    .group-trust .trust-card,
-    .group-trust .faq-item {
-      background: linear-gradient(180deg, #151c2bf2, #121a29f2);
-      border-color: #8a5cff40;
-    }
-
-    .group-proof .feature-tag {
-      color: #ffc3f0;
-      background: #ff4fd214;
-      border-color: #ff4fd245;
-    }
-
-    .group-engine .feature-tag,
-    .group-engine .stack-tag {
-      color: #a7f1ff;
-      background: #39d3ff14;
-      border-color: #39d3ff40;
-    }
-
-    .group-trust .platform-status,
-    .group-trust .roadmap-stage {
-      background: #8a5cff1a;
-      border-color: #8a5cff45;
-      color: #d2c1ff;
-    }
-
-    /* Miniatury slidera: spójnie 16:10 jak źródłowe screenshoty */
-    .ratio-thumb {
-      aspect-ratio: 16 / 10 !important;
-    }
-
-    @media (max-width: 860px) {
-      .section.group-engine,
-      .section.group-proof,
-      .section.group-trust,
-      .section.group-cta {
-        background-size: cover;
-      }
-    }
-  </style>
   <noscript>
     <style>
       [data-reveal] {
@@ -1217,7 +1118,7 @@
   </div>
 
   <script src="./consent.min.js"></script>
-  <script src="./script.js"></script>
+  <script src="./script.min.js"></script>
 </body>
 
 </html>

@@ -2,6 +2,45 @@
   const TIMEFLOW_WORDMARK_HTML = '<span class="tf-style">TIMEFLOW</span>';
   const TIMEFLOW_REGEX = /\bTIMEFLOW\b/g;
 
+  const lang = document.documentElement.lang === "en" ? "en" : "pl";
+  const messages = {
+    pl: {
+      menuOpen: "Otwórz menu",
+      menuClose: "Zamknij menu",
+      showScreen: "Pokaż screen",
+      roles: ["grafików", "UI/UX designerów", "motion designerów", "freelancerów dev", "małych studiów"],
+      fieldMessages: {
+        name: "Podaj imię lub nick.",
+        email: "Podaj poprawny adres e-mail.",
+        role: "Wybierz branżę.",
+        consent: "Zaznacz zgodę na kontakt w sprawie testów beta.",
+      },
+      formError: "Popraw oznaczone pola i spróbuj ponownie.",
+      formSending: "Wysyłanie…",
+      formSuccess: "Dziękujemy. Zgłoszenie zostało zapisane.",
+      formConnError: "Błąd połączenia. Spróbuj ponownie za chwilę.",
+      imgAlt: "Zrzut ekranu TIMEFLOW",
+    },
+    en: {
+      menuOpen: "Open menu",
+      menuClose: "Close menu",
+      showScreen: "Show screen",
+      roles: ["designers", "UI/UX designers", "motion designers", "dev freelancers", "small studios"],
+      fieldMessages: {
+        name: "Please Provide your name or nick.",
+        email: "Please provide a valid email address.",
+        role: "Please choose your industry.",
+        consent: "Please check the consent to contact regarding beta tests.",
+      },
+      formError: "Please correct the marked fields and try again.",
+      formSending: "Sending…",
+      formSuccess: "Thank you. Your application has been saved.",
+      formConnError: "Connection error. Please try again in a moment.",
+      imgAlt: "TIMEFLOW screenshot",
+    }
+  };
+  const MSG = messages[lang];
+
   const withTimeflowWordmark = (value) =>
     String(value ?? "").replace(TIMEFLOW_REGEX, TIMEFLOW_WORDMARK_HTML);
 
@@ -71,7 +110,7 @@
       isMenuOpen = Boolean(nextOpen);
       topbar.classList.toggle("is-menu-open", isMenuOpen);
       menuToggle.setAttribute("aria-expanded", String(isMenuOpen));
-      menuToggle.setAttribute("aria-label", isMenuOpen ? "Zamknij menu" : "Otwórz menu");
+      menuToggle.setAttribute("aria-label", isMenuOpen ? MSG.menuClose : MSG.menuOpen);
     };
 
     menuToggle.addEventListener("click", () => {
@@ -133,13 +172,7 @@
   }
 
   const roleRotator = document.getElementById("heroRoleRotator");
-  const roles = [
-    "grafików",
-    "UI/UX designerów",
-    "motion designerów",
-    "freelancerów dev",
-    "małych studiów",
-  ];
+  const roles = MSG.roles;
   let roleIndex = 0;
   if (roleRotator && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     window.setInterval(() => {
@@ -263,7 +296,62 @@
 
     const slides = thumbCards.map(extractSlideData).filter((slide) => slide.src);
 
-    const slideCopyByLabel = {
+    const slideCopyByLabel = (lang === 'en') ? {
+      Dashboard: {
+        heroTitle: "Control your work time",
+        heroAccent: "without killing the flow.",
+        heroLead:
+          "TIMEFLOW automatically collects data, organizes sessions and helps assign time to projects. Today: tracking + analytics + AI suggestions + import/export + sync MVP. Tomorrow: full project manager with custom folder tree.",
+        showcaseTitle: "Dashboard, projects, sessions and analytics in one workflow",
+        showcaseNote:
+          "The main view shows the work dashboard. Below are the key modules that build a freelancer's daily workflow: Projects, Sessions, Analysis, Estimates and AI.",
+      },
+      Projects: {
+        heroTitle: "Organize projects",
+        heroAccent: "and folders without chaos.",
+        heroLead:
+          "Build a structure for clients and projects, assign apps, sessions and statuses. TIMEFLOW helps move from raw tracking to real order of work.",
+        showcaseTitle: "Projects: folders, statuses and quick assignments",
+        showcaseNote:
+          "The Projects view organizes the workflow of a freelancer and studio. You can build a tree, mark statuses and faster map sessions to projects.",
+      },
+      Sessions: {
+        heroTitle: "Clean and assign sessions",
+        heroAccent: "in seconds.",
+        heroLead:
+          "Grouping sessions, quick corrections and AI suggestions shorten the manual organizational time of your workday. Less clicking, more real work.",
+        showcaseTitle: "Sessions: daily sessions, grouping and assignments",
+        showcaseNote:
+          "See raw entries and organize them into project workflow. TIMEFLOW supports manual corrections and assignment suggestions based on work history.",
+      },
+      "Time Analysis": {
+        heroTitle: "See where your time goes",
+        heroAccent: "and when you peak flow.",
+        heroLead:
+          "Charts and heatmaps help you find repeatable work patterns. This makes it easier to plan focus blocks, estimates and real deadlines.",
+        showcaseTitle: "Time Analysis: charts, heatmap and work patterns",
+        showcaseNote:
+          "Analytics shows not just total hours, but also the rhythm of the day and week. This helps you make better decisions about planning and estimates.",
+      },
+      Estimates: {
+        heroTitle: "Estimate based on data",
+        heroAccent: "instead of guessing.",
+        heroLead:
+          "Estimates module connects real work time with rates and multipliers. You create consistent estimates faster and take better care of project profitability.",
+        showcaseTitle: "Estimates: rates, multipliers and project valuations",
+        showcaseNote:
+          "Valuations are based on actual time, not just intuition. This helps maintain offer consistency and better conversations with clients about project scope.",
+      },
+      "AI & Model": {
+        heroTitle: "AI suggests assignments",
+        heroAccent: "You keep control.",
+        heroLead:
+          "Suggest and auto_safe modes help automate assignments without losing control over data. You can train the model and rollback latest batch of changes.",
+        showcaseTitle: "AI & Model: suggestions, thresholds and model training",
+        showcaseNote:
+          "AI panel shows working modes, confidence thresholds and model status. It's an automation layer designed to speed up workflow, not complicate it.",
+      },
+    } : {
       Dashboard: {
         heroTitle: "Kontroluj czas pracy",
         heroAccent: "bez zabijania flow.",
@@ -363,7 +451,7 @@
           }
         }
 
-        heroShotImage.setAttribute("alt", slide.alt || slide.label || "Zrzut ekranu TIMEFLOW");
+        heroShotImage.setAttribute("alt", slide.alt || slide.label || MSG.imgAlt);
 
         if (heroShotImage.complete) {
           if (heroShotImage.naturalWidth > 0 && heroShotImage.naturalHeight > 0) {
@@ -402,7 +490,7 @@
             }
           }
 
-          imgEl.setAttribute("alt", slide.alt || slide.label || "Zrzut ekranu TIMEFLOW");
+          imgEl.setAttribute("alt", slide.alt || slide.label || MSG.imgAlt);
 
           if (imgEl.complete) {
             if (imgEl.naturalWidth > 0 && imgEl.naturalHeight > 0) {
@@ -430,9 +518,8 @@
           card.hidden = false;
           card.dataset.slideIndex = String(thumbIndex);
           const isActive = thumbIndex === activeIndex;
-          card.classList.toggle("is-active", isActive);
           card.setAttribute("aria-pressed", String(isActive));
-          card.setAttribute("aria-label", `Pokaż screen: ${slide.label || "widok"}`);
+          card.setAttribute("aria-label", `${MSG.showScreen}: ${slide.label || ""}`);
           updateThumbCard(card, slide);
         });
       };
@@ -549,7 +636,7 @@
         const dot = document.createElement("button");
         dot.type = "button";
         dot.className = "showcase-dot";
-        dot.setAttribute("aria-label", `Pokaż screen: ${slide.label}`);
+        dot.setAttribute("aria-label", `${MSG.showScreen}: ${slide.label}`);
         dot.title = slide.label;
         dot.addEventListener("click", () => selectSlide(index));
         heroSliderDots.appendChild(dot);
@@ -628,12 +715,7 @@
           field instanceof HTMLTextAreaElement
       );
 
-    const fieldMessages = {
-      name: "Podaj imię lub nick.",
-      email: "Podaj poprawny adres e-mail.",
-      role: "Wybierz branżę.",
-      consent: "Zaznacz zgodę na kontakt w sprawie testów beta.",
-    };
+    const fieldMessages = MSG.fieldMessages;
 
     const getFieldErrorEl = (field) => {
       if (!field.name) return null;
@@ -755,7 +837,7 @@
 
       const validation = validateRequiredFields();
       if (!validation.ok) {
-        formFeedback.textContent = "Popraw oznaczone pola i spróbuj ponownie.";
+        formFeedback.textContent = MSG.formError;
         formFeedback.classList.add("is-error");
         if (validation.firstInvalid instanceof HTMLElement) {
           validation.firstInvalid.focus();
@@ -769,7 +851,7 @@
       betaForm.setAttribute("aria-busy", "true");
       if (submitBtn instanceof HTMLButtonElement) {
         submitBtn.disabled = true;
-        submitBtn.textContent = "Wysyłanie…";
+        submitBtn.textContent = MSG.formSending;
       }
 
       try {
@@ -794,12 +876,12 @@
         if (!response.ok || !result || result.ok !== true) {
           throw new Error(
             (result && typeof result.message === "string" && result.message) ||
-            "Nie udało się wysłać formularza."
+            MSG.formConnError
           );
         }
 
         formFeedback.textContent =
-          result.message || "Dziękujemy. Zgłoszenie zostało zapisane.";
+          result.message || MSG.formSuccess;
         formFeedback.classList.add("is-success");
         betaForm.reset();
         trackedFields.forEach((field) => clearFieldError(field));
@@ -808,7 +890,7 @@
         formFeedback.textContent =
           error instanceof Error && error.message
             ? error.message
-            : "Błąd połączenia. Spróbuj ponownie za chwilę.";
+            : MSG.formConnError;
         formFeedback.classList.add("is-error");
       } finally {
         betaForm.removeAttribute("aria-busy");
