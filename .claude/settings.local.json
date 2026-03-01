@@ -5,7 +5,10 @@
       "Bash(dir:*)",
       "Bash(npx:*)",
       "Bash(cd:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(tr }:*)",
+      "Bash(tr:*)",
+      "Bash(python3:*)"
     ]
   }
 }
