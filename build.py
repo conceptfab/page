@@ -3,6 +3,8 @@ import subprocess
 import glob
 import shutil
 from pathlib import Path
+import re
+from datetime import datetime
 
 def run_cmd(cmd):
     try:
@@ -49,7 +51,51 @@ def main():
             else:
                 success = False
 
+    # --- Sitemap ---
+    print("\n[SEO] Aktualizacja sitemap.xml...")
+    if os.path.exists("sitemap.xml"):
+        loc_to_file = {
+            "https://conceptfab.com/timeflow/": "index.html",
+            "https://conceptfab.com/timeflow/en/": "en/index.html",
+            "https://conceptfab.com/timeflow/pomoc.html": "pomoc.html",
+            "https://conceptfab.com/timeflow/en/help.html": "en/help.html"
+        }
+
+        with open("sitemap.xml", "r", encoding="utf-8") as f:
+            content = f.read()
+
+        def replace_lastmod(match):
+            block = match.group(0)
+            for loc, filepath in loc_to_file.items():
+                if f"<loc>{loc}</loc>" in block and os.path.exists(filepath):
+                    mtime = os.path.getmtime(filepath)
+                    date_str = datetime.fromtimestamp(mtime).strftime('%Y-%m-%d')
+                    block = re.sub(r'<lastmod>.*?</lastmod>', f'<lastmod>{date_str}</lastmod>', block)
+                    break
+            return block
+
+        new_content = re.sub(r'<url>.*?</url>', replace_lastmod, content, flags=re.DOTALL)
+        
+        with open("sitemap.xml", "w", encoding="utf-8") as f:
+            f.write(new_content)
+        print("  Zaktualizowano daty w sitemap.xml")
+
     # --- Obrazy ---
+    print("\n[IMG] Konwersja PNG do WebP...")
+    png_files = glob.glob("screens/*.png")
+    for png_img in png_files:
+        png_img = png_img.replace("\\", "/")
+        path = Path(png_img)
+        base_name = path.stem
+        out_webp = str(path.with_suffix(".webp")).replace("\\", "/")
+        
+        print(f"  Konwersja {base_name}.png -> {base_name}.webp...")
+        if run_cmd(f'npx --yes sharp-cli -i "{png_img}" -o "{out_webp}" -q 80 -f webp'):
+            os.remove(png_img)
+            print(f"  Usunięto {base_name}.png")
+        else:
+            success = False
+
     print("\n[IMG] Generowanie wariantów responsywnych (screens/*.webp)...")
     all_webp = glob.glob("screens/*.webp")
     source_images = [img for img in all_webp if "_480" not in img and "_960" not in img]

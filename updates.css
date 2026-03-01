@@ -1,0 +1,154 @@
+/* RELEASE NOTES pages (PL / EN) */
+
+.updates-shell {
+  width: min(1280px, calc(100% - 2rem));
+}
+
+.updates-links {
+  align-items: center;
+  gap: 0.6rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.updates-links a {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-bottom: 1px solid transparent;
+}
+
+.updates-links a:hover,
+.updates-links a:focus-visible {
+  color: var(--ink);
+  border-color: #39d3ff59;
+}
+
+.updates-subtitle {
+  margin: 0.5rem 0 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.updates-overview {
+  margin-bottom: 0.85rem;
+}
+
+.updates-overview .help-card-title {
+  margin-bottom: 0.4rem;
+}
+
+.updates-overview p {
+  margin-top: 0.35rem;
+}
+
+.updates-badge-row {
+  margin-top: 0.7rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.updates-module-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+/* Override generic help-card sibling spacing inside CSS grid.
+   Without this, every card after the first gets extra top margin
+   and rows look visually "crooked". */
+.updates-module-grid .help-card + .help-card {
+  margin-top: 0;
+}
+
+.updates-module {
+  border-top: 2px solid #39d3ff47;
+}
+
+.updates-module:nth-child(2n) {
+  border-top-color: #8a5cff52;
+}
+
+.updates-module:nth-child(3n) {
+  border-top-color: #ff4fd24a;
+}
+
+.updates-module-head {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  letter-spacing: -0.01em;
+}
+
+.updates-module-head .help-icon {
+  color: #3aa8cf;
+}
+
+.updates-module-copy {
+  margin: 0.55rem 0 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.updates-module-list {
+  margin: 0.65rem 0 0;
+  padding-left: 1.05rem;
+  display: grid;
+  gap: 0.28rem;
+}
+
+.updates-module-list li {
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.45;
+  font-weight: 400;
+}
+
+.updates-note {
+  margin-top: 0.85rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.updates-note p {
+  margin: 0;
+}
+
+.updates-note-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+@media (width <= 980px) {
+  .updates-module-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (width <= 720px) {
+  .updates-links {
+    width: 100%;
+  }
+
+  .updates-subtitle {
+    font-size: 0.82rem;
+  }
+
+  .updates-module-head {
+    font-size: 0.93rem;
+  }
+
+  .updates-module-list li {
+    font-size: 0.75rem;
+  }
+}
