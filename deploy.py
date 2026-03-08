@@ -1,17 +1,19 @@
 import ftplib
 import os
+import sys
 
-# Konfiguracja FTP
-FTP_HOST = "host372606.hostido.net.pl"
-FTP_USER = "vscode@conceptfab.com"
-FTP_PASS = "WPVbWCWxRCBWGwk4XhDJ"
-FTP_DIR = "/public_html/timeflow"
+try:
+    import ftp_config
+except ImportError:
+    print("BŁĄD: Brak pliku konfiguracyjnego ftp_config.py")
+    print("Skopiuj plik ftp_config.sample.py, zmień nazwę na ftp_config.py i uzupełnij go.")
+    sys.exit(1)
 
 # Konfiguracja lokalna
 LOCAL_DIR = "."  # Katalog ze stroną (uruchamiamy skrypt wewnątrz c:\_cloud\__cfab_demon\__page)
 
 # Pliki i foldery do pominięcia (nie wysyłamy np. ukrytych katalogów git, plików py itp.)
-IGNORE_LIST = ['.git', '.vscode', '__pycache__', 'build.py', 'deploy.py', 'screens', '.antigravityignore']
+IGNORE_LIST = ['.git', '.vscode', '__pycache__', 'build.py', 'deploy.py', 'ftp_config.py', '.antigravityignore', '.md']
 
 def should_ignore(path):
     for ignore in IGNORE_LIST:
@@ -42,21 +44,21 @@ def upload_directory(ftp, local_path, remote_path):
             upload_directory(ftp, local_item_path, remote_item_path)
 
 def main():
-    print(f"Łączenie z serwerem FTP: {FTP_HOST}...")
+    print(f"Łączenie z serwerem FTP: {ftp_config.FTP_HOST}...")
     try:
-        ftp = ftplib.FTP(FTP_HOST)
-        ftp.login(FTP_USER, FTP_PASS)
+        ftp = ftplib.FTP(ftp_config.FTP_HOST)
+        ftp.login(ftp_config.FTP_USER, ftp_config.FTP_PASS)
         print("Połączono pomyślnie.")
         
         # Zmiana katalogu początkowego, jeśli trzeba założyć w nim podkatalogi
         try:
-            ftp.cwd(FTP_DIR)
-            print(f"Zmieniono katalog docelowy na: {FTP_DIR}")
+            ftp.cwd(ftp_config.FTP_DIR)
+            print(f"Zmieniono katalog docelowy na: {ftp_config.FTP_DIR}")
         except ftplib.error_perm:
-            print(f"Katalog docelowy {FTP_DIR} może nie istnieć. Wgrywanie z utworzeniem struktury...")
+            print(f"Katalog docelowy {ftp_config.FTP_DIR} może nie istnieć. Wgrywanie z utworzeniem struktury...")
             
         print("Rozpoczynanie transferu z katalogu lokalnego...")
-        upload_directory(ftp, LOCAL_DIR, FTP_DIR)
+        upload_directory(ftp, LOCAL_DIR, ftp_config.FTP_DIR)
         
         ftp.quit()
         print("Transfer zakończony sukcesem. Rozłączono.")

@@ -24,16 +24,20 @@ def main():
     success = True
 
     # --- CSS ---
-    print("\n[CSS] Minifikacja style.css")
-    if os.path.exists("style.css"):
-        size_before = get_size("style.css")
-        # Zmieniamy: nie nadpisujemy style.css, tylko generujemy .min.css
-        # dla lepszego DX (Developer Experience)
-        if run_cmd("npx --yes lightningcss-cli --minify style.css -o style.min.css"):
-            size_after = get_size("style.min.css")
-            print(f"  style.css -> style.min.css: {size_before} -> {size_after} bytes")
-        else:
-            success = False
+    print("\n[CSS] Minifikacja plików CSS")
+    css_files = [
+        ("style.css", "style.min.css"),
+        ("updates.css", "updates.min.css")
+    ]
+    
+    for src, out in css_files:
+        if os.path.exists(src):
+            size_before = get_size(src)
+            if run_cmd(f"npx --yes lightningcss-cli --minify {src} -o {out}"):
+                size_after = get_size(out)
+                print(f"  {src} -> {out}: {size_before} -> {size_after} bytes")
+            else:
+                success = False
     
     # --- JS ---
     js_files = [

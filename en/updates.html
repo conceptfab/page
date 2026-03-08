@@ -6,7 +6,7 @@
     <title>Updates | TIMEFLOW</title>
     <meta
       name="description"
-      content="Full TIMEFLOW 0.1.5 changelog: all features, improvements and bug fixes across every module."
+      content="Full TIMEFLOW 0.1.6 changelog and 0.1.5 archive: new features, improvements and bug fixes across every module."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -106,16 +106,390 @@
 
       <section
         class="help-card updates-overview"
-        aria-label="0.1.5 release overview"
+        aria-label="0.1.6 release overview"
       >
         <h2 class="help-card-title">
           <svg class="help-icon" aria-hidden="true">
             <use href="../help-icons.svg#icon-rocket"></use>
           </svg>
-          Version 0.1.5 — full changelog
+          Version 0.1.6 — full changelog
         </h2>
         <p>
-          This page contains the complete release scope for
+          This document contains the complete list of changes in
+          <strong style="color: var(--ink)">TIMEFLOW 0.1.6</strong> (build
+          0.1.506). Scope: Dashboard, Sessions, Projects, Reports,
+          Applications, AI &amp; Model, Settings, Daemon, Data, Estimates,
+          Analysis and Help.
+        </p>
+        <div class="updates-badge-row" aria-label="Change types">
+          <span class="release-badge release-badge-feature">New features</span>
+          <span class="release-badge release-badge-improve">Improvements</span>
+          <span class="release-badge release-badge-fix">Bug fixes</span>
+        </div>
+      </section>
+
+      <section
+        id="modules"
+        class="updates-module-grid"
+        aria-label="Complete 0.1.6 module change list"
+      >
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="../help-icons.svg#icon-layout-dashboard"></use>
+            </svg>
+            Dashboard
+          </h3>
+          <p class="updates-module-copy">
+            Faster view loading and a new full-screen mode for reports.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[New]</strong> <code>ReportView</code> mode without
+              sidebar and topbar (clean screen for print/PDF).
+            </li>
+            <li>
+              <strong>[Improvement]</strong> One loading pipeline for stats,
+              projects and timeline instead of several separate runs.
+            </li>
+            <li>
+              <strong>[Improvement]</strong> <code>custom</code> range support
+              with logical hiding of previous/next arrows when the range is not
+              cyclic.
+            </li>
+            <li>
+              <strong>[Fix]</strong> The "All Projects" chart skips 0s records
+              and invalid time values.
+            </li>
+          </ul>
+        </article>
+
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="../help-icons.svg#icon-list"></use>
+            </svg>
+            Sessions
+          </h3>
+          <p class="updates-module-copy">
+            Major expansion of session-list workflows and the full split
+            pipeline.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[New]</strong> Project list modes for manual assignment:
+              Active A-Z, Newest → Top → Rest, Top → Newest → Rest.
+            </li>
+            <li>
+              <strong>[Improvement]</strong> Smart context-menu positioning
+              (keeps menus inside the viewport).
+            </li>
+            <li>
+              <strong>[Improvement]</strong> <code>Score Breakdown</code> cache
+              and prefetch with timeout for large lists.
+            </li>
+            <li>
+              <strong>[Fix]</strong> Guard against re-splitting already split
+              sessions (<code>split_source_session_id</code>).
+            </li>
+            <li>
+              <strong>[Fix]</strong> Session split is now transactional:
+              preserves total duration, correctly splits
+              <code>file_activities</code> and stores AI feedback.
+            </li>
+          </ul>
+        </article>
+
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="../help-icons.svg#icon-folder-kanban"></use>
+            </svg>
+            Projects
+          </h3>
+          <p class="updates-module-copy">
+            More accurate project metrics and safer administrative operations.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[Improvement]</strong>
+              <code>Project Extra Info</code> now computes in the real date
+              range (faster and without all-time CTE overhead).
+            </li>
+            <li>
+              <strong>[Fix]</strong> "Exclude" and "Delete project" now perform
+              reference cleanup and commit within a single transaction.
+            </li>
+            <li>
+              <strong>[Improvement]</strong> Better deduplication of project
+              candidate names from file hints.
+            </li>
+          </ul>
+        </article>
+
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="../help-icons.svg#icon-cpu"></use>
+            </svg>
+            Reports
+          </h3>
+          <p class="updates-module-copy">
+            Faster report generation and full localization for the template
+            editor.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[Improvement]</strong> Report backend now loads projects,
+              extra info, estimates and sessions in parallel.
+            </li>
+            <li>
+              <strong>[Improvement]</strong> Template editor and section preview
+              are connected to i18n keys (PL/EN), with no hardcoded labels.
+            </li>
+            <li>
+              <strong>[Fix/Improvement]</strong> Safer template save/duplicate
+              flow (localized copy suffix, fewer state side effects).
+            </li>
+          </ul>
+        </article>
+
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="../help-icons.svg#icon-app-window"></use>
+            </svg>
+            Applications
+          </h3>
+          <p class="updates-module-copy">
+            Better handling of very large app lists and more stable actions.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[New]</strong> "Show more" pagination (batches of 100
+              rows) for the applications table.
+            </li>
+            <li>
+              <strong>[Improvement]</strong> Sorting and searching reset list
+              viewport for better control of results.
+            </li>
+            <li>
+              <strong>[Fix]</strong> Explicit error handling for color change,
+              rename and delete actions.
+            </li>
+          </ul>
+        </article>
+
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="../help-icons.svg#icon-brain"></use>
+            </svg>
+            AI &amp; Model
+          </h3>
+          <p class="updates-module-copy">
+            Largest model iteration so far: quality metrics, training control
+            and knowledge reset.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[New]</strong> "AI Progress &amp; Quality" panel
+              (precision, feedback trend, auto-safe runs/rollback, data
+              coverage).
+            </li>
+            <li>
+              <strong>[New]</strong> <code>Training Horizon</code> 30–730 days
+              and training blacklists (exe + folders) available from UI.
+            </li>
+            <li>
+              <strong>[New]</strong> One-click AI knowledge reset (model +
+              feedback history + auto-runs cleanup).
+            </li>
+            <li>
+              <strong>[Improvement]</strong> Training now uses richer context:
+              <code>file_path</code>, <code>detected_path</code>,
+              <code>window_title</code>, <code>title_history</code>.
+            </li>
+          </ul>
+        </article>
+
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="../help-icons.svg#icon-settings"></use>
+            </svg>
+            Settings
+          </h3>
+          <p class="updates-module-copy">
+            Settings tab was rebuilt into clearer working sections.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[Improvement]</strong> New split between General and
+              Advanced/Algorithms for better option grouping.
+            </li>
+            <li>
+              <strong>[New]</strong> Session Management: Merge Gap, Skip short
+              sessions, Auto-rebuild on startup, and manual session rebuild.
+            </li>
+            <li>
+              <strong>[Improvement]</strong> Session Split moved to advanced
+              section (max projects, tolerance, auto-split).
+            </li>
+            <li>
+              <strong>[New]</strong> Extended Online Sync: sync on startup,
+              auto-sync interval, logging, and ACK/pending/reseed statuses.
+            </li>
+          </ul>
+        </article>
+
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="../help-icons.svg#icon-monitor"></use>
+            </svg>
+            Daemon &amp; Tray
+          </h3>
+          <p class="updates-module-copy">
+            More reliable process control and more honest activity measurement.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[Improvement]</strong> Start/Stop/Restart daemon now
+              waits for actual process state (polling), without blind delays.
+            </li>
+            <li>
+              <strong>[Improvement]</strong> Dashboard detection now uses
+              process snapshots (ToolHelp), with no <code>tasklist</code>
+              dependency.
+            </li>
+            <li>
+              <strong>[New]</strong> Idle guard: foreground time is not counted
+              when user is idle (&gt;= 2 minutes).
+            </li>
+            <li>
+              <strong>[New]</strong> Recording of
+              <code>detected_path</code>, <code>activity_type</code> and
+              <code>title_history</code> for better AI context.
+            </li>
+          </ul>
+        </article>
+
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="../help-icons.svg#icon-import"></use>
+            </svg>
+            Data &amp; Import
+          </h3>
+          <p class="updates-module-copy">
+            Expanded import quality and safer database operations.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[New]</strong> Import now stores extended activity fields:
+              <code>window_title</code>, <code>detected_path</code>,
+              <code>title_history</code>, <code>activity_type</code>.
+            </li>
+            <li>
+              <strong>[Improvement]</strong> Overlapping-session validation in
+              archive now runs in one SQL pass (temp table join).
+            </li>
+            <li>
+              <strong>[Fix]</strong> <code>clear_all_data</code> also clears
+              <code>session_manual_overrides</code> and <code>tombstones</code>.
+            </li>
+            <li>
+              <strong>[Fix]</strong> Safer <code>export_database</code> (path
+              control + proper quoting).
+            </li>
+          </ul>
+        </article>
+
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="../help-icons.svg#icon-bar-chart-3"></use>
+            </svg>
+            Estimates &amp; Analysis
+          </h3>
+          <p class="updates-module-copy">
+            Financial and analytics modules are aligned with the new key system
+            and more stable rendering.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[Improvement]</strong> Unified validations and
+              save/error messages in both modules.
+            </li>
+            <li>
+              <strong>[Improvement]</strong> More stable range refresh and
+              fewer unnecessary toolbar rerenders.
+            </li>
+            <li>
+              <strong>[Fix/Improvement]</strong> Better flow from valued
+              boosted sessions directly to Sessions view.
+            </li>
+          </ul>
+        </article>
+
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="../help-icons.svg#icon-info"></use>
+            </svg>
+            Help
+          </h3>
+          <p class="updates-module-copy">
+            Documentation was expanded with new workflows and diagnostic
+            scenarios.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[Improvement]</strong> New Sessions, AI and ReportView
+              flows documented (including split pipeline and print/PDF mode).
+            </li>
+            <li>
+              <strong>[Improvement]</strong> Added Online Sync scenarios: ACK
+              pending, server snapshot cleanup, and relation to Demo Mode.
+            </li>
+            <li>
+              <strong>[Improvement]</strong> Added guidance for new settings:
+              Training Horizon, blacklists, auto-split and auto-rebuild.
+            </li>
+          </ul>
+        </article>
+      </section>
+
+      <section
+        class="help-card updates-note"
+        aria-label="0.1.6 changelog footer note"
+      >
+        <p>
+          This is the complete list of changes for
+          <strong style="color: var(--ink)">TIMEFLOW 0.1.6</strong>. The
+          archived 0.1.5 section is preserved below.
+        </p>
+        <div class="updates-note-actions">
+          <a class="btn btn-primary" href="./index.html#beta"
+            >Join beta tests</a
+          >
+          <a class="btn btn-ghost" href="./index.html">Back to home</a>
+        </div>
+      </section>
+
+      <section
+        class="help-card updates-overview"
+        aria-label="0.1.5 archived release overview"
+      >
+        <h2 class="help-card-title">
+          <svg class="help-icon" aria-hidden="true">
+            <use href="../help-icons.svg#icon-rocket"></use>
+          </svg>
+          Version 0.1.5 — full changelog (archive)
+        </h2>
+        <p>
+          Below is the complete archived change list for
           <strong style="color: var(--ink)">TIMEFLOW 0.1.5</strong>. Covered
           modules: Dashboard, Sessions, Projects, Estimates, Analysis,
           Applications, AI &amp; Model, Settings, Data and Help.
@@ -128,9 +502,9 @@
       </section>
 
       <section
-        id="modules"
+        id="modules-015"
         class="updates-module-grid"
-        aria-label="Complete module change list"
+        aria-label="Archived 0.1.5 module change list"
       >
         <article class="help-card updates-module">
           <h3 class="updates-module-head">
@@ -220,7 +594,7 @@
             </li>
             <li>
               <strong>[New]</strong> Project color editing via dedicated palette
-              (`color` property) for stronger visual mapping.
+              (<code>color</code> property) for stronger visual mapping.
             </li>
             <li>
               <strong>[Improvement]</strong> Faster project search by name with
@@ -254,8 +628,8 @@
             </li>
             <li>
               <strong>[Improvement]</strong> Better global rates and
-              multi-currency (PLN/USD/EUR) parsing through improved `currency`
-              handling.
+              multi-currency (PLN/USD/EUR) parsing through improved
+              <code>currency</code> handling.
             </li>
           </ul>
         </article>
@@ -319,8 +693,9 @@
               re-mapped sessions do not snap back to old AI choices.
             </li>
             <li>
-              <strong>[Improvement]</strong> Refined `min_confidence` safety
-              thresholds and clearer auto-assignment behavior.
+              <strong>[Improvement]</strong> Refined
+              <code>min_confidence</code> safety thresholds and clearer
+              auto-assignment behavior.
             </li>
           </ul>
         </article>
@@ -342,7 +717,8 @@
             </li>
             <li>
               <strong>[Improvement]</strong> Custom UI Alerts (toasts and
-              decision dialogs) replacing raw `alert()` / `confirm()` usage.
+              decision dialogs) replacing raw <code>alert()</code> /
+              <code>confirm()</code> usage.
             </li>
           </ul>
         </article>
@@ -394,12 +770,12 @@
 
       <section
         class="help-card updates-note"
-        aria-label="Changelog footer note"
+        aria-label="0.1.5 archived changelog footer note"
       >
         <p>
-          This is the complete release list for
-          <strong style="color: var(--ink)">TIMEFLOW 0.1.5</strong>. Future
-          updates will be published here in the same structure.
+          This is the archived change list for
+          <strong style="color: var(--ink)">TIMEFLOW 0.1.5</strong>. The newest
+          0.1.6 section is available above.
         </p>
         <div class="updates-note-actions">
           <a class="btn btn-primary" href="./index.html#beta"

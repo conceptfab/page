@@ -6,7 +6,7 @@
     <title>Aktualizacje | TIMEFLOW</title>
     <meta
       name="description"
-      content="Pełny changelog TIMEFLOW 0.1.5: nowe funkcje, usprawnienia i naprawione błędy w każdym module."
+      content="Pełny changelog TIMEFLOW 0.1.6 i archiwum 0.1.5: nowe funkcje, usprawnienia i naprawione błędy w każdym module."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -106,16 +106,394 @@
 
       <section
         class="help-card updates-overview"
-        aria-label="Podsumowanie wydania 0.1.5"
+        aria-label="Podsumowanie wydania 0.1.6"
       >
         <h2 class="help-card-title">
           <svg class="help-icon" aria-hidden="true">
             <use href="./help-icons.svg#icon-rocket"></use>
           </svg>
-          Wersja 0.1.5 — pełny changelog
+          Wersja 0.1.6 — pełny changelog
         </h2>
         <p>
           Ten dokument zawiera kompletną listę zmian z wydania
+          <strong style="color: var(--ink)">TIMEFLOW 0.1.6</strong> (build
+          0.1.506). Zakres: Dashboard, Sessions, Projects, Reports,
+          Applications, AI &amp; Model, Settings, Daemon, Data, Estimates,
+          Analysis i Help.
+        </p>
+        <div class="updates-badge-row" aria-label="Typy zmian">
+          <span class="release-badge release-badge-feature">Nowe funkcje</span>
+          <span class="release-badge release-badge-improve">Usprawnienia</span>
+          <span class="release-badge release-badge-fix">Naprawione błędy</span>
+        </div>
+      </section>
+
+      <section
+        id="moduly"
+        class="updates-module-grid"
+        aria-label="Pełna lista zmian 0.1.6 według modułów"
+      >
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="./help-icons.svg#icon-layout-dashboard"></use>
+            </svg>
+            Dashboard (Panel Główny)
+          </h3>
+          <p class="updates-module-copy">
+            Szybsze ładowanie widoków i nowy tryb pełnoekranowy dla raportów.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[Nowe]</strong> Tryb <code>ReportView</code> bez sidebara
+              i topbara (czysty ekran pod wydruk/PDF).
+            </li>
+            <li>
+              <strong>[Usprawnienie]</strong> Jeden pipeline ładowania
+              statystyk, projektów i timeline zamiast kilku osobnych przebiegów.
+            </li>
+            <li>
+              <strong>[Usprawnienie]</strong> Wsparcie zakresu
+              <code>custom</code> + logiczne ukrywanie strzałek
+              poprzedni/następny, gdy zakres nie jest cykliczny.
+            </li>
+            <li>
+              <strong>[Fix]</strong> Wykres „All Projects” pomija rekordy 0s i
+              nieprawidłowe wartości czasu.
+            </li>
+          </ul>
+        </article>
+
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="./help-icons.svg#icon-list"></use>
+            </svg>
+            Sesje (Sessions)
+          </h3>
+          <p class="updates-module-copy">
+            Duża rozbudowa pracy na listach sesji i całego pipeline splitowania.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[Nowe]</strong> Tryby listy projektów przy ręcznym
+              przypisaniu: Aktywne A-Z, Najnowsze → Top → Reszta, Top →
+              Najnowsze → Reszta.
+            </li>
+            <li>
+              <strong>[Usprawnienie]</strong> Smart pozycjonowanie menu
+              kontekstowego (bez uciekania poza viewport).
+            </li>
+            <li>
+              <strong>[Usprawnienie]</strong> Cache i prefetch
+              <code>Score Breakdown</code> z timeoutem dla dużych list.
+            </li>
+            <li>
+              <strong>[Fix]</strong> Ochrona przed ponownym dzieleniem już
+              podzielonych sesji (<code>split_source_session_id</code>).
+            </li>
+            <li>
+              <strong>[Fix]</strong> Split sesji działa transakcyjnie: zachowuje
+              łączny czas, poprawnie dzieli <code>file_activities</code> i
+              zapisuje feedback AI.
+            </li>
+          </ul>
+        </article>
+
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="./help-icons.svg#icon-folder-kanban"></use>
+            </svg>
+            Projekty (Projects)
+          </h3>
+          <p class="updates-module-copy">
+            Dokładniejsze statystyki projektowe i bezpieczniejsze operacje
+            administracyjne.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[Usprawnienie]</strong> Liczenie
+              <code>Project Extra Info</code> w realnym zakresie dat (szybciej i
+              bez kosztu all-time CTE).
+            </li>
+            <li>
+              <strong>[Fix]</strong> „Wyklucz” i „Usuń projekt” wykonują
+              czyszczenie referencji + commit w jednej transakcji.
+            </li>
+            <li>
+              <strong>[Usprawnienie]</strong> Lepsza deduplikacja nazw
+              kandydatów projektów z hintów plikowych.
+            </li>
+          </ul>
+        </article>
+
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="./help-icons.svg#icon-cpu"></use>
+            </svg>
+            Raporty (Reports)
+          </h3>
+          <p class="updates-module-copy">
+            Szybsze generowanie raportów i pełna lokalizacja edytora szablonów.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[Usprawnienie]</strong> Backend raportu ładuje równolegle
+              projekty, extra info, estimates i sessions.
+            </li>
+            <li>
+              <strong>[Usprawnienie]</strong> Edytor szablonów oraz podgląd
+              sekcji podpięte pod klucze i18n (PL/EN), bez hardkodowanych
+              etykiet.
+            </li>
+            <li>
+              <strong>[Fix/Usprawnienie]</strong> Bezpieczniejsze zapisywanie i
+              duplikowanie template (lokalizowany suffix kopii, mniej
+              side-effectów stanu).
+            </li>
+          </ul>
+        </article>
+
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="./help-icons.svg#icon-app-window"></use>
+            </svg>
+            Aplikacje (Applications)
+          </h3>
+          <p class="updates-module-copy">
+            Lepsza obsługa bardzo dużych list aplikacji i stabilniejsze akcje.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[Nowe]</strong> Paginacja „Pokaż więcej” (batch po 100
+              rekordów) dla tabeli aplikacji.
+            </li>
+            <li>
+              <strong>[Usprawnienie]</strong> Sortowanie i wyszukiwanie resetuje
+              widok listy, co poprawia kontrolę nad wynikami.
+            </li>
+            <li>
+              <strong>[Fix]</strong> Jawna obsługa błędów przy zmianie koloru,
+              rename i usuwaniu aplikacji.
+            </li>
+          </ul>
+        </article>
+
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="./help-icons.svg#icon-brain"></use>
+            </svg>
+            Model i Sztuczna Inteligencja (AI)
+          </h3>
+          <p class="updates-module-copy">
+            Największa iteracja modelu: metryki jakości, kontrola treningu i
+            reset wiedzy.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[Nowe]</strong> Panel „Postęp i jakość AI” (precision,
+              feedback trend, auto-safe runs/rollback, coverage danych).
+            </li>
+            <li>
+              <strong>[Nowe]</strong> <code>Training Horizon</code> 30–730 dni i
+              blacklisty treningu (exe + foldery) dostępne z poziomu UI.
+            </li>
+            <li>
+              <strong>[Nowe]</strong> Reset wiedzy AI jednym kliknięciem
+              (czyszczenie modelu + historii feedbacku + auto-runów).
+            </li>
+            <li>
+              <strong>[Usprawnienie]</strong> Trening korzysta z bogatszego
+              kontekstu: <code>file_path</code>, <code>detected_path</code>,
+              <code>window_title</code>, <code>title_history</code>.
+            </li>
+          </ul>
+        </article>
+
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="./help-icons.svg#icon-settings"></use>
+            </svg>
+            Ustawienia (Settings)
+          </h3>
+          <p class="updates-module-copy">
+            Zakładka ustawień została przebudowana na czytelne sekcje robocze.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[Usprawnienie]</strong> Nowy podział „General” +
+              „Advanced/Algorithms” z lepszym grupowaniem opcji.
+            </li>
+            <li>
+              <strong>[Nowe]</strong> Session Management: Merge Gap, Skip short
+              sessions, Auto-rebuild on startup i ręczny rebuild sesji.
+            </li>
+            <li>
+              <strong>[Usprawnienie]</strong> Session Split przeniesiony do
+              sekcji zaawansowanej (max projects, tolerance, auto-split).
+            </li>
+            <li>
+              <strong>[Nowe]</strong> Rozbudowany Online Sync: sync on startup,
+              auto-sync interval, logging oraz status ACK/pending/reseed.
+            </li>
+          </ul>
+        </article>
+
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="./help-icons.svg#icon-monitor"></use>
+            </svg>
+            Demon i Tray
+          </h3>
+          <p class="updates-module-copy">
+            Stabilniejsze sterowanie procesem i bardziej „uczciwy” pomiar
+            aktywności.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[Usprawnienie]</strong> Start/Stop/Restart demona czeka na
+              realny stan procesu (polling), bez „ślepego” opóźnienia.
+            </li>
+            <li>
+              <strong>[Usprawnienie]</strong> Wykrywanie dashboardu przez
+              snapshot procesów (ToolHelp), bez zależności od
+              <code>tasklist</code>.
+            </li>
+            <li>
+              <strong>[Nowe]</strong> Idle guard: brak naliczania foreground,
+              gdy użytkownik jest bezczynny (>= 2 min).
+            </li>
+            <li>
+              <strong>[Nowe]</strong> Rejestrowanie
+              <code>detected_path</code>, <code>activity_type</code> i
+              <code>title_history</code> dla lepszego kontekstu AI.
+            </li>
+          </ul>
+        </article>
+
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="./help-icons.svg#icon-import"></use>
+            </svg>
+            Dane i Import (Data)
+          </h3>
+          <p class="updates-module-copy">
+            Rozszerzona jakość importu i większe bezpieczeństwo operacji na
+            bazie.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[Nowe]</strong> Import zapisuje rozszerzone pola
+              aktywności: <code>window_title</code>, <code>detected_path</code>,
+              <code>title_history</code>, <code>activity_type</code>.
+            </li>
+            <li>
+              <strong>[Usprawnienie]</strong> Walidacja nakładających się sesji
+              w archiwum działa jednym przejściem SQL (temp table join).
+            </li>
+            <li>
+              <strong>[Fix]</strong> <code>clear_all_data</code> czyści też
+              <code>session_manual_overrides</code> i <code>tombstones</code>.
+            </li>
+            <li>
+              <strong>[Fix]</strong> Bezpieczniejsze
+              <code>export_database</code> (kontrola ścieżki + poprawne
+              quotowanie).
+            </li>
+          </ul>
+        </article>
+
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="./help-icons.svg#icon-bar-chart-3"></use>
+            </svg>
+            Wyceny i Analiza (Estimates + Analysis)
+          </h3>
+          <p class="updates-module-copy">
+            Moduły finansowe i analityczne zostały dopięte do nowego systemu
+            kluczy i stabilniejszego renderu.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[Usprawnienie]</strong> Ujednolicone walidacje i
+              komunikaty błędów/zapisu w obu modułach.
+            </li>
+            <li>
+              <strong>[Usprawnienie]</strong> Stabilniejsze odświeżanie zakresów
+              i mniej zbędnych rerenderów toolbarów.
+            </li>
+            <li>
+              <strong>[Fix/Usprawnienie]</strong> Lepszy flow przejścia z
+              wycenionych „boosted sessions” bezpośrednio do widoku sesji.
+            </li>
+          </ul>
+        </article>
+
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="./help-icons.svg#icon-info"></use>
+            </svg>
+            Pomoc (Help)
+          </h3>
+          <p class="updates-module-copy">
+            Dokumentacja została rozszerzona o nowe workflowy i scenariusze
+            diagnostyczne.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[Usprawnienie]</strong> Opisane nowe flow Sessions, AI i
+              ReportView (w tym split pipeline oraz wydruk/PDF).
+            </li>
+            <li>
+              <strong>[Usprawnienie]</strong> Dodane scenariusze Online Sync:
+              ACK pending, server snapshot cleanup i relacja z Demo Mode.
+            </li>
+            <li>
+              <strong>[Usprawnienie]</strong> Uzupełnione instrukcje dla nowych
+              ustawień: Training Horizon, blacklisty, auto-split i auto-rebuild.
+            </li>
+          </ul>
+        </article>
+      </section>
+
+      <section
+        class="help-card updates-note"
+        aria-label="Informacja końcowa changelogu 0.1.6"
+      >
+        <p>
+          To jest pełna lista zmian dla wydania
+          <strong style="color: var(--ink)">TIMEFLOW 0.1.6</strong>. Niżej
+          znajdziesz zachowaną sekcję archiwalną dla wersji 0.1.5.
+        </p>
+        <div class="updates-note-actions">
+          <a class="btn btn-primary" href="./index.html#beta"
+            >Dołącz do testów beta</a
+          >
+          <a class="btn btn-ghost" href="./index.html">Wróć na stronę główną</a>
+        </div>
+      </section>
+
+      <section
+        class="help-card updates-overview"
+        aria-label="Podsumowanie archiwalnego wydania 0.1.5"
+      >
+        <h2 class="help-card-title">
+          <svg class="help-icon" aria-hidden="true">
+            <use href="./help-icons.svg#icon-rocket"></use>
+          </svg>
+          Wersja 0.1.5 — pełny changelog (archiwum)
+        </h2>
+        <p>
+          Poniżej pozostaje kompletna, archiwalna lista zmian z wydania
           <strong style="color: var(--ink)">TIMEFLOW 0.1.5</strong>. Zakres:
           Dashboard, Sessions, Projects, Estimates, Analysis, Applications, AI
           &amp; Model, Settings, Data i Help.
@@ -128,9 +506,9 @@
       </section>
 
       <section
-        id="moduly"
+        id="moduly-015"
         class="updates-module-grid"
-        aria-label="Pełna lista zmian według modułów"
+        aria-label="Archiwalna lista zmian 0.1.5 według modułów"
       >
         <article class="help-card updates-module">
           <h3 class="updates-module-head">
@@ -394,12 +772,12 @@
 
       <section
         class="help-card updates-note"
-        aria-label="Informacja końcowa changelogu"
+        aria-label="Informacja końcowa archiwalnego changelogu 0.1.5"
       >
         <p>
-          To jest pełna lista zmian dla wydania
-          <strong style="color: var(--ink)">TIMEFLOW 0.1.5</strong>. Kolejne
-          aktualizacje będą publikowane w tym samym układzie.
+          To jest archiwalna lista zmian dla wydania
+          <strong style="color: var(--ink)">TIMEFLOW 0.1.5</strong>. Najnowsza
+          sekcja 0.1.6 znajduje się wyżej.
         </p>
         <div class="updates-note-actions">
           <a class="btn btn-primary" href="./index.html#beta"
