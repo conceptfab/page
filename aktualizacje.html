@@ -1,227 +1,415 @@
 <!doctype html>
 <html lang="pl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Aktualizacje | TIMEFLOW</title>
-  <meta name="description" content="Pełny changelog TIMEFLOW 0.1.5: nowe funkcje, usprawnienia i naprawione błędy w każdym module." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./style.min.css" />
-  <link rel="stylesheet" href="./help.css" />
-  <link rel="stylesheet" href="./updates.css" />
-  <link rel="canonical" href="https://conceptfab.com/timeflow/aktualizacje.html" />
-  <link rel="alternate" hreflang="pl" href="https://conceptfab.com/timeflow/aktualizacje.html" />
-  <link rel="alternate" hreflang="en" href="https://conceptfab.com/timeflow/en/updates.html" />
-  <link rel="alternate" hreflang="x-default" href="https://conceptfab.com/timeflow/aktualizacje.html" />
-</head>
-<body>
-  <header class="topbar">
-    <a class="brand" href="./index.html#start" aria-label="TIMEFLOW - strona główna">
-      <span class="brand-name"><span class="tf-style">TIMEFLOW</span></span>
-      <span class="brand-beta">Beta</span>
-    </a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aktualizacje | TIMEFLOW</title>
+    <meta
+      name="description"
+      content="Pełny changelog TIMEFLOW 0.1.5: nowe funkcje, usprawnienia i naprawione błędy w każdym module."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.min.css" />
+    <link rel="stylesheet" href="./help.css" />
+    <link rel="stylesheet" href="./updates.css" />
+    <link
+      rel="canonical"
+      href="https://conceptfab.com/timeflow/aktualizacje.html"
+    />
+    <link
+      rel="alternate"
+      hreflang="pl"
+      href="https://conceptfab.com/timeflow/aktualizacje.html"
+    />
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://conceptfab.com/timeflow/en/updates.html"
+    />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://conceptfab.com/timeflow/aktualizacje.html"
+    />
+  </head>
+  <body>
+    <header class="topbar">
+      <a
+        class="brand"
+        href="./index.html#start"
+        aria-label="TIMEFLOW - strona główna"
+      >
+        <span class="brand-name"><span class="tf-style">TIMEFLOW</span></span>
+        <span class="brand-beta">Beta</span>
+      </a>
 
-    <button class="topbar-menu-toggle" type="button" aria-expanded="false" aria-controls="topbar-nav"
-      aria-label="Otwórz menu" data-menu-toggle>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </button>
+      <button
+        class="topbar-menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="topbar-nav"
+        aria-label="Otwórz menu"
+        data-menu-toggle
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
 
-    <nav class="topnav" id="topbar-nav" aria-label="Nawigacja">
-      <a href="./index.html#funkcje">Funkcje</a>
-      <a href="./index.html#stack">Stack</a>
-      <a href="./index.html#workflow">Jak działa</a>
-      <a href="./aktualizacje.html" aria-current="page">Aktualizacje</a>
-      <a href="./index.html#roadmap">Roadmapa</a>
-      <a href="./pomoc.html">Pomoc</a>
-      <a href="./index.html#beta">Testy beta</a>
-    </nav>
+      <nav class="topnav" id="topbar-nav" aria-label="Nawigacja">
+        <a href="./index.html#funkcje">Funkcje</a>
+        <a href="./index.html#stack">Stack</a>
+        <a href="./index.html#workflow">Jak działa</a>
+        <a href="./aktualizacje.html" aria-current="page">Aktualizacje</a>
+        <a href="./index.html#roadmap">Roadmapa</a>
+        <a href="./pomoc.html">Pomoc</a>
+        <a href="./index.html#beta">Testy beta</a>
+      </nav>
 
-    <div class="lang-switch" aria-label="Zmień język">
-      <span class="lang-active" aria-current="page">PL</span>
-      <span class="lang-sep" aria-hidden="true">/</span>
-      <a class="lang-link" href="./en/updates.html" hreflang="en" lang="en">EN</a>
-    </div>
+      <div class="lang-switch" aria-label="Zmień język">
+        <span class="lang-active" aria-current="page">PL</span>
+        <span class="lang-sep" aria-hidden="true">/</span>
+        <a class="lang-link" href="./en/updates.html" hreflang="en" lang="en"
+          >EN</a
+        >
+      </div>
 
-    <a class="btn btn-ghost topbar-cta" href="./index.html#beta">Dołącz do testów</a>
-  </header>
+      <a class="btn btn-ghost topbar-cta" href="./index.html#beta"
+        >Dołącz do testów</a
+      >
+    </header>
 
-  <main class="help-shell updates-shell">
-    <section class="help-top" aria-label="Nagłówek aktualizacji TIMEFLOW">
-      <div>
-        <h1 class="help-title">
-          Aktualizacje
-          <img src="./help-assets/logo.png" alt="TIMEFLOW" class="brand-mark" />
-          <span class="brand-word">TIMEFLOW</span>
-        </h1>
-        <div class="help-meta">
-          <span>Concept / creation / execution</span>
-          <img src="./help-assets/cfab.png" alt="CONCEPTFAB" />
-          <span>All rights reserved</span>
+    <main class="help-shell updates-shell">
+      <section class="help-top" aria-label="Nagłówek aktualizacji TIMEFLOW">
+        <div>
+          <h1 class="help-title">
+            Aktualizacje
+            <img
+              src="./help-assets/logo.png"
+              alt="TIMEFLOW"
+              class="brand-mark"
+            />
+            <span class="brand-word">TIMEFLOW</span>
+          </h1>
+          <div class="help-meta">
+            <span>Concept / creation / execution</span>
+            <img src="./help-assets/cfab.png" alt="CONCEPTFAB" />
+            <span>All rights reserved</span>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="help-card updates-overview" aria-label="Podsumowanie wydania 0.1.5">
-      <h2 class="help-card-title">
-        <svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-rocket"></use></svg>
-        Wersja 0.1.5 — pełny changelog
-      </h2>
-      <p>
-        Ten dokument zawiera kompletną listę zmian z wydania <strong style="color:var(--ink)">TIMEFLOW 0.1.5</strong>.
-        Zakres: Dashboard, Sessions, Projects, Estimates, Analysis, Applications, AI &amp; Model, Settings, Data i Help.
-      </p>
-      <div class="updates-badge-row" aria-label="Typy zmian">
-        <span class="release-badge release-badge-feature">Nowe funkcje</span>
-        <span class="release-badge release-badge-improve">Usprawnienia</span>
-        <span class="release-badge release-badge-fix">Naprawione błędy</span>
-      </div>
-    </section>
+      <section
+        class="help-card updates-overview"
+        aria-label="Podsumowanie wydania 0.1.5"
+      >
+        <h2 class="help-card-title">
+          <svg class="help-icon" aria-hidden="true">
+            <use href="./help-icons.svg#icon-rocket"></use>
+          </svg>
+          Wersja 0.1.5 — pełny changelog
+        </h2>
+        <p>
+          Ten dokument zawiera kompletną listę zmian z wydania
+          <strong style="color: var(--ink)">TIMEFLOW 0.1.5</strong>. Zakres:
+          Dashboard, Sessions, Projects, Estimates, Analysis, Applications, AI
+          &amp; Model, Settings, Data i Help.
+        </p>
+        <div class="updates-badge-row" aria-label="Typy zmian">
+          <span class="release-badge release-badge-feature">Nowe funkcje</span>
+          <span class="release-badge release-badge-improve">Usprawnienia</span>
+          <span class="release-badge release-badge-fix">Naprawione błędy</span>
+        </div>
+      </section>
 
-    <section id="moduly" class="updates-module-grid" aria-label="Pełna lista zmian według modułów">
-      <article class="help-card updates-module">
-        <h3 class="updates-module-head">
-          <svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-layout-dashboard"></use></svg>
-          Dashboard (Panel Główny)
-        </h3>
-        <p class="updates-module-copy">Monitoring statusu usług i szybszy odczyt stanu całej aplikacji z poziomu głównego widoku.</p>
-        <ul class="updates-module-list">
-          <li><strong>[Nowe]</strong> Monitoring usług w czasie rzeczywistym (Daemon, Sync, AI) bez odświeżania okna.</li>
-          <li><strong>[Usprawnienie]</strong> Odświeżony wskaźnik wersji z kontrolą niekompatybilności silnika i informacją o konieczności reloadu.</li>
-          <li><strong>[Nowe]</strong> BugHunter Widget do szybkiego reagowania na błędy z bety.</li>
-          <li><strong>[Nowe]</strong> Dynamiczne liczniki osieroconych sesji w TopBarze (czerwone badge dla czasu bez przypisania).</li>
-        </ul>
-      </article>
+      <section
+        id="moduly"
+        class="updates-module-grid"
+        aria-label="Pełna lista zmian według modułów"
+      >
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="./help-icons.svg#icon-layout-dashboard"></use>
+            </svg>
+            Dashboard (Panel Główny)
+          </h3>
+          <p class="updates-module-copy">
+            Monitoring statusu usług i szybszy odczyt stanu całej aplikacji z
+            poziomu głównego widoku.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[Nowe]</strong> Monitoring usług w czasie rzeczywistym
+              (Daemon, Sync, AI) bez odświeżania okna.
+            </li>
+            <li>
+              <strong>[Usprawnienie]</strong> Odświeżony wskaźnik wersji z
+              kontrolą niekompatybilności silnika i informacją o konieczności
+              reloadu.
+            </li>
+            <li>
+              <strong>[Nowe]</strong> BugHunter Widget do szybkiego reagowania
+              na błędy z bety.
+            </li>
+            <li>
+              <strong>[Nowe]</strong> Dynamiczne liczniki osieroconych sesji w
+              TopBarze (czerwone badge dla czasu bez przypisania).
+            </li>
+          </ul>
+        </article>
 
-      <article class="help-card updates-module">
-        <h3 class="updates-module-head">
-          <svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-list"></use></svg>
-          Sesje (Sessions)
-        </h3>
-        <p class="updates-module-copy">Duży skok wydajności list i większa kontrola nad jakością przypisań AI.</p>
-        <ul class="updates-module-list">
-          <li><strong>[Usprawnienie]</strong> Nowy silnik renderowania list oparty o wirtualizację dla tysięcy wpisów.</li>
-          <li><strong>[Nowe]</strong> Rozbudowany interfejs AI Score z paskami breakdown i oceną pewności przypisań.</li>
-          <li><strong>[Nowe]</strong> Trening przez wzmocnienie: Thumbs Up / Thumbs Down w tabeli sesji.</li>
-          <li><strong>[Usprawnienie]</strong> Lepsze dzielenie sesji obejmujących dowody z wielu projektów.</li>
-          <li><strong>[Fix]</strong> Uspójnione formaty czasu dla języka polskiego (np. „5 sty 2025”).</li>
-        </ul>
-      </article>
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="./help-icons.svg#icon-list"></use>
+            </svg>
+            Sesje (Sessions)
+          </h3>
+          <p class="updates-module-copy">
+            Duży skok wydajności list i większa kontrola nad jakością przypisań
+            AI.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[Usprawnienie]</strong> Nowy silnik renderowania list
+              oparty o wirtualizację dla tysięcy wpisów.
+            </li>
+            <li>
+              <strong>[Nowe]</strong> Rozbudowany interfejs AI Score z paskami
+              breakdown i oceną pewności przypisań.
+            </li>
+            <li>
+              <strong>[Nowe]</strong> Trening przez wzmocnienie: Thumbs Up /
+              Thumbs Down w tabeli sesji.
+            </li>
+            <li>
+              <strong>[Usprawnienie]</strong> Lepsze dzielenie sesji
+              obejmujących dowody z wielu projektów.
+            </li>
+            <li>
+              <strong>[Fix]</strong> Uspójnione formaty czasu dla języka
+              polskiego (np. „5 sty 2025”).
+            </li>
+          </ul>
+        </article>
 
-      <article class="help-card updates-module">
-        <h3 class="updates-module-head">
-          <svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-folder-kanban"></use></svg>
-          Projekty (Projects)
-        </h3>
-        <p class="updates-module-copy">Czytelniejsze metryki projektowe i szybsza praca z dużą listą klientów/projektów.</p>
-        <ul class="updates-module-list">
-          <li><strong>[Nowe]</strong> Licznik Boosted Sessions na kartach projektów i spójność z widokiem Wycen.</li>
-          <li><strong>[Nowe]</strong> Edycja koloru projektu przez dedykowaną paletę (`color` property).</li>
-          <li><strong>[Usprawnienie]</strong> Natychmiastowe filtrowanie projektów po nazwie + lepsza paginacja „Load more”.</li>
-          <li><strong>[Usprawnienie]</strong> Solidniejsze wykrywanie struktur klientów i podsumowań stawek.</li>
-        </ul>
-      </article>
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="./help-icons.svg#icon-folder-kanban"></use>
+            </svg>
+            Projekty (Projects)
+          </h3>
+          <p class="updates-module-copy">
+            Czytelniejsze metryki projektowe i szybsza praca z dużą listą
+            klientów/projektów.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[Nowe]</strong> Odświeżona karta projektów z licznikiem
+              sesji i statusem AI.
+            </li>
+            <li>
+              <strong>[Nowe]</strong> Licznik Boosted Sessions na kartach
+              projektów i spójność z widokiem Wycen.
+            </li>
+            <li>
+              <strong>[Nowe]</strong> Edycja koloru projektu przez dedykowaną
+              paletę (`color` property).
+            </li>
+            <li>
+              <strong>[Usprawnienie]</strong> Natychmiastowe filtrowanie
+              projektów po nazwie + lepsza paginacja „Load more”.
+            </li>
+            <li>
+              <strong>[Usprawnienie]</strong> Solidniejsze wykrywanie struktur
+              klientów i podsumowań stawek.
+            </li>
+          </ul>
+        </article>
 
-      <article class="help-card updates-module">
-        <h3 class="updates-module-head">
-          <svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-circle-dollar-sign"></use></svg>
-          Wyceny (Estimates)
-        </h3>
-        <p class="updates-module-copy">Lepszy UX ładowania i większa wiarygodność wartości finansowych.</p>
-        <ul class="updates-module-list">
-          <li><strong>[Fix]</strong> Backend re-fetch nie „zamraża” tabeli przy zmianach sortowania dat.</li>
-          <li><strong>[Fix]</strong> Do Boosted Estimates trafiają tylko realne, istniejące sesje.</li>
-          <li><strong>[Usprawnienie]</strong> Lepsze podliczanie stawek globalnych i walut (PLN/USD/EUR) z dokładniejszym parsowaniem `currency`.</li>
-        </ul>
-      </article>
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="./help-icons.svg#icon-circle-dollar-sign"></use>
+            </svg>
+            Wyceny (Estimates)
+          </h3>
+          <p class="updates-module-copy">
+            Lepszy UX ładowania i większa wiarygodność wartości finansowych.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[Fix]</strong> Backend re-fetch nie „zamraża” tabeli przy
+              zmianach sortowania dat.
+            </li>
+            <li>
+              <strong>[Fix]</strong> Do Boosted Estimates trafiają tylko realne,
+              istniejące sesje.
+            </li>
+            <li>
+              <strong>[Usprawnienie]</strong> Lepsze podliczanie stawek
+              globalnych i walut (PLN/USD/EUR) z dokładniejszym parsowaniem
+              `currency`.
+            </li>
+          </ul>
+        </article>
 
-      <article class="help-card updates-module">
-        <h3 class="updates-module-head">
-          <svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-bar-chart-3"></use></svg>
-          Analiza Czasu (Analysis)
-        </h3>
-        <p class="updates-module-copy">Szybsze przeliczanie danych i płynniejsze animacje wykresów.</p>
-        <ul class="updates-module-list">
-          <li><strong>[Usprawnienie]</strong> Memoizacja sum Daily/Weekly/Monthly (Zustand + React useMemo) redukująca narzut operacji.</li>
-        </ul>
-      </article>
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="./help-icons.svg#icon-bar-chart-3"></use>
+            </svg>
+            Analiza Czasu (Analysis)
+          </h3>
+          <p class="updates-module-copy">
+            Szybsze przeliczanie danych i płynniejsze animacje wykresów.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[Usprawnienie]</strong> Memoizacja sum
+              Daily/Weekly/Monthly (Zustand + React useMemo) redukująca narzut
+              operacji.
+            </li>
+          </ul>
+        </article>
 
-      <article class="help-card updates-module">
-        <h3 class="updates-module-head">
-          <svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-app-window"></use></svg>
-          Aplikacje (Applications)
-        </h3>
-        <p class="updates-module-copy">Stabilniejsze działanie statystyk po przełączaniu języka interfejsu.</p>
-        <ul class="updates-module-list">
-          <li><strong>[Fix/Usprawnienie]</strong> Zintegrowane i18n bez pustych kluczy i bez fallbacku do kodu inline.</li>
-        </ul>
-      </article>
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="./help-icons.svg#icon-app-window"></use>
+            </svg>
+            Aplikacje (Applications)
+          </h3>
+          <p class="updates-module-copy">
+            Stabilniejsze działanie statystyk po przełączaniu języka interfejsu.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[Fix/Usprawnienie]</strong> Zintegrowane i18n bez pustych
+              kluczy i bez fallbacku do kodu inline.
+            </li>
+          </ul>
+        </article>
 
-      <article class="help-card updates-module">
-        <h3 class="updates-module-head">
-          <svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-brain"></use></svg>
-          Model i Sztuczna Inteligencja (AI)
-        </h3>
-        <p class="updates-module-copy">Większa przewidywalność decyzji modelu i lepszy sygnał do retreningu.</p>
-        <ul class="updates-module-list">
-          <li><strong>[Nowe]</strong> Powiadomienia o nowej porcji wiedzy (pulsująca ikona New Data).</li>
-          <li><strong>[Fix]</strong> Twarde reguły AI Reassignment: ręcznie przepięta sesja nie wraca do starego wyboru AI.</li>
-          <li><strong>[Usprawnienie]</strong> Doprecyzowane progi bezpieczeństwa `min_confidence` i zachowania auto-przypisań.</li>
-        </ul>
-      </article>
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="./help-icons.svg#icon-brain"></use>
+            </svg>
+            Model i Sztuczna Inteligencja (AI)
+          </h3>
+          <p class="updates-module-copy">
+            Większa przewidywalność decyzji modelu i lepszy sygnał do
+            retreningu.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[Nowe]</strong> Powiadomienia o nowej porcji wiedzy
+              (pulsująca ikona New Data).
+            </li>
+            <li>
+              <strong>[Fix]</strong> Twarde reguły AI Reassignment: ręcznie
+              przepięta sesja nie wraca do starego wyboru AI.
+            </li>
+            <li>
+              <strong>[Usprawnienie]</strong> Doprecyzowane progi bezpieczeństwa
+              `min_confidence` i zachowania auto-przypisań.
+            </li>
+          </ul>
+        </article>
 
-      <article class="help-card updates-module">
-        <h3 class="updates-module-head">
-          <svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-settings"></use></svg>
-          Ustawienia (Settings)
-        </h3>
-        <p class="updates-module-copy">Większa kontrola wydajności UI i elastyczniejsze stylowanie interfejsu.</p>
-        <ul class="updates-module-list">
-          <li><strong>[Nowe]</strong> Przełącznik animacji wykresów dla słabszych komputerów.</li>
-          <li><strong>[Nowe]</strong> Motywy QX-0 / QX-4 dla menu i wyglądu aplikacji.</li>
-          <li><strong>[Usprawnienie]</strong> Custom UI Alerts (toasty i okna decyzyjne) zamiast surowych `alert()` / `confirm()`.</li>
-        </ul>
-      </article>
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="./help-icons.svg#icon-settings"></use>
+            </svg>
+            Ustawienia (Settings)
+          </h3>
+          <p class="updates-module-copy">
+            Większa kontrola wydajności UI i elastyczniejsze stylowanie
+            interfejsu.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[Nowe]</strong> Przełącznik animacji wykresów dla
+              słabszych komputerów.
+            </li>
+            <li>
+              <strong>[Usprawnienie]</strong> Custom UI Alerts (toasty i okna
+              decyzyjne) zamiast surowych `alert()` / `confirm()`.
+            </li>
+          </ul>
+        </article>
 
-      <article class="help-card updates-module">
-        <h3 class="updates-module-head">
-          <svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-import"></use></svg>
-          Dane (Data)
-        </h3>
-        <p class="updates-module-copy">Bezpieczniejsza i czytelniejsza obsługa backupu i synchronizacji.</p>
-        <ul class="updates-module-list">
-          <li><strong>[Usprawnienie]</strong> Ciche kopie zapasowe + przycisk twardego odświeżenia Sync + komunikacja o stanie zaszyfrowanego backupu tokenowego.</li>
-        </ul>
-      </article>
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="./help-icons.svg#icon-import"></use>
+            </svg>
+            Dane (Data)
+          </h3>
+          <p class="updates-module-copy">
+            Bezpieczniejsza i czytelniejsza obsługa backupu i synchronizacji.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[Usprawnienie]</strong> Ciche kopie zapasowe + przycisk
+              twardego odświeżenia Sync + komunikacja o stanie zaszyfrowanego
+              backupu tokenowego.
+            </li>
+          </ul>
+        </article>
 
-      <article class="help-card updates-module">
-        <h3 class="updates-module-head">
-          <svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-info"></use></svg>
-          Pomoc (Help)
-        </h3>
-        <p class="updates-module-copy">Dokumentacja dopięta do aktualnej logiki AI i pełnej spójności językowej.</p>
-        <ul class="updates-module-list">
-          <li><strong>[Usprawnienie]</strong> Zaktualizowana sekcja AI &amp; Model: auto-safe criteria, minimum confidence threshold i rola ręcznych flag.</li>
-          <li><strong>[Usprawnienie]</strong> Pełne pokrycie językowe wpisów i spójność terminologii PL/EN.</li>
-        </ul>
-      </article>
-    </section>
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="./help-icons.svg#icon-info"></use>
+            </svg>
+            Pomoc (Help)
+          </h3>
+          <p class="updates-module-copy">
+            Dokumentacja dopięta do aktualnej logiki AI i pełnej spójności
+            językowej.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[Usprawnienie]</strong> Zaktualizowana sekcja AI &amp;
+              Model: auto-safe criteria, minimum confidence threshold i rola
+              ręcznych flag.
+            </li>
+            <li>
+              <strong>[Usprawnienie]</strong> Pełne pokrycie językowe wpisów i
+              spójność terminologii PL/EN.
+            </li>
+          </ul>
+        </article>
+      </section>
 
-    <section class="help-card updates-note" aria-label="Informacja końcowa changelogu">
-      <p>
-        To jest pełna lista zmian dla wydania <strong style="color:var(--ink)">TIMEFLOW 0.1.5</strong>.
-        Kolejne aktualizacje będą publikowane w tym samym układzie.
-      </p>
-      <div class="updates-note-actions">
-        <a class="btn btn-primary" href="./index.html#beta">Dołącz do testów beta</a>
-        <a class="btn btn-ghost" href="./index.html">Wróć na stronę główną</a>
-      </div>
-    </section>
-  </main>
+      <section
+        class="help-card updates-note"
+        aria-label="Informacja końcowa changelogu"
+      >
+        <p>
+          To jest pełna lista zmian dla wydania
+          <strong style="color: var(--ink)">TIMEFLOW 0.1.5</strong>. Kolejne
+          aktualizacje będą publikowane w tym samym układzie.
+        </p>
+        <div class="updates-note-actions">
+          <a class="btn btn-primary" href="./index.html#beta"
+            >Dołącz do testów beta</a
+          >
+          <a class="btn btn-ghost" href="./index.html">Wróć na stronę główną</a>
+        </div>
+      </section>
+    </main>
 
-  <script src="./script.min.js"></script>
-</body>
+    <script src="./script.min.js"></script>
+  </body>
 </html>
