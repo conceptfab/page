@@ -1,3 +1,16 @@
+# Explicit allow rules for AI discovery and search crawlers.
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
 User-agent: *
 Allow: /
 

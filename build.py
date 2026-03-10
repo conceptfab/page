@@ -61,6 +61,8 @@ def main():
         loc_to_file = {
             "https://conceptfab.com/timeflow/": "index.html",
             "https://conceptfab.com/timeflow/en/": "en/index.html",
+            "https://conceptfab.com/timeflow/aktualizacje.html": "aktualizacje.html",
+            "https://conceptfab.com/timeflow/en/updates.html": "en/updates.html",
             "https://conceptfab.com/timeflow/pomoc.html": "pomoc.html",
             "https://conceptfab.com/timeflow/en/help.html": "en/help.html"
         }

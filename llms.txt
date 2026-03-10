@@ -1,0 +1,17 @@
+# TIMEFLOW
+
+> TIMEFLOW to desktop-first time tracker dla freelancerow i malych studiow. Aplikacja monitoruje prace w tle, przypisuje aktywnosc do projektow i laczy lokalne AI z offline-first przechowywaniem danych.
+
+TIMEFLOW jest obecnie w becie. Aktualna beta opisana na stronie dotyczy Windows desktop. Tworca produktu jest CONCEPTFAB. Kluczowy wyroznik: Fair Time Algorithm, ktory zapobiega podwojnemu liczeniu czasu przy multitaskingu i dzieli sekundy uczciwie pomiedzy projekty.
+
+## Primary
+
+- [TIMEFLOW full context](https://conceptfab.com/timeflow/llms-full.txt): Pelny, skondensowany opis produktu dla agentow AI.
+- [Strona glowna](https://conceptfab.com/timeflow/): Pozycjonowanie produktu, funkcje, roadmapa i formularz beta.
+- [Pomoc](https://conceptfab.com/timeflow/pomoc.html): Quick start, opis modulow, daemon, dane i AI.
+- [Aktualizacje](https://conceptfab.com/timeflow/aktualizacje.html): Changelog 0.1.6 i archiwum 0.1.5.
+
+## Optional
+
+- [Polityka prywatnosci](https://conceptfab.com/timeflow/polityka-prywatnosci.html): Zasady prywatnosci i informacje o formularzu.
+- [English llms.txt](https://conceptfab.com/timeflow/en/llms.txt): Angielski punkt wejsciowy dla agentow AI.
