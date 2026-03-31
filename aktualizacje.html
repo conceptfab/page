@@ -10,7 +10,7 @@
     <title>Aktualizacje | TIMEFLOW</title>
     <meta
       name="description"
-      content="Pełny changelog TIMEFLOW 0.1.6 i archiwum 0.1.5: nowe funkcje, usprawnienia i naprawione błędy w każdym module."
+      content="Pełny changelog TIMEFLOW 0.1.6 (build 0.1.556) i archiwum 0.1.5: synchronizacja LAN i Online, sesje manualne, nowe funkcje i naprawione błędy."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -48,7 +48,7 @@
         "name": "Aktualizacje | TIMEFLOW",
         "url": "https://conceptfab.com/timeflow/aktualizacje.html",
         "inLanguage": "pl-PL",
-        "description": "Pelny changelog TIMEFLOW 0.1.6 i archiwum 0.1.5: nowe funkcje, usprawnienia i naprawione bledy w kazdym module.",
+        "description": "Pelny changelog TIMEFLOW 0.1.6 (build 0.1.556) i archiwum 0.1.5: synchronizacja LAN i Online, sesje manualne, nowe funkcje i naprawione bledy.",
         "about": {
           "@type": "SoftwareApplication",
           "name": "TIMEFLOW"
@@ -141,9 +141,9 @@
         <p>
           Ten dokument zawiera kompletną listę zmian z wydania
           <strong style="color: var(--ink)">TIMEFLOW 0.1.6</strong> (build
-          0.1.506). Zakres: Dashboard, Sessions, Projects, Reports,
+          0.1.556). Zakres: Dashboard, Sessions, Projects, Reports,
           Applications, AI &amp; Model, Settings, Daemon, Data, Estimates,
-          Analysis i Help.
+          Analysis, Help, LAN Sync i Online Sync.
         </p>
         <div class="updates-badge-row" aria-label="Typy zmian">
           <span class="release-badge release-badge-feature">Nowe funkcje</span>
@@ -487,6 +487,117 @@
             </li>
           </ul>
         </article>
+
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="./help-icons.svg#icon-activity"></use>
+            </svg>
+            Synchronizacja LAN
+          </h3>
+          <p class="updates-module-copy">
+            Pełna synchronizacja peer-to-peer w sieci lokalnej — zero chmury,
+            zero kont, zero serwerów.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[Nowe]</strong> 13-krokowy protokół synchronizacji z
+              automatycznym wykrywaniem drugiego komputera (UDP broadcast).
+            </li>
+            <li>
+              <strong>[Nowe]</strong> Automatyczna elekcja ról master/slave lub
+              wymuszenie roli ręcznie w ustawieniach.
+            </li>
+            <li>
+              <strong>[Nowe]</strong> Szyfrowanie transferu AES-256-GCM — dane
+              nie opuszczają sieci lokalnej w postaci jawnej.
+            </li>
+            <li>
+              <strong>[Nowe]</strong> Scalanie baz SQLite z rozwiązywaniem
+              konfliktów przez markery hashowe i system tombstone.
+            </li>
+            <li>
+              <strong>[Nowe]</strong> Konfigurowalny interwał synchronizacji
+              (ręcznie, co 4h, 8h, 12h, 24h lub 48h) i czas wykrywania peera.
+            </li>
+            <li>
+              <strong>[Nowe]</strong> Automatyczny backup bazy przed każdą
+              synchronizacją.
+            </li>
+          </ul>
+        </article>
+
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="./help-icons.svg#icon-activity"></use>
+            </svg>
+            Synchronizacja Online
+          </h3>
+          <p class="updates-module-copy">
+            Koordynowana synchronizacja przez internet z pełnym szyfrowaniem
+            — dane trafiają na Twój serwer SFTP, nie na nasz.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[Nowe]</strong> Serwer koordynacji zarządza kolejnością
+              synchronizacji (sesja, heartbeat, raportowanie kroków) — widzi
+              tylko metadane, nigdy treść.
+            </li>
+            <li>
+              <strong>[Nowe]</strong> Transfer przez SFTP z szyfrowaniem
+              AES-256-GCM i jednorazowymi danymi dostępowymi per sesja.
+            </li>
+            <li>
+              <strong>[Nowe]</strong> Delta sync — wysyłanie tylko zmienionych
+              tabel na podstawie hashów (projekty, aplikacje, sesje, tombstones).
+            </li>
+            <li>
+              <strong>[Nowe]</strong> Automatyczna synchronizacja przy starcie
+              aplikacji lub w konfigurowalnych interwałach.
+            </li>
+            <li>
+              <strong>[Nowe]</strong> Śledzenie postępu transferu w czasie
+              rzeczywistym (13 kroków: discovery → negocjacja → transfer →
+              scalanie → dystrybucja).
+            </li>
+            <li>
+              <strong>[Nowe]</strong> Autoryzacja tokenowa (Bearer) z
+              konfiguracją serwera i klucza API w ustawieniach.
+            </li>
+          </ul>
+        </article>
+
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="./help-icons.svg#icon-list"></use>
+            </svg>
+            Sesje Manualne
+          </h3>
+          <p class="updates-module-copy">
+            Ręczne rejestrowanie pracy poza ekranem — spotkania, rozmowy
+            i inne aktywności offline z pełną integracją w raportach.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[Nowe]</strong> Trzy typy sesji manualnych: spotkanie,
+              rozmowa telefoniczna, inne — z dedykowaną tabelą w bazie.
+            </li>
+            <li>
+              <strong>[Nowe]</strong> Elastyczny zakres dat (wielodniowe sesje)
+              z przypisaniem do projektu i aplikacji.
+            </li>
+            <li>
+              <strong>[Nowe]</strong> Sesje manualne wliczane do statystyk
+              projektowych, wycen i raportów na równi z sesjami automatycznymi.
+            </li>
+            <li>
+              <strong>[Nowe]</strong> Obsługa tombstone dla sesji manualnych
+              — pełna kompatybilność z synchronizacją LAN i Online.
+            </li>
+          </ul>
+        </article>
       </section>
 
       <section
@@ -495,8 +606,10 @@
       >
         <p>
           To jest pełna lista zmian dla wydania
-          <strong style="color: var(--ink)">TIMEFLOW 0.1.6</strong>. Niżej
-          znajdziesz zachowaną sekcję archiwalną dla wersji 0.1.5.
+          <strong style="color: var(--ink)">TIMEFLOW 0.1.6</strong> (build
+          0.1.556) — w tym nowe moduły Synchronizacji LAN, Online Sync
+          i Sesji Manualnych. Niżej znajdziesz zachowaną sekcję archiwalną
+          dla wersji 0.1.5.
         </p>
         <div class="updates-note-actions">
           <a class="btn btn-primary" href="./index.html#beta"

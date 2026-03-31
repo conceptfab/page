@@ -10,7 +10,7 @@
     <title>Updates | TIMEFLOW</title>
     <meta
       name="description"
-      content="Full TIMEFLOW 0.1.6 changelog and 0.1.5 archive: new features, improvements and bug fixes across every module."
+      content="Full TIMEFLOW 0.1.6 changelog (build 0.1.556) and 0.1.5 archive: LAN and Online Sync, Manual Sessions, new features and bug fixes."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -48,7 +48,7 @@
         "name": "Updates | TIMEFLOW",
         "url": "https://conceptfab.com/timeflow/en/updates.html",
         "inLanguage": "en-US",
-        "description": "Full TIMEFLOW 0.1.6 changelog and 0.1.5 archive: new features, improvements and bug fixes across every module.",
+        "description": "Full TIMEFLOW 0.1.6 changelog (build 0.1.556) and 0.1.5 archive: LAN and Online Sync, Manual Sessions, new features and bug fixes.",
         "about": {
           "@type": "SoftwareApplication",
           "name": "TIMEFLOW"
@@ -141,9 +141,9 @@
         <p>
           This document contains the complete list of changes in
           <strong style="color: var(--ink)">TIMEFLOW 0.1.6</strong> (build
-          0.1.506). Scope: Dashboard, Sessions, Projects, Reports,
+          0.1.556). Scope: Dashboard, Sessions, Projects, Reports,
           Applications, AI &amp; Model, Settings, Daemon, Data, Estimates,
-          Analysis and Help.
+          Analysis, Help, LAN Sync and Online Sync.
         </p>
         <div class="updates-badge-row" aria-label="Change types">
           <span class="release-badge release-badge-feature">New features</span>
@@ -483,6 +483,117 @@
             </li>
           </ul>
         </article>
+
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="../help-icons.svg#icon-activity"></use>
+            </svg>
+            LAN Sync
+          </h3>
+          <p class="updates-module-copy">
+            Full peer-to-peer synchronization over local network — no cloud,
+            no accounts, no servers.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[New]</strong> 13-step sync protocol with automatic peer
+              discovery via UDP broadcast.
+            </li>
+            <li>
+              <strong>[New]</strong> Automatic master/slave role election or
+              manual role override in settings.
+            </li>
+            <li>
+              <strong>[New]</strong> AES-256-GCM transfer encryption — data
+              never leaves the local network in plain text.
+            </li>
+            <li>
+              <strong>[New]</strong> SQLite database merge with hash-based
+              conflict resolution and tombstone tracking.
+            </li>
+            <li>
+              <strong>[New]</strong> Configurable sync interval (manual, every
+              4h, 8h, 12h, 24h or 48h) and peer discovery duration.
+            </li>
+            <li>
+              <strong>[New]</strong> Automatic database backup before every
+              synchronization.
+            </li>
+          </ul>
+        </article>
+
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="../help-icons.svg#icon-activity"></use>
+            </svg>
+            Online Sync
+          </h3>
+          <p class="updates-module-copy">
+            Coordinated internet synchronization with full encryption
+            — data goes to your SFTP server, not ours.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[New]</strong> Coordination server manages sync order
+              (sessions, heartbeat, step reporting) — it sees only metadata,
+              never content.
+            </li>
+            <li>
+              <strong>[New]</strong> SFTP transfer with AES-256-GCM encryption
+              and one-time credentials per sync session.
+            </li>
+            <li>
+              <strong>[New]</strong> Delta sync — only changed tables are sent,
+              based on per-table hashes (projects, apps, sessions, tombstones).
+            </li>
+            <li>
+              <strong>[New]</strong> Auto-sync on app startup or at configurable
+              intervals.
+            </li>
+            <li>
+              <strong>[New]</strong> Real-time transfer progress tracking
+              (13 steps: discovery → negotiation → transfer → merge →
+              distribution).
+            </li>
+            <li>
+              <strong>[New]</strong> Bearer token authentication with server URL
+              and API key configuration in settings.
+            </li>
+          </ul>
+        </article>
+
+        <article class="help-card updates-module">
+          <h3 class="updates-module-head">
+            <svg class="help-icon" aria-hidden="true">
+              <use href="../help-icons.svg#icon-list"></use>
+            </svg>
+            Manual Sessions
+          </h3>
+          <p class="updates-module-copy">
+            Log off-screen work — meetings, phone calls and other offline
+            activities with full report integration.
+          </p>
+          <ul class="updates-module-list">
+            <li>
+              <strong>[New]</strong> Three manual session types: meeting,
+              phone call, other — with a dedicated database table.
+            </li>
+            <li>
+              <strong>[New]</strong> Flexible date ranges (multi-day sessions)
+              with project and app assignment.
+            </li>
+            <li>
+              <strong>[New]</strong> Manual sessions count toward project
+              statistics, estimates and reports alongside automatic sessions.
+            </li>
+            <li>
+              <strong>[New]</strong> Tombstone support for manual sessions
+              — full compatibility with LAN and Online sync.
+            </li>
+          </ul>
+        </article>
       </section>
 
       <section
@@ -491,8 +602,9 @@
       >
         <p>
           This is the complete list of changes for
-          <strong style="color: var(--ink)">TIMEFLOW 0.1.6</strong>. The
-          archived 0.1.5 section is preserved below.
+          <strong style="color: var(--ink)">TIMEFLOW 0.1.6</strong> (build
+          0.1.556) — including the new LAN Sync, Online Sync, and Manual
+          Sessions modules. The archived 0.1.5 section is preserved below.
         </p>
         <div class="updates-note-actions">
           <a class="btn btn-primary" href="./index.html#beta"

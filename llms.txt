@@ -1,15 +1,15 @@
 # TIMEFLOW
 
-> TIMEFLOW to desktop-first time tracker dla freelancerow i malych studiow. Aplikacja monitoruje prace w tle, przypisuje aktywnosc do projektow i laczy lokalne AI z offline-first przechowywaniem danych.
+> TIMEFLOW to desktop-first time tracker dla freelancerow i malych zespolow. Aplikacja monitoruje prace w tle, przypisuje aktywnosc do projektow przez lokalne AI, synchronizuje dane miedzy maszynami (LAN lub online) i dostarcza analityke, wyceny oraz raporty — bez chmury, bez kont, bez wysylania danych na zewnatrz.
 
-TIMEFLOW jest obecnie w becie. Aktualna beta opisana na stronie dotyczy Windows desktop. Tworca produktu jest CONCEPTFAB. Kluczowy wyroznik: Fair Time Algorithm, ktory zapobiega podwojnemu liczeniu czasu przy multitaskingu i dzieli sekundy uczciwie pomiedzy projekty.
+TIMEFLOW jest obecnie w becie (build 0.1.556). Aktualna beta dotyczy Windows desktop. Tworca produktu to CONCEPTFAB. Kluczowy wyroznik: Fair Time Algorithm, ktory zapobiega podwojnemu liczeniu czasu przy multitaskingu i dzieli sekundy uczciwie pomiedzy projekty.
 
 ## Primary
 
-- [TIMEFLOW full context](https://conceptfab.com/timeflow/llms-full.txt): Pelny, skondensowany opis produktu dla agentow AI.
-- [Strona glowna](https://conceptfab.com/timeflow/): Pozycjonowanie produktu, funkcje, roadmapa i formularz beta.
+- [TIMEFLOW full context](https://conceptfab.com/timeflow/llms-full.txt): Pelny, skondensowany opis produktu dla agentow AI — pozycjonowanie, mozliwosci, sync, prywatnosc, porownanie z alternatywami.
+- [Strona glowna](https://conceptfab.com/timeflow/): Pozycjonowanie produktu, funkcje, algorytm, roadmapa i formularz beta.
 - [Pomoc](https://conceptfab.com/timeflow/pomoc.html): Quick start, opis modulow, daemon, dane i AI.
-- [Aktualizacje](https://conceptfab.com/timeflow/aktualizacje.html): Changelog 0.1.6 i archiwum 0.1.5.
+- [Aktualizacje](https://conceptfab.com/timeflow/aktualizacje.html): Changelog 0.1.6 (build 0.1.556) z synchronizacja LAN/Online, sesjami manualnymi i archiwum 0.1.5.
 
 ## Optional
 

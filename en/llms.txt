@@ -1,15 +1,15 @@
 # TIMEFLOW
 
-> TIMEFLOW is a desktop-first time tracker for freelancers and small studios. It monitors work in the background, maps activity to projects, and combines local AI suggestions with offline-first data storage.
+> TIMEFLOW is a desktop-first time tracker for freelancers and small teams. It monitors work in the background, maps activity to projects via local AI, syncs data between machines (LAN or online), and provides analytics, estimates and reports — no cloud, no accounts, no data leaving your machine.
 
-TIMEFLOW is currently in beta. The current beta described on the site is for Windows desktop. The product is created by CONCEPTFAB. The key differentiator is the Fair Time Algorithm, which prevents double counting during multitasking and splits seconds fairly across projects.
+TIMEFLOW is currently in beta (build 0.1.556). The current beta is for Windows desktop. The product is created by CONCEPTFAB. The key differentiator is the Fair Time Algorithm, which prevents double counting during multitasking and splits seconds fairly across projects.
 
 ## Primary
 
-- [TIMEFLOW full context](https://conceptfab.com/timeflow/en/llms-full.txt): Full condensed product context for AI agents.
-- [Home](https://conceptfab.com/timeflow/en/): Product positioning, features, roadmap, and beta signup.
+- [TIMEFLOW full context](https://conceptfab.com/timeflow/en/llms-full.txt): Full condensed product context for AI agents — positioning, capabilities, sync, privacy, comparison with alternatives.
+- [Home](https://conceptfab.com/timeflow/en/): Product positioning, features, algorithm, roadmap, and beta signup.
 - [Help](https://conceptfab.com/timeflow/en/help.html): Quick start, module guide, daemon, data, and AI details.
-- [Updates](https://conceptfab.com/timeflow/en/updates.html): Changelog for 0.1.6 and archive for 0.1.5.
+- [Updates](https://conceptfab.com/timeflow/en/updates.html): Changelog for 0.1.6 (build 0.1.556) with LAN/Online sync, Manual Sessions, and 0.1.5 archive.
 
 ## Optional
 

@@ -9,13 +9,13 @@
   <meta name="color-scheme" content="dark" />
   <meta name="application-name" content="TIMEFLOW" />
   <meta name="description"
-    content="TIMEFLOW is a lightweight desktop time tracker for freelancers. Automatic background tracking, daily sessions, analytics, projects with folders and local AI — without hardware overhead. Apply for beta tests." />
+    content="TIMEFLOW is a lightweight desktop time tracker for freelancers. Automatic background tracking, local AI, LAN and online sync, manual sessions, estimates and reports — your data stays on your machine. Apply for beta tests." />
   <meta property="og:locale" content="en_US" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="TIMEFLOW" />
   <meta property="og:title" content="TIMEFLOW | Desktop time tracker for freelancers (beta)" />
   <meta property="og:description"
-    content="Automatic time tracking, daily sessions, analytics and local AI — without hardware overhead. Works offline, local data. Looking for freelancers for beta tests." />
+    content="Automatic time tracking, local AI, LAN and online sync, manual sessions and reports — your data stays on your machine. Looking for freelancers for beta tests." />
   <meta property="og:image" content="https://conceptfab.com/timeflow/screens/dashboard-main.webp" />
   <meta property="og:image:alt" content="TIMEFLOW app dashboard screenshot" />
   <meta property="og:image:width" content="1600" />
@@ -24,7 +24,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="TIMEFLOW | Desktop time tracker for freelancers (beta)" />
   <meta name="twitter:description"
-    content="Lightweight time tracker for freelancers. Automatic tracking, sessions, analytics and AI — without hardware overhead. TIMEFLOW beta is looking for testers." />
+    content="Lightweight time tracker for freelancers. Automatic tracking, local AI, LAN and online sync — local data. TIMEFLOW beta is looking for testers." />
   <meta name="twitter:image" content="https://conceptfab.com/timeflow/screens/dashboard-main.webp" />
   <title>TIMEFLOW | Desktop time tracker for freelancers (beta)</title>
   <link rel="preload" as="image" type="image/webp" href="../screens/dashboard-main.webp" fetchpriority="high" />
@@ -70,8 +70,8 @@
       "operatingSystem": "Windows",
       "softwareVersion": "beta",
       "inLanguage": "en-US",
-      "description": "Lightweight desktop time tracker for freelancers. Automatic background tracking, daily sessions, analytics, projects with folders, local AI and online sync — without hardware overhead.",
-      "featureList": "Automatic activity tracking, Daily and weekly sessions, Analytics and workload heatmap, Projects with folders and auto-detection, Local AI suggestions without sending data, Online sync, JSON export, USB transfer, Estimates and hourly rates",
+      "description": "Lightweight desktop time tracker for freelancers. Automatic background tracking, local AI, LAN peer-to-peer and online SFTP sync, manual sessions, estimates and reports — your data stays on your machine.",
+      "featureList": "Automatic activity tracking, Daily and weekly sessions, Analytics and workload heatmap, Projects with folders and auto-detection, Local AI suggestions without sending data, LAN peer-to-peer sync (AES-256-GCM encrypted), Online sync via SFTP with delta sync, Manual sessions (meetings and calls), JSON and ZIP export, USB transfer, Estimates and hourly rates, Fair Time Algorithm to prevent double counting",
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -119,6 +119,30 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "No. Early beta tests are free and serve to collect feedback for future product iterations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does synchronization work in TIMEFLOW?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "TIMEFLOW offers two sync modes: LAN sync (peer-to-peer over local network, free, AES-256-GCM encrypted) and Online sync (server-coordinated, SFTP transfer to your own server). In both modes, data never passes through TIMEFLOW servers — the coordination server sees only metadata."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is TIMEFLOW different from Toggl, Clockify and Harvest?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "TIMEFLOW is a desktop app that works offline — no account, browser, or internet connection required. Data stays locally on your machine. The Fair Time Algorithm eliminates double counting when multitasking. Local AI learns your habits and assigns sessions to projects without sending data to the cloud."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I log meetings and phone calls?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Manual sessions let you log meetings, phone calls, and other offline activities. They are fully integrated with reports, estimates, and synchronization."
           }
         }
       ]

@@ -9,13 +9,13 @@
   <meta name="color-scheme" content="dark" />
   <meta name="application-name" content="TIMEFLOW" />
   <meta name="description"
-    content="TIMEFLOW to lekki desktopowy time tracker dla freelancerów. Automatyczny tracking w tle, sesje dzienne, analityka, projekty z folderami i lokalne AI — bez obciążania sprzętu. Zgłoś się do testów beta." />
+    content="TIMEFLOW to lekki desktopowy time tracker dla freelancerów. Automatyczny tracking w tle, lokalne AI, synchronizacja LAN i online, sesje manualne, wyceny i raporty — dane zostają na Twoim komputerze. Zgłoś się do testów beta." />
   <meta property="og:locale" content="pl_PL" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="TIMEFLOW" />
   <meta property="og:title" content="TIMEFLOW | Desktopowy time tracker dla freelancerów (beta)" />
   <meta property="og:description"
-    content="Automatyczny tracking czasu, sesje dzienne, analityka i lokalne AI — bez obciążania sprzętu. Działa offline, dane lokalne. Szukamy freelancerów do testów beta." />
+    content="Automatyczny tracking czasu, lokalne AI, synchronizacja LAN i online, sesje manualne i raporty — dane zostają na Twoim komputerze. Szukamy freelancerów do testów beta." />
   <meta property="og:image" content="https://conceptfab.com/timeflow/screens/dashboard-main.webp" />
   <meta property="og:image:alt" content="Zrzut ekranu dashboardu aplikacji TIMEFLOW" />
   <meta property="og:image:width" content="1600" />
@@ -24,7 +24,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="TIMEFLOW | Desktopowy time tracker dla freelancerów (beta)" />
   <meta name="twitter:description"
-    content="Lekki time tracker dla freelancerów. Automatyczny tracking, sesje, analityka i AI — bez obciążania sprzętu. TIMEFLOW beta szuka testerów." />
+    content="Lekki time tracker dla freelancerów. Automatyczny tracking, lokalne AI, sync LAN i online — dane lokalne. TIMEFLOW beta szuka testerów." />
   <meta name="twitter:image" content="https://conceptfab.com/timeflow/screens/dashboard-main.webp" />
   <title>TIMEFLOW | Desktopowy time tracker dla freelancerów (beta)</title>
   <link rel="preload" as="image" type="image/webp" href="./screens/dashboard-main.webp" fetchpriority="high" />
@@ -71,8 +71,8 @@
       "operatingSystem": "Windows",
       "softwareVersion": "beta",
       "inLanguage": "pl-PL",
-      "description": "Lekki desktopowy time tracker dla freelancerów. Automatyczny tracking w tle, sesje dzienne, analityka, projekty z folderami, lokalne AI i sync online — bez obciążania sprzętu.",
-      "featureList": "Automatyczny tracking aktywności, Sesje dzienne i tygodniowe, Analityka i heatmap pracy, Projekty z folderami i auto-detekcją, Lokalne AI sugestie bez wysyłania danych, Sync online, Eksport JSON, Transfer USB, Estymacje i stawki godzinowe",
+      "description": "Lekki desktopowy time tracker dla freelancerów. Automatyczny tracking w tle, lokalne AI, synchronizacja LAN peer-to-peer i online przez SFTP, sesje manualne, wyceny i raporty — dane zostają na Twoim komputerze.",
+      "featureList": "Automatyczny tracking aktywności, Sesje dzienne i tygodniowe, Analityka i heatmap pracy, Projekty z folderami i auto-detekcją, Lokalne AI sugestie bez wysyłania danych, Synchronizacja LAN peer-to-peer (AES-256-GCM), Synchronizacja online przez SFTP z delta sync, Sesje manualne (spotkania i rozmowy), Eksport JSON i ZIP, Transfer USB, Estymacje i stawki godzinowe, Fair Time Algorithm przeciw podwójnemu liczeniu czasu",
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -120,6 +120,30 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Nie. Wczesne testy beta są bezpłatne i służą zbieraniu feedbacku do kolejnych iteracji produktu."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jak działa synchronizacja w TIMEFLOW?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "TIMEFLOW oferuje dwa tryby: LAN sync (peer-to-peer w sieci lokalnej, darmowy, szyfrowanie AES-256-GCM) oraz Online sync (koordynowany przez serwer, transfer SFTP na Twój własny serwer). W obu trybach dane nigdy nie przechodzą przez serwery TIMEFLOW — serwer koordynacji widzi tylko metadane."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czym TIMEFLOW różni się od Toggl, Clockify i Harvest?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "TIMEFLOW to aplikacja desktopowa działająca offline — nie wymaga konta, przeglądarki ani połączenia z internetem. Dane zostają lokalnie na komputerze. Fair Time Algorithm eliminuje podwójne liczenie czasu przy multitaskingu. Lokalne AI uczy się nawyków i przypisuje sesje do projektów bez wysyłania danych do chmury."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy mogę rejestrować czas spotkań i rozmów?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tak. Sesje manualne pozwalają rejestrować spotkania, rozmowy telefoniczne i inne aktywności offline. Są w pełni zintegrowane z raportami, wycenami i synchronizacją."
           }
         }
       ]
