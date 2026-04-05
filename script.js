@@ -986,3 +986,58 @@
     trackedSections.forEach((s) => sectionObs.observe(s));
   }
 })();
+
+/* ── Feature expand toggle ── */
+(function () {
+  var btn = document.querySelector("[data-expand-features]");
+  if (!btn) return;
+  var grid = btn.previousElementSibling;
+
+  btn.addEventListener("click", function () {
+    var expanded = grid.classList.toggle("is-expanded");
+    btn.setAttribute("aria-expanded", expanded);
+    btn.firstChild.textContent = expanded ? "Pokaż mniej " : "Pokaż wszystkie funkcje ";
+  });
+})();
+
+/* ── Mobile Sticky CTA ── */
+(function () {
+  const bar = document.getElementById("mobileStickyBar");
+  const betaSection = document.getElementById("beta");
+  if (!bar || !betaSection) return;
+
+  const MQ = window.matchMedia("(max-width: 860px)");
+  let ticking = false;
+
+  function update() {
+    if (!MQ.matches) {
+      bar.classList.remove("is-visible");
+      bar.setAttribute("aria-hidden", "true");
+      return;
+    }
+    const scrollY = window.scrollY;
+    const betaTop = betaSection.offsetTop;
+    const showAfter = 600;
+    const hideNearBeta = betaTop - window.innerHeight;
+
+    if (scrollY > showAfter && scrollY < hideNearBeta) {
+      bar.classList.add("is-visible");
+      bar.setAttribute("aria-hidden", "false");
+    } else {
+      bar.classList.remove("is-visible");
+      bar.setAttribute("aria-hidden", "true");
+    }
+  }
+
+  window.addEventListener("scroll", function () {
+    if (!ticking) {
+      requestAnimationFrame(function () {
+        update();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+  MQ.addEventListener("change", update);
+  update();
+})();
