@@ -70,8 +70,8 @@
       "operatingSystem": "Windows",
       "softwareVersion": "beta",
       "inLanguage": "en-US",
-      "description": "Lightweight desktop time tracker for freelancers. Automatic background tracking, local AI, LAN peer-to-peer and online SFTP sync, manual sessions, estimates and reports — your data stays on your machine.",
-      "featureList": "Automatic activity tracking, Daily and weekly sessions, Analytics and workload heatmap, Projects with folders and auto-detection, Local AI suggestions without sending data, LAN peer-to-peer sync (AES-256-GCM encrypted), Online sync via SFTP with delta sync, Manual sessions (meetings and calls), JSON and ZIP export, USB transfer, Estimates and hourly rates, Fair Time Algorithm to prevent double counting",
+      "description": "Lightweight desktop time tracker for freelancers. Automatic background tracking, local AI, LAN peer-to-peer and online sync with AES-256-GCM encryption, manual sessions, estimates and reports — your data stays on your machine.",
+      "featureList": "Automatic activity tracking, Daily and weekly sessions, Analytics and workload heatmap, Projects with folders and auto-detection, Local AI suggestions without sending data, LAN peer-to-peer sync, Online sync via SFTP with delta sync and AES-256-GCM encryption, Manual sessions (meetings and calls), JSON and ZIP export, USB transfer, Estimates and hourly rates, Fair Time Algorithm to prevent double counting",
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -126,7 +126,7 @@
           "name": "How does synchronization work in TIMEFLOW?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "TIMEFLOW offers two sync modes: LAN sync (peer-to-peer over local network, free, AES-256-GCM encrypted) and Online sync (server-coordinated, SFTP transfer to your own server). In both modes, data never passes through TIMEFLOW servers — the coordination server sees only metadata."
+            "text": "TIMEFLOW offers two sync modes: LAN sync (peer-to-peer over local network, free) and Online sync (server-coordinated, SFTP transfer with AES-256-GCM encryption). The coordination server sees only session metadata — database content is encrypted end-to-end and stored on dedicated storage."
           }
         },
         {
@@ -489,11 +489,11 @@
             <p class="stack-tag">Sync / Web</p>
             <h3>Sync server — already running</h3>
             <p>
-              A <strong>Next.js</strong> server synchronizes snapshots between devices and maintains
+              A <strong>Next.js</strong> server coordinates synchronization between devices and maintains
               the local-first approach as a foundation.
             </p>
             <ul>
-              <li>snapshot synchronization between devices</li>
+              <li>delta sync and full synchronization between devices</li>
               <li>API push / pull / ack / status</li>
               <li>foundation for mobile and sharing features</li>
             </ul>
@@ -623,7 +623,7 @@
             <h3>Data import/export and online sync</h3>
             <p>
               JSON export of the whole database or project, import with validation and conflict preview,
-              online snapshot sync or USB transfer — data always under control.
+              online delta sync or USB transfer — data always under control.
             </p>
             <ul>
               <li>ZIP Export of the entire database or selected projects</li>

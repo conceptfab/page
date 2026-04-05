@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/_cloud/__cfab_demon/__client/**)",
+      "Read(//c/_cloud/__cfab_demon/__server/src/app/api/sync/**)"
+    ]
+  }
+}

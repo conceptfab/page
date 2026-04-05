@@ -71,8 +71,8 @@
       "operatingSystem": "Windows",
       "softwareVersion": "beta",
       "inLanguage": "pl-PL",
-      "description": "Lekki desktopowy time tracker dla freelancerów. Automatyczny tracking w tle, lokalne AI, synchronizacja LAN peer-to-peer i online przez SFTP, sesje manualne, wyceny i raporty — dane zostają na Twoim komputerze.",
-      "featureList": "Automatyczny tracking aktywności, Sesje dzienne i tygodniowe, Analityka i heatmap pracy, Projekty z folderami i auto-detekcją, Lokalne AI sugestie bez wysyłania danych, Synchronizacja LAN peer-to-peer (AES-256-GCM), Synchronizacja online przez SFTP z delta sync, Sesje manualne (spotkania i rozmowy), Eksport JSON i ZIP, Transfer USB, Estymacje i stawki godzinowe, Fair Time Algorithm przeciw podwójnemu liczeniu czasu",
+      "description": "Lekki desktopowy time tracker dla freelancerów. Automatyczny tracking w tle, lokalne AI, synchronizacja LAN peer-to-peer i online z szyfrowaniem AES-256-GCM, sesje manualne, wyceny i raporty — dane zostają na Twoim komputerze.",
+      "featureList": "Automatyczny tracking aktywności, Sesje dzienne i tygodniowe, Analityka i heatmap pracy, Projekty z folderami i auto-detekcją, Lokalne AI sugestie bez wysyłania danych, Synchronizacja LAN peer-to-peer, Synchronizacja online przez SFTP z delta sync i szyfrowaniem AES-256-GCM, Sesje manualne (spotkania i rozmowy), Eksport JSON i ZIP, Transfer USB, Estymacje i stawki godzinowe, Fair Time Algorithm przeciw podwójnemu liczeniu czasu",
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -127,7 +127,7 @@
           "name": "Jak działa synchronizacja w TIMEFLOW?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "TIMEFLOW oferuje dwa tryby: LAN sync (peer-to-peer w sieci lokalnej, darmowy, szyfrowanie AES-256-GCM) oraz Online sync (koordynowany przez serwer, transfer SFTP na Twój własny serwer). W obu trybach dane nigdy nie przechodzą przez serwery TIMEFLOW — serwer koordynacji widzi tylko metadane."
+            "text": "TIMEFLOW oferuje dwa tryby: LAN sync (peer-to-peer w sieci lokalnej, darmowy) oraz Online sync (koordynowany przez serwer, transfer SFTP z szyfrowaniem AES-256-GCM). Serwer koordynacji widzi tylko metadane sesji — treść baz danych jest szyfrowana end-to-end i trafia na wydzielony storage."
           }
         },
         {
@@ -632,7 +632,7 @@
             <h3>Import/export danych i online sync</h3>
             <p>
               Eksport JSON całości lub projektu, import z walidacją i podglądem konfliktów,
-              snapshot sync online lub przenoszenie przez USB — dane zawsze pod kontrolą.
+              delta sync online lub przenoszenie przez USB — dane zawsze pod kontrolą.
             </p>
             <ul>
               <li>ZIP Export całej bazy lub wybranych projektów</li>
@@ -875,11 +875,11 @@
             <p class="stack-tag">Sync / Web</p>
             <h3>Serwer synchronizacji — już działa</h3>
             <p>
-              Serwer na <strong>Next.js</strong> synchronizuje snapshoty między urządzeniami i zachowuje
+              Serwer na <strong>Next.js</strong> koordynuje synchronizację między urządzeniami i zachowuje
               podejście local-first jako podstawę.
             </p>
             <ul>
-              <li>synchronizacja snapshotów między urządzeniami</li>
+              <li>delta sync i pełna synchronizacja między urządzeniami</li>
               <li>API push / pull / ack / status</li>
               <li>fundament pod mobile i funkcje współdzielenia</li>
             </ul>
