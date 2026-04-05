@@ -1,4 +1,4 @@
-/* RELEASE NOTES pages (PL / EN) */
+/* RELEASE NOTES pages (PL / EN) — Dark theme */
 
 .updates-shell {
   width: min(1280px, calc(100% - 2rem));
@@ -12,22 +12,23 @@
 }
 
 .updates-links a {
-  color: var(--muted);
+  color: var(--muted, #7a869a);
   font-size: 0.76rem;
   font-weight: 600;
   letter-spacing: 0.02em;
   border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
 }
 
 .updates-links a:hover,
 .updates-links a:focus-visible {
-  color: var(--ink);
-  border-color: #39d3ff59;
+  color: var(--ink, #e8ecf2);
+  border-color: var(--accent, #00d4ff);
 }
 
 .updates-subtitle {
   margin: 0.5rem 0 0;
-  color: var(--muted);
+  color: var(--muted, #7a869a);
   font-size: 0.86rem;
   line-height: 1.55;
 }
@@ -57,29 +58,26 @@
   gap: 0.8rem;
 }
 
-/* Override generic help-card sibling spacing inside CSS grid.
-   Without this, every card after the first gets extra top margin
-   and rows look visually "crooked". */
 .updates-module-grid .help-card + .help-card {
   margin-top: 0;
 }
 
 .updates-module {
-  border-top: 2px solid #39d3ff47;
+  border-top: 2px solid var(--accent, #00d4ff);
 }
 
 .updates-module:nth-child(2n) {
-  border-top-color: #8a5cff52;
+  border-top-color: #8a5cff;
 }
 
 .updates-module:nth-child(3n) {
-  border-top-color: #ff4fd24a;
+  border-top-color: #ff9f43;
 }
 
 .updates-module-head {
   margin: 0;
-  color: var(--ink);
-  font-family: var(--font-mono);
+  color: var(--ink, #e8ecf2);
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
   font-size: 1rem;
   font-weight: 700;
   display: flex;
@@ -89,12 +87,12 @@
 }
 
 .updates-module-head .help-icon {
-  color: #3aa8cf;
+  color: var(--accent, #00d4ff);
 }
 
 .updates-module-copy {
   margin: 0.55rem 0 0;
-  color: var(--muted);
+  color: var(--muted, #7a869a);
   font-size: 0.8rem;
   line-height: 1.5;
 }
@@ -107,7 +105,7 @@
 }
 
 .updates-module-list li {
-  color: var(--muted);
+  color: var(--muted, #7a869a);
   font-size: 0.78rem;
   line-height: 1.45;
   font-weight: 400;
