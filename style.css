@@ -216,7 +216,7 @@ li { color: var(--ink-2); font-weight: 400; }
 }
 
 .brand-beta {
-  color: var(--accent);
+  color: var(--accent-2);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   background: var(--accent-dim);
@@ -3832,7 +3832,7 @@ li { color: var(--ink-2); font-weight: 400; }
 .cookie-btn-reject {
   background: #232a35;
   border-color: rgba(178, 182, 189, 0.25);
-  color: #656a76;
+  color: #9a9faa;
 }
 
 .cookie-btn-reject:hover {
