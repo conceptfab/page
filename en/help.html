@@ -90,9 +90,9 @@
         About the software
       </h2>
       <p>
-        <strong style="color:var(--ink)">TIMEFLOW</strong> is an advanced time-tracking ecosystem that works discreetly in
-        the background, letting you focus on what really matters. Unlike traditional tools, TIMEFLOW intelligently
-        analyzes window activity, processes, and files to precisely assign your time to the right projects.
+        <strong style="color:var(--ink)">TIMEFLOW</strong> is a desktop time tracker that runs in the background and stays out of your way.
+        Instead of logging hours manually, you get automatic tracking of windows, processes, and files — the app
+        figures out which project your time belongs to.
       </p>
 
       <div class="help-about-grid">
@@ -101,28 +101,28 @@
             <svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-activity"></use></svg>
             Automatic tracking
           </h4>
-          <p>The TIMEFLOW Daemon monitors used applications and active documents without your intervention.</p>
+          <p>The TIMEFLOW Daemon watches which apps and files you're working in — hands-free, no clicking needed.</p>
         </article>
         <article class="help-about-item">
           <h4>
             <svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-brain"></use></svg>
             Intelligent categorization
           </h4>
-          <p>A local machine learning engine learns your habits without sending data to the cloud.</p>
+          <p>A local ML engine learns your habits — everything stays on your machine, nothing goes to the cloud.</p>
         </article>
         <article class="help-about-item">
           <h4>
             <svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-circle-dollar-sign"></use></svg>
             Financial analysis
           </h4>
-          <p>Get immediate insight into the real value of your work with rates and valuation tools.</p>
+          <p>See what your work is actually worth — rates, multipliers, and valuations in one place.</p>
         </article>
         <article class="help-about-item">
           <h4>
             <svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-settings"></use></svg>
             Privacy & locality
           </h4>
-          <p>Your data is yours. Everything is stored locally in a secure SQLite database.</p>
+          <p>Your data is your data. Everything lives in a local SQLite database — nobody else has access.</p>
         </article>
       </div>
 
@@ -197,11 +197,11 @@
               <span class="help-section-icon"><svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-rocket"></use></svg></span>
               <div>
                 <h3>QUICK START</h3>
-                <p>Fast TIMEFLOW setup for a new install and first launch.</p>
+                <p>Quick TIMEFLOW setup — from install to first launch.</p>
               </div>
             </div>
             <div class="help-extra">
-              <p>The full tutorial walks through installation and configuration end-to-end.</p>
+              <p>The tutorial walks you through the entire setup step by step.</p>
               <button type="button" class="help-btn-ghost" data-open-quickstart>
                 <svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-rocket"></use></svg>
                 Launch Quick Start
@@ -220,7 +220,7 @@
           </article>
 
           <article class="help-panel" data-help-panel="dashboard" aria-hidden="true">
-            <div class="help-section-head"><span class="help-section-icon"><svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-layout-dashboard"></use></svg></span><div><h3>DASHBOARD</h3><p>Quick overview of your current activity and key performance indicators.</p></div></div>
+            <div class="help-section-head"><span class="help-section-icon"><svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-layout-dashboard"></use></svg></span><div><h3>DASHBOARD</h3><p>What's happening now — metrics, activity, and key numbers at a glance.</p></div></div>
             <div class="help-feature-block"><h4>Key functionalities</h4><ul class="help-feature-list">
               <li>Integrated metrics cards: tracked time, apps, active projects.</li>
               <li>Interactive timeline with hourly/day view depending on range.</li>
@@ -233,16 +233,16 @@
           </article>
 
           <article class="help-panel" data-help-panel="sessions" aria-hidden="true">
-            <div class="help-section-head"><span class="help-section-icon"><svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-list"></use></svg></span><div><h3>SESSIONS</h3><p>Detailed list of all recorded activity blocks in the system.</p></div></div>
+            <div class="help-section-head"><span class="help-section-icon"><svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-list"></use></svg></span><div><h3>SESSIONS</h3><p>All recorded work blocks — with filters, assignments, and AI insights.</p></div></div>
             <div class="help-extra">
               <h4>AI Data interpretation</h4>
-              <p>The AI Data view shows model reasoning for assigned or suggested sessions.</p>
+              <p>The AI Data view shows why the model picked a project — where the confidence comes from and what it's based on.</p>
               <ul>
-                <li><strong>Confidence:</strong> model certainty level for the selected project.</li>
-                <li><strong>Evidence Count:</strong> number of similar historical, user-approved sessions.</li>
-                <li><strong>Score &amp; Base Log Prob:</strong> raw diagnostic values from the ML engine.</li>
-                <li><strong>Matched Tokens &amp; Context:</strong> matched keywords and contextual signals.</li>
-                <li><strong>Penalty:</strong> negative signals that lower assignment confidence.</li>
+                <li><strong>Confidence:</strong> how sure the model is about its pick.</li>
+                <li><strong>Evidence Count:</strong> how many similar sessions you've approved before.</li>
+                <li><strong>Score &amp; Base Log Prob:</strong> raw numbers from the ML engine — under-the-hood diagnostics.</li>
+                <li><strong>Matched Tokens &amp; Context:</strong> keywords and signals the model relied on.</li>
+                <li><strong>Penalty:</strong> negative signals — the model hit something ambiguous.</li>
               </ul>
             </div>
             <div class="help-feature-block"><h4>Key functionalities</h4><ul class="help-feature-list">
@@ -257,7 +257,7 @@
           </article>
 
           <article class="help-panel" data-help-panel="projects" aria-hidden="true">
-            <div class="help-section-head"><span class="help-section-icon"><svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-folder-kanban"></use></svg></span><div><h3>PROJECTS</h3><p>Task structure management with intelligent detection automation.</p></div></div>
+            <div class="help-section-head"><span class="help-section-icon"><svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-folder-kanban"></use></svg></span><div><h3>PROJECTS</h3><p>Your projects, folders, and auto-detection of new candidates from activity.</p></div></div>
             <div class="help-feature-block"><h4>Key functionalities</h4><ul class="help-feature-list">
               <li>Freeze inactive projects to declutter assignment workflows.</li>
               <li>Auto-freezing after configurable inactivity period.</li>
@@ -272,7 +272,7 @@
           </article>
 
           <article class="help-panel" data-help-panel="estimates" aria-hidden="true">
-            <div class="help-section-head"><span class="help-section-icon"><svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-circle-dollar-sign"></use></svg></span><div><h3>ESTIMATES</h3><p>Business module for precise conversion of time into financial value.</p></div></div>
+            <div class="help-section-head"><span class="help-section-icon"><svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-circle-dollar-sign"></use></svg></span><div><h3>ESTIMATES</h3><p>Rates, multipliers, and valuations — see how much you're earning per project and period.</p></div></div>
             <div class="help-feature-block"><h4>Key functionalities</h4><ul class="help-feature-list">
               <li>Global and project-specific hourly rate definitions.</li>
               <li>Session multipliers included in final project valuation.</li>
@@ -284,7 +284,7 @@
           </article>
 
           <article class="help-panel" data-help-panel="apps" aria-hidden="true">
-            <div class="help-section-head"><span class="help-section-icon"><svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-app-window"></use></svg></span><div><h3>APPLICATIONS</h3><p>Manage detected software and process list.</p></div></div>
+            <div class="help-section-head"><span class="help-section-icon"><svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-app-window"></use></svg></span><div><h3>APPLICATIONS</h3><p>What TIMEFLOW sees on your machine — process list, aliases, and tracking blocks.</p></div></div>
             <div class="help-feature-block"><h4>Key functionalities</h4><ul class="help-feature-list">
               <li>Full list of tracked applications with time statistics.</li>
               <li>Application aliases for human-readable naming.</li>
@@ -295,7 +295,7 @@
           </article>
 
           <article class="help-panel" data-help-panel="analysis" aria-hidden="true">
-            <div class="help-section-head"><span class="help-section-icon"><svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-bar-chart-3"></use></svg></span><div><h3>TIME ANALYSIS</h3><p>Deep visualization of habits and work intensity.</p></div></div>
+            <div class="help-section-head"><span class="help-section-icon"><svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-bar-chart-3"></use></svg></span><div><h3>TIME ANALYSIS</h3><p>Heatmaps, charts, and trends — when you work hardest and on what.</p></div></div>
             <div class="help-feature-block"><h4>Key functionalities</h4><ul class="help-feature-list">
               <li>Hourly and daily activity heatmaps.</li>
               <li>Monthly view with week numbering.</li>
@@ -306,34 +306,34 @@
           </article>
 
           <article class="help-panel" data-help-panel="ai" aria-hidden="true">
-            <div class="help-section-head"><span class="help-section-icon"><svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-brain"></use></svg></span><div><h3>AI &amp; MODEL</h3><p>Proprietary local Rust ML engine analyzing app context, time context and file/window tokens. 100% offline.</p></div></div>
+            <div class="help-section-head"><span class="help-section-icon"><svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-brain"></use></svg></span><div><h3>AI &amp; MODEL</h3><p>Local Rust ML engine — reads app context, time of day, and file names. 100% offline, no external APIs.</p></div></div>
             <div class="help-extra">
-              <p>TIMEFLOW uses a local classification model. It does not rely on external AI APIs and does not require internet access.</p>
-              <h4>1. Learning signals</h4>
+              <p>A classification model written in Rust. No external APIs — all computation and data stay on your disk.</p>
+              <h4>1. What does it learn from?</h4>
               <ul>
-                <li><strong>Application context:</strong> app-to-project assignment patterns.</li>
-                <li><strong>Time context:</strong> hour/day behavior signatures.</li>
-                <li><strong>Token analysis:</strong> keywords from file and window names.</li>
+                <li><strong>App context:</strong> which apps you assign to which projects.</li>
+                <li><strong>Time context:</strong> what time and day of week you work.</li>
+                <li><strong>Name tokens:</strong> keywords pulled from file and window names.</li>
               </ul>
-              <h4>2. Decision metrics</h4>
+              <h4>2. How does it decide?</h4>
               <ul>
-                <li><strong>Confidence:</strong> sigmoid-based probability from 0 to 1.</li>
-                <li><strong>Evidence Count:</strong> approved historical matches supporting prediction.</li>
-                <li><strong>Margin:</strong> gap between best and second-best candidate.</li>
+                <li><strong>Confidence:</strong> certainty from 0 to 1 (sigmoid).</li>
+                <li><strong>Evidence Count:</strong> how many past approvals back the prediction.</li>
+                <li><strong>Margin:</strong> gap between the top pick and the runner-up.</li>
               </ul>
               <h4>3. Operating modes</h4>
               <ul>
                 <li><strong>Suggest:</strong> proposes assignments for user approval.</li>
                 <li><strong>Auto-Safe:</strong> automates only high-certainty cases.</li>
               </ul>
-              <h4>4. Recommended settings</h4>
+              <h4>4. Recommended starting settings</h4>
               <ul>
-                <li><strong>Mode: suggest</strong> for fastest supervised learning.</li>
-                <li><strong>Suggest Min Confidence: 0.4–0.5</strong> to increase learning opportunities.</li>
-                <li><strong>Feedback Weight: 10–15</strong> for fast but stable adaptation.</li>
-                <li><strong>Auto-safe Confidence: 0.85–0.95</strong>, <strong>Min Evidence: 5</strong> for safe automation.</li>
+                <li><strong>Mode: suggest</strong> — learns fastest from your corrections.</li>
+                <li><strong>Suggest Min Confidence: 0.4–0.5</strong> — more suggestions = faster learning (raise the bar later).</li>
+                <li><strong>Feedback Weight: 10–15</strong> — picks up quickly without going off the rails.</li>
+                <li><strong>Auto-safe Confidence: 0.85–0.95</strong>, <strong>Min Evidence: 5</strong> — safe automation.</li>
               </ul>
-              <p><em>All model state is stored locally in SQLite and improves with each correction.</em></p>
+              <p><em>Model data lives in SQLite on disk — with every correction you make, it gets smarter and more accurate.</em></p>
             </div>
             <div class="help-feature-block"><h4>Key functionalities</h4><ul class="help-feature-list">
               <li>Auto-Safe batch assignment mode.</li>
@@ -347,7 +347,7 @@
           </article>
 
           <article class="help-panel" data-help-panel="data" aria-hidden="true">
-            <div class="help-section-head"><span class="help-section-icon"><svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-import"></use></svg></span><div><h3>DATA</h3><p>Import, export and maintenance of your knowledge base.</p></div></div>
+            <div class="help-section-head"><span class="help-section-icon"><svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-import"></use></svg></span><div><h3>DATA</h3><p>Import, export, and housekeeping — backup, cleanup, optimization.</p></div></div>
             <div class="help-feature-block"><h4>Key functionalities</h4><ul class="help-feature-list">
               <li>ZIP export of full database or selected projects.</li>
               <li>JSON import of daemon-generated daily reports.</li>
@@ -358,7 +358,7 @@
           </article>
 
           <article class="help-panel" data-help-panel="daemon" aria-hidden="true">
-            <div class="help-section-head"><span class="help-section-icon"><svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-cpu"></use></svg></span><div><h3>DAEMON</h3><p>Control center for the background process responsible for data collection.</p></div></div>
+            <div class="help-section-head"><span class="help-section-icon"><svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-cpu"></use></svg></span><div><h3>DAEMON</h3><p>Start, stop, logs, and status of the background process that collects activity data.</p></div></div>
             <div class="help-feature-block"><h4>Key functionalities</h4><ul class="help-feature-list">
               <li>Status diagnostics and health visibility.</li>
               <li>Service start/stop/restart from dashboard.</li>
@@ -369,7 +369,7 @@
           </article>
 
           <article class="help-panel" data-help-panel="settings" aria-hidden="true">
-            <div class="help-section-head"><span class="help-section-icon"><svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-settings"></use></svg></span><div><h3>SETTINGS</h3><p>Full control over configuration, safety and performance behavior.</p></div></div>
+            <div class="help-section-head"><span class="help-section-icon"><svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-settings"></use></svg></span><div><h3>SETTINGS</h3><p>Working hours, gap fill, sync, demo mode, DB optimization, and the rest of the config.</p></div></div>
             <div class="help-feature-block"><h4>Key functionalities</h4><ul class="help-feature-list">
               <li>Working Hours affecting timeline visuals.</li>
               <li>Session Management (gap fill and short-block ignore).</li>
@@ -396,20 +396,20 @@
       <div class="quickstart-hero">
         <div class="rocket-wrap"><svg class="help-icon" aria-hidden="true" style="width:1.45rem;height:1.45rem"><use href="../help-icons.svg#icon-rocket"></use></svg></div>
         <h2>Quick <strong>Start</strong></h2>
-        <p>Follow these steps to configure TIMEFLOW correctly and start collecting high-quality activity data.</p>
+        <p>Quick plan — from launching the app to your first assignments and AI training.</p>
       </div>
 
       <div class="quickstart-steps">
-        <article class="quickstep"><span class="quickstep-icon is-blue"><svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-monitor"></use></svg></span><div><div class="quickstep-head"><span class="quickstep-num">Step 1</span><h3>File preparation</h3></div><p>Place <strong>timeflow-dashboard.exe</strong> and <strong>timeflow-demon.exe</strong> in one folder and run the dashboard executable.</p></div></article>
-        <article class="quickstep"><span class="quickstep-icon is-green"><svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-folder-kanban"></use></svg></span><div><div class="quickstep-head"><span class="quickstep-num">Step 2</span><h3>Projects setup</h3></div><p>In <strong>Projects</strong>, select your parent work directory. Each subfolder becomes a project candidate.</p></div></article>
-        <article class="quickstep"><span class="quickstep-icon is-amber"><svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-app-window"></use></svg></span><div><div class="quickstep-head"><span class="quickstep-num">Step 3</span><h3>Add applications</h3></div><p>In <strong>Applications</strong>, add process names you want to track and assign readable aliases.</p></div></article>
-        <article class="quickstep"><span class="quickstep-icon is-violet"><svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-cpu"></use></svg></span><div><div class="quickstep-head"><span class="quickstep-num">Step 4</span><h3>Start Daemon</h3></div><p>In <strong>Daemon</strong>, start the service and enable autostart so tracking runs in the background.</p></div></article>
-        <article class="quickstep"><span class="quickstep-icon is-cyan"><svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-mouse-pointer-2"></use></svg></span><div><div class="quickstep-head"><span class="quickstep-num">Step 5</span><h3>Assign sessions</h3></div><p>Use context actions in <strong>Dashboard</strong> to map unassigned sessions to projects.</p></div></article>
-        <article class="quickstep"><span class="quickstep-icon is-pink"><svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-brain"></use></svg></span><div><div class="quickstep-head"><span class="quickstep-num">Step 6</span><h3>Train AI</h3></div><p>Manual assignment feedback in <strong>AI &amp; Model</strong> trains the local engine and enables automation.</p></div></article>
+        <article class="quickstep"><span class="quickstep-icon is-blue"><svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-monitor"></use></svg></span><div><div class="quickstep-head"><span class="quickstep-num">Step 1</span><h3>File preparation</h3></div><p>Drop <strong>timeflow-dashboard.exe</strong> and <strong>timeflow-demon.exe</strong> into one folder and launch the dashboard.</p></div></article>
+        <article class="quickstep"><span class="quickstep-icon is-green"><svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-folder-kanban"></use></svg></span><div><div class="quickstep-head"><span class="quickstep-num">Step 2</span><h3>Projects setup</h3></div><p>In <strong>Projects</strong>, point to your parent work directory — each subfolder becomes a separate project.</p></div></article>
+        <article class="quickstep"><span class="quickstep-icon is-amber"><svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-app-window"></use></svg></span><div><div class="quickstep-head"><span class="quickstep-num">Step 3</span><h3>Add applications</h3></div><p>In <strong>Applications</strong>, add the processes you want to track (e.g. figma.exe) and give them readable aliases.</p></div></article>
+        <article class="quickstep"><span class="quickstep-icon is-violet"><svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-cpu"></use></svg></span><div><div class="quickstep-head"><span class="quickstep-num">Step 4</span><h3>Start Daemon</h3></div><p>In <strong>Daemon</strong>, fire up the process and enable autostart — tracking now runs in the background.</p></div></article>
+        <article class="quickstep"><span class="quickstep-icon is-cyan"><svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-mouse-pointer-2"></use></svg></span><div><div class="quickstep-head"><span class="quickstep-num">Step 5</span><h3>Assign sessions</h3></div><p>Right-click unassigned sessions in <strong>Dashboard</strong> and map them to the right projects.</p></div></article>
+        <article class="quickstep"><span class="quickstep-icon is-pink"><svg class="help-icon" aria-hidden="true"><use href="../help-icons.svg#icon-brain"></use></svg></span><div><div class="quickstep-head"><span class="quickstep-num">Step 6</span><h3>Train AI</h3></div><p>A few manual assignments in <strong>AI &amp; Model</strong> are enough for the model to start suggesting projects on its own.</p></div></article>
       </div>
 
       <div class="quickstart-end">
-        <p>Done. You are ready to work with a fully configured setup.</p>
+        <p>That's it. TIMEFLOW is running and learns your patterns with every correction.</p>
       </div>
     </section>
   </main>

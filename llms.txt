@@ -1,17 +1,17 @@
 # TIMEFLOW
 
-> TIMEFLOW to desktop-first time tracker dla freelancerow i malych zespolow. Aplikacja monitoruje prace w tle, przypisuje aktywnosc do projektow przez lokalne AI, synchronizuje dane miedzy maszynami (LAN lub online) i dostarcza analityke, wyceny oraz raporty — bez chmury, bez kont, bez wysylania danych na zewnatrz.
+> Desktopowy time tracker dla freelancerow — chodzi w tle, sam przypisuje czas do projektow przez lokalne AI, syncuje dane miedzy maszynami (LAN albo online) i daje analityke, wyceny i raporty. Bez chmury, bez kont, bez wysylania danych na zewnatrz.
 
-TIMEFLOW jest obecnie w becie (build 0.1.556). Aktualna beta dotyczy Windows desktop. Tworca produktu to CONCEPTFAB. Kluczowy wyroznik: Fair Time Algorithm, ktory zapobiega podwojnemu liczeniu czasu przy multitaskingu i dzieli sekundy uczciwie pomiedzy projekty.
+Beta (build 0.1.556), na razie Windows. Robi to CONCEPTFAB. Kluczowa rzecz: Fair Time Algorithm — nie liczy czasu podwojnie przy multitaskingu, dzieli sekundy uczciwie miedzy projekty.
 
 ## Primary
 
-- [TIMEFLOW full context](https://conceptfab.com/timeflow/llms-full.txt): Pelny, skondensowany opis produktu dla agentow AI — pozycjonowanie, mozliwosci, sync, prywatnosc, porownanie z alternatywami.
-- [Strona glowna](https://conceptfab.com/timeflow/): Pozycjonowanie produktu, funkcje, algorytm, roadmapa i formularz beta.
+- [TIMEFLOW full context](https://conceptfab.com/timeflow/llms-full.txt): Pelny opis produktu dla agentow AI — pozycjonowanie, mozliwosci, sync, prywatnosc, porownanie z alternatywami.
+- [Strona glowna](https://conceptfab.com/timeflow/): Co robi, jak dziala, algorytm, roadmapa i formularz beta.
 - [Pomoc](https://conceptfab.com/timeflow/pomoc.html): Quick start, opis modulow, daemon, dane i AI.
-- [Aktualizacje](https://conceptfab.com/timeflow/aktualizacje.html): Changelog 0.1.6 (build 0.1.556) z synchronizacja LAN/Online, sesjami manualnymi i archiwum 0.1.5.
+- [Aktualizacje](https://conceptfab.com/timeflow/aktualizacje.html): Changelog 0.1.6 (build 0.1.556) — sync LAN/Online, sesje manualne, archiwum 0.1.5.
 
 ## Optional
 
-- [Polityka prywatnosci](https://conceptfab.com/timeflow/polityka-prywatnosci.html): Zasady prywatnosci i informacje o formularzu.
-- [English llms.txt](https://conceptfab.com/timeflow/en/llms.txt): Angielski punkt wejsciowy dla agentow AI.
+- [Polityka prywatnosci](https://conceptfab.com/timeflow/polityka-prywatnosci.html): Prywatnosc i przetwarzanie formularza.
+- [English llms.txt](https://conceptfab.com/timeflow/en/llms.txt): Angielska wersja dla agentow AI.
