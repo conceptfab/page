@@ -16,16 +16,16 @@
   <meta property="og:title" content="TIMEFLOW | Desktop time tracker for freelancers (beta)" />
   <meta property="og:description"
     content="Background time tracking, local AI, LAN and online sync, manual sessions and reports — data stays on your machine. Looking for freelancers for beta." />
-  <meta property="og:image" content="https://conceptfab.com/timeflow/screens/dashboard-main.webp" />
+  <meta property="og:image" content="https://timeflow.conceptfab.com/screens/dashboard-main.webp" />
   <meta property="og:image:alt" content="TIMEFLOW app dashboard screenshot" />
   <meta property="og:image:width" content="1600" />
   <meta property="og:image:height" content="1000" />
-  <meta property="og:url" content="https://conceptfab.com/timeflow/en/" />
+  <meta property="og:url" content="https://timeflow.conceptfab.com/en/" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="TIMEFLOW | Desktop time tracker for freelancers (beta)" />
   <meta name="twitter:description"
     content="Desktop time tracker — background tracking, local AI, LAN and online sync. Local data. TIMEFLOW beta looking for testers." />
-  <meta name="twitter:image" content="https://conceptfab.com/timeflow/screens/dashboard-main.webp" />
+  <meta name="twitter:image" content="https://timeflow.conceptfab.com/screens/dashboard-main.webp" />
   <title>TIMEFLOW | Desktop time tracker for freelancers (beta)</title>
   <link rel="preload" as="image" type="image/webp" href="../screens/dashboard-main.webp" fetchpriority="high" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -45,7 +45,23 @@
   <link rel="icon" type="image/png" sizes="128x128" href="../icons/favicon-128.png" />
   <link rel="icon" type="image/png" sizes="196x196" href="../icons/favicon-196x196.png" />
   <link rel="apple-touch-icon" sizes="152x152" href="../icons/apple-touch-icon-152x152.png" />
-  <link rel="stylesheet" href="../style.min.css" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth;background:#fff}
+    body{min-width:320px;color:#d5d7db;background:#fff;margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:1rem;line-height:1.63;font-weight:400;-webkit-font-smoothing:antialiased}
+    img,svg{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    :root{--bg:#15181e;--bg-deep:#0d0e12;--surface:#1c2129;--ink:#efeff1;--ink-2:#d5d7db;--muted:#656a76;--line:rgba(178,182,189,0.12);--accent:#1060ff;--accent-dim:rgba(16,96,255,0.08);--font-brand:"Hanken Grotesk",system-ui,sans-serif;--font-body:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;--font-mono:"JetBrains Mono",ui-monospace,monospace;--max:1150px;--section-pad:clamp(3.5rem,6vw,5rem);--section-pad-x:max(1.5rem,calc(50vw - 575px));--radius-sm:3px;--radius-md:5px;--radius-lg:8px;--shadow-whisper:rgba(97,104,117,0.05) 0px 1px 1px,rgba(97,104,117,0.05) 0px 2px 2px}
+    .site-shell{position:relative;overflow-x:clip}
+    .topbar{z-index:50;backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);background:rgba(21,24,30,0.92);border-bottom:1px solid rgba(178,182,189,0.12);grid-template-columns:auto 1fr auto auto;align-items:center;gap:1.2rem;width:100%;min-height:3.5rem;padding:0.5rem var(--section-pad-x);display:grid;position:sticky;top:0}
+    .hero{width:100%;isolation:isolate;contain:layout;grid-template-columns:1fr;align-items:start;gap:2.5rem;margin:0 auto;padding:4rem var(--section-pad-x) 3rem;display:grid;position:relative;overflow:visible;background:#15181e;color:#d5d7db}
+    .hero-bg-grid{pointer-events:none;z-index:-2;opacity:0.04;position:absolute;inset:-200px 0 -100px;width:100%;contain:strict}
+    .hero-glow{position:absolute;border-radius:50%;filter:blur(120px);pointer-events:none;z-index:-1;opacity:0.08;contain:strict}
+    [data-reveal]{opacity:0;transform:translateY(18px);transition:opacity .55s cubic-bezier(.22,1,.36,1),transform .55s cubic-bezier(.22,1,.36,1)}
+    .tf-style{font-weight:700!important;letter-spacing:0.06em}
+  </style>
+  <link rel="stylesheet" href="../style.min.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="../style.min.css" /></noscript>
 
   <noscript>
     <style>
@@ -55,11 +71,11 @@
       }
     </style>
   </noscript>
-  <link rel="canonical" href="https://conceptfab.com/timeflow/en/" />
-  <link rel="alternate" hreflang="pl" href="https://conceptfab.com/timeflow/" />
-  <link rel="alternate" hreflang="en" href="https://conceptfab.com/timeflow/en/" />
-  <link rel="alternate" hreflang="x-default" href="https://conceptfab.com/timeflow/" />
-  <link rel="author" href="https://conceptfab.com/timeflow/en/llms.txt" />
+  <link rel="canonical" href="https://timeflow.conceptfab.com/en/" />
+  <link rel="alternate" hreflang="pl" href="https://timeflow.conceptfab.com/" />
+  <link rel="alternate" hreflang="en" href="https://timeflow.conceptfab.com/en/" />
+  <link rel="alternate" hreflang="x-default" href="https://timeflow.conceptfab.com/" />
+  <link rel="author" href="https://timeflow.conceptfab.com/en/llms.txt" />
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -1154,8 +1170,8 @@
     </footer>
   </div>
 
-  <script src="../consent.min.js"></script>
-  <script src="../script.min.js"></script>
+  <script src="../consent.min.js" defer></script>
+  <script src="../script.min.js" defer></script>
 </body>
 
 </html>
