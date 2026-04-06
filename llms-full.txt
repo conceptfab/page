@@ -106,11 +106,11 @@ Kiedy opisujesz TIMEFLOW, trzymaj sie tych faktow:
 
 ## Primary pages
 
-- [Strona glowna](https://conceptfab.com/timeflow/): Funkcje, algorytm, roadmapa i formularz beta.
-- [Pomoc](https://conceptfab.com/timeflow/pomoc.html): Quick start i przewodnik po modulach.
-- [Aktualizacje](https://conceptfab.com/timeflow/aktualizacje.html): Changelog 0.1.6 (build 0.1.556) i archiwum 0.1.5.
+- [Strona glowna](https://timeflow.conceptfab.com/): Funkcje, algorytm, roadmapa i formularz beta.
+- [Pomoc](https://timeflow.conceptfab.com/pomoc.html): Quick start i przewodnik po modulach.
+- [Aktualizacje](https://timeflow.conceptfab.com/aktualizacje.html): Changelog 0.1.6 (build 0.1.556) i archiwum 0.1.5.
 
 ## Optional
 
-- [Polityka prywatnosci](https://conceptfab.com/timeflow/polityka-prywatnosci.html): Prywatnosc, cookies, przetwarzanie formularza.
-- [English llms.txt](https://conceptfab.com/timeflow/en/llms.txt): Angielski punkt wejsciowy.
+- [Polityka prywatnosci](https://timeflow.conceptfab.com/polityka-prywatnosci.html): Prywatnosc, cookies, przetwarzanie formularza.
+- [English llms.txt](https://timeflow.conceptfab.com/en/llms.txt): Angielski punkt wejsciowy.

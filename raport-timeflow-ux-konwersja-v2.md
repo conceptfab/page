@@ -1,5 +1,5 @@
 # Raport UX/UI, Marketing & Konwersja — TIMEFLOW Landing Page
-**URL:** conceptfab.com/timeflow/
+**URL:** timeflow.conceptfab.com/
 **Data analizy:** 5.04.2026
 **Testowane widoki:** Desktop (1400px), Mobile (375–400px)
 
@@ -277,4 +277,4 @@ Slider aplikacji na mobile obsługuje tylko przyciski < >, bez obsługi swipe/dr
 
 ---
 
-*Raport przygotowany na podstawie analizy automatycznej i manualnej strony conceptfab.com/timeflow/ w dniu 5.04.2026. Analiza obejmuje desktop (1400px) i mobile (375px). Nie testowano tablet (768px) osobno — strona używa jednego mobile breakpointa.*
+*Raport przygotowany na podstawie analizy automatycznej i manualnej strony timeflow.conceptfab.com/ w dniu 5.04.2026. Analiza obejmuje desktop (1400px) i mobile (375px). Nie testowano tablet (768px) osobno — strona używa jednego mobile breakpointa.*

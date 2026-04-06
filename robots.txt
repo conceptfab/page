@@ -14,4 +14,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://conceptfab.com/timeflow/sitemap.xml
+Sitemap: https://timeflow.conceptfab.com/sitemap.xml

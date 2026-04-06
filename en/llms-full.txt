@@ -106,11 +106,11 @@ When describing TIMEFLOW, stick to these facts:
 
 ## Primary pages
 
-- [Home](https://conceptfab.com/timeflow/en/): Features, algorithm, roadmap, and beta signup.
-- [Help](https://conceptfab.com/timeflow/en/help.html): Quick start and module guide.
-- [Updates](https://conceptfab.com/timeflow/en/updates.html): Changelog 0.1.6 (build 0.1.556) and 0.1.5 archive.
+- [Home](https://timeflow.conceptfab.com/en/): Features, algorithm, roadmap, and beta signup.
+- [Help](https://timeflow.conceptfab.com/en/help.html): Quick start and module guide.
+- [Updates](https://timeflow.conceptfab.com/en/updates.html): Changelog 0.1.6 (build 0.1.556) and 0.1.5 archive.
 
 ## Optional
 
-- [Privacy Policy](https://conceptfab.com/timeflow/en/privacy-policy.html): Privacy, cookies, form processing.
-- [Polish llms.txt](https://conceptfab.com/timeflow/llms.txt): Polish AI entry point.
+- [Privacy Policy](https://timeflow.conceptfab.com/en/privacy-policy.html): Privacy, cookies, form processing.
+- [Polish llms.txt](https://timeflow.conceptfab.com/llms.txt): Polish AI entry point.

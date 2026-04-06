@@ -59,12 +59,12 @@ def main():
     print("\n[SEO] Aktualizacja sitemap.xml...")
     if os.path.exists("sitemap.xml"):
         loc_to_file = {
-            "https://conceptfab.com/timeflow/": "index.html",
-            "https://conceptfab.com/timeflow/en/": "en/index.html",
-            "https://conceptfab.com/timeflow/aktualizacje.html": "aktualizacje.html",
-            "https://conceptfab.com/timeflow/en/updates.html": "en/updates.html",
-            "https://conceptfab.com/timeflow/pomoc.html": "pomoc.html",
-            "https://conceptfab.com/timeflow/en/help.html": "en/help.html"
+            "https://timeflow.conceptfab.com/": "index.html",
+            "https://timeflow.conceptfab.com/en/": "en/index.html",
+            "https://timeflow.conceptfab.com/aktualizacje.html": "aktualizacje.html",
+            "https://timeflow.conceptfab.com/en/updates.html": "en/updates.html",
+            "https://timeflow.conceptfab.com/pomoc.html": "pomoc.html",
+            "https://timeflow.conceptfab.com/en/help.html": "en/help.html"
         }
 
         with open("sitemap.xml", "r", encoding="utf-8") as f:
