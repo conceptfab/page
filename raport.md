@@ -1,192 +1,247 @@
-# Raport PageSpeed Insights — timeflow.conceptfab.com
+# Raport wydajności: timeflow.conceptfab.com
 
-**Data analizy:** 6 kwietnia 2026, 19:09  
-**Narzędzie:** Lighthouse 13.0.1  
-**URL:** http://timeflow.conceptfab.com/
-
----
-
-## Podsumowanie wyników
-
-| Kategoria | Mobilna | Stacjonarna |
-|---|---|---|
-| Wydajność | **67** (średnia) | **99** (zielona) |
-| Ułatwienia dostępu | **97** (zielona) | **97** (zielona) |
-| Sprawdzone metody | **78** (średnia) | **78** (średnia) |
-| SEO | **100** (zielona) | **100** (zielona) |
+**Data analizy:** 6 kwietnia 2026, 20:22 CEST  
+**Narzędzie:** Lighthouse 13.0.1 (PageSpeed Insights)  
+**Strona:** http://timeflow.conceptfab.com/
 
 ---
 
-## Core Web Vitals — metryki szczegółowe
+## 1. Podsumowanie wyników
 
-| Metryka | Mobilna | Stacjonarna | Próg dobry |
-|---|---|---|---|
-| First Contentful Paint (FCP) | **2,6 s** ⚠️ | **0,7 s** ✅ | < 1,8 s |
-| Largest Contentful Paint (LCP) | **4,4 s** 🔴 | **0,9 s** ✅ | < 2,5 s |
-| Total Blocking Time (TBT) | **70 ms** ✅ | **60 ms** ✅ | < 200 ms |
-| Cumulative Layout Shift (CLS) | **0,269** 🔴 | **0,014** ✅ | < 0,1 |
-| Speed Index (SI) | **2,9 s** ⚠️ | **0,7 s** ✅ | < 3,4 s |
-
-**Najważniejsze problemy na mobilnych:** LCP (4,4 s) i CLS (0,269) znacząco obniżają wynik wydajności.
+| Kategoria              | Mobile                       | Desktop                      |
+| ---------------------- | ---------------------------- | ---------------------------- |
+| **Wydajność**          | 🟠 **82**                    | — (niski CLS obniża wynik)   |
+| **Sprawdzone metody**  | 🟢 **100**                   | 🟢 **100**                   |
+| **SEO**                | 🟢 **100**                   | 🟢 **100**                   |
+| **Ułatwienia dostępu** | 🟠 _(problemy z kontrastem)_ | 🟠 _(problemy z kontrastem)_ |
 
 ---
 
-## 1. KRYTYCZNE — Przejście na HTTPS
+## 2. Metryki Core Web Vitals
 
-**Problem:** Strona serwowana jest przez niezabezpieczony HTTP. Wykryto 12 niezabezpieczonych żądań. Brak przekierowania HTTP → HTTPS.
-
-**Wpływ:** Obniża wynik "Sprawdzonych metod" (78/100). Brak HTTPS uniemożliwia korzystanie z HTTP/2, Service Workers i wielu nowoczesnych API. Google traktuje HTTPS jako sygnał rankingowy.
-
-**Co zrobić:**
-- Wdrożyć certyfikat SSL/TLS (np. Let's Encrypt — darmowy).
-- Skonfigurować przekierowanie 301 z HTTP na HTTPS dla wszystkich zasobów.
-- Zaktualizować wszystkie wewnętrzne linki i zasoby na HTTPS.
-- Wdrożyć nagłówek HSTS (Strict-Transport-Security).
+| Metryka                            | Mobile    | Desktop   | Ocena                                  |
+| ---------------------------------- | --------- | --------- | -------------------------------------- |
+| **FCP** (First Contentful Paint)   | 0,9 s     | 0,3 s     | 🟢 OK                                  |
+| **LCP** (Largest Contentful Paint) | 2,6 s     | 0,6 s     | 🟠 Mobile wymaga poprawy (cel < 2,5 s) |
+| **TBT** (Total Blocking Time)      | 20 ms     | 10 ms     | 🟢 OK                                  |
+| **CLS** (Cumulative Layout Shift)  | **0,311** | **0,751** | 🔴 **KRYTYCZNY** (cel < 0,1)           |
+| **SI** (Speed Index)               | 1,4 s     | 0,6 s     | 🟢 OK                                  |
 
 ---
 
-## 2. KRYTYCZNE — Naprawić CLS na mobilnych (0,269)
+## 3. Problemy krytyczne — szczegółowa analiza
 
-**Problem:** Głównym źródłem przesunięć układu jest element `div.hero-bg-grid` w sekcji hero (CLS: 0,269). Dodatkowe przesunięcie generuje `div.hero-glow` (CLS: 0,002). Na desktopie CLS wynosi zaledwie 0,014 — problem jest specyficzny dla mobilnych.
+### 🔴 PROBLEM #1: Katastrofalny Cumulative Layout Shift (CLS)
 
-Na desktopie źródła CLS to: sekcja `.hero-visual.hero-showcase` (0,011) oraz tekst "i widzisz jak zarabiasz" (0,003), a także ładowanie czcionek webowych (Hanken Grotesk, JetBrains Mono).
+**Główny powód** obniżonej wydajności. CLS wynosi 0,311 na mobile i aż 0,751 na desktop — przy dopuszczalnym progu 0,1. Elementy strony „skaczą" po załadowaniu.
 
-**Co zrobić:**
-- Zarezerwować stałe wymiary (width/height lub aspect-ratio) dla elementu `.hero-bg-grid` zanim pojawi się treść.
-- Unikać dynamicznego dodawania/zmiany rozmiaru elementu `.hero-bg-grid` po załadowaniu strony.
-- Ustawić jawne wymiary na kontenerze hero oraz na elementach wizualnych showcase.
-- Dodać `font-display: optional` lub preloadować czcionki z `<link rel="preload">`, aby uniknąć FOUT (Flash of Unstyled Text), który powoduje CLS.
-- Rozważyć użycie `size-adjust` i `@font-face` overrides, aby dopasować czcionkę fallback do docelowej.
+**Źródło problemu:** Sekcja `.hero` odpowiada za niemal cały CLS.
 
----
+- Mobile: element `<section class="hero">` → wynik przesunięcia **0,302**
+- Desktop: element `<section class="hero">` → wynik przesunięcia **0,750**
 
-## 3. KRYTYCZNE — Poprawić LCP na mobilnych (4,4 s)
+Przyczyna: **ładowanie czcionek internetowych** — po zamianie czcionki systemowej na docelową (JetBrains Mono 700, Hanken Grotesk 600 i inne), cały układ hero się przesuwa.
 
-**Problem:** LCP wynosi 4,4 s (próg: < 2,5 s). Rozbicie czasu LCP na mobilnych:
+**Poprawki:**
 
-| Podczęść | Czas |
-|---|---|
-| Czas do pierwszego bajtu (TTFB) | 0 ms |
-| Opóźnienie ładowania zasobów | 120 ms |
-| Czas wczytywania zasobu | 90 ms |
-| **Opóźnienie renderowania elementu** | **1490 ms** |
+#### a) Zastosuj `font-display: optional` lub dopasowane fallbacki czcionek
 
-Element LCP to obraz: `dashboard-main_960.webp` z atrybutami `loading="eager"` i `fetchpriority="high"` (dobrze skonfigurowane).
+Zamiast `font-display: swap` (które powoduje przesunięcie), użyj `font-display: optional` — czcionka albo załaduje się na czas, albo użytkownik zobaczy system font bez przeskoku. Alternatywnie zdefiniuj CSS `@font-face` z parametrami `size-adjust`, `ascent-override`, `descent-override` i `line-height-override` dla czcionek fallback, tak by wymiary tekstu systemowego dokładnie pasowały do docelowych czcionek.
 
-Na desktopie opóźnienie renderowania wynosi 880 ms — problem jest nasilony na mobilnych.
+#### b) Preloaduj krytyczne czcionki
 
-**Co zrobić:**
-- **Zmniejszyć opóźnienie renderowania** (1490 ms na mobilnych):
-  - Usunąć lub odroczyć JavaScript blokujący renderowanie (script.min.js, consent.min.js).
-  - Przenieść krytyczny CSS inline do `<head>`.
-  - Uprościć kaskadę CSS w sekcji hero — im mniej reguł CSS wpływających na element LCP, tym szybciej się wyrenderuje.
-- **Odblokować CSS** — plik `style.min.css` (10 KB) blokuje renderowanie na 170 ms. Rozważyć critical CSS inline + asynchroniczne ładowanie reszty.
-- **Zoptymalizować łańcuch krytyczny** (maks. opóźnienie: 375 ms na mobilnych):
-  - Dokument HTML → style.min.css → consent.min.js / script.min.js
-  - Odroczyć `consent.min.js` i `script.min.js` za pomocą atrybutu `defer` lub `async`.
+Dodaj w `<head>` tagi preload dla czcionek używanych w sekcji hero:
 
----
+```html
+<link
+  rel="preload"
+  href="/fonts/jetbrains-mono-700-latin.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+<link
+  rel="preload"
+  href="/fonts/hanken-grotesk-600-latin.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+```
 
-## 4. WAŻNE — Ograniczyć nieużywany JavaScript (GTM)
+#### c) Zarezerwuj miejsce na sekcję hero
 
-**Problem:** Google Tag Manager (gtag.js) waży 152–156 KB, z czego ~64 KB jest nieużywane. GTM generuje również długie zadania w wątku głównym (119 ms + 53 ms na desktopie; 120 ms na mobilnych).
-
-**Co zrobić:**
-- Załadować GTM z atrybutem `defer` lub dynamicznie po interakcji użytkownika (np. po kliknięciu, scrollu).
-- Rozważyć wdrożenie lżejszej konfiguracji GA4 bez GTM, jeśli nie są potrzebne zaawansowane funkcje tag managera.
-- Użyć `requestIdleCallback` do opóźnionego ładowania skryptów analitycznych.
-- Audytować tagi w GTM i usunąć niepotrzebne triggery/tagi.
+Ustaw jawną, stałą wysokość (`min-height`) na sekcji `.hero` w CSS, aby układ nie zmieniał się po załadowaniu czcionek. Użyj jednostek viewport (`min-height: 100svh` lub zbliżonej stałej wartości).
 
 ---
 
-## 5. WAŻNE — Wdrożyć nagłówki bezpieczeństwa
+### 🟠 PROBLEM #2: LCP na mobile = 2,6 s (tuż ponad progiem)
 
-**Problem:** Brakuje kluczowych nagłówków bezpieczeństwa, co obniża wynik "Sprawdzonych metod":
+Element LCP to obraz `#heroShotImage` (`dashboard-main.webp`, 75,9 KB).
 
-| Nagłówek | Status | Waga |
-|---|---|---|
-| Content-Security-Policy (CSP) | Brak | Wysoki |
-| HSTS (Strict-Transport-Security) | Brak | Wysoki |
-| COOP (Cross-Origin-Opener-Policy) | Brak | Wysoki |
-| X-Frame-Options / CSP frame-ancestors | Brak | Wysoki |
-| Trusted Types (CSP) | Brak | Wysoki |
+**Rozbicie czasu LCP:**
 
-**Co zrobić:**
-- Dodać nagłówek `Content-Security-Policy` z restrykcyjną polityką (np. `default-src 'self'; script-src 'self' https://www.googletagmanager.com ...`).
-- Dodać `Strict-Transport-Security: max-age=31536000; includeSubDomains` (po wdrożeniu HTTPS).
-- Dodać `Cross-Origin-Opener-Policy: same-origin`.
-- Dodać `X-Frame-Options: DENY` lub `Content-Security-Policy: frame-ancestors 'none'`.
-- Rozważyć wdrożenie Trusted Types.
+| Faza                         | Czas   |
+| ---------------------------- | ------ |
+| TTFB                         | 0 ms   |
+| Opóźnienie ładowania zasobów | 230 ms |
+| Czas wczytywania zasobu      | 170 ms |
+| Opóźnienie renderowania      | 220 ms |
 
----
+Obraz jest już wykrywalny w HTML i ma `fetchpriority=high` — to dobrze. Problem leży w łącznym opóźnieniu renderowania (220 ms) i ładowania zasobów (230 ms), które na throttlowanym 4G sumują się do ponad 2,5 s.
 
-## 6. ŚREDNI PRIORYTET — Wymuszony reflow w JavaScript
+**Poprawki:**
 
-**Problem:** Plik `script.min.js` wymusza synchroniczne przeformatowanie (forced reflow) — 36 ms na mobilnych, 3 ms + 104 ms (łącznie) na desktopie. Odczytywanie właściwości geometrycznych DOM (np. `offsetWidth`, `getBoundingClientRect`) po modyfikacji stylów powoduje kosztowny forced layout.
+#### a) Zmniejsz opóźnienie renderowania
 
-**Co zrobić:**
-- Przenieść odczyty geometrii DOM przed modyfikacjami stylów (wzorzec "read-then-write").
-- Użyć `requestAnimationFrame` do grupowania odczytów i zapisów DOM.
-- Zidentyfikować miejsce w `script.min.js:1:1590` i zrefaktorować kod.
+Upewnij się, że CSS krytyczny dla sekcji hero jest inlined w `<head>` — brak zewnętrznych arkuszy blokujących renderowanie tej sekcji.
 
----
+#### b) Rozważ mniejszy obraz dla mobile
 
-## 7. ŚREDNI PRIORYTET — Optymalizacja czcionek
+Strona ładuje `dashboard-main.webp` (75,9 KB) i `dashboard-main_960.webp` (19,2 KB). Upewnij się, że na mobile serwowany jest mniejszy wariant przez `<picture>` z `srcset` i odpowiednimi breakpointami.
 
-**Problem:** Strona ładuje 4 pliki czcionek (Hanken Grotesk + JetBrains Mono) o łącznym rozmiarze ~100 KB. Czcionki powodują drobne przesunięcia layoutu (CLS) na desktopie.
+#### c) Rozważ AVIF
 
-**Co zrobić:**
-- Dodać `<link rel="preload" as="font" type="font/woff2" crossorigin>` dla najważniejszych wariantów czcionek.
-- Rozważyć ograniczenie wariantów — czy potrzebne są 4 wagi (400, 500, 600, 700) obu czcionek?
-- Użyć `font-display: swap` (jeśli jeszcze nie jest ustawione) lub `optional` dla mniej ważnych wariantów.
-- Wdrożyć `@font-face` z `size-adjust`, `ascent-override`, `descent-override` dla fallbacka systemowego.
+Konwersja z WebP do AVIF może zmniejszyć rozmiar obrazu o 20–30% bez utraty jakości.
 
 ---
 
-## 8. NISKI PRIORYTET — Rozmiar DOM
+### 🟠 PROBLEM #3: 49–51 nieskomponowanych animacji
 
-**Problem:** DOM ma 613 elementów, maksymalną głębokość 11 i największy formularz (`#betaForm`) z 17 elementami podrzędnymi. Wartości są w normie, ale warto obserwować przy rozwoju strony.
+Lighthouse wykrył **49 animowanych elementów na mobile** i **51 na desktop**, które nie korzystają z akceleracji GPU (compositor). Animacje na właściwościach takich jak `top`, `left`, `width`, `height`, `margin`, `padding` powodują przeformatowanie w wątku głównym.
 
-**Co zrobić:**
-- Utrzymywać DOM poniżej 1500 elementów.
-- Upraszczać strukturę HTML tam, gdzie to możliwe (np. usunąć zbędne wrappery).
+**Poprawki:**
 
----
+#### a) Zamień animacje na właściwości compositable
 
-## 9. NISKI PRIORYTET — Kontrast kolorów (Ułatwienia dostępu)
+Używaj wyłącznie `transform` i `opacity` w animacjach CSS. Zamiast `top: 10px -> top: 20px` użyj `transform: translateY(10px) -> translateY(20px)`. Zamiast `width` animuj `transform: scaleX()`.
 
-**Problem:** Element `<span class="brand-beta">` (tekst "TIMEFLOW BETA") oraz przyciski w topbarze i cookie barze mają niewystarczający kontrast kolorów tła i tekstu.
+#### b) Dodaj `will-change` rozsądnie
 
-**Co zrobić:**
-- Zwiększyć kontrast tekstu "TIMEFLOW BETA" do minimum 4.5:1 (WCAG AA).
-- Sprawdzić kontrast przycisków cookie bar i topbar.
+Na elementach, które będą animowane, dodaj `will-change: transform` — ale tylko bezpośrednio przed animacją, nie globalnie.
 
----
+#### c) Zredukuj liczbę animacji
 
-## Podsumowanie priorytetów
-
-| Priorytet | Działanie | Spodziewany efekt |
-|---|---|---|
-| 🔴 Krytyczny | Wdrożyć HTTPS + przekierowanie | Sprawdzone metody ↑, bezpieczeństwo, SEO |
-| 🔴 Krytyczny | Naprawić CLS na mobilnych (hero-bg-grid) | CLS 0,269 → < 0,1, Wydajność ↑↑ |
-| 🔴 Krytyczny | Zmniejszyć opóźnienie renderowania LCP | LCP 4,4 s → < 2,5 s, Wydajność ↑↑ |
-| 🟡 Ważny | Odroczyć GTM / ograniczyć nieużywany JS | TBT ↓, szybsze ładowanie |
-| 🟡 Ważny | Dodać nagłówki bezpieczeństwa | Sprawdzone metody ↑ |
-| 🟠 Średni | Naprawić forced reflow w script.min.js | Wydajność ↑ |
-| 🟠 Średni | Preload + optymalizacja czcionek | CLS ↓, FCP ↓ |
-| 🟢 Niski | Utrzymać kompaktowy DOM | Przyszłościowe |
-| 🟢 Niski | Poprawić kontrast kolorów | Dostępność → 100 |
+49–51 animowanych elementów na prostej stronie landing page to dużo. Rozważ, czy wszystkie są potrzebne — uproszczenie animacji poprawi zarówno CLS, jak i ogólną płynność.
 
 ---
 
-## Co już działa dobrze ✅
+### 🟡 PROBLEM #4: Wymuszone przeformatowanie (forced reflow)
 
-- SEO: 100/100 — meta opis, title, hreflang, canonical, robots.txt, alt na obrazach.
-- Obrazy zoptymalizowane (format WebP, responsywne srcset/sizes).
-- Element LCP poprawnie wykrywalny (fetchpriority="high", brak lazy loading).
-- Minifikacja CSS i JS zastosowana.
-- Preconnect do fonts.googleapis.com i fonts.gstatic.com skonfigurowany.
-- font-display ustawione poprawnie.
-- Brak zduplikowanego JS.
-- Viewport zoptymalizowany dla mobilnych.
-- Łączny rozmiar strony: 420 KB — w normie.
+Plik `script.min.js` wymusza synchroniczne przeformatowanie (42 ms na desktop, 45 ms nieprzypisane na mobile). Dzieje się to, gdy JavaScript odczytuje właściwości geometryczne DOM (np. `offsetHeight`, `getBoundingClientRect()`) po modyfikacji stylów.
+
+**Poprawki:**
+
+#### a) Batch reads/writes
+
+Zgrupuj odczyty DOM przed zapisami. Użyj wzorca „read-then-write" albo biblioteki typu `fastdom`.
+
+#### b) Użyj `ResizeObserver` zamiast ręcznych pomiarów
+
+Jeśli `script.min.js` sprawdza wymiary elementów do animacji/pozycjonowania, zamień to na `ResizeObserver` lub `IntersectionObserver`.
+
+---
+
+### 🟡 PROBLEM #5: Za dużo czcionek (7 plików, ~236 KB)
+
+Strona ładuje **7 plików czcionek**:
+
+| Czcionka           | Rozmiar     |
+| ------------------ | ----------- |
+| Hanken Grotesk 400 | 35,6 KB     |
+| Hanken Grotesk 600 | 35,6 KB     |
+| Hanken Grotesk 700 | 35,6 KB     |
+| JetBrains Mono 400 | 32,5 KB     |
+| JetBrains Mono 500 | 32,3 KB     |
+| JetBrains Mono 600 | 32,5 KB     |
+| JetBrains Mono 700 | 32,3 KB     |
+| **Suma**           | **~236 KB** |
+
+Na prostą stronę landing page to za dużo — czcionki stanowią **58% całego transferu** (405 KB total).
+
+**Poprawki:**
+
+#### a) Zredukuj warianty czcionek
+
+Ogranicz się do 2–3 wariantów: np. Hanken Grotesk 400 + 700, JetBrains Mono 400 + 700. Warianty 500 i 600 można zasymulować lub pominąć. To zmniejszy transfer o ~100 KB.
+
+#### b) Subset czcionek
+
+Jeśli strona jest po polsku/angielsku, ogranicz glify do `latin` + polskich znaków diakrytycznych. Narzędzia: `pyftsubset`, `glyphhanger`.
+
+#### c) Użyj `font-display: optional`
+
+W własnym `@font-face` ustaw `font-display: optional`, co eliminuje FOUT i CLS jednocześnie.
+
+---
+
+## 4. Dodatkowe problemy
+
+### Kontrast kolorów (Accessibility)
+
+Element `.brand-beta` (tekst "BETA") i nagłówek `.topbar` mają niewystarczający współczynnik kontrastu. Popraw jasność tekstu lub tła, by osiągnąć współczynnik minimum 4.5:1 (standard WCAG AA).
+
+### Rozmiar DOM: 613 elementów
+
+Nie jest to wartość krytyczna, ale dla prostej strony landing page to podwyższona liczba. Każdy dodatkowy element DOM zwiększa czas „Style & Layout" (obecnie 384 ms na mobile — to **48% czasu wątku głównego**).
+
+### Aktywność wątku głównego: 0,8 s (mobile)
+
+Rozbicie:
+
+- Style & Layout: 384 ms
+- Other: 290 ms
+- Rendering: 103 ms
+- Script Evaluation: 22 ms
+- Parse HTML & CSS: 10 ms
+- Script Parsing & Compilation: 4 ms
+
+Dominacja fazy stylów i układu potwierdza, że problem leży w zbyt wielu animacjach i dużym DOM, a nie w ciężkim JavaScript.
+
+### Łańcuch żądań krytycznych
+
+Maksymalne opóźnienie ścieżki krytycznej: **243 ms**. Początkowy dokument HTML (14,85 KiB) — to dobry wynik. Brak dodatkowych łańcuchów zależności.
+
+### Serwer
+
+Czas odpowiedzi serwera: **33 ms** — bardzo dobrze. Brak przekierowań. Stosuje kompresję tekstu.
+
+---
+
+## 5. Co działa dobrze ✅
+
+- Serwer odpowiada szybko (33 ms TTFB)
+- Brak przekierowań
+- Kompresja tekstu włączona
+- CSS i JavaScript zminifikowane
+- Obraz LCP ma `fetchpriority=high` i jest wykrywalny w dokumencie
+- Brak leniwego ładowania obrazu LCP
+- Brak duplikatów JavaScript
+- Łączny rozmiar strony: 405 KiB (lekka)
+- SEO: 100/100
+- Sprawdzone metody: 100/100
+- `font-display: swap` ustawiony (ale powoduje CLS)
+- Viewport meta tag poprawny
+
+---
+
+## 6. Plan działania — priorytety
+
+| Priorytet | Zadanie                                                                        | Spodziewany efekt                                              |
+| --------- | ------------------------------------------------------------------------------ | -------------------------------------------------------------- |
+| 🔴 1      | Naprawić CLS — preload czcionek, font fallback metryki, stała wysokość `.hero` | CLS z 0,3/0,75 → < 0,1                                         |
+| 🔴 2      | Zmienić animacje na `transform`/`opacity` (49–51 elementów)                    | Eliminacja nieskomponowanych animacji, poprawa CLS i płynności |
+| 🟠 3      | Zredukować warianty czcionek z 7 do 3–4                                        | Transfer -100 KB, szybsze ładowanie                            |
+| 🟠 4      | Zoptymalizować obraz LCP (AVIF, lepsze srcset)                                 | LCP mobile z 2,6 s → < 2,0 s                                   |
+| 🟡 5      | Naprawić forced reflow w script.min.js                                         | -45 ms na wątku głównym                                        |
+| 🟡 6      | Poprawić kontrast kolorów (WCAG AA)                                            | Pełna dostępność                                               |
+
+---
+
+## 7. Prognoza po wdrożeniu
+
+Po wdrożeniu punktów 1–3 wynik mobilny powinien wzrosnąć z **82 do ~95+**, a desktopowy osiągnąć pełne 90+. Kluczem jest CLS — to jedyna metryka naprawdę „czerwona" i odpowiada za większość utraty punktów.
+
+---
+
+_Raport wygenerowany na podstawie analizy PageSpeed Insights z dnia 6.04.2026_

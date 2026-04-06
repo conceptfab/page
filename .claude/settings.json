@@ -4,7 +4,13 @@
       "Read(//c/_cloud/__cfab_demon/__client/**)",
       "Read(//c/_cloud/__cfab_demon/__server/src/app/api/sync/**)",
       "Read(//c/Users/micz/.claude/plugins/cache/claude-plugins-official/superpowers/5.0.7/skills/subagent-driven-development/**)",
-      "Bash(curl -s \"https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap\" -H \"User-Agent: Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\")"
+      "Bash(curl -s \"https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap\" -H \"User-Agent: Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\")",
+      "Bash(curl -s -H 'User-Agent: Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36' 'https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap')",
+      "Bash(curl -s -H 'User-Agent: Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36' 'https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap')",
+      "Bash(ls -lh fonts/*.woff2)",
+      "Bash(ls -la fonts/*.woff2)",
+      "Bash(ls -la /c/_cloud/__cfab_demon/__page/*.html /c/_cloud/__cfab_demon/__page/*.css /c/_cloud/__cfab_demon/__page/*.js /c/_cloud/__cfab_demon/__page/*.json)",
+      "Bash(ls -lh screens/dashboard-main*.avif screens/dashboard-main*.webp)"
     ]
   }
 }
