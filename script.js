@@ -1063,11 +1063,11 @@
   window.addEventListener("load", function () {
     setTimeout(function () {
       var fonts = [
-        new FontFace("Hanken Grotesk", "url('/fonts/hanken-grotesk-400-latin.woff2')", { weight: "400", style: "normal" }),
-        new FontFace("Hanken Grotesk", "url('/fonts/hanken-grotesk-600-latin.woff2')", { weight: "600", style: "normal" }),
-        new FontFace("Hanken Grotesk", "url('/fonts/hanken-grotesk-700-latin.woff2')", { weight: "700", style: "normal" }),
-        new FontFace("JetBrains Mono", "url('/fonts/jetbrains-mono-400-latin.woff2')", { weight: "400", style: "normal" }),
-        new FontFace("JetBrains Mono", "url('/fonts/jetbrains-mono-700-latin.woff2')", { weight: "700", style: "normal" }),
+        new FontFace("Hanken Grotesk", "url('/fonts/hanken-grotesk-400-latin.woff2')", { weight: "400", style: "normal", display: "swap" }),
+        new FontFace("Hanken Grotesk", "url('/fonts/hanken-grotesk-600-latin.woff2')", { weight: "600", style: "normal", display: "swap" }),
+        new FontFace("Hanken Grotesk", "url('/fonts/hanken-grotesk-700-latin.woff2')", { weight: "700", style: "normal", display: "swap" }),
+        new FontFace("JetBrains Mono", "url('/fonts/jetbrains-mono-400-latin.woff2')", { weight: "400", style: "normal", display: "swap" }),
+        new FontFace("JetBrains Mono", "url('/fonts/jetbrains-mono-700-latin.woff2')", { weight: "700", style: "normal", display: "swap" }),
       ];
       fonts.forEach(function (f) { document.fonts.add(f); f.load(); });
       Promise.all(fonts.map(function (f) { return f.loaded; })).then(function () {
