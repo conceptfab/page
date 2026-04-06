@@ -4,6 +4,9 @@ import sys
 import subprocess
 import urllib.request
 import time
+import io
+
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
 
 try:
     import ftp_config
