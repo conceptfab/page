@@ -167,7 +167,7 @@ body:has(.help-shell) {
   gap: 0.4rem;
   padding: 0.5rem 0.8rem;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
 }
 
 .help-btn:hover,
@@ -240,7 +240,7 @@ body:has(.help-shell) {
   justify-content: space-between;
   gap: 0.4rem;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
 }
 
 .help-tab-btn-main {
