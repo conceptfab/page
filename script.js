@@ -957,23 +957,35 @@
     });
   });
 
-  // Scroll depth (25%, 50%, 75%, 100%)
-  const scrollDepthMarks = new Set();
-  window.addEventListener("scroll", () => {
-    const scrollPct = Math.round(
-      ((window.scrollY + window.innerHeight) / document.documentElement.scrollHeight) * 100
-    );
-    [25, 50, 75, 100].forEach((mark) => {
-      if (scrollPct >= mark && !scrollDepthMarks.has(mark)) {
-        scrollDepthMarks.add(mark);
+  // Scroll depth (25%, 50%, 75%, 100%) — IO-based, no forced reflow
+  const scrollDepthMarks = [25, 50, 75, 100];
+  if ("IntersectionObserver" in window) {
+    const depthSentinels = scrollDepthMarks.map((mark) => {
+      const el = document.createElement("div");
+      el.setAttribute("aria-hidden", "true");
+      el.style.cssText = "position:absolute;left:0;width:1px;height:1px;pointer-events:none";
+      el.style.top = mark + "%";
+      document.documentElement.appendChild(el);
+      return { mark, el };
+    });
+
+    const depthObs = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        const sentinel = depthSentinels.find((s) => s.el === entry.target);
+        if (!sentinel) continue;
+        depthObs.unobserve(entry.target);
+        sentinel.el.remove();
         ga("event", "scroll_depth", {
           event_category: "engagement",
-          event_label: mark + "%",
-          value: mark,
+          event_label: sentinel.mark + "%",
+          value: sentinel.mark,
         });
       }
-    });
-  }, { passive: true });
+    }, { threshold: 0 });
+
+    depthSentinels.forEach((s) => depthObs.observe(s.el));
+  }
 
   // Section view (IntersectionObserver)
   const trackedSections = document.querySelectorAll("section[id]");
