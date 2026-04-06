@@ -334,7 +334,7 @@ li {
 }
 
 .brand-beta {
-  color: var(--accent-2);
+  color: #5ea3ff;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   background: var(--accent-dim);
