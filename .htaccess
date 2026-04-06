@@ -4,13 +4,20 @@ DirectoryIndex index.html
 # Wyłączenie listowania plików w folderze (bezpieczeństwo)
 Options -Indexes
 
-# Zapobieganie błędom 403 przy braku slash na końcu URL
+# Wymuszenie HTTPS
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteBase /timeflow/
+    RewriteCond %{HTTPS} !=on
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# Zapobieganie błędom 403 przy braku slash na końcu URL
+<IfModule mod_rewrite.c>
+    RewriteBase /
+    RewriteCond %{HTTPS} =on
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_URI} !(.*)\/$
-    RewriteRule ^(.*)$ https://conceptfab.com/timeflow/$1/ [L,R=301]
+    RewriteRule ^(.*)$ https://timeflow.conceptfab.com/$1/ [L,R=301]
 </IfModule>
 
 # Kompresja GZIP — zmniejsza transfer CSS/JS/HTML o ~75-80%
@@ -37,4 +44,12 @@ Options -Indexes
     <FilesMatch "\.(html|php)$">
         Header set Cache-Control "no-cache, must-revalidate"
     </FilesMatch>
+</IfModule>
+
+# Nagłówki bezpieczeństwa
+<IfModule mod_headers.c>
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+    Header always set X-Frame-Options "DENY"
+    Header always set Cross-Origin-Opener-Policy "same-origin"
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com; frame-ancestors 'none'"
 </IfModule>
