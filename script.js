@@ -81,12 +81,18 @@
 
   const topbar = document.querySelector(".topbar");
   if (topbar instanceof HTMLElement) {
-    const syncTopbarScrollState = () => {
-      topbar.classList.toggle("is-scrolled", window.scrollY > 12);
-    };
+    const sentinel = document.createElement("div");
+    sentinel.setAttribute("aria-hidden", "true");
+    sentinel.style.cssText = "position:absolute;top:0;left:0;width:1px;height:13px;pointer-events:none";
+    document.body.prepend(sentinel);
 
-    syncTopbarScrollState();
-    window.addEventListener("scroll", syncTopbarScrollState, { passive: true });
+    const scrollObserver = new IntersectionObserver(
+      ([entry]) => {
+        topbar.classList.toggle("is-scrolled", !entry.isIntersecting);
+      },
+      { threshold: 0 }
+    );
+    scrollObserver.observe(sentinel);
   }
 
   const menuToggle = document.querySelector("[data-menu-toggle]");
