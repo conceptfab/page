@@ -581,6 +581,7 @@ li {
    ═══════════════════════════════════════════════════════ */
 .hero {
   --hero-bleed-top: 4rem;
+  min-height: 100svh;
   width: 100%;
   isolation: isolate;
   contain: layout;
@@ -3500,6 +3501,7 @@ li {
   /* Hero mobile */
   .hero {
     --hero-bleed-top: 8rem;
+    min-height: 100svh;
     gap: 1.5rem;
     margin-top: 0;
     padding: 1.5rem 1rem 2rem;
@@ -3910,6 +3912,7 @@ li {
    ═══════════════════════════════════════════════════════ */
 @media (width <= 480px) {
   .hero {
+    min-height: 100svh;
     padding: 1.2rem 0.75rem 1.8rem;
   }
 
