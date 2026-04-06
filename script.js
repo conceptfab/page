@@ -1059,10 +1059,3 @@
   MQ.addEventListener("change", update);
   update();
 })();
-
-/* ── Font loading: add .fonts-loaded class after all custom fonts are ready ── */
-if ("fonts" in document) {
-  document.fonts.ready.then(() => {
-    document.documentElement.classList.add("fonts-loaded");
-  });
-}

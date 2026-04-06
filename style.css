@@ -630,22 +630,6 @@ li {
   font-family: ui-monospace, 'Cascadia Code', 'Consolas', monospace;
 }
 
-/* Fonts loaded: restore custom fonts in hero */
-.fonts-loaded .hero h1,
-.fonts-loaded .hero h2,
-.fonts-loaded .hero h3 {
-  font-family: var(--font-brand);
-}
-
-.fonts-loaded .hero .eyebrow,
-.fonts-loaded .hero .tf-style,
-.fonts-loaded .hero .showcase-kicker,
-.fonts-loaded .hero .showcase-counter,
-.fonts-loaded .hero .showcase-note,
-.fonts-loaded .hero .shot-caption {
-  font-family: var(--font-mono);
-}
-
 /* Hero Copy */
 .hero-copy {
   gap: 1.2rem;
