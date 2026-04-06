@@ -20,17 +20,18 @@
     wait_for_update: 500,
   });
 
-  // --- Load gtag.js (deferred, won't fire until consent granted) ---
-  const gtagScript = document.createElement("script");
-  gtagScript.async = true;
-  gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
-  document.head.appendChild(gtagScript);
-
-  gtag("js", new Date());
-  gtag("config", GA_ID, {
-    anonymize_ip: true,
-    send_page_view: true,
-  });
+  // --- Lazy-load gtag.js only when needed ---
+  let gtagLoaded = false;
+  function loadGtag() {
+    if (gtagLoaded) return;
+    gtagLoaded = true;
+    const s = document.createElement("script");
+    s.async = true;
+    s.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+    document.head.appendChild(s);
+    gtag("js", new Date());
+    gtag("config", GA_ID, { anonymize_ip: true, send_page_view: true });
+  }
 
   // --- Translations ---
   const t = lang === "pl" ? {
@@ -50,8 +51,19 @@
   // --- Check stored preference ---
   const stored = localStorage.getItem(CONSENT_KEY);
   if (stored === "granted") {
-    grantConsent();
-    return; // no banner needed
+    const events = ["scroll", "click", "touchstart", "keydown"];
+    const onInteraction = () => {
+      loadGtag();
+      grantConsent();
+      events.forEach(e => window.removeEventListener(e, onInteraction));
+    };
+    events.forEach(e => window.addEventListener(e, onInteraction, { once: true, passive: true }));
+    if ("requestIdleCallback" in window) {
+      requestIdleCallback(() => { loadGtag(); grantConsent(); }, { timeout: 5000 });
+    } else {
+      setTimeout(() => { loadGtag(); grantConsent(); }, 5000);
+    }
+    return;
   }
   if (stored === "denied") {
     return; // stays denied, no banner
@@ -108,6 +120,7 @@
   }
 
   function grantConsent() {
+    loadGtag();
     gtag("consent", "update", {
       analytics_storage: "granted",
     });
