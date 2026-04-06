@@ -27,7 +27,7 @@
     content="Desktop time tracker — background tracking, local AI, LAN and online sync. Local data. TIMEFLOW beta looking for testers." />
   <meta name="twitter:image" content="https://timeflow.conceptfab.com/screens/dashboard-main.webp" />
   <title>TIMEFLOW | Desktop time tracker for freelancers (beta)</title>
-  <link rel="preload" as="image" type="image/webp" href="../screens/dashboard-main.webp" fetchpriority="high" />
+  <link rel="preload" as="image" type="image/avif" href="../screens/dashboard-main.avif" fetchpriority="high" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-700-latin.woff2" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/hanken-grotesk-400-latin.woff2" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/jetbrains-mono-700-latin.woff2" />
@@ -233,12 +233,17 @@
                     <span aria-hidden="true">&lt;</span>
                   </button>
                   <div class="shot-frame ratio-desktop">
-                    <img id="heroShotImage" class="shot-image" src="../screens/dashboard-main.webp"
-                      srcset="../screens/dashboard-main_480.webp 480w, ../screens/dashboard-main_960.webp 960w, ../screens/dashboard-main.webp 1600w"
-                      sizes="(max-width: 720px) 92vw, (max-width: 1200px) 62vw, 800px"
-                      width="1600" height="1000"
-                      alt="TIMEFLOW Dashboard – daily view with metrics and timeline" loading="eager"
-                      fetchpriority="high" decoding="async" />
+                    <picture>
+                      <source type="image/avif"
+                        srcset="../screens/dashboard-main_480.avif 480w, ../screens/dashboard-main_960.avif 960w, ../screens/dashboard-main.avif 1600w"
+                        sizes="(max-width: 720px) 92vw, (max-width: 1200px) 62vw, 800px" />
+                      <img id="heroShotImage" class="shot-image" src="../screens/dashboard-main.webp"
+                        srcset="../screens/dashboard-main_480.webp 480w, ../screens/dashboard-main_960.webp 960w, ../screens/dashboard-main.webp 1600w"
+                        sizes="(max-width: 720px) 92vw, (max-width: 1200px) 62vw, 800px"
+                        width="1600" height="1000"
+                        alt="TIMEFLOW Dashboard – daily view with metrics and timeline" loading="eager"
+                        fetchpriority="high" decoding="async" />
+                    </picture>
                   </div>
                   <button type="button" class="showcase-nav-btn showcase-nav-btn-side showcase-nav-btn-next"
                     data-hero-slider-next aria-label="Next screen">

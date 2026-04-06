@@ -121,7 +121,18 @@ def main():
         # 960w
         if not run_cmd(f'npx --yes sharp-cli -i "{img}" -o "{out960}" -q 80 -f webp -- resize 960 --withoutEnlargement'):
             success = False
-        
+
+    # --- AVIF ---
+    print("\n[IMG] Generowanie wariantów AVIF (screens/*.webp -> *.avif)...")
+    all_webp_for_avif = glob.glob("screens/*.webp")
+    for img in all_webp_for_avif:
+        img = img.replace("\\", "/")
+        path = Path(img)
+        out_avif = str(path.with_suffix(".avif")).replace("\\", "/")
+        print(f"  {path.name} -> {Path(out_avif).name}")
+        if not run_cmd(f'npx --yes sharp-cli -i "{img}" -o "{out_avif}" -q 45 -f avif'):
+            success = False
+
     if success:
         print("\n=== Build zakończony sukcesem ===")
     else:
