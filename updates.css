@@ -1,4 +1,4 @@
-/* RELEASE NOTES pages (PL / EN) — Dark theme */
+/* RELEASE NOTES pages (PL / EN) — HashiCorp Design System */
 
 .updates-shell {
   width: min(1280px, calc(100% - 2rem));
@@ -12,9 +12,9 @@
 }
 
 .updates-links a {
-  color: var(--muted, #7a869a);
-  font-size: 0.76rem;
-  font-weight: 600;
+  color: var(--muted, #656a76);
+  font-size: 0.82rem;
+  font-weight: 500;
   letter-spacing: 0.02em;
   border-bottom: 1px solid transparent;
   transition: color 0.2s, border-color 0.2s;
@@ -22,15 +22,15 @@
 
 .updates-links a:hover,
 .updates-links a:focus-visible {
-  color: var(--ink, #e8ecf2);
-  border-color: var(--accent, #00d4ff);
+  color: var(--ink, #efeff1);
+  border-color: var(--accent, #1060ff);
 }
 
 .updates-subtitle {
   margin: 0.5rem 0 0;
-  color: var(--muted, #7a869a);
-  font-size: 0.86rem;
-  line-height: 1.55;
+  color: var(--muted, #656a76);
+  font-size: 0.92rem;
+  line-height: 1.63;
 }
 
 .updates-overview {
@@ -63,20 +63,20 @@
 }
 
 .updates-module {
-  border-top: 2px solid var(--accent, #00d4ff);
+  border-top: 2px solid var(--accent, #1060ff);
 }
 
 .updates-module:nth-child(2n) {
-  border-top-color: #8a5cff;
+  border-top-color: #911ced;
 }
 
 .updates-module:nth-child(3n) {
-  border-top-color: #ff9f43;
+  border-top-color: #bb5a00;
 }
 
 .updates-module-head {
   margin: 0;
-  color: var(--ink, #e8ecf2);
+  color: var(--ink, #efeff1);
   font-family: var(--font-mono, "JetBrains Mono", monospace);
   font-size: 1rem;
   font-weight: 700;
@@ -87,14 +87,14 @@
 }
 
 .updates-module-head .help-icon {
-  color: var(--accent, #00d4ff);
+  color: var(--accent, #1060ff);
 }
 
 .updates-module-copy {
   margin: 0.55rem 0 0;
-  color: var(--muted, #7a869a);
-  font-size: 0.8rem;
-  line-height: 1.5;
+  color: var(--muted, #656a76);
+  font-size: 0.85rem;
+  line-height: 1.63;
 }
 
 .updates-module-list {
@@ -105,9 +105,9 @@
 }
 
 .updates-module-list li {
-  color: var(--muted, #7a869a);
-  font-size: 0.78rem;
-  line-height: 1.45;
+  color: var(--muted, #656a76);
+  font-size: 0.82rem;
+  line-height: 1.5;
   font-weight: 400;
 }
 
@@ -139,14 +139,14 @@
   }
 
   .updates-subtitle {
-    font-size: 0.82rem;
+    font-size: 0.88rem;
   }
 
   .updates-module-head {
-    font-size: 0.93rem;
+    font-size: 0.95rem;
   }
 
   .updates-module-list li {
-    font-size: 0.75rem;
+    font-size: 0.78rem;
   }
 }
