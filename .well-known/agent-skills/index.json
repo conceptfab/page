@@ -1,0 +1,75 @@
+{
+  "$schema": "https://agentskills.io/schema/v0.2.0/index.json",
+  "skills": [
+    {
+      "name": "TIMEFLOW context (PL)",
+      "type": "context",
+      "description": "Pełen opis produktu TIMEFLOW dla agentów AI — pozycjonowanie, możliwości, sync, prywatność.",
+      "url": "https://timeflow.conceptfab.com/llms-full.txt",
+      "sha256": "911c1750e280e4bee353f75131e68bb16ec8174da6c6eb8cdb5d386e976baa2f"
+    },
+    {
+      "name": "TIMEFLOW summary (PL)",
+      "type": "context",
+      "description": "Krótki entry point dla agentów: opis i linki do podstron.",
+      "url": "https://timeflow.conceptfab.com/llms.txt",
+      "sha256": "bbca11a8c1b36ed8dd1bfce38f250e879833b566c9c4f1b2f1a38f119901242b"
+    },
+    {
+      "name": "TIMEFLOW help (PL)",
+      "type": "documentation",
+      "description": "Centrum pomocy: quick start, dashboard, sesje, projekty, AI, dane, daemon, ustawienia.",
+      "url": "https://timeflow.conceptfab.com/pomoc.md",
+      "sha256": "d716502434be539f47441a19d1b380ed5201d4a28e5742d2aa5fbc555c567726"
+    },
+    {
+      "name": "TIMEFLOW changelog (PL)",
+      "type": "documentation",
+      "description": "Pełny changelog 0.1.6 (build 0.1.556) i archiwum 0.1.5.",
+      "url": "https://timeflow.conceptfab.com/aktualizacje.md",
+      "sha256": "41e76356e2190c91862189b4099798b3b34416b5965d067dfa3422ed91190963"
+    },
+    {
+      "name": "TIMEFLOW privacy (PL)",
+      "type": "documentation",
+      "description": "Polityka prywatności i przetwarzania formularza.",
+      "url": "https://timeflow.conceptfab.com/polityka-prywatnosci.md",
+      "sha256": "276d2e640c486da33dbe0740a6c0e163aaff7d03ce3cb7bd0da1002c30a9b496"
+    },
+    {
+      "name": "TIMEFLOW context (EN)",
+      "type": "context",
+      "description": "Full product context for AI agents — positioning, capabilities, sync, privacy.",
+      "url": "https://timeflow.conceptfab.com/en/llms-full.txt",
+      "sha256": "cd22fc66d634f336b94b488f19ccc04fa7f6b07002221e8f2c06a18f6e7f1ba3"
+    },
+    {
+      "name": "TIMEFLOW summary (EN)",
+      "type": "context",
+      "description": "Short entry point for agents: description and page links.",
+      "url": "https://timeflow.conceptfab.com/en/llms.txt",
+      "sha256": "fdf53df75bceacd149d129d44d9d9a33773f8b2bf43672c5610bb8a5b3996011"
+    },
+    {
+      "name": "TIMEFLOW help (EN)",
+      "type": "documentation",
+      "description": "Help center: quick start, dashboard, sessions, projects, AI, data, daemon, settings.",
+      "url": "https://timeflow.conceptfab.com/en/help.md",
+      "sha256": "40d4039c757b2067c96d0f7b6144f4834342324c1c92f081db43c3fe9a70231f"
+    },
+    {
+      "name": "TIMEFLOW changelog (EN)",
+      "type": "documentation",
+      "description": "Full changelog 0.1.6 (build 0.1.556) and 0.1.5 archive.",
+      "url": "https://timeflow.conceptfab.com/en/updates.md",
+      "sha256": "e51d4d45d4c2ab8b77940aec1224127291d051fd8c2c0769e7597ae21d453616"
+    },
+    {
+      "name": "TIMEFLOW privacy (EN)",
+      "type": "documentation",
+      "description": "Privacy policy and form processing.",
+      "url": "https://timeflow.conceptfab.com/en/privacy-policy.md",
+      "sha256": "a80389be450053745ffb6be409571e1ccf2a20dc96cde8625625fcb0296dea16"
+    }
+  ]
+}

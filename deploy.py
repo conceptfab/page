@@ -18,13 +18,28 @@ except ImportError:
 # Konfiguracja lokalna
 LOCAL_DIR = "."
 
-# Pliki i foldery do pominięcia przy uploadzie
+# Pliki i foldery do pominięcia przy uploadzie (substring match na ścieżce)
 IGNORE_LIST = [
     '.git', '.vscode', '.claude', '__pycache__',
     'build.py', 'deploy.py', 'ftp_config.py', 'ftp_config.sample.py',
-    '.antigravityignore', '.md', '.py',
+    '.antigravityignore',
     'node_modules', 'docs',
 ]
+
+# Rozszerzenia plikow ignorowanych z poziomu projektu (.md, .py).
+# Wyjatki w UPLOAD_MD_WHITELIST oraz UPLOAD_PY_WHITELIST zawsze sa wysylane.
+IGNORE_EXTENSIONS = ('.py',)
+IGNORE_MD_DEFAULT = True
+
+# Pliki .md ktore POWINNY byc wgrywane (Markdown for Agents content negotiation).
+UPLOAD_MD_WHITELIST = {
+    'pomoc.md',
+    'aktualizacje.md',
+    'polityka-prywatnosci.md',
+    'en/help.md',
+    'en/updates.md',
+    'en/privacy-policy.md',
+}
 
 # URL strony do weryfikacji po deploy
 SITE_URL = "https://timeflow.conceptfab.com/"
@@ -35,6 +50,11 @@ def should_ignore(path):
     for ignore in IGNORE_LIST:
         if ignore in path:
             return True
+    norm = path.replace("\\", "/").lstrip("./")
+    if any(path.endswith(ext) for ext in IGNORE_EXTENSIONS):
+        return True
+    if IGNORE_MD_DEFAULT and path.endswith(".md") and norm not in UPLOAD_MD_WHITELIST:
+        return True
     return False
 
 
