@@ -2,14 +2,14 @@
 
 > Desktop time tracker for freelancers — runs in the background, maps time to projects via local AI, syncs data between machines (LAN or online), and gives you analytics, estimates, and reports. No cloud, no accounts, no data leaving your machine.
 
-Beta (build 0.1.556), Windows for now. Made by CONCEPTFAB. Key thing: Fair Time Algorithm — no double counting during multitasking, seconds split fairly across projects.
+Beta (build 0.1.556), Windows and macOS. Made by CONCEPTFAB. Key thing: Fair Time Algorithm — no double counting during multitasking, seconds split fairly across projects.
 
 ## Primary
 
 - [TIMEFLOW full context](https://timeflow.conceptfab.com/en/llms-full.txt): Full product context for AI agents — positioning, capabilities, sync, privacy, comparison with alternatives.
 - [Home](https://timeflow.conceptfab.com/en/): What it does, how it works, algorithm, roadmap, and beta signup.
 - [Help](https://timeflow.conceptfab.com/en/help.html): Quick start, module guide, daemon, data, and AI.
-- [Updates](https://timeflow.conceptfab.com/en/updates.html): Changelog 0.1.6 (build 0.1.556) — LAN/Online sync, manual sessions, 0.1.5 archive.
+- [Updates](https://timeflow.conceptfab.com/en/updates.html): Changelog 0.1.6 (build 0.1.556) — macOS joins Windows, LAN/Online sync, manual sessions, 0.1.5 archive.
 
 ## Optional
 

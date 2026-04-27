@@ -6,14 +6,14 @@
       "type": "context",
       "description": "Pełen opis produktu TIMEFLOW dla agentów AI — pozycjonowanie, możliwości, sync, prywatność.",
       "url": "https://timeflow.conceptfab.com/llms-full.txt",
-      "sha256": "911c1750e280e4bee353f75131e68bb16ec8174da6c6eb8cdb5d386e976baa2f"
+      "sha256": "ba6374199ac509699ece15a90359eb232b2c5c61ef92603277e2f1b475482984"
     },
     {
       "name": "TIMEFLOW summary (PL)",
       "type": "context",
       "description": "Krótki entry point dla agentów: opis i linki do podstron.",
       "url": "https://timeflow.conceptfab.com/llms.txt",
-      "sha256": "bbca11a8c1b36ed8dd1bfce38f250e879833b566c9c4f1b2f1a38f119901242b"
+      "sha256": "391e84d6af300d79b8ebd6002296bb5dcc9fe99a5f447d77c19c98c8b1377f09"
     },
     {
       "name": "TIMEFLOW help (PL)",
@@ -27,7 +27,7 @@
       "type": "documentation",
       "description": "Pełny changelog 0.1.6 (build 0.1.556) i archiwum 0.1.5.",
       "url": "https://timeflow.conceptfab.com/aktualizacje.md",
-      "sha256": "41e76356e2190c91862189b4099798b3b34416b5965d067dfa3422ed91190963"
+      "sha256": "1dd4968d51840569b81ae85c7af7273f7e633a4a7987e3a819cbd5b3d6b4cf26"
     },
     {
       "name": "TIMEFLOW privacy (PL)",
@@ -41,14 +41,14 @@
       "type": "context",
       "description": "Full product context for AI agents — positioning, capabilities, sync, privacy.",
       "url": "https://timeflow.conceptfab.com/en/llms-full.txt",
-      "sha256": "cd22fc66d634f336b94b488f19ccc04fa7f6b07002221e8f2c06a18f6e7f1ba3"
+      "sha256": "ce4d54091358251912ca345676d941ffba8ef78d6a5e4a9ca964fb0a8132f869"
     },
     {
       "name": "TIMEFLOW summary (EN)",
       "type": "context",
       "description": "Short entry point for agents: description and page links.",
       "url": "https://timeflow.conceptfab.com/en/llms.txt",
-      "sha256": "fdf53df75bceacd149d129d44d9d9a33773f8b2bf43672c5610bb8a5b3996011"
+      "sha256": "ad4d53c055dc7c8153500e71e795858f48daf8025768a8748d86b08bbd90c8a8"
     },
     {
       "name": "TIMEFLOW help (EN)",
@@ -62,7 +62,7 @@
       "type": "documentation",
       "description": "Full changelog 0.1.6 (build 0.1.556) and 0.1.5 archive.",
       "url": "https://timeflow.conceptfab.com/en/updates.md",
-      "sha256": "e51d4d45d4c2ab8b77940aec1224127291d051fd8c2c0769e7597ae21d453616"
+      "sha256": "6a777e34bad143bf93464ae71e47a49b38e535ba1402c524b37a2883c3b5f936"
     },
     {
       "name": "TIMEFLOW privacy (EN)",

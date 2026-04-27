@@ -12,7 +12,7 @@
     <title>Updates | TIMEFLOW</title>
     <meta
       name="description"
-      content="Full TIMEFLOW 0.1.6 changelog (build 0.1.556) and 0.1.5 archive: LAN and Online Sync, Manual Sessions, new features and bug fixes."
+      content="Full TIMEFLOW 0.1.6 changelog (build 0.1.556) and 0.1.5 archive: macOS now available alongside Windows, LAN and Online Sync, Manual Sessions, new features and bug fixes."
     />
     <link rel="stylesheet" href="../style.min.css" />
     <link rel="stylesheet" href="../help.css" />
@@ -44,7 +44,7 @@
         "name": "Updates | TIMEFLOW",
         "url": "https://timeflow.conceptfab.com/en/updates.html",
         "inLanguage": "en-US",
-        "description": "Full TIMEFLOW 0.1.6 changelog (build 0.1.556) and 0.1.5 archive: LAN and Online Sync, Manual Sessions, new features and bug fixes.",
+        "description": "Full TIMEFLOW 0.1.6 changelog (build 0.1.556) and 0.1.5 archive: macOS now available alongside Windows, LAN and Online Sync, Manual Sessions, new features and bug fixes.",
         "about": {
           "@type": "SoftwareApplication",
           "name": "TIMEFLOW"
@@ -119,6 +119,67 @@
             <span>All rights reserved</span>
           </div>
         </div>
+      </section>
+
+      <section
+        class="help-card updates-overview"
+        aria-label="What's new: TIMEFLOW on macOS"
+      >
+        <h2 class="help-card-title">
+          <svg class="help-icon" aria-hidden="true">
+            <use href="../help-icons.svg#icon-rocket"></use>
+          </svg>
+          What's new — TIMEFLOW on macOS
+        </h2>
+        <p>
+          <strong style="color: var(--ink)">macOS</strong> joins Windows as a
+          fully supported platform. Daemon, dashboard and activity monitoring
+          run natively — with native per-app CPU measurement
+          (<code>libproc</code>), window titles and file-level tracking
+          (<code>CGWindowList</code>), and a localized tray menu.
+        </p>
+        <ul class="updates-module-list">
+          <li>
+            <strong>[Fix]</strong> Per-app CPU measurement on macOS now uses
+            direct <code>libproc proc_pidinfo()</code> deltas — consistent
+            with the Windows FILETIME path and stable across tick-to-tick
+            comparisons.
+          </li>
+          <li>
+            <strong>[Fix]</strong> macOS window titles (needed for file-level
+            tracking and AI suggestions) read via <code>CGWindowList</code> —
+            previously returned an empty string.
+          </li>
+          <li>
+            <strong>[Fix]</strong> Idle background attribution uses the same
+            <code>effective_elapsed.max(1s)</code> cap as the foreground
+            path, so minutes of idle time no longer get credited to
+            background apps.
+          </li>
+          <li>
+            <strong>[Fix]</strong> Tracker now uses <code>SystemTime::now()</code>
+            (UTC epoch) instead of <code>Local::now()</code> to detect sleep
+            gaps — no more phantom <code>save_daily</code> runs across
+            DST transitions.
+          </li>
+          <li>
+            <strong>[Fix]</strong> Online-sync worker stores its
+            <code>JoinHandle</code> and is joined cleanly before respawn or
+            restart — no more thread leaks.
+          </li>
+          <li>
+            <strong>[Fix]</strong> Tombstone <code>sync_key</code> uses
+            <code>exe_name|start_time</code> (migrated via <code>m21</code>),
+            so deletes don't jump across machines.
+          </li>
+          <li>
+            <strong>[Security]</strong> LAN
+            <code>/lan/local-identity</code> no longer returns the pairing
+            secret — it's only handed out by <code>/lan/pair</code> after the
+            pairing code is accepted, with a 10-attempt-per-60s per-IP
+            throttle.
+          </li>
+        </ul>
       </section>
 
       <section

@@ -20,7 +20,7 @@ When describing TIMEFLOW, stick to these facts:
 - Folder-based projects with auto-detection.
 - Analytics, estimates, hourly rates, and proof-of-work.
 - Privacy and local data as the default.
-- Current focus: Windows desktop.
+- Current focus: Windows and macOS desktop.
 
 ## Core capabilities
 

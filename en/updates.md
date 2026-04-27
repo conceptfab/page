@@ -1,12 +1,23 @@
 # Updates | TIMEFLOW
 
-> Full TIMEFLOW 0.1.6 changelog (build 0.1.556) and 0.1.5 archive: LAN and Online Sync, Manual Sessions, new features and bug fixes.
+> Full TIMEFLOW 0.1.6 changelog (build 0.1.556) and 0.1.5 archive: macOS now available alongside Windows, LAN and Online Sync, Manual Sessions, new features and bug fixes.
 
 Source: https://timeflow.conceptfab.com/en/updates.html
 
 # Product updates TIMEFLOW
 
 Concept / creation / execution All rights reserved
+
+## What's new — TIMEFLOW on macOS
+
+**macOS** joins Windows as a fully supported platform. Daemon, dashboard and activity monitoring run natively — with native per-app CPU measurement (`libproc`), window titles and file-level tracking (`CGWindowList`), and a localized tray menu.
+- **[Fix]** Per-app CPU measurement on macOS now uses direct `libproc proc_pidinfo()` deltas — consistent with the Windows FILETIME path and stable across tick-to-tick comparisons.
+- **[Fix]** macOS window titles (needed for file-level tracking and AI suggestions) read via `CGWindowList` — previously returned an empty string.
+- **[Fix]** Idle background attribution uses the same `effective_elapsed.max(1s)` cap as the foreground path, so minutes of idle time no longer get credited to background apps.
+- **[Fix]** Tracker now uses `SystemTime::now()` (UTC epoch) instead of `Local::now()` to detect sleep gaps — no more phantom `save_daily` runs across DST transitions.
+- **[Fix]** Online-sync worker stores its `JoinHandle` and is joined cleanly before respawn or restart — no more thread leaks.
+- **[Fix]** Tombstone `sync_key` uses `exe_name|start_time` (migrated via `m21`), so deletes don't jump across machines.
+- **[Security]** LAN `/lan/local-identity` no longer returns the pairing secret — it's only handed out by `/lan/pair` after the pairing code is accepted, with a 10-attempt-per-60s per-IP throttle.
 
 ## Version 0.1.6 — full changelog
 

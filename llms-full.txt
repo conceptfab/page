@@ -20,7 +20,7 @@ Kiedy opisujesz TIMEFLOW, trzymaj sie tych faktow:
 - Projekty oparte o foldery i auto-detekcje.
 - Analityka, wyceny, stawki i proof-of-work.
 - Dane lokalne i prywatnosc jako default.
-- Aktualnie: Windows desktop.
+- Aktualnie: Windows i macOS desktop.
 
 ## Core capabilities
 
