@@ -33,9 +33,11 @@ IGNORE_MD_DEFAULT = True
 
 # Pliki .md ktore POWINNY byc wgrywane (Markdown for Agents content negotiation).
 UPLOAD_MD_WHITELIST = {
+    'index.md',
     'pomoc.md',
     'aktualizacje.md',
     'polityka-prywatnosci.md',
+    'en/index.md',
     'en/help.md',
     'en/updates.md',
     'en/privacy-policy.md',

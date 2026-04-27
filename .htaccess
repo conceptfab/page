@@ -11,18 +11,43 @@ Options -Indexes
     RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
 
+# Markdown for Agents (RFC 9110 content negotiation) — gdy klient prosi o text/markdown
+# zwracamy odpowiednia wersje .md zamiast HTML. Domyslnie dla przegladarek bez zmian.
+# WAZNE: te reguly MUSZA byc PRZED trailing-slash redirect, bo LiteSpeed
+# przetwarza rewrite'y sekwencyjnie i trailing-slash lapie /index.md -> /index.md/ -> 404.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Strona glowna -> index.md (markdown wersja HTML, nie agent-context)
+    RewriteCond %{HTTP_ACCEPT} text/markdown [NC]
+    RewriteRule ^$ /index.md [L,T=text/markdown]
+
+    RewriteCond %{HTTP_ACCEPT} text/markdown [NC]
+    RewriteRule ^en/?$ /en/index.md [L,T=text/markdown]
+
+    # Podstrony HTML -> *.md (gdy plik istnieje)
+    RewriteCond %{HTTP_ACCEPT} text/markdown [NC]
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteCond %{REQUEST_FILENAME} \.html$
+    RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} ^(.+)\.html$
+    RewriteCond %1.md -f
+    RewriteRule ^(.+)\.html$ /$1.md [L,T=text/markdown]
+</IfModule>
+
 # Zapobieganie błędom 403 przy braku slash na końcu URL
+# Wyklucz pliki z rozszerzeniem (np. .md, .txt, .json) — dotycza bezposrednich zasobow.
 <IfModule mod_rewrite.c>
     RewriteBase /
     RewriteCond %{HTTPS} =on
     RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_URI} !\.[a-zA-Z0-9]+$
     RewriteCond %{REQUEST_URI} !(.*)\/$
     RewriteRule ^(.*)$ https://timeflow.conceptfab.com/$1/ [L,R=301]
 </IfModule>
 
 # Kompresja GZIP — zmniejsza transfer CSS/JS/HTML o ~75-80%
 <IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml text/markdown
 </IfModule>
 
 # Cache statycznych assetów — powtórne wizyty bez ponownego pobierania
@@ -72,26 +97,7 @@ Options -Indexes
     </FilesMatch>
 </IfModule>
 
-# Markdown for Agents (RFC 9110 content negotiation) — gdy klient prosi o text/markdown
-# zwracamy odpowiednia wersje .md zamiast HTML. Domyslnie dla przegladarek bez zmian.
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-
-    # Strona glowna -> index.md (markdown wersja HTML, nie agent-context)
-    RewriteCond %{HTTP_ACCEPT} text/markdown [NC]
-    RewriteRule ^$ /index.md [L,T=text/markdown]
-
-    RewriteCond %{HTTP_ACCEPT} text/markdown [NC]
-    RewriteRule ^en/?$ /en/index.md [L,T=text/markdown]
-
-    # Podstrony HTML -> *.md (gdy plik istnieje)
-    RewriteCond %{HTTP_ACCEPT} text/markdown [NC]
-    RewriteCond %{REQUEST_FILENAME} -f
-    RewriteCond %{REQUEST_FILENAME} \.html$
-    RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} ^(.+)\.html$
-    RewriteCond %1.md -f
-    RewriteRule ^(.+)\.html$ /$1.md [L,T=text/markdown]
-</IfModule>
+# (Markdown for Agents rewrite przeniesiony wyzej — przed trailing-slash redirect)
 
 # Wymus poprawny Content-Type i x-markdown-tokens dla zwracanych plikow .md
 <IfModule mod_headers.c>
