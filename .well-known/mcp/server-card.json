@@ -1,0 +1,32 @@
+{
+  "$schema": "https://raw.githubusercontent.com/modelcontextprotocol/modelcontextprotocol/main/docs/specification/server-card/schema.json",
+  "serverInfo": {
+    "name": "timeflow-mcp",
+    "version": "1.0.0",
+    "title": "TIMEFLOW MCP Server",
+    "description": "Read-only MCP server exposing TIMEFLOW product info, supported platforms, key features, FAQ, help-document index and beta program details. To apply for the beta, see the beta signup endpoint at /form-handler.php (OpenAPI: /api/openapi.json).",
+    "websiteUrl": "https://timeflow.conceptfab.com/",
+    "vendor": {
+      "name": "CONCEPTFAB",
+      "url": "https://conceptfab.com/"
+    }
+  },
+  "transport": {
+    "type": "streamable-http",
+    "endpoint": "https://timeflow.conceptfab.com/api/mcp.php"
+  },
+  "protocolVersion": "2025-03-26",
+  "capabilities": {
+    "tools": {
+      "listChanged": false
+    }
+  },
+  "tools": [
+    { "name": "get-product-info", "description": "Return TIMEFLOW product identity (name, current version and build, stage, tagline, description, supported languages, vendor, website)." },
+    { "name": "get-platforms", "description": "Return supported and planned desktop/mobile platforms for TIMEFLOW with their status (live or planned)." },
+    { "name": "get-features", "description": "Return the list of TIMEFLOW key features (Fair Time Algorithm, local AI, LAN/online sync, manual sessions, reports/quotes, offline-first)." },
+    { "name": "get-faq", "description": "Return the TIMEFLOW landing page FAQ (questions and answers)." },
+    { "name": "get-help-topics", "description": "Return the list of TIMEFLOW help / changelog / privacy documents available as Markdown for AI agents, with their URLs and topic tags." },
+    { "name": "get-beta-info", "description": "Return information about the TIMEFLOW beta program: how to apply, what data the form collects, where to read the privacy policy." }
+  ]
+}

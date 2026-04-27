@@ -64,6 +64,11 @@ Options -Indexes
         Header append Link "<llms-full.txt>; rel=\"alternate\"; type=\"text/markdown\"; title=\"AI agent context (Markdown for Agents)\""
         Header append Link "</sitemap.xml>; rel=\"sitemap\"; type=\"application/xml\""
         Header append Link "</.well-known/agent-skills/index.json>; rel=\"https://agentskills.io/rel/index\"; type=\"application/json\""
+        Header append Link "</.well-known/api-catalog>; rel=\"api-catalog\"; type=\"application/linkset+json\""
+        Header append Link "</.well-known/mcp/server-card.json>; rel=\"https://modelcontextprotocol.io/rel/server-card\"; type=\"application/json\""
+        Header append Link "</.well-known/oauth-protected-resource>; rel=\"https://datatracker.ietf.org/doc/html/rfc9728\"; type=\"application/json\""
+        Header append Link "</.well-known/oauth-authorization-server>; rel=\"https://datatracker.ietf.org/doc/html/rfc8414\"; type=\"application/json\""
+        Header append Link "</api/openapi.json>; rel=\"service-desc\"; type=\"application/vnd.oai.openapi+json;version=3.1\""
     </FilesMatch>
 </IfModule>
 
@@ -103,4 +108,22 @@ Options -Indexes
 # Mapowanie typu MIME dla .md (gdy mod_mime jest aktywny)
 <IfModule mod_mime.c>
     AddType text/markdown .md
+</IfModule>
+
+# Content-Type dla /.well-known/api-catalog (RFC 9727 — application/linkset+json)
+<IfModule mod_headers.c>
+    <Files "api-catalog">
+        Header set Content-Type "application/linkset+json; charset=utf-8"
+        Header set Cache-Control "public, max-age=3600"
+    </Files>
+    # Content-Type dla /.well-known/oauth-protected-resource (RFC 9728)
+    <Files "oauth-protected-resource">
+        Header set Content-Type "application/json; charset=utf-8"
+        Header set Cache-Control "public, max-age=3600"
+    </Files>
+    # Content-Type dla /.well-known/oauth-authorization-server (RFC 8414)
+    <Files "oauth-authorization-server">
+        Header set Content-Type "application/json; charset=utf-8"
+        Header set Cache-Control "public, max-age=3600"
+    </Files>
 </IfModule>

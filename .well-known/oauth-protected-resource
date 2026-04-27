@@ -1,0 +1,7 @@
+{
+  "resource": "https://timeflow.conceptfab.com/form-handler.php",
+  "authorization_servers": [],
+  "scopes_supported": [],
+  "bearer_methods_supported": [],
+  "resource_documentation": "https://timeflow.conceptfab.com/api/openapi.json"
+}

@@ -298,7 +298,8 @@ def main():
     # --- JS ---
     js_files = [
         ("script.js", "script.min.js"),
-        ("consent.js", "consent.min.js")
+        ("consent.js", "consent.min.js"),
+        ("webmcp.js", "webmcp.min.js")
     ]
     
     print("\n[JS] Minifikacja plików JavaScript...")

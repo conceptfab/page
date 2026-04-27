@@ -1,0 +1,161 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "TIMEFLOW Beta Signup API",
+    "version": "1.0.0",
+    "summary": "Public beta signup endpoint for TIMEFLOW.",
+    "description": "Single endpoint that accepts an application/x-www-form-urlencoded payload from the TIMEFLOW landing page beta form, persists it to a CSV log, and forwards a notification email to the TIMEFLOW team. Authentication is not required; abuse is mitigated with a honeypot field ('fax_number') and length checks. Use this endpoint to apply for the TIMEFLOW desktop beta. Response is application/json.",
+    "contact": {
+      "name": "CONCEPTFAB / TIMEFLOW",
+      "email": "michal@conceptfab.com",
+      "url": "https://timeflow.conceptfab.com/"
+    },
+    "license": {
+      "name": "Proprietary",
+      "identifier": "LicenseRef-Proprietary"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://timeflow.conceptfab.com",
+      "description": "Production"
+    }
+  ],
+  "paths": {
+    "/form-handler.php": {
+      "post": {
+        "operationId": "submitBetaSignup",
+        "summary": "Submit a TIMEFLOW beta signup",
+        "description": "Submits a beta-signup form. The honeypot field 'fax_number' MUST be empty for human/agent submissions — non-empty values are silently accepted with HTTP 200 but discarded. The 'consent' field is required and must be truthy.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": { "$ref": "#/components/schemas/BetaSignupRequest" },
+              "encoding": {
+                "name": { "style": "form" },
+                "email": { "style": "form" },
+                "role": { "style": "form" },
+                "needs": { "style": "form" },
+                "consent": { "style": "form" },
+                "fax_number": { "style": "form" },
+                "source": { "style": "form" },
+                "submitted_at_iso": { "style": "form" }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Signup accepted (or silently discarded if the honeypot was tripped).",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/BetaSignupResponse" },
+                "example": {
+                  "ok": true,
+                  "message": "Dziękujemy. Zgłoszenie zostało zapisane. Skontaktujemy się po przygotowaniu kolejnych buildów beta.",
+                  "mail_status": "sent"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed — only POST is accepted.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/BetaSignupResponse" }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation error — missing/short name, invalid email, missing role, or missing consent.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/BetaSignupResponse" }
+              }
+            }
+          },
+          "500": {
+            "description": "Server-side persistence or mail-delivery failure.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/BetaSignupResponse" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BetaSignupRequest": {
+        "type": "object",
+        "required": ["name", "email", "role", "consent"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 120,
+            "description": "Applicant's name or nickname."
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "maxLength": 190,
+            "description": "Applicant's reply-to email address."
+          },
+          "role": {
+            "type": "string",
+            "maxLength": 120,
+            "description": "Industry / role. Form select options are: 'Grafik / Brand Designer', 'UI/UX / Product Designer', 'Motion / Video', 'Developer', 'Inna branża'."
+          },
+          "needs": {
+            "type": "string",
+            "maxLength": 4000,
+            "description": "Optional free-text describing workflow, problems with billing, or features needed."
+          },
+          "consent": {
+            "type": "string",
+            "enum": ["1", "true", "on", "yes"],
+            "description": "Consent to be contacted about the TIMEFLOW beta. Required."
+          },
+          "fax_number": {
+            "type": "string",
+            "maxLength": 0,
+            "default": "",
+            "description": "Honeypot. MUST be empty for human/agent submissions."
+          },
+          "source": {
+            "type": "string",
+            "maxLength": 120,
+            "description": "Optional origin tag (e.g. 'landing-pl', 'landing-en')."
+          },
+          "submitted_at_iso": {
+            "type": "string",
+            "format": "date-time",
+            "maxLength": 64,
+            "description": "Optional ISO-8601 client-side submit timestamp."
+          }
+        }
+      },
+      "BetaSignupResponse": {
+        "type": "object",
+        "required": ["ok", "message"],
+        "properties": {
+          "ok": { "type": "boolean" },
+          "message": { "type": "string" },
+          "mail_status": {
+            "type": "string",
+            "enum": ["sent", "failed", "disabled", "invalid_target"],
+            "description": "Status of the notification email delivery (only on 200 responses)."
+          },
+          "error": {
+            "type": "string",
+            "description": "Internal error detail (only on 500 responses)."
+          }
+        }
+      }
+    }
+  }
+}

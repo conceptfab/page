@@ -1,0 +1,57 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://timeflow.conceptfab.com/form-handler.php",
+      "service-desc": [
+        {
+          "href": "https://timeflow.conceptfab.com/api/openapi.json",
+          "type": "application/vnd.oai.openapi+json;version=3.1",
+          "title": "TIMEFLOW Beta Signup API (OpenAPI 3.1)"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://timeflow.conceptfab.com/llms.txt",
+          "type": "text/markdown",
+          "hreflang": ["pl"],
+          "title": "TIMEFLOW agent summary (PL)"
+        },
+        {
+          "href": "https://timeflow.conceptfab.com/en/llms.txt",
+          "type": "text/markdown",
+          "hreflang": ["en"],
+          "title": "TIMEFLOW agent summary (EN)"
+        },
+        {
+          "href": "https://timeflow.conceptfab.com/polityka-prywatnosci.html",
+          "type": "text/html",
+          "hreflang": ["pl"],
+          "title": "Polityka prywatności"
+        },
+        {
+          "href": "https://timeflow.conceptfab.com/en/privacy-policy.html",
+          "type": "text/html",
+          "hreflang": ["en"],
+          "title": "Privacy Policy"
+        }
+      ]
+    },
+    {
+      "anchor": "https://timeflow.conceptfab.com/api/mcp.php",
+      "service-desc": [
+        {
+          "href": "https://timeflow.conceptfab.com/.well-known/mcp/server-card.json",
+          "type": "application/json",
+          "title": "MCP Server Card (SEP-1649)"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://modelcontextprotocol.io/specification/2025-03-26",
+          "type": "text/html",
+          "title": "Model Context Protocol specification (revision 2025-03-26)"
+        }
+      ]
+    }
+  ]
+}
