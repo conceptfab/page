@@ -77,12 +77,12 @@ Options -Indexes
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    # Strona glowna -> llms-full.txt (PL i EN)
+    # Strona glowna -> index.md (markdown wersja HTML, nie agent-context)
     RewriteCond %{HTTP_ACCEPT} text/markdown [NC]
-    RewriteRule ^$ /llms-full.txt [L,T=text/markdown]
+    RewriteRule ^$ /index.md [L,T=text/markdown]
 
     RewriteCond %{HTTP_ACCEPT} text/markdown [NC]
-    RewriteRule ^en/?$ /en/llms-full.txt [L,T=text/markdown]
+    RewriteRule ^en/?$ /en/index.md [L,T=text/markdown]
 
     # Podstrony HTML -> *.md (gdy plik istnieje)
     RewriteCond %{HTTP_ACCEPT} text/markdown [NC]

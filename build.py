@@ -211,9 +211,11 @@ def html_file_to_md(html_path, md_path, title_meta=None):
 def generate_markdown_pages():
     """Generate Markdown versions of HTML pages for Markdown for Agents content negotiation."""
     pages = [
+        ("index.html", "index.md"),
         ("pomoc.html", "pomoc.md"),
         ("aktualizacje.html", "aktualizacje.md"),
         ("polityka-prywatnosci.html", "polityka-prywatnosci.md"),
+        ("en/index.html", "en/index.md"),
         ("en/help.html", "en/help.md"),
         ("en/updates.html", "en/updates.md"),
         ("en/privacy-policy.html", "en/privacy-policy.md"),
