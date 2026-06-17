@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="pl">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,13 +9,21 @@
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
   <title>Pomoc | TIMEFLOW</title>
   <meta name="description" content="Centrum pomocy TIMEFLOW: quick start, dashboard, sesje, projekty, AI, dane, daemon i ustawienia." />
-  <link rel="stylesheet" href="./style.min.css" />
-  <link rel="stylesheet" href="./help.css" />
+  <style>*,*::before,*::after{box-sizing:border-box}html,body{margin:0}body{background:#060708;color:#f4f3f1;font-family:'Hanken Grotesk',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}img,svg{display:block;max-width:100%}a{color:inherit;text-decoration:none}</style>
+  <link rel="stylesheet" href="./home.min.css?v=3" />
   <link rel="canonical" href="https://timeflow.conceptfab.com/pomoc.html" />
   <link rel="alternate" hreflang="pl" href="https://timeflow.conceptfab.com/pomoc.html" />
   <link rel="alternate" hreflang="en" href="https://timeflow.conceptfab.com/en/help.html" />
   <link rel="alternate" hreflang="x-default" href="https://timeflow.conceptfab.com/pomoc.html" />
   <link rel="author" href="https://timeflow.conceptfab.com/llms.txt" />
+  <link rel="icon" type="image/x-icon" href="./icons/icon.ico" />
+  <link rel="shortcut icon" type="image/x-icon" href="./icons/icon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="./icons/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="128x128" href="./icons/favicon-128.png" />
+  <link rel="icon" type="image/png" sizes="196x196" href="./icons/favicon-196x196.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="./icons/apple-touch-icon-152x152.png" />
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -35,577 +44,508 @@
     }
   </script>
 </head>
-<body class="dark-page">
-  <header class="topbar">
-    <a class="brand" href="./index.html#start" aria-label="TIMEFLOW - strona główna">
-      <span class="brand-name"><span class="tf-style">TIMEFLOW</span></span>
-      <span class="brand-beta">Beta</span>
-    </a>
 
-    <button class="topbar-menu-toggle" type="button" aria-expanded="false" aria-controls="topbar-nav"
-      aria-label="Otwórz menu" data-menu-toggle>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </button>
-
-    <nav class="topnav" id="topbar-nav" aria-label="Nawigacja">
+<body>
+  <nav>
+    <span class="brand">TIMEFLOW</span>
+    <div class="nav-links">
       <a href="./index.html#funkcje">Funkcje</a>
       <a href="./index.html#workflow">Jak działa</a>
+      <a href="./index.html#stack">Stack</a>
       <a href="./index.html#faq">FAQ</a>
-      <a href="./index.html#beta">Testy beta</a>
-    </nav>
-
-    <div class="lang-switch" aria-label="Zmień język">
-      <span class="lang-active" aria-current="page">PL</span>
-      <span class="lang-sep" aria-hidden="true">/</span>
-      <a class="lang-link" href="./en/help.html" hreflang="en" lang="en">EN</a>
     </div>
+    <a class="pill" href="./index.html#beta">Dołącz do bety</a>
+  </nav>
 
-    <a class="btn btn-ghost topbar-cta" href="./index.html#beta">Dołącz do testów</a>
-  </header>
-
-  <main class="help-shell">
-    <section class="help-top" aria-label="Nagłówek pomocy TIMEFLOW">
-      <div>
-        <h1 class="help-title">
-          Witaj w
-          <img src="./help-assets/logo.png" alt="TIMEFLOW" class="brand-mark" />
-          <span class="brand-word">TIMEFLOW</span>
-        </h1>
-        <div class="help-meta">
-          <span>Pomysł / kreacja / realizacja</span>
-          <img src="./help-assets/cfab.png" alt="CONCEPTFAB" />
-          <span>Wszystkie prawa zastrzeżone</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="help-card" aria-label="Opis oprogramowania">
-      <h2 class="help-card-title">
-        <svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-info"></use></svg>
-        O oprogramowaniu
-      </h2>
-      <p>
-        <strong style="color:var(--ink)">TIMEFLOW</strong> to desktopowy time tracker, który działa w tle i nie przeszkadza w pracy.
-        Zamiast ręcznie wpisywać godziny, dostajesz automatyczne śledzenie okien, procesów i plików — apka sama
-        dopasowuje czas do właściwych projektów.
-      </p>
-
-      <div class="help-about-grid">
-        <article class="help-about-item">
-          <h4>
-            <svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-activity"></use></svg>
-            Automatyczne śledzenie
-          </h4>
-          <p>Daemon TIMEFLOW śledzi, w jakich aplikacjach i plikach pracujesz — sam, bez klikania.</p>
-        </article>
-        <article class="help-about-item">
-          <h4>
-            <svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-brain"></use></svg>
-            Inteligentna kategoryzacja
-          </h4>
-          <p>Lokalny silnik ML uczy się Twoich nawyków — wszystko zostaje na komputerze, nic nie leci do chmury.</p>
-        </article>
-        <article class="help-about-item">
-          <h4>
-            <svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-circle-dollar-sign"></use></svg>
-            Analiza finansowa
-          </h4>
-          <p>Od razu widzisz ile warta jest Twoja praca — stawki, mnożniki i wyceny w jednym miejscu.</p>
-        </article>
-        <article class="help-about-item">
-          <h4>
-            <svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-settings"></use></svg>
-            Prywatność i lokalność
-          </h4>
-          <p>Twoje dane to Twoje dane. Wszystko siedzi lokalnie w SQLite — nikt nie ma do nich dostępu.</p>
-        </article>
-      </div>
-
-      <div class="help-inline-action">
-        <button type="button" class="help-btn-ghost" data-open-quickstart>
-          <svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-rocket"></use></svg>
-          Uruchom samouczek Szybki Start
-          <svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-arrow-right"></use></svg>
-        </button>
-      </div>
-    </section>
-
-    <section class="help-guide-head" aria-label="Przewodnik po sekcjach">
-      <h2>Przewodnik po sekcjach</h2>
-    </section>
-
-    <section id="helpMainView" aria-label="Zakładki pomocy">
-      <div class="help-tabs-layout">
-        <nav class="help-tabs-nav" aria-label="Lista zakładek pomocy">
-          <button class="help-tab-btn" data-help-tab="quickstart" data-target-url="">
-            <span class="help-tab-btn-main">
-              <svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-rocket"></use></svg>
-              <span>Quick Start</span>
-            </span>
-            <svg class="help-icon chev" aria-hidden="true"><use href="./help-icons.svg#icon-chevron-right"></use></svg>
-          </button>
-          <button class="help-tab-btn" data-help-tab="dashboard" data-target-url="./index.html#demo">
-            <span class="help-tab-btn-main">
-              <svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-layout-dashboard"></use></svg>
-              <span>Dashboard</span>
-            </span>
-            <svg class="help-icon chev" aria-hidden="true"><use href="./help-icons.svg#icon-chevron-right"></use></svg>
-          </button>
-          <button class="help-tab-btn" data-help-tab="sessions" data-target-url="./index.html#workflow">
-            <span class="help-tab-btn-main">
-              <svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-list"></use></svg>
-              <span>Sessions</span>
-            </span>
-            <svg class="help-icon chev" aria-hidden="true"><use href="./help-icons.svg#icon-chevron-right"></use></svg>
-          </button>
-          <button class="help-tab-btn" data-help-tab="projects" data-target-url="./index.html#stack">
-            <span class="help-tab-btn-main">
-              <svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-folder-kanban"></use></svg>
-              <span>Projects</span>
-            </span>
-            <svg class="help-icon chev" aria-hidden="true"><use href="./help-icons.svg#icon-chevron-right"></use></svg>
-          </button>
-          <button class="help-tab-btn" data-help-tab="estimates" data-target-url="./index.html#workflow">
-            <span class="help-tab-btn-main">
-              <svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-circle-dollar-sign"></use></svg>
-              <span>Estimates</span>
-            </span>
-            <svg class="help-icon chev" aria-hidden="true"><use href="./help-icons.svg#icon-chevron-right"></use></svg>
-          </button>
-          <button class="help-tab-btn" data-help-tab="apps" data-target-url="./index.html#stack">
-            <span class="help-tab-btn-main">
-              <svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-app-window"></use></svg>
-              <span>Applications</span>
-            </span>
-            <svg class="help-icon chev" aria-hidden="true"><use href="./help-icons.svg#icon-chevron-right"></use></svg>
-          </button>
-          <button class="help-tab-btn" data-help-tab="analysis" data-target-url="./index.html#algorytm">
-            <span class="help-tab-btn-main">
-              <svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-bar-chart-3"></use></svg>
-              <span>Time Analysis</span>
-            </span>
-            <svg class="help-icon chev" aria-hidden="true"><use href="./help-icons.svg#icon-chevron-right"></use></svg>
-          </button>
-          <button class="help-tab-btn" data-help-tab="ai" data-target-url="./index.html#algorytm">
-            <span class="help-tab-btn-main">
-              <svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-brain"></use></svg>
-              <span>AI &amp; Model</span>
-            </span>
-            <svg class="help-icon chev" aria-hidden="true"><use href="./help-icons.svg#icon-chevron-right"></use></svg>
-          </button>
-          <button class="help-tab-btn" data-help-tab="data" data-target-url="./index.html#faq">
-            <span class="help-tab-btn-main">
-              <svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-import"></use></svg>
-              <span>Data</span>
-            </span>
-            <svg class="help-icon chev" aria-hidden="true"><use href="./help-icons.svg#icon-chevron-right"></use></svg>
-          </button>
-          <button class="help-tab-btn" data-help-tab="daemon" data-target-url="./index.html#algorytm">
-            <span class="help-tab-btn-main">
-              <svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-cpu"></use></svg>
-              <span>Daemon</span>
-            </span>
-            <svg class="help-icon chev" aria-hidden="true"><use href="./help-icons.svg#icon-chevron-right"></use></svg>
-          </button>
-          <button class="help-tab-btn" data-help-tab="settings" data-target-url="./index.html#beta">
-            <span class="help-tab-btn-main">
-              <svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-settings"></use></svg>
-              <span>Settings</span>
-            </span>
-            <svg class="help-icon chev" aria-hidden="true"><use href="./help-icons.svg#icon-chevron-right"></use></svg>
-          </button>
-        </nav>
-
-        <div class="help-panels">
-          <article class="help-panel" data-help-panel="quickstart" aria-hidden="true">
-            <div class="help-section-head">
-              <span class="help-section-icon"><svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-rocket"></use></svg></span>
-              <div>
-                <h3>SZYBKI START</h3>
-                <p>Szybki setup TIMEFLOW — od instalacji do pierwszego uruchomienia.</p>
-              </div>
-            </div>
-
-            <div class="help-extra">
-              <p>Samouczek przeprowadzi Cię krok po kroku przez cały setup.</p>
-              <button type="button" class="help-btn-ghost" data-open-quickstart>
-                <svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-rocket"></use></svg>
-                Uruchom Quick Start
-              </button>
-            </div>
-
-            <div class="help-feature-block">
-              <h4>Kluczowe funkcjonalności</h4>
-              <ul class="help-feature-list">
-                <li>Krok po kroku: od przygotowania plików .exe po uruchomienie Daemona.</li>
-                <li>Konfiguracja folderów projektowych i procesów aplikacji do monitorowania.</li>
-                <li>Instrukcja pierwszego przypisywania sesji i uruchomienia lokalnego AI.</li>
-                <li>Dostęp z ikony rakiety w sidebarze oraz z poziomu ekranu pomocy.</li>
-                <li>Automatyczne ukrycie wskaźnika „first run” po zakończeniu samouczka.</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="help-panel" data-help-panel="dashboard" aria-hidden="true">
-            <div class="help-section-head">
-              <span class="help-section-icon"><svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-layout-dashboard"></use></svg></span>
-              <div>
-                <h3>DASHBOARD</h3>
-                <p>Co się dzieje teraz — metryki, aktywność i najważniejsze liczby w jednym widoku.</p>
-              </div>
-            </div>
-            <div class="help-feature-block">
-              <h4>Kluczowe funkcjonalności</h4>
-              <ul class="help-feature-list">
-                <li>Zintegrowane karty metryk (łączny śledzony czas, liczba aplikacji, aktywne projekty).</li>
-                <li>Interaktywna oś czasu z widokiem godzinowym (dzisiaj) lub dziennym (dłuższe okresy).</li>
-                <li>Zestawienie „Top 5 Projektów” oraz analiza najczęściej używanych aplikacji.</li>
-                <li>Szybkie przełączanie zakresów czasowych: Dzisiaj, Tydzień, Miesiąc, Cały okres.</li>
-                <li>Tryb wizualizacji Timeline – pokazuje Twoje zaangażowanie w czasie rzeczywistym.</li>
-                <li>Powiadomienia o statusie auto-importu i ewentualnych błędach odczytu danych.</li>
-                <li>Przycisk odświeżania synchronizujący dane bezpośrednio z pracującego Daemona.</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="help-panel" data-help-panel="sessions" aria-hidden="true">
-            <div class="help-section-head">
-              <span class="help-section-icon"><svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-list"></use></svg></span>
-              <div>
-                <h3>SESJE</h3>
-                <p>Lista zarejestrowanych bloków pracy — z filtrami, przypisaniami i podglądem AI.</p>
-              </div>
-            </div>
-
-            <div class="help-extra">
-              <h4>Interpretacja widoku AI Data</h4>
-              <p>Widok „AI Data” pokazuje, dlaczego model wybrał dany projekt — skąd pewność i na czym się oparł.</p>
-              <ul>
-                <li><strong>Confidence:</strong> jak bardzo model jest pewny swojego wyboru.</li>
-                <li><strong>Evidence Count:</strong> ile podobnych sesji wcześniej zatwierdziłeś ręcznie.</li>
-                <li><strong>Score &amp; Base Log Prob:</strong> surowe liczby z silnika ML — diagnostyka pod maskę.</li>
-                <li><strong>Matched Tokens &amp; Context Matches:</strong> słowa kluczowe i kontekst, na których model się oparł.</li>
-                <li><strong>Penalty:</strong> punkty ujemne — model trafił na coś niejednoznacznego.</li>
-              </ul>
-            </div>
-
-            <div class="help-feature-block">
-              <h4>Kluczowe funkcjonalności</h4>
-              <ul class="help-feature-list">
-                <li>Dodawanie komentarzy i notatek przez menu kontekstowe sesji.</li>
-                <li>Mnożniki stawek (Multiplier) dla pracy o wyższej wartości.</li>
-                <li>AI Suggestions – zatwierdzanie lub odrzucanie propozycji AI.</li>
-                <li>Ręczne dodawanie sesji (Add Session) dla pracy poza komputerem.</li>
-                <li>Masowe przypisywanie (Batch Assign) wielu sesji jednym kliknięciem.</li>
-                <li>Tryby widoku: Detailed, Compact oraz AI Data.</li>
-                <li>Sortowanie i filtrowanie po aplikacji, projekcie, dacie i czasie trwania.</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="help-panel" data-help-panel="projects" aria-hidden="true">
-            <div class="help-section-head">
-              <span class="help-section-icon"><svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-folder-kanban"></use></svg></span>
-              <div>
-                <h3>PROJEKTY</h3>
-                <p>Twoje projekty, foldery i auto-detekcja nowych kandydatów z aktywności.</p>
-              </div>
-            </div>
-            <div class="help-feature-block">
-              <h4>Kluczowe funkcjonalności</h4>
-              <ul class="help-feature-list">
-                <li>Mrożenie (Freezing) ukrywa nieaktywne projekty przy przypisywaniu sesji.</li>
-                <li>Automatyczne mrożenie po określonej liczbie dni bez aktywności.</li>
-                <li>Odmrażanie (Unfreeze) przywraca projekt do listy aktywnych.</li>
-                <li>Synchronizacja folderów wykrywa nowe projekty automatycznie.</li>
-                <li>Detekcja kandydatów sugeruje tworzenie projektów z aktywności.</li>
-                <li>Root folders zarządzają lokalizacjami monitorowanymi przez TIMEFLOW.</li>
-                <li>Wykluczanie (Exclude) usuwa projekt z widoku bez kasowania z bazy.</li>
-                <li>Wyszukiwanie filtruje projekty po nazwie i ścieżce w czasie rzeczywistym.</li>
-                <li>Zmiana koloru projektu (presety + dowolny kolor).</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="help-panel" data-help-panel="estimates" aria-hidden="true">
-            <div class="help-section-head">
-              <span class="help-section-icon"><svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-circle-dollar-sign"></use></svg></span>
-              <div>
-                <h3>WYCENY</h3>
-                <p>Stawki, mnożniki i wyceny — widzisz ile zarabiasz na projekcie i w jakim okresie.</p>
-              </div>
-            </div>
-            <div class="help-feature-block">
-              <h4>Kluczowe funkcjonalności</h4>
-              <ul class="help-feature-list">
-                <li>Globalna stawka godzinowa oraz stawki specyficzne dla projektów.</li>
-                <li>Uwzględnianie mnożników sesji w końcowej wycenie projektu.</li>
-                <li>Wycena sesji manualnych (spotkania, telefony, praca offline).</li>
-                <li>Analiza dochodowości projektów w czasie (miesiąc/rok).</li>
-                <li>Wizualny podział na zarobki dzienne i tygodniowe.</li>
-                <li>Porównywanie wartości czasu między grupami zadań.</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="help-panel" data-help-panel="apps" aria-hidden="true">
-            <div class="help-section-head">
-              <span class="help-section-icon"><svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-app-window"></use></svg></span>
-              <div>
-                <h3>APLIKACJE</h3>
-                <p>Co TIMEFLOW widzi na Twoim komputerze — lista procesów, aliasy i blokowanie śledzenia.</p>
-              </div>
-            </div>
-            <div class="help-feature-block">
-              <h4>Kluczowe funkcjonalności</h4>
-              <ul class="help-feature-list">
-                <li>Pełna lista aplikacji ze statystykami czasu aktywności.</li>
-                <li>Aliasy aplikacji: czytelne nazwy zamiast surowych nazw procesów.</li>
-                <li>Blokowanie śledzenia wybranych aplikacji.</li>
-                <li>Archiwizacja danych aplikacji bez usuwania definicji.</li>
-                <li>Bezpośrednie przypisanie aplikacji do konkretnego projektu.</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="help-panel" data-help-panel="analysis" aria-hidden="true">
-            <div class="help-section-head">
-              <span class="help-section-icon"><svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-bar-chart-3"></use></svg></span>
-              <div>
-                <h3>ANALIZA CZASU</h3>
-                <p>Heatmapy, wykresy i trendy — kiedy pracujesz najintensywniej i nad czym.</p>
-              </div>
-            </div>
-            <div class="help-feature-block">
-              <h4>Kluczowe funkcjonalności</h4>
-              <ul class="help-feature-list">
-                <li>Heatmapy aktywności – wizualizacja godzinowa i dzienna.</li>
-                <li>Widok miesięczny z numeracją tygodni.</li>
-                <li>Analiza intensywności – godziny największej efektywności.</li>
-                <li>Stacked Bar Charts – udział projektów w całkowitym czasie.</li>
-                <li>Timeline Project View – szczegółowa oś czasu zadań.</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="help-panel" data-help-panel="ai" aria-hidden="true">
-            <div class="help-section-head">
-              <span class="help-section-icon"><svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-brain"></use></svg></span>
-              <div>
-                <h3>AI &amp; MODEL</h3>
-                <p>Lokalny silnik ML w Rust — czyta kontekst aplikacji, porę dnia i nazwy plików. Działa 100% offline, bez zewnętrznych API.</p>
-              </div>
-            </div>
-
-            <div class="help-extra">
-              <p>Model klasyfikacyjny ML pisany w Rust. Żadne zewnętrzne API — obliczenia i dane zostają u Ciebie na dysku.</p>
-
-              <h4>1. Skąd się uczy?</h4>
-              <ul>
-                <li><strong>Kontekst aplikacji:</strong> jakie programy przypisujesz do jakich projektów.</li>
-                <li><strong>Kontekst czasowy:</strong> o której godzinie i w jaki dzień pracujesz.</li>
-                <li><strong>Tokeny z nazw:</strong> słowa kluczowe wyciągnięte z nazw plików i okien.</li>
-              </ul>
-
-              <h4>2. Jak podejmuje decyzje?</h4>
-              <ul>
-                <li><strong>Confidence:</strong> pewność od 0 do 1 (sigmoid).</li>
-                <li><strong>Evidence Count:</strong> ile wcześniejszych dowodów ma w bazie.</li>
-                <li><strong>Margin:</strong> dystans między najlepszym a drugim kandydatem.</li>
-              </ul>
-
-              <h4>3. Tryby pracy</h4>
-              <ul>
-                <li><strong>Suggest:</strong> podpowiada projekt przy niższym progu pewności.</li>
-                <li><strong>Auto-Safe:</strong> automatyzuje tylko przypadki o wysokiej pewności i mocnych dowodach.</li>
-              </ul>
-
-              <h4>4. Zalecane ustawienia na start</h4>
-              <ul>
-                <li><strong>Mode: suggest</strong> — najszybciej nauczy się na Twoich korektach.</li>
-                <li><strong>Suggest Min Confidence: 0.4–0.5</strong> — więcej podpowiedzi = szybsza nauka (próg podbijesz później).</li>
-                <li><strong>Feedback Weight: 10–15</strong> — uczy się szybko, ale się nie rozkalibruje.</li>
-                <li><strong>Auto-safe Min Confidence: 0.85–0.95</strong> i <strong>Min Evidence: 5</strong> — bezpieczna automatyzacja.</li>
-              </ul>
-
-              <p><em>Dane modelu siedzą w SQLite na dysku — z każdą Twoją korektą model się uczy i trafia coraz celniej.</em></p>
-            </div>
-
-            <div class="help-feature-block">
-              <h4>Kluczowe funkcjonalności</h4>
-              <ul class="help-feature-list">
-                <li>Tryb Auto-Safe dla bezpiecznych wsadowych przypisań.</li>
-                <li>Rollback – cofnięcie ostatniej automatycznej paczki zmian.</li>
-                <li>Confidence Policy – kontrola progu automatyzacji.</li>
-                <li>Learning Center – ręczne korekty zasilają trening modelu.</li>
-                <li>Powiadomienia o gotowości do kolejnego treningu.</li>
-                <li>Tryby: Off, Suggest, Auto-Safe.</li>
-                <li>Prywatność 100% – brak zewnętrznych API i brak wymogu internetu.</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="help-panel" data-help-panel="data" aria-hidden="true">
-            <div class="help-section-head">
-              <span class="help-section-icon"><svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-import"></use></svg></span>
-              <div>
-                <h3>DANE</h3>
-                <p>Import, export i porządki w bazie — backup, czyszczenie, optymalizacja.</p>
-              </div>
-            </div>
-            <div class="help-feature-block">
-              <h4>Kluczowe funkcjonalności</h4>
-              <ul class="help-feature-list">
-                <li>Eksport ZIP całej bazy lub wybranych projektów.</li>
-                <li>Import JSON dziennych raportów z Daemona.</li>
-                <li>System Maintenance: czyszczenie i optymalizacja danych.</li>
-                <li>Historia operacji na danych.</li>
-                <li>Backup i narzędzia konserwacji SQLite.</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="help-panel" data-help-panel="daemon" aria-hidden="true">
-            <div class="help-section-head">
-              <span class="help-section-icon"><svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-cpu"></use></svg></span>
-              <div>
-                <h3>DAEMON</h3>
-                <p>Start, stop, logi i status procesu w tle, który zbiera dane o aktywności.</p>
-              </div>
-            </div>
-            <div class="help-feature-block">
-              <h4>Kluczowe funkcjonalności</h4>
-              <ul class="help-feature-list">
-                <li>Status i diagnostyka — widzisz czy daemon działa poprawnie.</li>
-                <li>Start, stop i restart prosto z dashboardu.</li>
-                <li>Windows Autostart przy logowaniu do systemu.</li>
-                <li>Logi w real-time — szybko znajdziesz, co nie gra.</li>
-                <li>Sprawdzanie czy wersja Daemona pasuje do Dashboardu.</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="help-panel" data-help-panel="settings" aria-hidden="true">
-            <div class="help-section-head">
-              <span class="help-section-icon"><svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-settings"></use></svg></span>
-              <div>
-                <h3>USTAWIENIA</h3>
-                <p>Godziny pracy, gap fill, sync, demo mode, optymalizacja bazy i reszta ustawień.</p>
-              </div>
-            </div>
-            <div class="help-feature-block">
-              <h4>Kluczowe funkcjonalności</h4>
-              <ul class="help-feature-list">
-                <li>Working Hours – godziny pracy wpływające na wizualizacje.</li>
-                <li>Session Management – gap fill i ignorowanie krótkich bloków.</li>
-                <li>Freeze Threshold – próg automatycznego mrożenia projektów.</li>
-                <li>Online Sync – URL, User ID, Token dla synchronizacji z serwerem.</li>
-                <li>Demo Mode do bezpiecznego testowania.</li>
-                <li>Auto Optimize DB i ręczne uruchamianie optymalizacji.</li>
-                <li>Emergency Clear – awaryjne czyszczenie bazy i ustawień.</li>
-                <li>Appearance &amp; Performance – kontrola animacji i responsywności UI.</li>
-              </ul>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="quickstartTutorial" class="quickstart-full" aria-label="Pełny samouczek Quick Start">
-      <div class="quickstart-top">
-        <button type="button" class="help-btn-ghost" id="quickstartBackBtn">
-          <svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-chevron-left"></use></svg>
-          Powrót do pomocy
-        </button>
-      </div>
-
-      <div class="quickstart-hero">
-        <div class="rocket-wrap">
-          <svg class="help-icon" aria-hidden="true" style="width:1.45rem;height:1.45rem"><use href="./help-icons.svg#icon-rocket"></use></svg>
-        </div>
-        <h2>Szybki <strong>Start</strong></h2>
-        <p>
-          Poniżej szybki plan — od uruchomienia apki po pierwsze przypisania i trening AI.
+  <!-- HEADER -->
+  <section class="section dark">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow-s">Pomoc</p>
+        <h2 class="h2">Centrum pomocy <em>TIMEFLOW.</em></h2>
+        <p class="lead-s"><strong>TIMEFLOW</strong> to desktopowy time tracker, który działa w tle i nie przeszkadza w pracy. Zamiast ręcznie wpisywać godziny, dostajesz automatyczne śledzenie okien, procesów i plików — apka sama dopasowuje czas do właściwych projektów. Niżej znajdziesz przewodnik po wszystkich sekcjach: quick start, dashboard, sesje, projekty, wyceny, aplikacje, analiza czasu, AI, dane, daemon i ustawienia.</p>
+        <p style="margin-top:1.6rem">
+          <a class="cta-link" href="./index.html">← Wróć na stronę główną</a>
         </p>
+        <div style="display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:1.8rem" aria-label="Pomysł / kreacja / realizacja">
+          <span class="tag soon">Pomysł / kreacja / realizacja: CONCEPTFAB</span>
+          <span class="tag soon">Wszystkie prawa zastrzeżone</span>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div class="quickstart-steps">
-        <article class="quickstep">
-          <span class="quickstep-icon is-blue"><svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-monitor"></use></svg></span>
+  <!-- O OPROGRAMOWANIU -->
+  <section class="section light">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow-s">
+          <svg class="help-icon" aria-hidden="true" style="width:0.9em;height:0.9em;display:inline-block;vertical-align:-0.1em;margin-right:0.4em"><use href="./help-icons.svg#icon-info"></use></svg>
+          O oprogramowaniu
+        </p>
+        <h2 class="h2">Automatyczny tracking, lokalne <em>AI i prywatność.</em></h2>
+        <p class="lead-s"><strong style="color:var(--ink)">TIMEFLOW</strong> to desktopowy time tracker, który działa w tle i nie przeszkadza w pracy. Zamiast ręcznie wpisywać godziny, dostajesz automatyczne śledzenie okien, procesów i plików — apka sama dopasowuje czas do właściwych projektów.</p>
+      </div>
+      <div class="rows">
+
+        <div class="row">
+          <h3>
+            <svg class="help-icon" aria-hidden="true" style="width:0.7em;height:0.7em;display:inline-block;vertical-align:-0.05em;margin-right:0.4em;color:var(--accent)"><use href="./help-icons.svg#icon-activity"></use></svg>
+            Automatyczne śledzenie
+          </h3>
           <div>
-            <div class="quickstep-head">
-              <span class="quickstep-num">Step 1</span>
-              <h3>Przygotowanie plików</h3>
-            </div>
+            <p>Daemon TIMEFLOW śledzi, w jakich aplikacjach i plikach pracujesz — sam, bez klikania.</p>
+          </div>
+          <span class="tag soon">Tracking</span>
+        </div>
+
+        <div class="row">
+          <h3>
+            <svg class="help-icon" aria-hidden="true" style="width:0.7em;height:0.7em;display:inline-block;vertical-align:-0.05em;margin-right:0.4em;color:var(--accent)"><use href="./help-icons.svg#icon-brain"></use></svg>
+            Inteligentna kategoryzacja
+          </h3>
+          <div>
+            <p>Lokalny silnik ML uczy się Twoich nawyków — wszystko zostaje na komputerze, nic nie leci do chmury.</p>
+          </div>
+          <span class="tag soon">AI</span>
+        </div>
+
+        <div class="row">
+          <h3>
+            <svg class="help-icon" aria-hidden="true" style="width:0.7em;height:0.7em;display:inline-block;vertical-align:-0.05em;margin-right:0.4em;color:var(--accent)"><use href="./help-icons.svg#icon-circle-dollar-sign"></use></svg>
+            Analiza finansowa
+          </h3>
+          <div>
+            <p>Od razu widzisz ile warta jest Twoja praca — stawki, mnożniki i wyceny w jednym miejscu.</p>
+          </div>
+          <span class="tag soon">Finanse</span>
+        </div>
+
+        <div class="row">
+          <h3>
+            <svg class="help-icon" aria-hidden="true" style="width:0.7em;height:0.7em;display:inline-block;vertical-align:-0.05em;margin-right:0.4em;color:var(--accent)"><use href="./help-icons.svg#icon-settings"></use></svg>
+            Prywatność i lokalność
+          </h3>
+          <div>
+            <p>Twoje dane to Twoje dane. Wszystko siedzi lokalnie w SQLite — nikt nie ma do nich dostępu.</p>
+          </div>
+          <span class="tag soon">Prywatność</span>
+        </div>
+
+      </div>
+      <p style="margin-top:2.4rem">
+        <a class="cta-link" href="#quickstart">Uruchom samouczek Szybki Start →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- PRZEWODNIK PO SEKCJACH — quick start, dashboard, sesje, projekty -->
+  <section class="section dark">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow-s">Przewodnik po sekcjach</p>
+        <h2 class="h2">Quick Start, Dashboard, Sesje i <em>Projekty.</em></h2>
+        <p class="lead-s">Od pierwszego uruchomienia po codzienną pracę z listami sesji i strukturą projektów.</p>
+      </div>
+      <div class="rows">
+
+        <div class="row" id="quickstart">
+          <h3>
+            <svg class="help-icon" aria-hidden="true" style="width:0.7em;height:0.7em;display:inline-block;vertical-align:-0.05em;margin-right:0.4em;color:var(--accent)"><use href="./help-icons.svg#icon-rocket"></use></svg>
+            Szybki start
+          </h3>
+          <div>
+            <p>Szybki setup TIMEFLOW — od instalacji do pierwszego uruchomienia. Samouczek przeprowadzi Cię krok po kroku przez cały setup.</p>
+            <p><strong>Kluczowe funkcjonalności:</strong></p>
+            <ul>
+              <li>Krok po kroku: od przygotowania plików .exe po uruchomienie Daemona.</li>
+              <li>Konfiguracja folderów projektowych i procesów aplikacji do monitorowania.</li>
+              <li>Instrukcja pierwszego przypisywania sesji i uruchomienia lokalnego AI.</li>
+              <li>Dostęp z ikony rakiety w sidebarze oraz z poziomu ekranu pomocy.</li>
+              <li>Automatyczne ukrycie wskaźnika „first run” po zakończeniu samouczka.</li>
+            </ul>
+          </div>
+          <span class="tag" style="color:var(--accent-2);border:1px solid rgba(59,130,246,0.4)">Start</span>
+        </div>
+
+        <div class="row">
+          <h3>
+            <svg class="help-icon" aria-hidden="true" style="width:0.7em;height:0.7em;display:inline-block;vertical-align:-0.05em;margin-right:0.4em;color:var(--accent)"><use href="./help-icons.svg#icon-layout-dashboard"></use></svg>
+            Dashboard (panel główny)
+          </h3>
+          <div>
+            <p>Co się dzieje teraz — metryki, aktywność i najważniejsze liczby w jednym widoku.</p>
+            <p><strong>Kluczowe funkcjonalności:</strong></p>
+            <ul>
+              <li>Zintegrowane karty metryk (łączny śledzony czas, liczba aplikacji, aktywne projekty).</li>
+              <li>Interaktywna oś czasu z widokiem godzinowym (dzisiaj) lub dziennym (dłuższe okresy).</li>
+              <li>Zestawienie „Top 5 Projektów” oraz analiza najczęściej używanych aplikacji.</li>
+              <li>Szybkie przełączanie zakresów czasowych: Dzisiaj, Tydzień, Miesiąc, Cały okres.</li>
+              <li>Tryb wizualizacji Timeline – pokazuje Twoje zaangażowanie w czasie rzeczywistym.</li>
+              <li>Powiadomienia o statusie auto-importu i ewentualnych błędach odczytu danych.</li>
+              <li>Przycisk odświeżania synchronizujący dane bezpośrednio z pracującego Daemona.</li>
+            </ul>
+          </div>
+          <span class="tag soon">Widok</span>
+        </div>
+
+        <div class="row">
+          <h3>
+            <svg class="help-icon" aria-hidden="true" style="width:0.7em;height:0.7em;display:inline-block;vertical-align:-0.05em;margin-right:0.4em;color:var(--accent)"><use href="./help-icons.svg#icon-list"></use></svg>
+            Sesje (Sessions)
+          </h3>
+          <div>
+            <p>Lista zarejestrowanych bloków pracy — z filtrami, przypisaniami i podglądem AI.</p>
+            <p><strong>Interpretacja widoku AI Data.</strong> Widok „AI Data” pokazuje, dlaczego model wybrał dany projekt — skąd pewność i na czym się oparł.</p>
+            <ul>
+              <li><strong>Confidence:</strong> jak bardzo model jest pewny swojego wyboru.</li>
+              <li><strong>Evidence Count:</strong> ile podobnych sesji wcześniej zatwierdziłeś ręcznie.</li>
+              <li><strong>Score &amp; Base Log Prob:</strong> surowe liczby z silnika ML — diagnostyka pod maskę.</li>
+              <li><strong>Matched Tokens &amp; Context Matches:</strong> słowa kluczowe i kontekst, na których model się oparł.</li>
+              <li><strong>Penalty:</strong> punkty ujemne — model trafił na coś niejednoznacznego.</li>
+            </ul>
+            <p><strong>Kluczowe funkcjonalności:</strong></p>
+            <ul>
+              <li>Dodawanie komentarzy i notatek przez menu kontekstowe sesji.</li>
+              <li>Mnożniki stawek (Multiplier) dla pracy o wyższej wartości.</li>
+              <li>AI Suggestions – zatwierdzanie lub odrzucanie propozycji AI.</li>
+              <li>Ręczne dodawanie sesji (Add Session) dla pracy poza komputerem.</li>
+              <li>Masowe przypisywanie (Batch Assign) wielu sesji jednym kliknięciem.</li>
+              <li>Tryby widoku: Detailed, Compact oraz AI Data.</li>
+              <li>Sortowanie i filtrowanie po aplikacji, projekcie, dacie i czasie trwania.</li>
+            </ul>
+          </div>
+          <span class="tag soon">Mieszane</span>
+        </div>
+
+        <div class="row">
+          <h3>
+            <svg class="help-icon" aria-hidden="true" style="width:0.7em;height:0.7em;display:inline-block;vertical-align:-0.05em;margin-right:0.4em;color:var(--accent)"><use href="./help-icons.svg#icon-folder-kanban"></use></svg>
+            Projekty (Projects)
+          </h3>
+          <div>
+            <p>Twoje projekty, foldery i auto-detekcja nowych kandydatów z aktywności.</p>
+            <p><strong>Kluczowe funkcjonalności:</strong></p>
+            <ul>
+              <li>Mrożenie (Freezing) ukrywa nieaktywne projekty przy przypisywaniu sesji.</li>
+              <li>Automatyczne mrożenie po określonej liczbie dni bez aktywności.</li>
+              <li>Odmrażanie (Unfreeze) przywraca projekt do listy aktywnych.</li>
+              <li>Synchronizacja folderów wykrywa nowe projekty automatycznie.</li>
+              <li>Detekcja kandydatów sugeruje tworzenie projektów z aktywności.</li>
+              <li>Root folders zarządzają lokalizacjami monitorowanymi przez TIMEFLOW.</li>
+              <li>Wykluczanie (Exclude) usuwa projekt z widoku bez kasowania z bazy.</li>
+              <li>Wyszukiwanie filtruje projekty po nazwie i ścieżce w czasie rzeczywistym.</li>
+              <li>Zmiana koloru projektu (presety + dowolny kolor).</li>
+            </ul>
+          </div>
+          <span class="tag soon">Organizacja</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PRZEWODNIK — wyceny, aplikacje, analiza -->
+  <section class="section light">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow-s">Przewodnik po sekcjach</p>
+        <h2 class="h2">Wyceny, Aplikacje i analiza <em>czasu.</em></h2>
+        <p class="lead-s">Wartość Twojej pracy, lista monitorowanych procesów oraz wizualizacje trendów i intensywności.</p>
+      </div>
+      <div class="rows">
+
+        <div class="row">
+          <h3>
+            <svg class="help-icon" aria-hidden="true" style="width:0.7em;height:0.7em;display:inline-block;vertical-align:-0.05em;margin-right:0.4em;color:var(--accent)"><use href="./help-icons.svg#icon-circle-dollar-sign"></use></svg>
+            Wyceny (Estimates)
+          </h3>
+          <div>
+            <p>Stawki, mnożniki i wyceny — widzisz ile zarabiasz na projekcie i w jakim okresie.</p>
+            <p><strong>Kluczowe funkcjonalności:</strong></p>
+            <ul>
+              <li>Globalna stawka godzinowa oraz stawki specyficzne dla projektów.</li>
+              <li>Uwzględnianie mnożników sesji w końcowej wycenie projektu.</li>
+              <li>Wycena sesji manualnych (spotkania, telefony, praca offline).</li>
+              <li>Analiza dochodowości projektów w czasie (miesiąc/rok).</li>
+              <li>Wizualny podział na zarobki dzienne i tygodniowe.</li>
+              <li>Porównywanie wartości czasu między grupami zadań.</li>
+            </ul>
+          </div>
+          <span class="tag soon">Finanse</span>
+        </div>
+
+        <div class="row">
+          <h3>
+            <svg class="help-icon" aria-hidden="true" style="width:0.7em;height:0.7em;display:inline-block;vertical-align:-0.05em;margin-right:0.4em;color:var(--accent)"><use href="./help-icons.svg#icon-app-window"></use></svg>
+            Aplikacje (Applications)
+          </h3>
+          <div>
+            <p>Co TIMEFLOW widzi na Twoim komputerze — lista procesów, aliasy i blokowanie śledzenia.</p>
+            <p><strong>Kluczowe funkcjonalności:</strong></p>
+            <ul>
+              <li>Pełna lista aplikacji ze statystykami czasu aktywności.</li>
+              <li>Aliasy aplikacji: czytelne nazwy zamiast surowych nazw procesów.</li>
+              <li>Blokowanie śledzenia wybranych aplikacji.</li>
+              <li>Archiwizacja danych aplikacji bez usuwania definicji.</li>
+              <li>Bezpośrednie przypisanie aplikacji do konkretnego projektu.</li>
+            </ul>
+          </div>
+          <span class="tag soon">Procesy</span>
+        </div>
+
+        <div class="row">
+          <h3>
+            <svg class="help-icon" aria-hidden="true" style="width:0.7em;height:0.7em;display:inline-block;vertical-align:-0.05em;margin-right:0.4em;color:var(--accent)"><use href="./help-icons.svg#icon-bar-chart-3"></use></svg>
+            Analiza czasu (Time Analysis)
+          </h3>
+          <div>
+            <p>Heatmapy, wykresy i trendy — kiedy pracujesz najintensywniej i nad czym.</p>
+            <p><strong>Kluczowe funkcjonalności:</strong></p>
+            <ul>
+              <li>Heatmapy aktywności – wizualizacja godzinowa i dzienna.</li>
+              <li>Widok miesięczny z numeracją tygodni.</li>
+              <li>Analiza intensywności – godziny największej efektywności.</li>
+              <li>Stacked Bar Charts – udział projektów w całkowitym czasie.</li>
+              <li>Timeline Project View – szczegółowa oś czasu zadań.</li>
+            </ul>
+          </div>
+          <span class="tag soon">Wizualizacje</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PRZEWODNIK — AI, dane, daemon, ustawienia -->
+  <section class="section dark">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow-s">Przewodnik po sekcjach</p>
+        <h2 class="h2">AI &amp; Model, Dane, Daemon i <em>Ustawienia.</em></h2>
+        <p class="lead-s">Lokalny silnik ML, operacje na bazie, proces w tle i pełna konfiguracja aplikacji.</p>
+      </div>
+      <div class="rows">
+
+        <div class="row">
+          <h3>
+            <svg class="help-icon" aria-hidden="true" style="width:0.7em;height:0.7em;display:inline-block;vertical-align:-0.05em;margin-right:0.4em;color:var(--accent)"><use href="./help-icons.svg#icon-brain"></use></svg>
+            AI &amp; Model
+          </h3>
+          <div>
+            <p>Lokalny silnik ML w Rust — czyta kontekst aplikacji, porę dnia i nazwy plików. Działa 100% offline, bez zewnętrznych API. Model klasyfikacyjny ML pisany w Rust. Żadne zewnętrzne API — obliczenia i dane zostają u Ciebie na dysku.</p>
+            <p><strong>1. Skąd się uczy?</strong></p>
+            <ul>
+              <li><strong>Kontekst aplikacji:</strong> jakie programy przypisujesz do jakich projektów.</li>
+              <li><strong>Kontekst czasowy:</strong> o której godzinie i w jaki dzień pracujesz.</li>
+              <li><strong>Tokeny z nazw:</strong> słowa kluczowe wyciągnięte z nazw plików i okien.</li>
+            </ul>
+            <p><strong>2. Jak podejmuje decyzje?</strong></p>
+            <ul>
+              <li><strong>Confidence:</strong> pewność od 0 do 1 (sigmoid).</li>
+              <li><strong>Evidence Count:</strong> ile wcześniejszych dowodów ma w bazie.</li>
+              <li><strong>Margin:</strong> dystans między najlepszym a drugim kandydatem.</li>
+            </ul>
+            <p><strong>3. Tryby pracy</strong></p>
+            <ul>
+              <li><strong>Suggest:</strong> podpowiada projekt przy niższym progu pewności.</li>
+              <li><strong>Auto-Safe:</strong> automatyzuje tylko przypadki o wysokiej pewności i mocnych dowodach.</li>
+            </ul>
+            <p><strong>4. Zalecane ustawienia na start</strong></p>
+            <ul>
+              <li><strong>Mode: suggest</strong> — najszybciej nauczy się na Twoich korektach.</li>
+              <li><strong>Suggest Min Confidence: 0.4–0.5</strong> — więcej podpowiedzi = szybsza nauka (próg podbijesz później).</li>
+              <li><strong>Feedback Weight: 10–15</strong> — uczy się szybko, ale się nie rozkalibruje.</li>
+              <li><strong>Auto-safe Min Confidence: 0.85–0.95</strong> i <strong>Min Evidence: 5</strong> — bezpieczna automatyzacja.</li>
+            </ul>
+            <p><em>Dane modelu siedzą w SQLite na dysku — z każdą Twoją korektą model się uczy i trafia coraz celniej.</em></p>
+            <p><strong>Kluczowe funkcjonalności:</strong></p>
+            <ul>
+              <li>Tryb Auto-Safe dla bezpiecznych wsadowych przypisań.</li>
+              <li>Rollback – cofnięcie ostatniej automatycznej paczki zmian.</li>
+              <li>Confidence Policy – kontrola progu automatyzacji.</li>
+              <li>Learning Center – ręczne korekty zasilają trening modelu.</li>
+              <li>Powiadomienia o gotowości do kolejnego treningu.</li>
+              <li>Tryby: Off, Suggest, Auto-Safe.</li>
+              <li>Prywatność 100% – brak zewnętrznych API i brak wymogu internetu.</li>
+            </ul>
+          </div>
+          <span class="tag" style="color:var(--accent-2);border:1px solid rgba(59,130,246,0.4)">AI</span>
+        </div>
+
+        <div class="row">
+          <h3>
+            <svg class="help-icon" aria-hidden="true" style="width:0.7em;height:0.7em;display:inline-block;vertical-align:-0.05em;margin-right:0.4em;color:var(--accent)"><use href="./help-icons.svg#icon-import"></use></svg>
+            Dane (Data)
+          </h3>
+          <div>
+            <p>Import, export i porządki w bazie — backup, czyszczenie, optymalizacja.</p>
+            <p><strong>Kluczowe funkcjonalności:</strong></p>
+            <ul>
+              <li>Eksport ZIP całej bazy lub wybranych projektów.</li>
+              <li>Import JSON dziennych raportów z Daemona.</li>
+              <li>System Maintenance: czyszczenie i optymalizacja danych.</li>
+              <li>Historia operacji na danych.</li>
+              <li>Backup i narzędzia konserwacji SQLite.</li>
+            </ul>
+          </div>
+          <span class="tag soon">Baza</span>
+        </div>
+
+        <div class="row">
+          <h3>
+            <svg class="help-icon" aria-hidden="true" style="width:0.7em;height:0.7em;display:inline-block;vertical-align:-0.05em;margin-right:0.4em;color:var(--accent)"><use href="./help-icons.svg#icon-cpu"></use></svg>
+            Daemon
+          </h3>
+          <div>
+            <p>Start, stop, logi i status procesu w tle, który zbiera dane o aktywności.</p>
+            <p><strong>Kluczowe funkcjonalności:</strong></p>
+            <ul>
+              <li>Status i diagnostyka — widzisz czy daemon działa poprawnie.</li>
+              <li>Start, stop i restart prosto z dashboardu.</li>
+              <li>Windows Autostart przy logowaniu do systemu.</li>
+              <li>Logi w real-time — szybko znajdziesz, co nie gra.</li>
+              <li>Sprawdzanie czy wersja Daemona pasuje do Dashboardu.</li>
+            </ul>
+          </div>
+          <span class="tag soon">Proces</span>
+        </div>
+
+        <div class="row">
+          <h3>
+            <svg class="help-icon" aria-hidden="true" style="width:0.7em;height:0.7em;display:inline-block;vertical-align:-0.05em;margin-right:0.4em;color:var(--accent)"><use href="./help-icons.svg#icon-settings"></use></svg>
+            Ustawienia (Settings)
+          </h3>
+          <div>
+            <p>Godziny pracy, gap fill, sync, demo mode, optymalizacja bazy i reszta ustawień.</p>
+            <p><strong>Kluczowe funkcjonalności:</strong></p>
+            <ul>
+              <li>Working Hours – godziny pracy wpływające na wizualizacje.</li>
+              <li>Session Management – gap fill i ignorowanie krótkich bloków.</li>
+              <li>Freeze Threshold – próg automatycznego mrożenia projektów.</li>
+              <li>Online Sync – URL, User ID, Token dla synchronizacji z serwerem.</li>
+              <li>Demo Mode do bezpiecznego testowania.</li>
+              <li>Auto Optimize DB i ręczne uruchamianie optymalizacji.</li>
+              <li>Emergency Clear – awaryjne czyszczenie bazy i ustawień.</li>
+              <li>Appearance &amp; Performance – kontrola animacji i responsywności UI.</li>
+            </ul>
+          </div>
+          <span class="tag soon">Konfiguracja</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SZYBKI START — pełny samouczek -->
+  <section class="section light" id="quickstart-tutorial" style="border-top:1px solid var(--line)">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow-s">
+          <svg class="help-icon" aria-hidden="true" style="width:0.9em;height:0.9em;display:inline-block;vertical-align:-0.1em;margin-right:0.4em"><use href="./help-icons.svg#icon-rocket"></use></svg>
+          Samouczek
+        </p>
+        <h2 class="h2">Szybki <em>Start.</em></h2>
+        <p class="lead-s">Poniżej szybki plan — od uruchomienia apki po pierwsze przypisania i trening AI.</p>
+      </div>
+      <div class="rows">
+
+        <div class="row">
+          <h3>
+            <svg class="help-icon" aria-hidden="true" style="width:0.7em;height:0.7em;display:inline-block;vertical-align:-0.05em;margin-right:0.4em;color:var(--accent)"><use href="./help-icons.svg#icon-monitor"></use></svg>
+            Step 1 — Przygotowanie plików
+          </h3>
+          <div>
             <p>Wrzuć <strong>timeflow-dashboard.exe</strong> i <strong>timeflow-demon.exe</strong> do jednego folderu i odpal dashboard.</p>
           </div>
-        </article>
+          <span class="tag soon">Step 1</span>
+        </div>
 
-        <article class="quickstep">
-          <span class="quickstep-icon is-green"><svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-folder-kanban"></use></svg></span>
+        <div class="row">
+          <h3>
+            <svg class="help-icon" aria-hidden="true" style="width:0.7em;height:0.7em;display:inline-block;vertical-align:-0.05em;margin-right:0.4em;color:var(--accent)"><use href="./help-icons.svg#icon-folder-kanban"></use></svg>
+            Step 2 — Konfiguracja projektów
+          </h3>
           <div>
-            <div class="quickstep-head">
-              <span class="quickstep-num">Step 2</span>
-              <h3>Konfiguracja projektów</h3>
-            </div>
             <p>W <strong>Projects</strong> wskaż folder nadrzędny — każdy podfolder staje się osobnym projektem.</p>
           </div>
-        </article>
+          <span class="tag soon">Step 2</span>
+        </div>
 
-        <article class="quickstep">
-          <span class="quickstep-icon is-amber"><svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-app-window"></use></svg></span>
+        <div class="row">
+          <h3>
+            <svg class="help-icon" aria-hidden="true" style="width:0.7em;height:0.7em;display:inline-block;vertical-align:-0.05em;margin-right:0.4em;color:var(--accent)"><use href="./help-icons.svg#icon-app-window"></use></svg>
+            Step 3 — Dodawanie aplikacji
+          </h3>
           <div>
-            <div class="quickstep-head">
-              <span class="quickstep-num">Step 3</span>
-              <h3>Dodawanie aplikacji</h3>
-            </div>
             <p>W <strong>Applications</strong> dodaj procesy do monitorowania (np. figma.exe) i nadaj im czytelne aliasy.</p>
           </div>
-        </article>
+          <span class="tag soon">Step 3</span>
+        </div>
 
-        <article class="quickstep">
-          <span class="quickstep-icon is-violet"><svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-cpu"></use></svg></span>
+        <div class="row">
+          <h3>
+            <svg class="help-icon" aria-hidden="true" style="width:0.7em;height:0.7em;display:inline-block;vertical-align:-0.05em;margin-right:0.4em;color:var(--accent)"><use href="./help-icons.svg#icon-cpu"></use></svg>
+            Step 4 — Uruchomienie Daemona
+          </h3>
           <div>
-            <div class="quickstep-head">
-              <span class="quickstep-num">Step 4</span>
-              <h3>Uruchomienie Daemona</h3>
-            </div>
             <p>W <strong>Daemon</strong> odpal proces i włącz autostart — od teraz tracking chodzi w tle.</p>
           </div>
-        </article>
+          <span class="tag soon">Step 4</span>
+        </div>
 
-        <article class="quickstep">
-          <span class="quickstep-icon is-cyan"><svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-mouse-pointer-2"></use></svg></span>
+        <div class="row">
+          <h3>
+            <svg class="help-icon" aria-hidden="true" style="width:0.7em;height:0.7em;display:inline-block;vertical-align:-0.05em;margin-right:0.4em;color:var(--accent)"><use href="./help-icons.svg#icon-mouse-pointer-2"></use></svg>
+            Step 5 — Przypisywanie sesji
+          </h3>
           <div>
-            <div class="quickstep-head">
-              <span class="quickstep-num">Step 5</span>
-              <h3>Przypisywanie sesji</h3>
-            </div>
             <p>W <strong>Dashboard</strong> prawym klikiem przypisz nieprzypisane sesje do właściwych projektów.</p>
           </div>
-        </article>
+          <span class="tag soon">Step 5</span>
+        </div>
 
-        <article class="quickstep">
-          <span class="quickstep-icon is-pink"><svg class="help-icon" aria-hidden="true"><use href="./help-icons.svg#icon-brain"></use></svg></span>
+        <div class="row">
+          <h3>
+            <svg class="help-icon" aria-hidden="true" style="width:0.7em;height:0.7em;display:inline-block;vertical-align:-0.05em;margin-right:0.4em;color:var(--accent)"><use href="./help-icons.svg#icon-brain"></use></svg>
+            Step 6 — Szkolenie AI
+          </h3>
           <div>
-            <div class="quickstep-head">
-              <span class="quickstep-num">Step 6</span>
-              <h3>Szkolenie AI</h3>
-            </div>
             <p>Parę ręcznych przypisań w <strong>AI &amp; Model</strong> wystarczy, żeby model zaczął sam podpowiadać projekty.</p>
           </div>
-        </article>
-      </div>
+          <span class="tag soon">Step 6</span>
+        </div>
 
-      <div class="quickstart-end">
-        <p>Gotowe. TIMEFLOW działa i uczy się Twoich wzorców z każdą korektą.</p>
       </div>
-    </section>
-  </main>
+      <p style="opacity:0.72;font-size:0.96rem;margin-top:3rem;max-width:60ch">Gotowe. TIMEFLOW działa i uczy się Twoich wzorców z każdą korektą.</p>
+      <p style="margin-top:1.6rem;display:flex;gap:1.4rem;flex-wrap:wrap">
+        <a class="cta-link" href="./index.html#beta">Dołącz do testów beta →</a>
+        <a class="cta-link" href="./index.html">Wróć na stronę główną →</a>
+      </p>
+    </div>
+  </section>
 
+  <footer>
+    <div style="max-width:var(--wrap);margin:0 auto;display:flex;flex-wrap:wrap;gap:1.4rem;justify-content:space-between;align-items:center">
+      <span class="brand" style="color:var(--ink)">TIMEFLOW <span style="color:var(--muted);font-weight:400;letter-spacing:0.05em">by CONCEPTFAB</span></span>
+      <nav aria-label="Skróty w stopce" style="display:flex;flex-wrap:wrap;gap:1.2rem;justify-content:center">
+        <a href="./index.html#funkcje">Funkcje</a>
+        <a href="./index.html#workflow">Jak działa</a>
+        <a href="./index.html#faq">FAQ</a>
+        <a href="./index.html#beta">Testy beta</a>
+        <a href="./index.html#stack">Stack</a>
+        <a href="./index.html#roadmap">Roadmapa</a>
+        <a href="./aktualizacje.html">Aktualizacje</a>
+        <a href="./pomoc.html">Pomoc</a>
+        <a href="./polityka-prywatnosci.html">Polityka prywatności</a>
+      </nav>
+      <span>© <span id="year"></span> TIMEFLOW</span>
+    </div>
+  </footer>
+
+  <script src="./consent.min.js" defer></script>
   <script src="./script.min.js" defer></script>
-  <script src="./help.js" defer></script>
+  <script src="./webmcp.min.js" defer></script>
 </body>
+
 </html>
