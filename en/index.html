@@ -36,33 +36,8 @@
   <link rel="icon" type="image/png" sizes="128x128" href="../icons/favicon-128.png" />
   <link rel="icon" type="image/png" sizes="196x196" href="../icons/favicon-196x196.png" />
   <link rel="apple-touch-icon" sizes="152x152" href="../icons/apple-touch-icon-152x152.png" />
-  <style>
-    *,*::before,*::after{box-sizing:border-box}
-    html{scroll-behavior:smooth;background:#fff}
-    body{min-width:320px;color:#d5d7db;background:#fff;margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:1rem;line-height:1.63;font-weight:400;-webkit-font-smoothing:antialiased}
-    img,svg{max-width:100%;display:block}
-    a{color:inherit;text-decoration:none}
-    :root{--bg:#15181e;--bg-deep:#0d0e12;--surface:#1c2129;--ink:#efeff1;--ink-2:#d5d7db;--muted:#656a76;--line:rgba(178,182,189,0.12);--accent:#1060ff;--accent-dim:rgba(16,96,255,0.08);--font-brand:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;--font-body:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;--font-mono:ui-monospace,"Cascadia Code","Consolas",monospace;--max:1150px;--section-pad:clamp(3.5rem,6vw,5rem);--section-pad-x:max(1.5rem,calc(50vw - 575px));--radius-sm:3px;--radius-md:5px;--radius-lg:8px;--shadow-whisper:rgba(97,104,117,0.05) 0px 1px 1px,rgba(97,104,117,0.05) 0px 2px 2px}
-    .hero h1,.hero h2,.hero h3{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
-    .hero .eyebrow,.hero .tf-style,.hero .showcase-kicker,.hero .showcase-counter{font-family:ui-monospace,'Consolas',monospace}
-    .site-shell{position:relative;overflow-x:clip}
-    .topbar{z-index:50;backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);background:rgba(21,24,30,0.92);border-bottom:1px solid rgba(178,182,189,0.12);grid-template-columns:auto 1fr auto auto;align-items:center;gap:1.2rem;width:100%;min-height:3.5rem;padding:0.5rem var(--section-pad-x);display:grid;position:sticky;top:0}
-    .hero{min-height:100svh;width:100%;isolation:isolate;contain:layout;grid-template-columns:1fr;align-items:start;gap:2.5rem;margin:0 auto;padding:4rem var(--section-pad-x) 3rem;display:grid;position:relative;overflow:visible;background:#15181e;color:#d5d7db}
-    .hero-bg-grid{pointer-events:none;z-index:-2;opacity:0.04;position:absolute;inset:-200px 0 -100px;width:100%;contain:strict}
-    .hero-glow{position:absolute;border-radius:50%;filter:blur(120px);pointer-events:none;z-index:-1;opacity:0.08;contain:strict}
-    [data-reveal]{opacity:0;transform:translateY(18px);transition:opacity .55s cubic-bezier(.22,1,.36,1),transform .55s cubic-bezier(.22,1,.36,1)}
-    .tf-style{font-weight:700!important;letter-spacing:0.06em}
-  </style>
-  <link rel="stylesheet" href="../style.min.css" />
-
-  <noscript>
-    <style>
-      [data-reveal] {
-        opacity: 1 !important;
-        transform: none !important;
-      }
-    </style>
-  </noscript>
+  <style>*,*::before,*::after{box-sizing:border-box}html,body{margin:0}body{background:#060708;color:#f4f3f1;font-family:'Hanken Grotesk',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}img,svg{display:block;max-width:100%}a{color:inherit;text-decoration:none}</style>
+  <link rel="stylesheet" href="../home.min.css?v=3" />
   <link rel="canonical" href="https://timeflow.conceptfab.com/en/" />
   <link rel="alternate" hreflang="pl" href="https://timeflow.conceptfab.com/" />
   <link rel="alternate" hreflang="en" href="https://timeflow.conceptfab.com/en/" />
@@ -159,1014 +134,835 @@
 </head>
 
 <body>
-  <div class="site-shell">
-    <header class="topbar">
-      <a class="brand" href="#start" aria-label="TIMEFLOW - home page">
-        <span class="brand-name"><span class="tf-style">TIMEFLOW</span></span>
-        <span class="brand-beta">Beta</span>
-      </a>
+  <nav>
+    <span class="brand">TIMEFLOW</span>
+    <div class="nav-links">
+      <a href="#algorithm">Algorithm</a>
+      <a href="#features">Features</a>
+      <a href="#stack">Stack</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a class="pill" href="#beta">Join beta</a>
+  </nav>
 
-      <button class="topbar-menu-toggle" type="button" aria-expanded="false" aria-controls="topbar-nav"
-        aria-label="Open menu" data-menu-toggle>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </button>
-
-      <nav class="topnav" id="topbar-nav" aria-label="Navigation">
-        <a href="#features">Features</a>
-        <a href="#workflow">How it works</a>
-        <a href="#faq">FAQ</a>
-        <a href="#beta">Beta tests</a>
-      </nav>
-
-      <div class="lang-switch" aria-label="Change language">
-        <a class="lang-link" href="../" hreflang="pl" lang="pl">PL</a>
-        <span class="lang-sep" aria-hidden="true">/</span>
-        <span class="lang-active" aria-current="page">EN</span>
+  <!-- HERO -->
+  <header class="hero" id="start">
+    <div class="stage">
+      <svg class="algo-anim" viewBox="0 0 600 600" aria-hidden="true">
+        <g transform="rotate(-16 300 300)">
+          <g class="spin spin-a"><circle class="orbit" cx="300" cy="300" r="240" /><line class="ray" x1="300" y1="300" x2="540" y2="300" /><circle class="node-a" cx="540" cy="300" r="6.5" /><circle class="dot" cx="300" cy="60" r="2" /><circle class="dot" cx="120" cy="300" r="1.6" /></g>
+          <g class="spin spin-b"><circle class="orbit" cx="300" cy="300" r="188" /><line class="ray" x1="300" y1="300" x2="488" y2="300" /><circle class="node-b" cx="488" cy="300" r="5.5" /><circle class="dot" cx="112" cy="300" r="1.8" /></g>
+          <g class="spin spin-c"><circle class="orbit" cx="300" cy="300" r="140" /><line class="ray" x1="300" y1="300" x2="440" y2="300" /><circle class="node-c" cx="440" cy="300" r="5" /><circle class="dot" cx="300" cy="160" r="1.6" /></g>
+        </g>
+        <g class="center">
+          <circle class="ring-base" cx="300" cy="300" r="78" />
+          <circle class="arc arc1" cx="300" cy="300" r="78" stroke-dasharray="193 297" stroke-dashoffset="0" transform="rotate(-90 300 300)" />
+          <circle class="arc arc2" cx="300" cy="300" r="78" stroke-dasharray="161 329" stroke-dashoffset="-203" transform="rotate(-90 300 300)" />
+          <circle class="arc arc3" cx="300" cy="300" r="78" stroke-dasharray="106 384" stroke-dashoffset="-374" transform="rotate(-90 300 300)" />
+        </g>
+      </svg>
+      <div class="copy">
+        <p class="eyebrow">Fair Time Algorithm</p>
+        <h1>Time counted<br><em>fairly.</em></h1>
+        <p class="sub">You work across several apps at once. TIMEFLOW deduplicates multitasking and splits every second fairly between projects — your real time, not inflated stats.</p>
       </div>
+    </div>
+    <div class="hero-foot">
+      <div class="legend">
+        <span class="k"><span class="sw" style="background:var(--accent)"></span>Figma</span>
+        <span class="k"><span class="sw" style="background:var(--accent-2)"></span>Photoshop</span>
+        <span class="k"><span class="sw" style="background:#fff"></span>Blender</span>
+        <span class="arrow">→</span><span>1 real hour · split&nbsp;42&nbsp;/&nbsp;35&nbsp;/&nbsp;23</span>
+      </div>
+      <a class="cta-link" href="#beta">Request beta access →</a>
+    </div>
+  </header>
 
-      <a class="btn btn-primary topbar-cta" href="#beta">Join beta</a>
-    </header>
-
-    <main id="start">
-      <section class="hero">
-        <div class="hero-bg-grid" aria-hidden="true"></div>
-        <div class="hero-glow hero-glow-a" aria-hidden="true"></div>
-        <div class="hero-glow hero-glow-b" aria-hidden="true"></div>
-        <div class="hero-glow hero-glow-c" aria-hidden="true"></div>
-
-        <div class="hero-copy">
-          <p class="eyebrow">
-            Desktop tracker for freelancers — <strong>you focus on creating, we'll handle the time.</strong>
-          </p>
-          <h1 id="heroHeadline">
-            Work <span>and see what you earn.</span>
-          </h1>
-          <p class="hero-lead" id="heroLead">
-            <span class="tf-style">TIMEFLOW</span> tracks your activity in the background with the <strong>Fair Time Algorithm</strong> —
-            it deduplicates multitasking and fairly allocates seconds between projects. See the real value of your work,
-            without inflated stats.
-          </p>
-        </div>
-
-        <div class="hero-visual hero-showcase" id="demo">
-          <div class="showcase-shell" data-hero-slider>
-            <div class="showcase-head">
-              <div>
-                <p class="showcase-kicker"><span class="tf-style">TIMEFLOW</span> Interface</p>
-                <h3 id="showcaseHeadline">Dashboard, projects, sessions and analytics in one workflow</h3>
-              </div>
-            </div>
-
-            <div class="showcase-layout" aria-label="Preview of key TIMEFLOW app views">
-              <figure class="shot-card shot-main" data-shot-card data-hero-slider-stage>
-                <figcaption class="shot-caption">
-                  <span id="heroShotCaptionLabel">Dashboard</span>
-                  <em id="heroShotCaptionMeta">main view</em>
-                </figcaption>
-                <div class="hero-stage-frame-wrap">
-                  <button type="button" class="showcase-nav-btn showcase-nav-btn-side showcase-nav-btn-prev"
-                    data-hero-slider-prev aria-label="Previous screen">
-                    <span aria-hidden="true">&lt;</span>
-                  </button>
-                  <div class="shot-frame ratio-desktop">
-                    <picture>
-                      <source type="image/avif"
-                        srcset="../screens/dashboard-main_480.avif 480w, ../screens/dashboard-main_960.avif 960w, ../screens/dashboard-main.avif 1600w"
-                        sizes="(max-width: 720px) 92vw, (max-width: 1200px) 62vw, 800px" />
-                      <img id="heroShotImage" class="shot-image" src="../screens/dashboard-main.webp"
-                        srcset="../screens/dashboard-main_480.webp 480w, ../screens/dashboard-main_960.webp 960w, ../screens/dashboard-main.webp 1600w"
-                        sizes="(max-width: 720px) 92vw, (max-width: 1200px) 62vw, 800px"
-                        width="1600" height="1000"
-                        alt="TIMEFLOW Dashboard – daily view with metrics and timeline" loading="eager"
-                        fetchpriority="high" decoding="async" />
-                    </picture>
-                  </div>
-                  <button type="button" class="showcase-nav-btn showcase-nav-btn-side showcase-nav-btn-next"
-                    data-hero-slider-next aria-label="Next screen">
-                    <span aria-hidden="true">&gt;</span>
-                  </button>
-                </div>
-                <p class="showcase-note showcase-note-overlay" id="showcaseNote">
-                  The main view shows the workload dashboard. Below are the key modules that build
-                  a freelancer's daily workflow: Projects, Sessions, Analysis, Estimates, and AI.
-                </p>
-              </figure>
-
-              <div class="showcase-slider-dots-row" aria-label="Slider screen controls">
-                <div class="showcase-slider-dots" data-hero-slider-dots aria-label="Select screen"></div>
-              </div>
-
-              <div class="shot-rail">
-                <figure class="shot-card" data-shot-card data-hero-slide-source>
-                  <figcaption class="shot-caption">
-                    <span>Dashboard</span>
-                    <em>main view</em>
-                  </figcaption>
-                  <div class="shot-frame ratio-thumb">
-                    <img class="shot-image" src="../screens/dashboard-main.webp"
-                      srcset="../screens/dashboard-main_480.webp 480w, ../screens/dashboard-main_960.webp 960w, ../screens/dashboard-main.webp 1600w"
-                      sizes="(max-width: 720px) 28vw, 180px"
-                      alt="TIMEFLOW Dashboard – daily view with metrics and timeline" loading="lazy" decoding="async" />
-                  </div>
-                </figure>
-
-                <figure class="shot-card" data-shot-card data-hero-slide-source>
-                  <figcaption class="shot-caption">
-                    <span>Projects</span>
-                    <em>folders + statuses</em>
-                  </figcaption>
-                  <div class="shot-frame ratio-thumb">
-                    <img class="shot-image" src="../screens/projects.webp"
-                      srcset="../screens/projects_480.webp 480w, ../screens/projects.webp 960w"
-                      sizes="(max-width: 720px) 28vw, 180px"
-                      alt="TIMEFLOW Projects – project folders and auto-detection" loading="lazy" decoding="async" />
-                  </div>
-                </figure>
-
-                <figure class="shot-card" data-shot-card data-hero-slide-source>
-                  <figcaption class="shot-caption">
-                    <span>Sessions</span>
-                    <em>sessions + assignments</em>
-                  </figcaption>
-                  <div class="shot-frame ratio-thumb">
-                    <img class="shot-image" src="../screens/sessions.webp"
-                      srcset="../screens/sessions_480.webp 480w, ../screens/sessions.webp 960w"
-                      sizes="(max-width: 720px) 28vw, 180px"
-                      alt="TIMEFLOW Sessions – grouped sessions with AI assignments" loading="lazy" decoding="async" />
-                  </div>
-                </figure>
-
-                <figure class="shot-card" data-shot-card data-hero-slide-source>
-                  <figcaption class="shot-caption">
-                    <span>Time Analysis</span>
-                    <em>charts + heatmap</em>
-                  </figcaption>
-                  <div class="shot-frame ratio-thumb">
-                    <img class="shot-image" src="../screens/analysis.webp"
-                      srcset="../screens/analysis_480.webp 480w, ../screens/analysis_960.webp 960w, ../screens/analysis.webp 1600w"
-                      sizes="(max-width: 720px) 28vw, 180px"
-                      alt="TIMEFLOW Time Analysis – workload heatmap and charts" loading="lazy" decoding="async" />
-                  </div>
-                </figure>
-
-                <figure class="shot-card" data-shot-card data-hero-slide-source>
-                  <figcaption class="shot-caption">
-                    <span>Estimates</span>
-                    <em>rates + multipliers + valuation</em>
-                  </figcaption>
-                  <div class="shot-frame ratio-thumb">
-                    <img class="shot-image" src="../screens/estimates.webp"
-                      srcset="../screens/estimates_480.webp 480w, ../screens/estimates_960.webp 960w, ../screens/estimates.webp 1600w"
-                      sizes="(max-width: 720px) 28vw, 180px"
-                      alt="TIMEFLOW Estimates – valuing freelancer work" loading="lazy" decoding="async" />
-                  </div>
-                </figure>
-
-                <figure class="shot-card" data-shot-card data-hero-slide-source>
-                  <figcaption class="shot-caption">
-                    <span>AI &amp; Model</span>
-                    <em>suggestions + model</em>
-                  </figcaption>
-                  <div class="shot-frame ratio-thumb">
-                    <img class="shot-image" src="../screens/ai-model.webp"
-                      srcset="../screens/ai-model_480.webp 480w, ../screens/ai-model_960.webp 960w, ../screens/ai-model.webp 1600w"
-                      sizes="(max-width: 720px) 28vw, 180px"
-                      alt="TIMEFLOW AI Model – assignment suggestions and auto_safe mode" loading="lazy" decoding="async" />
-                  </div>
-                </figure>
-              </div>
-            </div>
+  <!-- PERSONAS -->
+  <section class="section light">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow-s">Who it works best for</p>
+        <h2 class="h2">Not just timing — helping you <em>get time back.</em></h2>
+        <p class="lead-s">Designers jump between Figma, Photoshop, browser, and chat dozens of times a day. TIMEFLOW sorts out the chaos and recovers context you'd never reconstruct yourself.</p>
+      </div>
+      <div class="grid3">
+        <div class="col">
+          <span class="num">01</span>
+          <h3>Graphic / Brand Designer</h3>
+          <p>Bill time across client projects without typing anything — even when you're bouncing between several apps and folders at once.</p>
+          <div class="persona-tags" style="display:flex;flex-wrap:wrap;gap:0.45rem;margin-top:1rem">
+            <span style="font-family:var(--mono);font-size:0.64rem;letter-spacing:0.06em;text-transform:uppercase;border:1px solid var(--line-d);border-radius:3px;padding:0.25rem 0.55rem;opacity:0.75">projects by folders</span>
+            <span style="font-family:var(--mono);font-size:0.64rem;letter-spacing:0.06em;text-transform:uppercase;border:1px solid var(--line-d);border-radius:3px;padding:0.25rem 0.55rem;opacity:0.75">unassigned sessions</span>
+            <span style="font-family:var(--mono);font-size:0.64rem;letter-spacing:0.06em;text-transform:uppercase;border:1px solid var(--line-d);border-radius:3px;padding:0.25rem 0.55rem;opacity:0.75">value estimations</span>
           </div>
         </div>
-
-        <div class="hero-tail">
-          <div class="hero-meta-row">
-            <div class="hero-rotator" aria-live="polite">
-              <span class="rotator-label">Works best for:</span>
-              <span class="rotator-word" id="heroRoleRotator">designers</span>
-            </div>
-
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="#beta">Request beta access</a>
-            </div>
-          </div>
-
-          <div class="hero-stats" aria-label="Key product information">
-            <article class="stat-card" data-counter-card>
-              <p class="stat-label">App modules</p>
-              <p class="stat-value">
-                <span data-counter="10">10</span>
-                <span class="stat-suffix">+</span>
-              </p>
-              <p class="stat-note">Dashboard, projects, sessions, AI, analytics, estimates, background process and more</p>
-            </article>
-            <article class="stat-card" data-counter-card>
-              <p class="stat-label">Desktop platforms (now)</p>
-              <p class="stat-value">
-                <span data-counter="2">2</span>
-              </p>
-              <p class="stat-note">Windows and macOS • Linux and mobile app planned</p>
-            </article>
-            <article class="stat-card" data-counter-card>
-              <p class="stat-label">AI working modes</p>
-              <p class="stat-value">
-                <span data-counter="3">3</span>
-              </p>
-              <p class="stat-note">you decide how much AI gets involved — with rollbacks in case of mistakes</p>
-            </article>
-          </div>
-
-          <div class="hero-scroll-row">
-            <a class="btn btn-dark hero-scroll-cta" href="#features">
-              <span>See what it does</span>
-              <span class="hero-scroll-arrow" aria-hidden="true">↓</span>
-            </a>
+        <div class="col">
+          <span class="num">02</span>
+          <h3>UI/UX / Product Designer</h3>
+          <p>See what's eating time each week — research, mockups, iterations, or consultations — heatmap and trends ready without clicking around.</p>
+          <div class="persona-tags" style="display:flex;flex-wrap:wrap;gap:0.45rem;margin-top:1rem">
+            <span style="font-family:var(--mono);font-size:0.64rem;letter-spacing:0.06em;text-transform:uppercase;border:1px solid var(--line-d);border-radius:3px;padding:0.25rem 0.55rem;opacity:0.75">dashboard + analysis</span>
+            <span style="font-family:var(--mono);font-size:0.64rem;letter-spacing:0.06em;text-transform:uppercase;border:1px solid var(--line-d);border-radius:3px;padding:0.25rem 0.55rem;opacity:0.75">CSV export</span>
+            <span style="font-family:var(--mono);font-size:0.64rem;letter-spacing:0.06em;text-transform:uppercase;border:1px solid var(--line-d);border-radius:3px;padding:0.25rem 0.55rem;opacity:0.75">manual sessions</span>
           </div>
         </div>
-
-        <section class="signal-strip" aria-label="Key notifications" data-reveal>
-          <div class="signal-item">
-            <span class="signal-badge">Beta</span>
-            <p>
-              <span class="tf-style">TIMEFLOW</span> is in beta. We're inviting freelancers who want to shape the product;
-              your feedback goes straight to the roadmap.
-            </p>
+        <div class="col">
+          <span class="num">03</span>
+          <h3>Freelancer beyond design</h3>
+          <p>TIMEFLOW works everywhere you bill time to clients — in development, editing, consulting, writing.</p>
+          <div class="persona-tags" style="display:flex;flex-wrap:wrap;gap:0.45rem;margin-top:1rem">
+            <span style="font-family:var(--mono);font-size:0.64rem;letter-spacing:0.06em;text-transform:uppercase;border:1px solid var(--line-d);border-radius:3px;padding:0.25rem 0.55rem;opacity:0.75">AI suggests assignments</span>
+            <span style="font-family:var(--mono);font-size:0.64rem;letter-spacing:0.06em;text-transform:uppercase;border:1px solid var(--line-d);border-radius:3px;padding:0.25rem 0.55rem;opacity:0.75">backup and import</span>
+            <span style="font-family:var(--mono);font-size:0.64rem;letter-spacing:0.06em;text-transform:uppercase;border:1px solid var(--line-d);border-radius:3px;padding:0.25rem 0.55rem;opacity:0.75">online sync</span>
           </div>
-          <div class="signal-item">
-            <span class="signal-badge">Offline</span>
-            <p>
-              Works entirely offline. Local data storage, JSON export and USB transfer mean no connection is required.
-            </p>
-          </div>
-          <div class="signal-item">
-            <span class="signal-badge">Open source</span>
-            <p>
-              The code will be shared. We're preparing a project manager with custom folder
-              structures and file archiving.
-            </p>
-          </div>
-        </section>
-
-      </section>
-
-      <section id="stack" class="section section-dark stack-section group-engine">
-        <div class="section-head" data-reveal>
-          <p class="eyebrow">Tech Stack</p>
-          <h2>Native app, not a web-app in a window.</h2>
-          <p>
-            Lightweight footprint and minimal requirements are by design, not accident. Rust on the backend,
-            a separate daemon, and local SQLite — fast start and full control over files, without a heavy
-            runtime in the background.
-          </p>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="stack-grid">
-          <article class="stack-card stack-card-primary" data-reveal>
-            <p class="stack-tag">Core Desktop</p>
-            <h3>Rust + Tauri 2</h3>
-            <p>
-              Lightweight desktop runtime, fast start, and native control over files and processes —
-              without the heavy overhead you know from Electron.
-            </p>
-            <ul>
-              <li>better performance for monitoring and background work</li>
-              <li>native integration with the system, files and processes</li>
-              <li>strong base for Windows and macOS now, more desktop platforms on the way</li>
-            </ul>
-          </article>
-
-          <article class="stack-card" data-reveal data-delay="60">
-            <p class="stack-tag">Data Layer</p>
-            <h3>Local SQLite (rusqlite, bundled)</h3>
-            <p>
-              Local <strong>SQLite</strong> database works right after installation (<code>bundled</code>)
-              — zero extra setup, ready workflow from the first launch.
-            </p>
-            <ul>
-              <li>local-first: data and dashboard available instantly</li>
-              <li>fast reading of sessions, projects and analytics</li>
-              <li>backup and data import/export without complexity</li>
-            </ul>
-          </article>
-
-          <article class="stack-card" data-reveal data-delay="120">
-            <p class="stack-tag">UI Dashboard</p>
-            <h3>React 19 + TypeScript + Vite</h3>
-            <p>
-              Dashboard developed independently of the backend — new views, analytics, and panels iterated fast.
-            </p>
-            <ul>
-              <li>fast iteration of dashboard features and screens</li>
-              <li>clear charts and analytics (Recharts)</li>
-              <li>stable UI stack (Zustand / Radix / Tailwind)</li>
-            </ul>
-          </article>
-
-          <article class="stack-card" data-reveal>
-            <p class="stack-tag">Daemon</p>
-            <h3>Monitoring in a separate process</h3>
-            <p>
-              A <strong>Rust</strong> daemon runs the data pipeline independently of the UI — the dashboard
-              is your work interface, activity collection runs in the background.
-            </p>
-            <div class="stack-badge-row" aria-label="Key daemon advantages">
-              <span class="stack-badge stack-badge-cyan">low overhead</span>
-              <span class="stack-badge">background work</span>
-              <span class="stack-badge">separate from UI</span>
-            </div>
-            <ul>
-              <li>start / stop / restart control from UI</li>
-              <li>logs and process status</li>
-              <li>file archiving and auto-import workflow</li>
-              <li>autostart and background monitoring with low overhead</li>
-            </ul>
-          </article>
-
-          <article class="stack-card" data-reveal data-delay="60">
-            <p class="stack-tag">Stability Engine</p>
-            <h3>Stable data, time and background tasks</h3>
-            <p>
-              Three libraries making sure the numbers add up — correct timestamps, stable import/export,
-              and predictable background tasks.
-            </p>
-            <ul>
-              <li>Serde / serde_json: stable import/export and data contracts</li>
-              <li>Chrono: correct date ranges, sessions and time accounting</li>
-              <li>Tokio: timers, cyclic tasks and background operations</li>
-            </ul>
-          </article>
-
-          <article class="stack-card" data-reveal data-delay="120">
-            <p class="stack-tag">Sync / Web</p>
-            <h3>Sync server — already running</h3>
-            <p>
-              A <strong>Next.js</strong> server coordinates sync between devices — local-first remains
-              the foundation.
-            </p>
-            <ul>
-              <li>delta sync and full synchronization between devices</li>
-              <li>API push / pull / ack / status</li>
-              <li>foundation for mobile and sharing features</li>
-            </ul>
-          </article>
+  <!-- HOW IT WORKS -->
+  <section class="section dark" id="workflow">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow-s">How it works</p>
+        <h2 class="h2">From raw sessions to ready <em>accounting.</em></h2>
+        <p class="lead-s">Automatic tracking + manual control where needed. Accuracy without clicking all day long.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="n">1</div>
+          <h3>Data Collection</h3>
+          <p>The daemon collects data in the background; the dashboard pulls it at startup and refreshes daily sessions.</p>
+          <ul style="list-style:none;margin-top:1rem;display:grid;gap:0.45rem;opacity:0.68;font-size:0.9rem">
+            <li>daemon status + autostart</li>
+            <li>auto-import at start</li>
+            <li>file archive from import</li>
+          </ul>
         </div>
-      </section>
-
-      <section id="features" class="section section-light group-engine">
-        <div class="section-head" data-reveal>
-          <p class="eyebrow eyebrow-dark">What <span class="tf-style">TIMEFLOW</span> does right now</p>
-          <h2>Real features, not a wish list.</h2>
-          <p>
-            Everything below actually works in the app — auto-import, sessions, AI suggestions, online sync
-            and daemon control. Not a wish list, but shipping software.
-          </p>
+        <div class="step">
+          <div class="n">2</div>
+          <h3>Organization and Assignments</h3>
+          <p>Create projects, assign apps, accept or reject AI suggestions — manual fixes only where things need fixing.</p>
+          <ul style="list-style:none;margin-top:1rem;display:grid;gap:0.45rem;opacity:0.68;font-size:0.9rem">
+            <li>projects + folders + candidates</li>
+            <li>AI suggest / auto_safe / rollback</li>
+            <li>session merge based on set gap</li>
+          </ul>
         </div>
+        <div class="step">
+          <div class="n">3</div>
+          <h3>Analysis, Valuation and Backup</h3>
+          <p>End result: a dashboard with metrics, work valuation, and tools for exporting, importing, and syncing between machines.</p>
+          <ul style="list-style:none;margin-top:1rem;display:grid;gap:0.45rem;opacity:0.68;font-size:0.9rem">
+            <li>heatmap + charts</li>
+            <li>estimated value per project + session multiplier</li>
+            <li>JSON export/import + online sync</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="feature-grid">
-          <article class="feature-card" data-reveal>
-            <p class="feature-tag">Tracking Core</p>
-            <h3>Time monitoring + Fair Time Algorithm</h3>
-            <p>
-              The daemon collects data in the background and mathematically deduplicates activity —
-              multitasking doesn't inflate hours for your client.
-            </p>
-            <ul>
+  <!-- FEATURES -->
+  <section class="section light" id="features">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow-s">What TIMEFLOW does right now</p>
+        <h2 class="h2">Real features, <em>not a wish list.</em></h2>
+        <p class="lead-s">Everything below actually works in the app — auto-import, sessions, AI suggestions, online sync and daemon control. Not a wish list, but shipping software.</p>
+      </div>
+      <div class="feat-list">
+        <div class="feat">
+          <div><p class="ft">Tracking Core</p><h3>Time monitoring + Fair Time Algorithm</h3></div>
+          <div>
+            <p>The daemon collects data in the background and mathematically deduplicates activity — multitasking doesn't inflate hours for your client.</p>
+            <ul style="list-style:none;margin-top:1.1rem;display:grid;gap:0.45rem;opacity:0.7;font-size:0.92rem">
               <li>zero "double counting" (Unique Time)</li>
               <li>Fair Share principle — distributing seconds between projects</li>
               <li>auto refresh + file change detection</li>
               <li>import status and automatic archiving</li>
             </ul>
-          </article>
-
-          <article class="feature-card" data-reveal data-delay="60">
-            <p class="feature-tag">Dashboard</p>
-            <h3>Day, week, month and all-time views</h3>
-            <p>
-              Metrics, top projects, top apps, timeline, and a heads-up if something is unassigned.
-            </p>
-            <ul>
+          </div>
+        </div>
+        <div class="feat">
+          <div><p class="ft">Dashboard</p><h3>Day, week, month and all-time views</h3></div>
+          <div>
+            <p>Metrics, top projects, top apps, timeline, and a heads-up if something is unassigned.</p>
+            <ul style="list-style:none;margin-top:1.1rem;display:grid;gap:0.45rem;opacity:0.7;font-size:0.92rem">
               <li>metrics: total, avg daily, apps, projects</li>
               <li>project timeline + project day timeline</li>
+              <li>custom date range alongside day/week/month</li>
               <li>manual sessions from the timeline level</li>
             </ul>
-          </article>
-
-          <article class="feature-card" data-reveal data-delay="120">
-            <p class="feature-tag">Projects</p>
-            <h3>Projects based on folders and auto-detection</h3>
-            <p>
-              Project = folder. Auto-detection of candidates from activity and subfolder sync — no need
-              to configure anything for each new job.
-            </p>
-            <ul>
+          </div>
+        </div>
+        <div class="feat">
+          <div><p class="ft">Projects</p><h3>Projects based on folders and auto-detection</h3></div>
+          <div>
+            <p>Project = folder. Auto-detection of candidates from activity and subfolder sync — no need to configure anything for each new job.</p>
+            <ul style="list-style:none;margin-top:1.1rem;display:grid;gap:0.45rem;opacity:0.7;font-size:0.92rem">
               <li>Project Folders (roots) + browse folder</li>
               <li>Freezing and auto-freezing of unused tasks</li>
               <li>Folder Project Candidates + quick Create</li>
               <li>Detected Projects and Exclude (hiding projects)</li>
             </ul>
-          </article>
-
-          <article class="feature-card" data-reveal>
-            <p class="feature-tag">Sessions</p>
-            <h3>Manual session organization without chaos</h3>
-            <p>
-              Sessions grouped by projects, daily or weekly range — with a right-click you
-              assign, unpin or delete an entry without leaving the view.
-            </p>
-            <ul>
+          </div>
+        </div>
+        <div class="feat">
+          <div><p class="ft">Sessions</p><h3>Manual session organization without chaos</h3></div>
+          <div>
+            <p>Sessions grouped by projects, daily or weekly range — with a right-click you assign, unpin or delete an entry without leaving the view.</p>
+            <ul style="list-style:none;margin-top:1.1rem;display:grid;gap:0.45rem;opacity:0.7;font-size:0.92rem">
               <li>project filters + focus from dashboard</li>
               <li>right-click to assign / unpin / notes</li>
               <li>rate multipliers (x2 and custom)</li>
               <li>manual session entry (meetings, calls)</li>
               <li>Detailed (files) vs Compact (sessions) views</li>
             </ul>
-          </article>
-
-          <article class="feature-card" data-reveal data-delay="60">
-            <p class="feature-tag">AI &amp; Model</p>
-            <h3>AI assignment suggestions + auto_safe mode</h3>
-            <p>
-              Local ML engine in Rust reads app context, time of day, and tokens from file and window names (strongest signal).
-              100% offline — no external APIs, no ChatGPT.
-            </p>
-            <ul>
+          </div>
+        </div>
+        <div class="feat">
+          <div><p class="ft">AI &amp; Model</p><h3>AI assignment suggestions + auto_safe mode</h3></div>
+          <div>
+            <p>Local ML engine in Rust reads app context, time of day, and tokens from file and window names (strongest signal). 100% offline — no external APIs, no ChatGPT.</p>
+            <ul style="list-style:none;margin-top:1.1rem;display:grid;gap:0.45rem;opacity:0.7;font-size:0.92rem">
               <li>Learning Center: the model learns from your corrections</li>
               <li>modes: Suggest and Auto-Safe (automation)</li>
               <li>Confidence Policy: Confidence, Evidence and Margin parameters</li>
               <li>Training reminder after collecting new knowledge</li>
             </ul>
-          </article>
-
-          <article class="feature-card" data-reveal data-delay="120">
-            <p class="feature-tag">Analysis</p>
-            <h3>Analytics and Proof of Work</h3>
-            <p>
-              Stats aren't just numbers — every second is backed by concrete file history.
-              You've got proof of work if the client asks for details.
-            </p>
-            <ul>
+          </div>
+        </div>
+        <div class="feat">
+          <div><p class="ft">Analysis</p><h3>Analytics and Proof of Work</h3></div>
+          <div>
+            <p>Stats aren't just numbers — every second is backed by concrete file history. You've got proof of work if the client asks for details.</p>
+            <ul style="list-style:none;margin-top:1.1rem;display:grid;gap:0.45rem;opacity:0.7;font-size:0.92rem">
               <li>precise session and file preview</li>
               <li>activity heatmap (hourly and daily)</li>
               <li>intensity analysis and peak hours</li>
+              <li>custom date range on the heatmap and charts</li>
               <li>CSV export for external spreadsheets</li>
             </ul>
-          </article>
-
-          <article class="feature-card" data-reveal>
-            <p class="feature-tag">Estimates</p>
-            <h3>Work value estimations for freelancers</h3>
-            <p>
-              Set a global rate, override it per project, or slap a multiplier on a specific session
-              — work value for the selected range shows up instantly.
-            </p>
-            <ul>
+          </div>
+        </div>
+        <div class="feat">
+          <div><p class="ft">Estimates</p><h3>Work value estimations for freelancers</h3></div>
+          <div>
+            <p>Set a global rate, override it per project, or slap a multiplier on a specific session — work value for the selected range shows up instantly.</p>
+            <ul style="list-style:none;margin-top:1.1rem;display:grid;gap:0.45rem;opacity:0.7;font-size:0.92rem">
               <li>global hourly rate + project overrides</li>
               <li>rate multiplier for selected session and manual valuations</li>
               <li>project profitability analysis (monthly/yearly view)</li>
               <li>estimated value per project + daily earnings</li>
+              <li>valuation for any custom date range</li>
+              <li>time rounding (5–60 min intervals, report variants)</li>
               <li>preview of time value spent on task groups</li>
             </ul>
-          </article>
-
-          <article class="feature-card" data-reveal data-delay="60">
-            <p class="feature-tag">Data &amp; Sync</p>
-            <h3>Data import/export and online sync</h3>
-            <p>
-              JSON export of the whole DB or a single project, import with validation and conflict preview,
-              online delta sync or USB transfer — your data, your control.
-            </p>
-            <ul>
+          </div>
+        </div>
+        <div class="feat">
+          <div><p class="ft">Data &amp; Sync</p><h3>Data import/export, LAN and online sync</h3></div>
+          <div>
+            <p>JSON export of the whole DB or a single project, import with validation and conflict preview, peer-to-peer sync on your local network, online delta sync or USB transfer — your data, your control.</p>
+            <ul style="list-style:none;margin-top:1.1rem;display:grid;gap:0.45rem;opacity:0.7;font-size:0.92rem">
               <li>ZIP Export of the entire database or selected projects</li>
               <li>Maintenance: cleaning and optimizing the SQLite database</li>
+              <li>peer-to-peer LAN sync (no cloud, no accounts) + code pairing</li>
+              <li>WebUI: the whole dashboard in your phone's browser (local network)</li>
+              <li>import with validation and conflict preview</li>
               <li>validate import + summary after import</li>
               <li>backup/export all or single project</li>
               <li>startup sync + interval sync + status/ACK</li>
             </ul>
-          </article>
-
-          <article class="feature-card" data-reveal data-delay="120">
-            <p class="feature-tag">Daemon &amp; Ops</p>
-            <h3>Daemon control, logs and autostart</h3>
-            <p>
-              Start, stop, and restart the daemon straight from the app, check logs and monitor collection status.
-              Minimal system footprint — doesn't slow down your machine during daily work.
-            </p>
-            <ul>
+          </div>
+        </div>
+        <div class="feat">
+          <div><p class="ft">Daemon &amp; Ops</p><h3>Daemon control, logs and autostart</h3></div>
+          <div>
+            <p>Start, stop, and restart the daemon straight from the app, check logs and monitor collection status. Minimal system footprint — doesn't slow down your machine during daily work.</p>
+            <ul style="list-style:none;margin-top:1.1rem;display:grid;gap:0.45rem;opacity:0.7;font-size:0.92rem">
               <li>start / stop / restart daemon</li>
               <li>logs with auto-refresh and PID status</li>
               <li>Working Hours and Session Management (Gap Fill) configuration</li>
               <li>autostart + low requirements for background monitoring</li>
             </ul>
-          </article>
-        </div>
-      </section>
-
-      <section id="updates" class="section section-light group-engine release-section">
-        <div class="section-head" data-reveal>
-          <p class="eyebrow eyebrow-dark">Product updates</p>
-          <h2><span class="tf-style">TIMEFLOW</span> 0.1.6 is live.</h2>
-          <p>
-            Big update across Dashboard, Sessions, Projects, AI, Settings, Daemon, and more.
-            Full changelog (including archived 0.1.5) lives on a dedicated page.
-          </p>
-        </div>
-
-        <article class="release-teaser" data-reveal>
-          <div class="release-teaser-top">
-            <p class="release-entry-label">Release highlight</p>
-            <div class="release-badges" aria-label="Change types">
-              <span class="release-badge release-badge-feature">New features</span>
-              <span class="release-badge release-badge-improve">Improvements</span>
-              <span class="release-badge release-badge-fix">Bug fixes</span>
-            </div>
           </div>
-          <h3>The complete 0.1.6 changelog is on a dedicated page.</h3>
-          <p class="release-entry-intro">
-            Complete module-by-module list with icons in the Help-style layout, plus an archived 0.1.5 section.
-          </p>
-          <a class="btn btn-primary" href="./updates.html">Open full changelog 0.1.6</a>
-        </article>
-      </section>
-
-      <section class="section section-dark group-engine">
-        <div class="section-head compact" data-reveal>
-          <p class="eyebrow">Who it works best for</p>
-          <h2>Not just timing — helping you get time back.</h2>
-          <p>
-            Designers jump between Figma, Photoshop, browser, and chat dozens of times a day.
-            TIMEFLOW sorts out the chaos and recovers context you'd never reconstruct yourself.
-          </p>
         </div>
-
-        <div class="persona-grid">
-          <article class="persona-card" data-reveal>
-            <h3>Graphic / Brand Designer</h3>
-            <p>
-              Bill time across client projects without typing anything — even when you're bouncing
-              between several apps and folders at once.
-            </p>
-            <div class="persona-tags">
-              <span>projects by folders</span>
-              <span>unassigned sessions</span>
-              <span>value estimations</span>
-            </div>
-          </article>
-          <article class="persona-card" data-reveal data-delay="70">
-            <h3>UI/UX / Product Designer</h3>
-            <p>
-              See what's eating time each week — research, mockups, iterations, or consultations —
-              heatmap and trends ready without clicking around.
-            </p>
-            <div class="persona-tags">
-              <span>dashboard + analysis</span>
-              <span>CSV export</span>
-              <span>manual sessions</span>
-            </div>
-          </article>
-          <article class="persona-card" data-reveal data-delay="140">
-            <h3>Freelancer beyond design</h3>
-            <p>
-              <span class="tf-style">TIMEFLOW</span> works everywhere you bill time to clients — in
-              development, editing, consulting, writing.
-            </p>
-            <div class="persona-tags">
-              <span>AI suggests assignments</span>
-              <span>backup and import</span>
-              <span>online sync</span>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="workflow" class="section section-light group-proof">
-        <div class="section-head" data-reveal>
-          <p class="eyebrow eyebrow-dark">How it works</p>
-          <h2>From raw sessions to ready accounting.</h2>
-          <p>
-            Automatic tracking + manual control where needed. Accuracy without clicking all day long.
-          </p>
-        </div>
-
-        <div class="workflow-grid">
-          <article class="workflow-step" data-reveal>
-            <div class="step-num">01</div>
-            <h3>Data Collection</h3>
-            <p>
-              The daemon collects data in the background; the dashboard pulls it at startup and refreshes daily sessions.
-            </p>
-            <ul>
-              <li>daemon status + autostart</li>
-              <li>auto-import at start</li>
-              <li>file archive from import</li>
+        <div class="feat">
+          <div><p class="ft">Project Manager</p><h3>Projects with budget, deadline and folder structure</h3></div>
+          <div>
+            <p>A dedicated PM module alongside automatic tracking — create projects with a budget and deadline, generate a folder tree from a template, and link them to tracked time.</p>
+            <ul style="list-style:none;margin-top:1.1rem;display:grid;gap:0.45rem;opacity:0.7;font-size:0.92rem">
+              <li>auto-numbering, status (active/inactive/archived), budget and deadline</li>
+              <li>on-disk folder tree from templates ({name}) + template manager</li>
+              <li>TF Match — budget and deadline next to actual measured time</li>
+              <li>filters (year, client, status), sorting and a saved view</li>
             </ul>
-          </article>
-
-          <article class="workflow-step" data-reveal data-delay="80">
-            <div class="step-num">02</div>
-            <h3>Organization and Assignments</h3>
-            <p>
-              Create projects, assign apps, accept or reject AI suggestions — manual fixes only where things need fixing.
-            </p>
-            <ul>
-              <li>projects + folders + candidates</li>
-              <li>AI suggest / auto_safe / rollback</li>
-              <li>session merge based on set gap</li>
-            </ul>
-          </article>
-
-          <article class="workflow-step" data-reveal data-delay="160">
-            <div class="step-num">03</div>
-            <h3>Analysis, Valuation and Backup</h3>
-            <p>
-              End result: a dashboard with metrics, work valuation, and tools for exporting, importing, and syncing between machines.
-            </p>
-            <ul>
-              <li>heatmap + charts</li>
-              <li>estimated value per project + session multiplier</li>
-              <li>JSON export/import + online sync</li>
-            </ul>
-          </article>
+          </div>
         </div>
-      </section>
-
-      <section id="algorithm" class="section section-dark group-proof">
-        <div class="section-head" data-reveal>
-          <p class="eyebrow eyebrow-dark">Fair Time Algorithm (Unique Project Time)</p>
-          <h2>Your efficiency is not a cost for the client.</h2>
-          <p>
-            Most trackers make the same mistake — they count every open app separately, artificially
-            inflating stats. TIMEFLOW deduplicates activity and splits seconds fairly between projects.
-            Your client gets real numbers, and you get a clean conscience when invoicing.
-          </p>
+        <div class="feat">
+          <div><p class="ft">Clients</p><h3>Time and value per client</h3></div>
+          <div>
+            <p>The clients panel aggregates time and estimated value for each client, and in Estimates you filter the report by selected clients.</p>
+            <ul style="list-style:none;margin-top:1.1rem;display:grid;gap:0.45rem;opacity:0.7;font-size:0.92rem">
+              <li>client cards: value, project count, tracked time</li>
+              <li>manage the list (add / edit / archive) + assign to projects</li>
+              <li>auto-build clients from project names</li>
+              <li>client filter in Estimates (multi-select)</li>
+            </ul>
+          </div>
         </div>
+        <div class="feat">
+          <div><p class="ft">WebUI / phone access</p><h3>The whole dashboard in a browser</h3></div>
+          <div>
+            <p>Headless mode serves the full TIMEFLOW interface in a browser — open the same dashboard from your phone or another device on the local network, without the app window.</p>
+            <ul style="list-style:none;margin-top:1.1rem;display:grid;gap:0.45rem;opacity:0.7;font-size:0.92rem">
+              <li>practically the whole dashboard from your phone (browse and edit)</li>
+              <li>responsive mobile layout + settings shared with the desktop</li>
+              <li>localhost with no password, LAN via a 6-digit code (port 47892)</li>
+              <li>trusted local network only (unencrypted HTTP)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="feature-grid">
-          <article class="feature-card" data-reveal>
-            <p class="feature-tag">Overbilling protection</p>
-            <h3>Zero "double counting"</h3>
-            <p>
-              Other trackers count multitasking separately (3h of work in 1 clock hour). TIMEFLOW deduplicates.
-            </p>
-            <ul>
+  <!-- ALGORITHM -->
+  <section class="section dark" id="algorithm">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow-s">Fair Time Algorithm (Unique Project Time)</p>
+        <h2 class="h2">Your real time is not <em>inflated stats.</em></h2>
+        <p class="lead-s">Most trackers make the same mistake — they count every open app separately, artificially inflating stats (3 hours of "work" inside one clock hour). TIMEFLOW deduplicates multitasking and shows your real time.</p>
+      </div>
+      <div class="compare">
+        <div class="cbox">
+          <p class="ctag">✕ Other trackers</p>
+          <p style="opacity:0.62;font-size:0.82rem;margin-bottom:1rem">1 hour of work, 3 apps open at once. Each counted separately for that same hour:</p>
+          <div class="bar b1">Figma · +1h</div>
+          <div class="bar b2">Photoshop · +1h</div>
+          <div class="bar b3">Blender · +1h</div>
+          <p class="big bad">3h 00m</p>
+          <p class="ctot">billed for 1 clock hour of work</p>
+        </div>
+        <div class="vs">→</div>
+        <div class="cbox good">
+          <p class="ctag">✓ TIMEFLOW</p>
+          <div class="split"><div class="b1" style="width:42%">42%</div><div class="b2" style="width:35%">35%</div><div class="b3" style="width:23%">23%</div></div>
+          <p style="opacity:0.6;font-size:0.85rem;margin-top:0.8rem">Every second of attention split proportionally. The sum never exceeds the real time.</p>
+          <p class="big good">1h 00m</p>
+          <p class="ctot">real time: 1h, split 42 / 35 / 23 between projects</p>
+        </div>
+      </div>
+      <p class="note">This is <b>your real data</b> — for estimates, invoices and your own control. What you tell the client is up to you.</p>
+
+      <div class="rows" style="margin-top:3.5rem">
+        <div class="row">
+          <h3>Zero "double counting"</h3>
+          <div>
+            <p>Other trackers count multitasking separately (3h of work in 1 clock hour). TIMEFLOW deduplicates.</p>
+            <ul style="list-style:none;margin-top:0.7rem;display:grid;gap:0.4rem;opacity:0.62;font-size:0.88rem">
               <li>Automatic multitasking deduplication</li>
               <li>Counts only unique minutes on a project</li>
               <li>The most "fair" approach on the market</li>
             </ul>
-          </article>
-
-          <article class="feature-card" data-reveal data-delay="60">
-            <p class="feature-tag">Fair distribution</p>
-            <h3>Mathematical precision of division</h3>
-            <p>
-              The Rust backend splits seconds fairly between projects when you're using multiple tools at once.
-            </p>
-            <ul>
+          </div>
+          <span class="tag">Overbilling protection</span>
+        </div>
+        <div class="row">
+          <h3>Mathematical precision of division</h3>
+          <div>
+            <p>The Rust backend splits seconds fairly between projects when you're using multiple tools at once.</p>
+            <ul style="list-style:none;margin-top:0.7rem;display:grid;gap:0.4rem;opacity:0.62;font-size:0.88rem">
               <li>Fair division of every second of attention</li>
               <li>Sum of times never exceeds real time</li>
               <li>Client pays for time, not for open windows</li>
             </ul>
-          </article>
-
-          <article class="feature-card" data-reveal data-delay="120">
-            <p class="feature-tag">Proof of work</p>
-            <h3>Evidence Transparency</h3>
-            <p>
-              Every second is backed by file history — if the client asks for details, you've got proof.
-            </p>
-            <ul>
+          </div>
+          <span class="tag">Fair distribution</span>
+        </div>
+        <div class="row">
+          <h3>A time algorithm you choose</h3>
+          <div>
+            <p>You pick how time is computed — today it's the Fair Time Algorithm (wall-clock with deduplication). The architecture is ready for more methods, and switching recomputes from the raw sessions without overwriting anything.</p>
+            <ul style="list-style:none;margin-top:0.7rem;display:grid;gap:0.4rem;opacity:0.62;font-size:0.88rem">
+              <li>choose the time-computation method in Settings</li>
+              <li>pluggable architecture — ready for more algorithms</li>
+              <li>switching the method doesn't change your data (recomputes from raw sessions)</li>
+            </ul>
+          </div>
+          <span class="tag">Time method choice</span>
+        </div>
+        <div class="row">
+          <h3>Evidence Transparency</h3>
+          <div>
+            <p>Every second is backed by file history — if the client asks for details, you've got proof.</p>
+            <ul style="list-style:none;margin-top:0.7rem;display:grid;gap:0.4rem;opacity:0.62;font-size:0.88rem">
               <li>Precise session and file preview</li>
               <li>Excludes accidental time counting</li>
               <li>No counting of social media outside projects</li>
             </ul>
-          </article>
-
-          <article class="feature-card" data-reveal>
-            <p class="feature-tag">Local credibility</p>
-            <h3>Privacy and Local Credibility</h3>
+          </div>
+          <span class="tag">Proof of work</span>
+        </div>
+        <div class="row">
+          <h3>Privacy and Local Credibility</h3>
+          <div>
             <p>Data processed locally in SQLite — no one manipulates stats "in the cloud".</p>
-            <ul>
+            <ul style="list-style:none;margin-top:0.7rem;display:grid;gap:0.4rem;opacity:0.62;font-size:0.88rem">
               <li>100% local data processing</li>
               <li>You control access to reports</li>
             </ul>
-          </article>
-
-          <article class="feature-card" data-reveal data-delay="250">
-            <p class="feature-tag">Client value</p>
-            <h3>Real engagement</h3>
+          </div>
+          <span class="tag">Local credibility</span>
+        </div>
+        <div class="row">
+          <h3>Real engagement</h3>
+          <div>
             <p>Unique time, not app "processor" time.</p>
-            <ul>
+            <ul style="list-style:none;margin-top:0.7rem;display:grid;gap:0.4rem;opacity:0.62;font-size:0.88rem">
               <li>Work time is measured fairly</li>
               <li>No timing for open windows</li>
             </ul>
-          </article>
-
-          <article class="feature-card" data-reveal data-delay="300">
-            <p class="feature-tag">Transparency</p>
-            <h3>Full transparency</h3>
+          </div>
+          <span class="tag">Client value</span>
+        </div>
+        <div class="row">
+          <h3>Full transparency</h3>
+          <div>
             <p>End the hourly rate debate — hard data speaks for itself.</p>
-            <ul>
+            <ul style="list-style:none;margin-top:0.7rem;display:grid;gap:0.4rem;opacity:0.62;font-size:0.88rem">
               <li>Accurate work time data</li>
               <li>No manipulation of statistics</li>
             </ul>
-          </article>
+          </div>
+          <span class="tag">Transparency</span>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
 
-      <section class="section section-neutral group-trust">
-        <div class="section-head compact" data-reveal>
-          <p class="eyebrow eyebrow-dark">Platforms and status</p>
-          <h2>Desktop-first today. More tools tomorrow.</h2>
-          <p>
-            The current version is a stable desktop workflow and beta tests with real users.
-            New platforms ship only when they're done right.
-          </p>
-        </div>
+  <!-- SCREENSHOT SHOWCASE -->
+  <section class="section">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow-s">TIMEFLOW Interface</p>
+        <h2 class="h2">Dashboard, projects, sessions and analytics in one <em>workflow.</em></h2>
+        <p class="lead-s">The main view shows the workload dashboard. Below are the key modules that build a freelancer's daily workflow: Projects, Sessions, Analysis, Estimates, and AI.</p>
+      </div>
 
-        <div class="platform-grid">
-          <article class="platform-card is-live" data-reveal>
-            <div class="platform-status">Available</div>
-            <h3>Windows</h3>
-            <p>Desktop app + background process + dashboard + import and log management.</p>
-          </article>
-          <article class="platform-card is-live" data-reveal data-delay="70">
-            <div class="platform-status">Available</div>
-            <h3>macOS</h3>
-            <p>Full desktop support for Apple users — with daemon, dashboard and native activity monitoring.</p>
-          </article>
-          <article class="platform-card" data-reveal data-delay="140">
-            <div class="platform-status is-planned">Planned</div>
-            <h3>Linux</h3>
-            <p>Desktop tracking for users of custom environments — no compromises.</p>
-          </article>
-          <article class="platform-card" data-reveal data-delay="210">
-            <div class="platform-status is-planned">Planned</div>
-            <h3>Mobile App</h3>
-            <p>Access to data and sessions from your phone — TIMEFLOW always at hand.</p>
-          </article>
-        </div>
-      </section>
+      <figure style="margin:0;border:1px solid var(--line);border-radius:6px;overflow:hidden">
+        <picture>
+          <source type="image/avif"
+            srcset="../screens/dashboard-main_480.avif 480w, ../screens/dashboard-main_960.avif 960w, ../screens/dashboard-main.avif 1600w"
+            sizes="(max-width: 1080px) 92vw, 1080px" />
+          <img class="shot-image" src="../screens/dashboard-main.webp"
+            srcset="../screens/dashboard-main_480.webp 480w, ../screens/dashboard-main_960.webp 960w, ../screens/dashboard-main.webp 1600w"
+            sizes="(max-width: 1080px) 92vw, 1080px"
+            width="1600" height="1000"
+            alt="TIMEFLOW Dashboard – daily view with metrics and timeline" loading="eager"
+            fetchpriority="high" decoding="async" />
+        </picture>
+      </figure>
 
-      <section id="roadmap" class="section section-dark group-trust">
-        <div class="section-head" data-reveal>
-          <p class="eyebrow">Next Version Roadmap</p>
-          <h2>Project manager as the next big step.</h2>
-          <p>
-            The foundation is in place — projects, folders, candidates, sync, and time monitoring. The next
-            version expands this into a full project management tool, from structure to archiving.
-          </p>
-        </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1.2rem;margin-top:1.6rem">
+        <figure style="margin:0">
+          <div style="border:1px solid var(--line);border-radius:6px;overflow:hidden">
+            <picture>
+              <source type="image/avif"
+                srcset="../screens/projects_480.avif 480w, ../screens/projects.avif 960w"
+                sizes="(max-width: 720px) 92vw, 340px" />
+              <img class="shot-image" src="../screens/projects.webp"
+                srcset="../screens/projects_480.webp 480w, ../screens/projects.webp 960w"
+                sizes="(max-width: 720px) 92vw, 340px"
+                width="1600" height="1000"
+                alt="TIMEFLOW Projects – project folders and auto-detection" loading="lazy" decoding="async" />
+            </picture>
+          </div>
+          <figcaption style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-top:0.7rem">Projects · folders + statuses</figcaption>
+        </figure>
+        <figure style="margin:0">
+          <div style="border:1px solid var(--line);border-radius:6px;overflow:hidden">
+            <picture>
+              <source type="image/avif"
+                srcset="../screens/sessions_480.avif 480w, ../screens/sessions.avif 960w"
+                sizes="(max-width: 720px) 92vw, 340px" />
+              <img class="shot-image" src="../screens/sessions.webp"
+                srcset="../screens/sessions_480.webp 480w, ../screens/sessions.webp 960w"
+                sizes="(max-width: 720px) 92vw, 340px"
+                width="1600" height="1000"
+                alt="TIMEFLOW Sessions – grouped sessions with AI assignments" loading="lazy" decoding="async" />
+            </picture>
+          </div>
+          <figcaption style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-top:0.7rem">Sessions · sessions + assignments</figcaption>
+        </figure>
+        <figure style="margin:0">
+          <div style="border:1px solid var(--line);border-radius:6px;overflow:hidden">
+            <picture>
+              <source type="image/avif"
+                srcset="../screens/analysis_480.avif 480w, ../screens/analysis_960.avif 960w, ../screens/analysis.avif 1600w"
+                sizes="(max-width: 720px) 92vw, 340px" />
+              <img class="shot-image" src="../screens/analysis.webp"
+                srcset="../screens/analysis_480.webp 480w, ../screens/analysis_960.webp 960w, ../screens/analysis.webp 1600w"
+                sizes="(max-width: 720px) 92vw, 340px"
+                width="1600" height="1000"
+                alt="TIMEFLOW Time Analysis – workload heatmap and charts" loading="lazy" decoding="async" />
+            </picture>
+          </div>
+          <figcaption style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-top:0.7rem">Time Analysis · charts + heatmap</figcaption>
+        </figure>
+        <figure style="margin:0">
+          <div style="border:1px solid var(--line);border-radius:6px;overflow:hidden">
+            <picture>
+              <source type="image/avif"
+                srcset="../screens/estimates_480.avif 480w, ../screens/estimates_960.avif 960w, ../screens/estimates.avif 1600w"
+                sizes="(max-width: 720px) 92vw, 340px" />
+              <img class="shot-image" src="../screens/estimates.webp"
+                srcset="../screens/estimates_480.webp 480w, ../screens/estimates_960.webp 960w, ../screens/estimates.webp 1600w"
+                sizes="(max-width: 720px) 92vw, 340px"
+                width="1600" height="1000"
+                alt="TIMEFLOW Estimates – valuing freelancer work" loading="lazy" decoding="async" />
+            </picture>
+          </div>
+          <figcaption style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-top:0.7rem">Estimates · rates + multipliers + valuation</figcaption>
+        </figure>
+        <figure style="margin:0">
+          <div style="border:1px solid var(--line);border-radius:6px;overflow:hidden">
+            <picture>
+              <source type="image/avif"
+                srcset="../screens/ai-model_480.avif 480w, ../screens/ai-model_960.avif 960w, ../screens/ai-model.avif 1600w"
+                sizes="(max-width: 720px) 92vw, 340px" />
+              <img class="shot-image" src="../screens/ai-model.webp"
+                srcset="../screens/ai-model_480.webp 480w, ../screens/ai-model_960.webp 960w, ../screens/ai-model.webp 1600w"
+                sizes="(max-width: 720px) 92vw, 340px"
+                width="1600" height="1000"
+                alt="TIMEFLOW AI Model – assignment suggestions and auto_safe mode" loading="lazy" decoding="async" />
+            </picture>
+          </div>
+          <figcaption style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-top:0.7rem">AI &amp; Model · suggestions + model</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
 
-        <div class="roadmap-wrap">
-          <article class="roadmap-card current" data-reveal>
-            <div class="roadmap-stage">Now / Beta</div>
-            <h3>Tracking + analysis + data organization</h3>
-            <p>
-              TIMEFLOW already supports time monitoring, folder-based projects, manual sessions,
-              estimates, AI suggestions, import/export and online sync.
-            </p>
-            <ul>
-              <li>tracking and sessions</li>
-              <li>projects + folder roots</li>
-              <li>AI suggestion / auto-safe</li>
-              <li>export/import + online sync</li>
+  <!-- PLATFORMS -->
+  <section class="section light">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow-s">Platforms and status</p>
+        <h2 class="h2">Desktop-first today. More <em>tomorrow.</em></h2>
+        <p class="lead-s">The current version is a stable desktop workflow and beta tests with real users. New platforms ship only when they're done right.</p>
+      </div>
+      <div class="rows">
+        <div class="row"><h3>Windows</h3><p>Desktop app + background process + dashboard + import and log management.</p><span class="tag live">Available</span></div>
+        <div class="row"><h3>macOS</h3><p>Full desktop support for Apple users — with daemon, dashboard and native activity monitoring.</p><span class="tag live">Available</span></div>
+        <div class="row"><h3>Linux</h3><p>Desktop tracking for users of custom environments — no compromises.</p><span class="tag soon">Planned</span></div>
+        <div class="row"><h3>Mobile App</h3><p>A native mobile app is planned — but you can already open the whole dashboard from your phone via the WebUI (browser, local network).</p><span class="tag soon">Planned</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section class="section dark" id="stack">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow-s">Tech Stack</p>
+        <h2 class="h2">Native app, not a web-app <em>in a window.</em></h2>
+        <p class="lead-s">Lightweight footprint and minimal requirements are by design, not accident. Rust on the backend, a separate daemon, and local SQLite — fast start and full control over files, without a heavy runtime in the background.</p>
+      </div>
+      <div class="rows">
+        <div class="row">
+          <h3>Rust + Tauri 2</h3>
+          <div>
+            <p>Lightweight desktop runtime, fast start, and native control over files and processes — without the heavy overhead you know from Electron.</p>
+            <ul style="list-style:none;margin-top:0.7rem;display:grid;gap:0.4rem;opacity:0.62;font-size:0.88rem">
+              <li>better performance for monitoring and background work</li>
+              <li>native integration with the system, files and processes</li>
+              <li>strong base for Windows and macOS now, more desktop platforms on the way</li>
             </ul>
-          </article>
-
-          <article class="roadmap-card next" data-reveal data-delay="100">
-            <div class="roadmap-stage">Next Version / Direction</div>
-            <h3>Project manager with custom folder tree</h3>
-            <p>
-              Dedicated project folders and a consistent directory tree tailored to each project type,
-              client, or pipeline.
-            </p>
-            <ul>
-              <li>dedicated project folders</li>
-              <li>custom folder tree (templates/presets)</li>
-              <li>faster project setup and organization</li>
+          </div>
+          <span class="tag">Core</span>
+        </div>
+        <div class="row">
+          <h3>Local SQLite (rusqlite, bundled)</h3>
+          <div>
+            <p>Local <strong>SQLite</strong> database works right after installation (<code>bundled</code>) — zero extra setup, ready workflow from the first launch.</p>
+            <ul style="list-style:none;margin-top:0.7rem;display:grid;gap:0.4rem;opacity:0.62;font-size:0.88rem">
+              <li>local-first: data and dashboard available instantly</li>
+              <li>fast reading of sessions, projects and analytics</li>
+              <li>backup and data import/export without complexity</li>
             </ul>
-          </article>
-
-          <article class="roadmap-card future" data-reveal data-delay="200">
-            <div class="roadmap-stage">Future Extensions</div>
-            <h3>Archiving, sharing and deeper integration</h3>
-            <p>
-              Project file archiving, sharing, and a tighter connection between project structure
-              and work time data.
-            </p>
-            <ul>
-              <li>report generation with sessions (PDF / CSV for invoices)</li>
-              <li>project file archiving</li>
-              <li>sharing / collaboration</li>
-              <li>deeper integration with time monitoring</li>
+          </div>
+          <span class="tag">Data</span>
+        </div>
+        <div class="row">
+          <h3>React 19 + TypeScript + Vite</h3>
+          <div>
+            <p>Dashboard developed independently of the backend — new views, analytics, and panels iterated fast.</p>
+            <ul style="list-style:none;margin-top:0.7rem;display:grid;gap:0.4rem;opacity:0.62;font-size:0.88rem">
+              <li>fast iteration of dashboard features and screens</li>
+              <li>clear charts and analytics (Recharts)</li>
+              <li>stable UI stack (Zustand / Radix / Tailwind)</li>
             </ul>
-          </article>
+          </div>
+          <span class="tag">UI</span>
         </div>
-      </section>
-
-      <section id="about" class="section section-neutral group-trust">
-        <div class="section-head compact" data-reveal>
-          <p class="eyebrow eyebrow-dark">Trust and Contact</p>
-          <h2>Who is behind TIMEFLOW and what the beta looks like.</h2>
-          <p>
-            Early version by CONCEPTFAB. The beta is here to iterate on real freelancer and small studio workflows —
-            not to collect emails and never follow up.
-          </p>
-        </div>
-
-        <div class="trust-grid">
-          <article class="trust-card" data-reveal>
-            <h3>About the project</h3>
-            <p>
-              TIMEFLOW is a desktop-first time tracker for client-billed work.
-              Priority: lightness, local data, and a fast workflow without manual time entry.
-            </p>
-            <ul>
-              <li>created by CONCEPTFAB</li>
-              <li>beta feedback directly affects the roadmap</li>
-              <li>communication via form and email follow-up</li>
+        <div class="row">
+          <h3>Rust Daemon</h3>
+          <div>
+            <p>A <strong>Rust</strong> daemon runs the data pipeline independently of the UI — the dashboard is your work interface, activity collection runs in the background.</p>
+            <ul style="list-style:none;margin-top:0.7rem;display:grid;gap:0.4rem;opacity:0.62;font-size:0.88rem">
+              <li>start / stop / restart control from UI</li>
+              <li>logs and process status</li>
+              <li>file archiving and auto-import workflow</li>
+              <li>autostart and background monitoring with low overhead</li>
             </ul>
-          </article>
-
-          <article class="trust-card" data-reveal data-delay="90">
-            <h3>How beta access works</h3>
-            <p>
-              After you apply, we ask about your work context (industry, needs) and get back to you with
-              build info and next steps. We prioritize people who actually bill time to clients.
-            </p>
-            <ul>
-              <li>short form instead of long onboarding</li>
-              <li>confirmation after sending the application</li>
-              <li>access to the build based on order and fit</li>
+          </div>
+          <span class="tag">Process</span>
+        </div>
+        <div class="row">
+          <h3>Stability Engine</h3>
+          <div>
+            <p>Three libraries making sure the numbers add up — correct timestamps, stable import/export, and predictable background tasks.</p>
+            <ul style="list-style:none;margin-top:0.7rem;display:grid;gap:0.4rem;opacity:0.62;font-size:0.88rem">
+              <li>Serde / serde_json: stable import/export and data contracts</li>
+              <li>Chrono: correct date ranges, sessions and time accounting</li>
+              <li>Tokio: timers, cyclic tasks and background operations</li>
             </ul>
-          </article>
+          </div>
+          <span class="tag">Stability</span>
         </div>
-      </section>
-
-      <section id="faq" class="section section-light group-trust">
-        <div class="section-head compact" data-reveal>
-          <p class="eyebrow eyebrow-dark">FAQ</p>
-          <h2>Most common questions before applying for beta.</h2>
-          <p>
-            Short answers to the most important issues: platforms, data, cost and test process.
-          </p>
+        <div class="row">
+          <h3>Next.js sync server</h3>
+          <div>
+            <p>A <strong>Next.js</strong> server coordinates sync between devices — local-first remains the foundation.</p>
+            <ul style="list-style:none;margin-top:0.7rem;display:grid;gap:0.4rem;opacity:0.62;font-size:0.88rem">
+              <li>delta sync and full synchronization between devices</li>
+              <li>API push / pull / ack / status</li>
+              <li>foundation for mobile and sharing features</li>
+            </ul>
+          </div>
+          <span class="tag">Sync</span>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="faq-list" data-reveal>
-          <details class="faq-item">
-            <summary>How does the Fair Time Algorithm work?</summary>
-            <p>
-              Other programs typically count every open app separately (e.g., 3h of work logged inside a single clock hour).
-              <span class="tf-style">TIMEFLOW</span> deduplicates multitasking and fairly divides seconds between projects (Fair Share).
-              That way, statistics stay 100% fair for both you and your client.
-            </p>
-          </details>
-          <details class="faq-item">
-            <summary>Does <span class="tf-style">TIMEFLOW</span> work offline?</summary>
-            <p>
-              Yes. Data is stored locally on the device, and online sync is optional.
-            </p>
-          </details>
-          <details class="faq-item">
-            <summary>Who is prioritized in beta tests?</summary>
-            <p>
-              Mostly freelancers and small studios who bill time to clients, but the form is
-              open to other industries as well.
-            </p>
-          </details>
-          <details class="faq-item">
-            <summary>On which platform does the current beta run?</summary>
-            <p>
-              The beta runs on Windows and macOS. The roadmap includes Linux and a mobile app.
-            </p>
-          </details>
-          <details class="faq-item">
-            <summary>Is the beta paid?</summary>
-            <p>
-              No. Current beta tests are free and serve to collect feedback for future iterations.
-            </p>
-          </details>
+  <!-- ROADMAP -->
+  <section class="section light" id="roadmap">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow-s">Roadmap</p>
+        <h2 class="h2">The project manager already ships — <em>what's next.</em></h2>
+        <p class="lead-s">The foundation and the project manager are in place: projects with budgets, clients, folders, sync, and time monitoring. Next come report attachments, file archiving, and collaboration.</p>
+      </div>
+      <div class="road">
+        <div>
+          <p class="ph">Now / Beta</p>
+          <h3>Tracking, project manager and clients</h3>
+          <p>TIMEFLOW supports time monitoring, folder-based projects, a project manager (PM) with budgets and clients, manual sessions, estimates, AI suggestions, import/export and LAN/online sync.</p>
+          <ul style="list-style:none;margin-top:1rem;display:grid;gap:0.45rem;opacity:0.7;font-size:0.9rem">
+            <li>tracking, sessions and analysis</li>
+            <li>tracking and sessions</li>
+            <li>project manager (budget, status, folders) + clients</li>
+            <li>projects + folder roots</li>
+            <li>AI suggestion / auto-safe</li>
+            <li>export/import + LAN and online sync</li>
+            <li>export/import + online sync</li>
+          </ul>
         </div>
-      </section>
+        <div>
+          <p class="ph">Next Version / Direction</p>
+          <h3>Report attachments and project archiving</h3>
+          <p>Report generation with sessions as an invoice attachment, and project file archiving — closing the loop from time to billing.</p>
+          <ul style="list-style:none;margin-top:1rem;display:grid;gap:0.45rem;opacity:0.7;font-size:0.9rem">
+            <li>reports with sessions (PDF / CSV for invoices)</li>
+            <li>project file archiving</li>
+            <li>folder-tree presets per pipeline</li>
+            <li>dedicated project folders</li>
+            <li>custom folder tree (templates/presets)</li>
+            <li>faster project setup and organization</li>
+          </ul>
+        </div>
+        <div>
+          <p class="ph">Future Extensions</p>
+          <h3>Sharing, collaboration and new platforms</h3>
+          <p>Sharing data and reports, team collaboration, and additional desktop and mobile platforms.</p>
+          <ul style="list-style:none;margin-top:1rem;display:grid;gap:0.45rem;opacity:0.7;font-size:0.9rem">
+            <li>more time-computation methods (pluggable architecture)</li>
+            <li>sharing / team collaboration</li>
+            <li>sharing / collaboration</li>
+            <li>deeper integration of project structure with time</li>
+            <li>deeper integration with time monitoring</li>
+            <li>Linux and a mobile app (roadmap)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <section id="beta" class="section section-cta group-cta">
-        <div class="cta-grid">
-          <div class="cta-copy" data-reveal>
-            <p class="eyebrow eyebrow-dark">Apply for beta tests</p>
-            <h2>Help build <span class="tf-style">TIMEFLOW</span> for real freelancer workflows.</h2>
-            <p>
-              Mainly looking for designers — but the door is open to anyone billing time to clients.
-              Your feedback shapes the roadmap: what blocks you, what speeds things up, what's missing.
-            </p>
-            <div class="cta-points">
-              <div>
-                <strong>What we care about</strong>
-                <span>real use cases, project mess, client billing</span>
-              </div>
-              <div>
-                <strong>What you get</strong>
-                <span>early access, real impact on the roadmap, fast iterations based on your feedback</span>
-              </div>
-              <div>
-                <strong>Product status</strong>
-                <span>beta — features work, we set priorities together with testers</span>
-              </div>
+  <!-- TRUST AND CONTACT -->
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow-s">Trust and Contact</p>
+        <h2 class="h2">Who is behind TIMEFLOW and what the <em>beta looks like.</em></h2>
+        <p class="lead-s">Early version by CONCEPTFAB. The beta is here to iterate on real freelancer and small studio workflows — not to collect emails and never follow up.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem">
+        <article style="border:1px solid var(--line);border-radius:6px;padding:1.8rem">
+          <h3 style="font-family:var(--serif);font-size:1.5rem;font-weight:400;margin-bottom:0.6rem">About the project</h3>
+          <p style="opacity:0.72;font-size:0.96rem">TIMEFLOW is a desktop-first time tracker for client-billed work. Priority: lightness, local data, and a fast workflow without manual time entry.</p>
+          <ul style="list-style:none;margin-top:1.1rem;display:grid;gap:0.45rem;opacity:0.68;font-size:0.92rem">
+            <li>created by CONCEPTFAB</li>
+            <li>beta feedback directly affects the roadmap</li>
+            <li>communication via form and email follow-up</li>
+          </ul>
+        </article>
+        <article style="border:1px solid var(--line);border-radius:6px;padding:1.8rem">
+          <h3 style="font-family:var(--serif);font-size:1.5rem;font-weight:400;margin-bottom:0.6rem">How beta access works</h3>
+          <p style="opacity:0.72;font-size:0.96rem">After you apply, we ask about your work context (industry, needs) and get back to you with build info and next steps. We prioritize people who actually bill time to clients.</p>
+          <ul style="list-style:none;margin-top:1.1rem;display:grid;gap:0.45rem;opacity:0.68;font-size:0.92rem">
+            <li>short form instead of long onboarding</li>
+            <li>confirmation after sending the application</li>
+            <li>access to the build based on order and fit</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- UPDATES -->
+  <section class="section dark" id="updates" style="border-top:1px solid var(--line)">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow-s">Product updates</p>
+        <h2 class="h2">TIMEFLOW 0.1.6 <em>is live.</em></h2>
+        <p class="lead-s">The latest build adds a custom date range, mobile access via WebUI, and hardened sync security — alongside changes across Sessions, AI, Daemon and Settings. Full changelog (including archived 0.1.5) lives on a dedicated page.</p>
+      </div>
+      <div style="border:1px solid var(--line);border-radius:4px;padding:1.8rem;max-width:760px">
+        <div style="display:flex;gap:0.6rem;flex-wrap:wrap;margin-bottom:1.1rem">
+          <span class="tag" style="color:var(--accent-2);border:1px solid rgba(59,130,246,0.4)">New features</span>
+          <span class="tag soon">Improvements</span>
+          <span class="tag soon">Bug fixes</span>
+        </div>
+        <h3 style="font-family:var(--serif);font-size:1.5rem;font-weight:400;margin-bottom:0.5rem">The complete 0.1.6 changelog (with archived 0.1.5)</h3>
+        <p style="opacity:0.68;font-size:0.95rem;margin-bottom:1.4rem">Complete module-by-module list with icons in the Help-style layout, plus an archived 0.1.5 section.</p>
+        <a class="cta-link" href="./updates.html">Open full changelog 0.1.6 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section dark" id="faq">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow-s">FAQ</p>
+        <h2 class="h2">Most common questions before applying for <em>beta.</em></h2>
+        <p class="lead-s">Short answers to the most important issues: platforms, data, cost and test process.</p>
+      </div>
+      <div class="faq">
+        <details open><summary>How does the Fair Time Algorithm work?</summary><p>Other programs typically count every open app separately (e.g., 3h of work logged inside a single clock hour). TIMEFLOW deduplicates multitasking and fairly divides seconds between projects (Fair Share). That way, statistics stay 100% fair for both you and your client.</p></details>
+        <details><summary>Does TIMEFLOW work offline?</summary><p>Yes. Data is stored locally on the device, and online sync is optional.</p></details>
+        <details><summary>Who is prioritized in beta tests?</summary><p>Mostly freelancers and small studios who bill time to clients, but the form is open to other industries as well.</p></details>
+        <details><summary>On which platform does the current beta run?</summary><p>The beta runs on Windows and macOS. The roadmap includes Linux and a mobile app.</p></details>
+        <details><summary>Is the beta paid?</summary><p>No. Current beta tests are free and serve to collect feedback for future iterations.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- BETA -->
+  <section class="section" id="beta" style="border-top:1px solid var(--line)">
+    <div class="wrap">
+      <div class="beta-grid">
+        <div>
+          <p class="eyebrow-s">Apply for beta tests</p>
+          <h2 class="h2">Help build TIMEFLOW for real freelancer <em>workflows.</em></h2>
+          <p class="lead-s">Mainly looking for designers — but the door is open to anyone billing time to clients. Your feedback shapes the roadmap: what blocks you, what speeds things up, what's missing.</p>
+          <div style="display:grid;gap:1.1rem;margin-top:1.8rem">
+            <div>
+              <strong style="display:block;font-family:var(--serif);font-size:1.15rem;font-weight:400">What we care about</strong>
+              <span style="opacity:0.68;font-size:0.92rem">real use cases, project mess, client billing</span>
+            </div>
+            <div>
+              <strong style="display:block;font-family:var(--serif);font-size:1.15rem;font-weight:400">What you get</strong>
+              <span style="opacity:0.68;font-size:0.92rem">early access, real impact on the roadmap, fast iterations based on your feedback</span>
+            </div>
+            <div>
+              <strong style="display:block;font-family:var(--serif);font-size:1.15rem;font-weight:400">Product status</strong>
+              <span style="opacity:0.68;font-size:0.92rem">beta — features work, we set priorities together with testers</span>
             </div>
           </div>
-
-          <form class="beta-form" id="betaForm" data-reveal data-delay="120" method="post" action="../form-handler.php"
-            accept-charset="UTF-8" novalidate>
-            <h3>Application for tests</h3>
-            <p class="form-intro">
-              Fill out the form — we'll get back to you with access and details.
-            </p>
-
-            <input type="text" name="fax_number" tabindex="-1" autocomplete="off" class="hp-field" aria-hidden="true" />
-
-            <label>
-              Name / nickname
-              <input id="betaName" type="text" name="name" placeholder="e.g. Martha / studio_nova" autocomplete="name"
-                required />
-            </label>
-            <p class="field-error" id="betaNameError" data-field-error-for="name" aria-live="polite"></p>
-
-            <label>
-              E-mail
-              <input id="betaEmail" type="email" name="email" placeholder="your@email.com" autocomplete="email"
-                required />
-            </label>
-            <p class="field-error" id="betaEmailError" data-field-error-for="email" aria-live="polite"></p>
-
-            <label>
-              Industry
-              <select id="betaRole" name="role" required>
-                <option value="" selected disabled>Choose...</option>
-                <option>Graphic / Brand Designer</option>
-                <option>UI/UX / Product Designer</option>
-                <option>Motion / Video</option>
-                <option>Developer</option>
-                <option>Other industry</option>
-              </select>
-            </label>
-            <p class="field-error" id="betaRoleError" data-field-error-for="role" aria-live="polite"></p>
-
-            <label>
-              What do you care about the most?
-              <textarea id="betaNeeds" name="needs" rows="4" aria-describedby="betaNeedsHint"></textarea>
-            </label>
-            <p class="field-hint" id="betaNeedsHint">
-              Optional — describe your workflow, billing problems, or features you need the most.
-            </p>
-
-            <label class="checkbox">
-              <input id="betaConsent" type="checkbox" name="consent" required />
-              <span>
-                I want to participate in beta tests and be contacted regarding <span class="tf-style">TIMEFLOW</span>.
-                I have read the
-                <a href="./privacy-policy.html">privacy policy</a>.
-              </span>
-            </label>
-            <p class="field-error" id="betaConsentError" data-field-error-for="consent" aria-live="polite"></p>
-            <p class="form-legal-note">
-              The form collects contact details solely for beta application processing. Details in the
-              <a href="./privacy-policy.html">privacy policy</a>.
-            </p>
-
-            <button type="submit" class="btn btn-primary btn-block">Send application</button>
-            <p class="form-feedback" id="betaFormFeedback" aria-live="polite"></p>
-          </form>
+          <blockquote class="quote">"Finally I know how much I really earn on a project. I stopped guessing."<cite>— Martha, freelance UI designer</cite></blockquote>
         </div>
-      </section>
-    </main>
 
-    <footer class="footer">
-      <div class="footer-main">
-        <div class="footer-brand">
-          <div>
-            <strong><span class="tf-style">TIMEFLOW</span></strong>
-            <p>Time tracking for freelancers • beta</p>
-          </div>
-        </div>
-        <nav class="footer-links" aria-label="Footer shortcuts">
-          <a href="#features">Features</a>
-          <a href="#workflow">How it works</a>
-          <a href="#faq">FAQ</a>
-          <a href="#beta">Beta tests</a>
-          <a href="#stack">Stack</a>
-          <a href="#roadmap">Roadmap</a>
-          <a href="./updates.html">Updates</a>
-          <a href="./help.html">Help</a>
-          <a href="./privacy-policy.html">Privacy policy</a>
-        </nav>
+        <form class="form" id="betaForm" method="post" action="../form-handler.php" accept-charset="UTF-8" novalidate>
+          <p style="font-family:var(--serif);font-size:1.4rem;margin-bottom:0.3rem">Application for tests</p>
+          <p style="opacity:0.68;font-size:0.92rem">Fill out the form — we'll get back to you with access and details.</p>
+
+          <input type="text" name="fax_number" tabindex="-1" autocomplete="off" class="hp-field" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0" />
+
+          <label>Name / nickname</label>
+          <input id="betaName" type="text" name="name" placeholder="e.g. Martha / studio_nova" autocomplete="name" required />
+          <p class="field-error" id="betaNameError" data-field-error-for="name" aria-live="polite"></p>
+
+          <label>E-mail</label>
+          <input id="betaEmail" type="email" name="email" placeholder="your@email.com" autocomplete="email" required />
+          <p class="field-error" id="betaEmailError" data-field-error-for="email" aria-live="polite"></p>
+
+          <label>Industry</label>
+          <select id="betaRole" name="role" required>
+            <option value="" selected disabled>Choose...</option>
+            <option>Graphic / Brand Designer</option>
+            <option>UI/UX / Product Designer</option>
+            <option>Motion / Video</option>
+            <option>Developer</option>
+            <option>Other industry</option>
+          </select>
+          <p class="field-error" id="betaRoleError" data-field-error-for="role" aria-live="polite"></p>
+
+          <label>What do you care about the most?</label>
+          <textarea id="betaNeeds" name="needs" rows="4" aria-describedby="betaNeedsHint"
+            placeholder="e.g. I want to know how much I really earn on a project, I have chaos across several clients..."></textarea>
+          <p class="field-hint" id="betaNeedsHint" style="opacity:0.55;font-size:0.8rem;margin-top:0.4rem">Optional — describe your workflow, billing problems, or features you need the most.</p>
+
+          <label class="checkbox" style="display:flex;gap:0.6rem;align-items:flex-start;text-transform:none;letter-spacing:normal;font-family:var(--sans);font-size:0.85rem;color:inherit;opacity:0.85;margin-top:1.3rem">
+            <input id="betaConsent" type="checkbox" name="consent" required style="width:auto;margin-top:0.2rem" />
+            <span>I want to participate in beta tests and be contacted regarding TIMEFLOW. I have read the
+              <a href="./privacy-policy.html" style="border-bottom:1px solid var(--accent)">privacy policy</a>.</span>
+          </label>
+          <p class="field-error" id="betaConsentError" data-field-error-for="consent" aria-live="polite"></p>
+          <p class="form-legal-note" style="opacity:0.5;font-size:0.78rem;margin-top:0.8rem">The form collects contact details solely for beta application processing. Details in the
+            <a href="./privacy-policy.html" style="border-bottom:1px solid var(--accent)">privacy policy</a>.</p>
+
+          <button type="submit" class="btn-full">Send application</button>
+          <p class="form-reassurance" style="opacity:0.5;font-size:0.78rem;margin-top:0.8rem;text-align:center">No spam. We only contact you about the beta.</p>
+          <p class="form-feedback" id="betaFormFeedback" aria-live="polite"></p>
+        </form>
       </div>
-      <p class="footer-copy">
-        <span class="footer-copy-main">© <span id="year"></span> <span class="tf-style">TIMEFLOW</span></span>
-        <span class="footer-copy-sep" aria-hidden="true">•</span>
-        <span class="footer-copy-owner">by CONCEPTFAB</span>
-      </p>
-    </footer>
-  </div>
+    </div>
+  </section>
+
+  <footer>
+    <div style="max-width:var(--wrap);margin:0 auto;display:flex;flex-wrap:wrap;gap:1.4rem;justify-content:space-between;align-items:center">
+      <span class="brand" style="color:var(--ink)">TIMEFLOW <span style="color:var(--muted);font-weight:400;letter-spacing:0.05em">by CONCEPTFAB</span></span>
+      <nav aria-label="Footer shortcuts" style="display:flex;flex-wrap:wrap;gap:1.2rem;justify-content:center">
+        <a href="#features">Features</a>
+        <a href="#workflow">How it works</a>
+        <a href="#faq">FAQ</a>
+        <a href="#beta">Beta tests</a>
+        <a href="#stack">Stack</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="./updates.html">Updates</a>
+        <a href="./help.html">Help</a>
+        <a href="./privacy-policy.html">Privacy policy</a>
+      </nav>
+      <span>© <span id="year"></span> TIMEFLOW</span>
+    </div>
+  </footer>
 
   <script src="../consent.min.js" defer></script>
   <script src="../script.min.js" defer></script>
