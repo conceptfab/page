@@ -29,7 +29,7 @@ html { scroll-behavior: smooth; }
 body { background: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 
 /* ── Nav ── */
-nav { position: absolute; top: 0; left: 0; right: 0; z-index: 60; display: flex; align-items: center; justify-content: space-between; padding: 1.6rem clamp(1.4rem, 4vw, 3rem); }
+body > nav { position: absolute; top: 0; left: 0; right: 0; z-index: 60; display: flex; align-items: center; justify-content: space-between; padding: 1.6rem clamp(1.4rem, 4vw, 3rem); }
 .brand { font-family: var(--mono); font-weight: 700; letter-spacing: 0.22em; font-size: 0.92rem; }
 .nav-links { display: flex; gap: 2rem; }
 .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.25s; }
