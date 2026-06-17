@@ -4,134 +4,82 @@
 
 Source: https://timeflow.conceptfab.com/en/
 
-Desktop tracker for freelancers — **you focus on creating, we'll handle the time.**
+Fair Time Algorithm
 
-# Work and see what you earn.
+# Time counted
+*fairly.*
 
-TIMEFLOW tracks your activity in the background with the **Fair Time Algorithm** — it deduplicates multitasking and fairly allocates seconds between projects. See the real value of your work, without inflated stats.
+You work across several apps at once. TIMEFLOW deduplicates multitasking and splits every second fairly between projects — your real time, not inflated stats.
 
-TIMEFLOW Interface
+Figma Photoshop Blender →1 real hour · split 42 / 35 / 23
+Request beta access →
 
-### Dashboard, projects, sessions and analytics in one workflow
+Who it works best for
 
-Dashboard *main view*
+## Not just timing — helping you *get time back.*
 
-The main view shows the workload dashboard. Below are the key modules that build a freelancer's daily workflow: Projects, Sessions, Analysis, Estimates, and AI.
+Designers jump between Figma, Photoshop, browser, and chat dozens of times a day. TIMEFLOW sorts out the chaos and recovers context you'd never reconstruct yourself.
 
-Dashboard *main view*
+01
 
-Projects *folders + statuses*
+### Graphic / Brand Designer
 
-Sessions *sessions + assignments*
+Bill time across client projects without typing anything — even when you're bouncing between several apps and folders at once.
 
-Time Analysis *charts + heatmap*
+projects by folders unassigned sessions value estimations
 
-Estimates *rates + multipliers + valuation*
+02
 
-AI & Model *suggestions + model*
+### UI/UX / Product Designer
 
-Works best for: designers
+See what's eating time each week — research, mockups, iterations, or consultations — heatmap and trends ready without clicking around.
 
-Request beta access
+dashboard + analysis CSV export manual sessions
 
-App modules
+03
 
-10 +
+### Freelancer beyond design
 
-Dashboard, projects, sessions, AI, analytics, estimates, background process and more
+TIMEFLOW works everywhere you bill time to clients — in development, editing, consulting, writing.
 
-Desktop platforms (now)
+AI suggests assignments backup and import online sync
+
+How it works
+
+## From raw sessions to ready *accounting.*
+
+Automatic tracking + manual control where needed. Accuracy without clicking all day long.
+
+1
+
+### Data Collection
+
+The daemon collects data in the background; the dashboard pulls it at startup and refreshes daily sessions.
+- daemon status + autostart
+- auto-import at start
+- file archive from import
 
 2
 
-Windows and macOS • Linux and mobile app planned
+### Organization and Assignments
 
-AI working modes
+Create projects, assign apps, accept or reject AI suggestions — manual fixes only where things need fixing.
+- projects + folders + candidates
+- AI suggest / auto_safe / rollback
+- session merge based on set gap
 
 3
 
-you decide how much AI gets involved — with rollbacks in case of mistakes
+### Analysis, Valuation and Backup
 
-See what it does ↓
-
-Beta
-
-TIMEFLOW is in beta. We're inviting freelancers who want to shape the product; your feedback goes straight to the roadmap.
-
-Offline
-
-Works entirely offline. Local data storage, JSON export and USB transfer mean no connection is required.
-
-Open source
-
-The code will be shared. We're preparing a project manager with custom folder structures and file archiving.
-
-Tech Stack
-
-## Native app, not a web-app in a window.
-
-Lightweight footprint and minimal requirements are by design, not accident. Rust on the backend, a separate daemon, and local SQLite — fast start and full control over files, without a heavy runtime in the background.
-
-Core Desktop
-
-### Rust + Tauri 2
-
-Lightweight desktop runtime, fast start, and native control over files and processes — without the heavy overhead you know from Electron.
-- better performance for monitoring and background work
-- native integration with the system, files and processes
-- strong base for Windows and macOS now, more desktop platforms on the way
-
-Data Layer
-
-### Local SQLite (rusqlite, bundled)
-
-Local **SQLite** database works right after installation (`bundled`) — zero extra setup, ready workflow from the first launch.
-- local-first: data and dashboard available instantly
-- fast reading of sessions, projects and analytics
-- backup and data import/export without complexity
-
-UI Dashboard
-
-### React 19 + TypeScript + Vite
-
-Dashboard developed independently of the backend — new views, analytics, and panels iterated fast.
-- fast iteration of dashboard features and screens
-- clear charts and analytics (Recharts)
-- stable UI stack (Zustand / Radix / Tailwind)
-
-Daemon
-
-### Monitoring in a separate process
-
-A **Rust** daemon runs the data pipeline independently of the UI — the dashboard is your work interface, activity collection runs in the background.
-
-low overhead background work separate from UI
-- start / stop / restart control from UI
-- logs and process status
-- file archiving and auto-import workflow
-- autostart and background monitoring with low overhead
-
-Stability Engine
-
-### Stable data, time and background tasks
-
-Three libraries making sure the numbers add up — correct timestamps, stable import/export, and predictable background tasks.
-- Serde / serde_json: stable import/export and data contracts
-- Chrono: correct date ranges, sessions and time accounting
-- Tokio: timers, cyclic tasks and background operations
-
-Sync / Web
-
-### Sync server — already running
-
-A **Next.js** server coordinates sync between devices — local-first remains the foundation.
-- delta sync and full synchronization between devices
-- API push / pull / ack / status
-- foundation for mobile and sharing features
+End result: a dashboard with metrics, work valuation, and tools for exporting, importing, and syncing between machines.
+- heatmap + charts
+- estimated value per project + session multiplier
+- JSON export/import + online sync
 
 What TIMEFLOW does right now
 
-## Real features, not a wish list.
+## Real features, *not a wish list.*
 
 Everything below actually works in the app — auto-import, sessions, AI suggestions, online sync and daemon control. Not a wish list, but shipping software.
 
@@ -152,6 +100,7 @@ Dashboard
 Metrics, top projects, top apps, timeline, and a heads-up if something is unassigned.
 - metrics: total, avg daily, apps, projects
 - project timeline + project day timeline
+- custom date range alongside day/week/month
 - manual sessions from the timeline level
 
 Projects
@@ -193,6 +142,7 @@ Stats aren't just numbers — every second is backed by concrete file history. Y
 - precise session and file preview
 - activity heatmap (hourly and daily)
 - intensity analysis and peak hours
+- custom date range on the heatmap and charts
 - CSV export for external spreadsheets
 
 Estimates
@@ -204,15 +154,20 @@ Set a global rate, override it per project, or slap a multiplier on a specific s
 - rate multiplier for selected session and manual valuations
 - project profitability analysis (monthly/yearly view)
 - estimated value per project + daily earnings
+- valuation for any custom date range
+- time rounding (5–60 min intervals, report variants)
 - preview of time value spent on task groups
 
 Data & Sync
 
-### Data import/export and online sync
+### Data import/export, LAN and online sync
 
-JSON export of the whole DB or a single project, import with validation and conflict preview, online delta sync or USB transfer — your data, your control.
+JSON export of the whole DB or a single project, import with validation and conflict preview, peer-to-peer sync on your local network, online delta sync or USB transfer — your data, your control.
 - ZIP Export of the entire database or selected projects
 - Maintenance: cleaning and optimizing the SQLite database
+- peer-to-peer LAN sync (no cloud, no accounts) + code pairing
+- WebUI: the whole dashboard in your phone's browser (local network)
+- import with validation and conflict preview
 - validate import + summary after import
 - backup/export all or single project
 - startup sync + interval sync + status/ACK
@@ -227,85 +182,73 @@ Start, stop, and restart the daemon straight from the app, check logs and monito
 - Working Hours and Session Management (Gap Fill) configuration
 - autostart + low requirements for background monitoring
 
-Product updates
+Project Manager
 
-## TIMEFLOW 0.1.6 is live.
+### Projects with budget, deadline and folder structure
 
-Big update across Dashboard, Sessions, Projects, AI, Settings, Daemon, and more. Full changelog (including archived 0.1.5) lives on a dedicated page.
+A dedicated PM module alongside automatic tracking — create projects with a budget and deadline, generate a folder tree from a template, and link them to tracked time.
+- auto-numbering, status (active/inactive/archived), budget and deadline
+- on-disk folder tree from templates ({name}) + template manager
+- TF Match — budget and deadline next to actual measured time
+- filters (year, client, status), sorting and a saved view
 
-Release highlight
+Clients
 
-New features Improvements Bug fixes
+### Time and value per client
 
-### The complete 0.1.6 changelog is on a dedicated page.
+The clients panel aggregates time and estimated value for each client, and in Estimates you filter the report by selected clients.
+- client cards: value, project count, tracked time
+- manage the list (add / edit / archive) + assign to projects
+- auto-build clients from project names
+- client filter in Estimates (multi-select)
 
-Complete module-by-module list with icons in the Help-style layout, plus an archived 0.1.5 section.
-[Open full changelog 0.1.6](./updates.html)
+WebUI / phone access
 
-Who it works best for
+### The whole dashboard in a browser
 
-## Not just timing — helping you get time back.
-
-Designers jump between Figma, Photoshop, browser, and chat dozens of times a day. TIMEFLOW sorts out the chaos and recovers context you'd never reconstruct yourself.
-
-### Graphic / Brand Designer
-
-Bill time across client projects without typing anything — even when you're bouncing between several apps and folders at once.
-
-projects by folders unassigned sessions value estimations
-
-### UI/UX / Product Designer
-
-See what's eating time each week — research, mockups, iterations, or consultations — heatmap and trends ready without clicking around.
-
-dashboard + analysis CSV export manual sessions
-
-### Freelancer beyond design
-
-TIMEFLOW works everywhere you bill time to clients — in development, editing, consulting, writing.
-
-AI suggests assignments backup and import online sync
-
-How it works
-
-## From raw sessions to ready accounting.
-
-Automatic tracking + manual control where needed. Accuracy without clicking all day long.
-
-01
-
-### Data Collection
-
-The daemon collects data in the background; the dashboard pulls it at startup and refreshes daily sessions.
-- daemon status + autostart
-- auto-import at start
-- file archive from import
-
-02
-
-### Organization and Assignments
-
-Create projects, assign apps, accept or reject AI suggestions — manual fixes only where things need fixing.
-- projects + folders + candidates
-- AI suggest / auto_safe / rollback
-- session merge based on set gap
-
-03
-
-### Analysis, Valuation and Backup
-
-End result: a dashboard with metrics, work valuation, and tools for exporting, importing, and syncing between machines.
-- heatmap + charts
-- estimated value per project + session multiplier
-- JSON export/import + online sync
+Headless mode serves the full TIMEFLOW interface in a browser — open the same dashboard from your phone or another device on the local network, without the app window.
+- practically the whole dashboard from your phone (browse and edit)
+- responsive mobile layout + settings shared with the desktop
+- localhost with no password, LAN via a 6-digit code (port 47892)
+- trusted local network only (unencrypted HTTP)
 
 Fair Time Algorithm (Unique Project Time)
 
-## Your efficiency is not a cost for the client.
+## Your real time is not *inflated stats.*
 
-Most trackers make the same mistake — they count every open app separately, artificially inflating stats. TIMEFLOW deduplicates activity and splits seconds fairly between projects. Your client gets real numbers, and you get a clean conscience when invoicing.
+Most trackers make the same mistake — they count every open app separately, artificially inflating stats (3 hours of "work" inside one clock hour). TIMEFLOW deduplicates multitasking and shows your real time.
 
-Overbilling protection
+✕ Other trackers
+
+1 hour of work, 3 apps open at once. Each counted separately for that same hour:
+
+Figma · +1h
+
+Photoshop · +1h
+
+Blender · +1h
+
+3h 00m
+
+billed for 1 clock hour of work
+
+→
+
+✓ TIMEFLOW
+
+42%
+
+35%
+
+23%
+
+Every second of attention split proportionally. The sum never exceeds the real time.
+
+1h 00m
+
+real time: 1h, split 42 / 35 / 23 between projects
+
+This is **your real data** — for estimates, invoices and your own control. What you tell the client is up to you.
 
 ### Zero "double counting"
 
@@ -314,7 +257,7 @@ Other trackers count multitasking separately (3h of work in 1 clock hour). TIMEF
 - Counts only unique minutes on a project
 - The most "fair" approach on the market
 
-Fair distribution
+Overbilling protection
 
 ### Mathematical precision of division
 
@@ -323,7 +266,16 @@ The Rust backend splits seconds fairly between projects when you're using multip
 - Sum of times never exceeds real time
 - Client pays for time, not for open windows
 
-Proof of work
+Fair distribution
+
+### A time algorithm you choose
+
+You pick how time is computed — today it's the Fair Time Algorithm (wall-clock with deduplication). The architecture is ready for more methods, and switching recomputes from the raw sessions without overwriting anything.
+- choose the time-computation method in Settings
+- pluggable architecture — ready for more algorithms
+- switching the method doesn't change your data (recomputes from raw sessions)
+
+Time method choice
 
 ### Evidence Transparency
 
@@ -332,7 +284,7 @@ Every second is backed by file history — if the client asks for details, you'v
 - Excludes accidental time counting
 - No counting of social media outside projects
 
-Local credibility
+Proof of work
 
 ### Privacy and Local Credibility
 
@@ -340,7 +292,7 @@ Data processed locally in SQLite — no one manipulates stats "in the cloud".
 - 100% local data processing
 - You control access to reports
 
-Client value
+Local credibility
 
 ### Real engagement
 
@@ -348,7 +300,7 @@ Unique time, not app "processor" time.
 - Work time is measured fairly
 - No timing for open windows
 
-Transparency
+Client value
 
 ### Full transparency
 
@@ -356,74 +308,157 @@ End the hourly rate debate — hard data speaks for itself.
 - Accurate work time data
 - No manipulation of statistics
 
+Transparency
+
+TIMEFLOW Interface
+
+## Dashboard, projects, sessions and analytics in one *workflow.*
+
+The main view shows the workload dashboard. Below are the key modules that build a freelancer's daily workflow: Projects, Sessions, Analysis, Estimates, and AI.
+
+Projects · folders + statuses
+
+Sessions · sessions + assignments
+
+Time Analysis · charts + heatmap
+
+Estimates · rates + multipliers + valuation
+
+AI & Model · suggestions + model
+
 Platforms and status
 
-## Desktop-first today. More tools tomorrow.
+## Desktop-first today. More *tomorrow.*
 
 The current version is a stable desktop workflow and beta tests with real users. New platforms ship only when they're done right.
-
-Available
 
 ### Windows
 
 Desktop app + background process + dashboard + import and log management.
-
 Available
 
 ### macOS
 
 Full desktop support for Apple users — with daemon, dashboard and native activity monitoring.
-
-Planned
+Available
 
 ### Linux
 
 Desktop tracking for users of custom environments — no compromises.
-
 Planned
 
 ### Mobile App
 
-Access to data and sessions from your phone — TIMEFLOW always at hand.
+A native mobile app is planned — but you can already open the whole dashboard from your phone via the WebUI (browser, local network).
+Planned
 
-Next Version Roadmap
+Tech Stack
 
-## Project manager as the next big step.
+## Native app, not a web-app *in a window.*
 
-The foundation is in place — projects, folders, candidates, sync, and time monitoring. The next version expands this into a full project management tool, from structure to archiving.
+Lightweight footprint and minimal requirements are by design, not accident. Rust on the backend, a separate daemon, and local SQLite — fast start and full control over files, without a heavy runtime in the background.
+
+### Rust + Tauri 2
+
+Lightweight desktop runtime, fast start, and native control over files and processes — without the heavy overhead you know from Electron.
+- better performance for monitoring and background work
+- native integration with the system, files and processes
+- strong base for Windows and macOS now, more desktop platforms on the way
+
+Core
+
+### Local SQLite (rusqlite, bundled)
+
+Local **SQLite** database works right after installation (`bundled`) — zero extra setup, ready workflow from the first launch.
+- local-first: data and dashboard available instantly
+- fast reading of sessions, projects and analytics
+- backup and data import/export without complexity
+
+Data
+
+### React 19 + TypeScript + Vite
+
+Dashboard developed independently of the backend — new views, analytics, and panels iterated fast.
+- fast iteration of dashboard features and screens
+- clear charts and analytics (Recharts)
+- stable UI stack (Zustand / Radix / Tailwind)
+
+UI
+
+### Rust Daemon
+
+A **Rust** daemon runs the data pipeline independently of the UI — the dashboard is your work interface, activity collection runs in the background.
+- start / stop / restart control from UI
+- logs and process status
+- file archiving and auto-import workflow
+- autostart and background monitoring with low overhead
+
+Process
+
+### Stability Engine
+
+Three libraries making sure the numbers add up — correct timestamps, stable import/export, and predictable background tasks.
+- Serde / serde_json: stable import/export and data contracts
+- Chrono: correct date ranges, sessions and time accounting
+- Tokio: timers, cyclic tasks and background operations
+
+Stability
+
+### Next.js sync server
+
+A **Next.js** server coordinates sync between devices — local-first remains the foundation.
+- delta sync and full synchronization between devices
+- API push / pull / ack / status
+- foundation for mobile and sharing features
+
+Sync
+
+Roadmap
+
+## The project manager already ships — *what's next.*
+
+The foundation and the project manager are in place: projects with budgets, clients, folders, sync, and time monitoring. Next come report attachments, file archiving, and collaboration.
 
 Now / Beta
 
-### Tracking + analysis + data organization
+### Tracking, project manager and clients
 
-TIMEFLOW already supports time monitoring, folder-based projects, manual sessions, estimates, AI suggestions, import/export and online sync.
+TIMEFLOW supports time monitoring, folder-based projects, a project manager (PM) with budgets and clients, manual sessions, estimates, AI suggestions, import/export and LAN/online sync.
+- tracking, sessions and analysis
 - tracking and sessions
+- project manager (budget, status, folders) + clients
 - projects + folder roots
 - AI suggestion / auto-safe
+- export/import + LAN and online sync
 - export/import + online sync
 
 Next Version / Direction
 
-### Project manager with custom folder tree
+### Report attachments and project archiving
 
-Dedicated project folders and a consistent directory tree tailored to each project type, client, or pipeline.
+Report generation with sessions as an invoice attachment, and project file archiving — closing the loop from time to billing.
+- reports with sessions (PDF / CSV for invoices)
+- project file archiving
+- folder-tree presets per pipeline
 - dedicated project folders
 - custom folder tree (templates/presets)
 - faster project setup and organization
 
 Future Extensions
 
-### Archiving, sharing and deeper integration
+### Sharing, collaboration and new platforms
 
-Project file archiving, sharing, and a tighter connection between project structure and work time data.
-- report generation with sessions (PDF / CSV for invoices)
-- project file archiving
+Sharing data and reports, team collaboration, and additional desktop and mobile platforms.
+- more time-computation methods (pluggable architecture)
+- sharing / team collaboration
 - sharing / collaboration
+- deeper integration of project structure with time
 - deeper integration with time monitoring
+- Linux and a mobile app (roadmap)
 
 Trust and Contact
 
-## Who is behind TIMEFLOW and what the beta looks like.
+## Who is behind TIMEFLOW and what the *beta looks like.*
 
 Early version by CONCEPTFAB. The beta is here to iterate on real freelancer and small studio workflows — not to collect emails and never follow up.
 
@@ -441,9 +476,22 @@ After you apply, we ask about your work context (industry, needs) and get back t
 - confirmation after sending the application
 - access to the build based on order and fit
 
+Product updates
+
+## TIMEFLOW 0.1.6 *is live.*
+
+The latest build adds a custom date range, mobile access via WebUI, and hardened sync security — alongside changes across Sessions, AI, Daemon and Settings. Full changelog (including archived 0.1.5) lives on a dedicated page.
+
+New features Improvements Bug fixes
+
+### The complete 0.1.6 changelog (with archived 0.1.5)
+
+Complete module-by-module list with icons in the Help-style layout, plus an archived 0.1.5 section.
+[Open full changelog 0.1.6 →](./updates.html)
+
 FAQ
 
-## Most common questions before applying for beta.
+## Most common questions before applying for *beta.*
 
 Short answers to the most important issues: platforms, data, cost and test process.
 
@@ -465,7 +513,7 @@ No. Current beta tests are free and serve to collect feedback for future iterati
 
 Apply for beta tests
 
-## Help build TIMEFLOW for real freelancer workflows.
+## Help build TIMEFLOW for real freelancer *workflows.*
 
 Mainly looking for designers — but the door is open to anyone billing time to clients. Your feedback shapes the roadmap: what blocks you, what speeds things up, what's missing.
 
@@ -474,3 +522,5 @@ Mainly looking for designers — but the door is open to anyone billing time to 
 **What you get** early access, real impact on the roadmap, fast iterations based on your feedback
 
 **Product status** beta — features work, we set priorities together with testers
+
+> "Finally I know how much I really earn on a project. I stopped guessing."— Martha, freelance UI designer
