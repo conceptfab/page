@@ -239,12 +239,12 @@ def generate_agent_skills_index():
         ("TIMEFLOW context (PL)", "context", "Pełen opis produktu TIMEFLOW dla agentów AI — pozycjonowanie, możliwości, sync, prywatność.", "llms-full.txt"),
         ("TIMEFLOW summary (PL)", "context", "Krótki entry point dla agentów: opis i linki do podstron.", "llms.txt"),
         ("TIMEFLOW help (PL)", "documentation", "Centrum pomocy: quick start, dashboard, sesje, projekty, AI, dane, daemon, ustawienia.", "pomoc.md"),
-        ("TIMEFLOW changelog (PL)", "documentation", "Pełny changelog 0.1.6 (build 0.1.556) i archiwum 0.1.5.", "aktualizacje.md"),
+        ("TIMEFLOW changelog (PL)", "documentation", "Pełny changelog 0.1.6 (build 0.1.5733) i archiwum 0.1.5.", "aktualizacje.md"),
         ("TIMEFLOW privacy (PL)", "documentation", "Polityka prywatności i przetwarzania formularza.", "polityka-prywatnosci.md"),
         ("TIMEFLOW context (EN)", "context", "Full product context for AI agents — positioning, capabilities, sync, privacy.", "en/llms-full.txt"),
         ("TIMEFLOW summary (EN)", "context", "Short entry point for agents: description and page links.", "en/llms.txt"),
         ("TIMEFLOW help (EN)", "documentation", "Help center: quick start, dashboard, sessions, projects, AI, data, daemon, settings.", "en/help.md"),
-        ("TIMEFLOW changelog (EN)", "documentation", "Full changelog 0.1.6 (build 0.1.556) and 0.1.5 archive.", "en/updates.md"),
+        ("TIMEFLOW changelog (EN)", "documentation", "Full changelog 0.1.6 (build 0.1.5733) and 0.1.5 archive.", "en/updates.md"),
         ("TIMEFLOW privacy (EN)", "documentation", "Privacy policy and form processing.", "en/privacy-policy.md"),
     ]
 
@@ -285,7 +285,8 @@ def main():
     print("\n[CSS] Minifikacja plików CSS")
     css_files = [
         ("style.css", "style.min.css"),
-        ("updates.css", "updates.min.css")
+        ("updates.css", "updates.min.css"),
+        ("home.css", "home.min.css")
     ]
     
     for src, out in css_files:
