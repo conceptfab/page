@@ -4,20 +4,22 @@
 
 Source: https://timeflow.conceptfab.com/polityka-prywatnosci.html
 
-# Polityka prywatności TIMEFLOW
+Polityka prywatności
 
-Data aktualizacji: 23 lutego 2026
+## Polityka prywatności *TIMEFLOW.*
 
-To wersja robocza przygotowana do wdrożenia linku RODO na landing page. Przed publikacją uzupełnij pełne dane administratora (nazwa firmy, adres, kontakt) i zweryfikuj dokument z prawnikiem / inspektorem ochrony danych.
+Data aktualizacji: 23 lutego 2026.
 
-## 1. Administrator danych
+[← Wróć na stronę główną](./index.html)
 
-Administratorem danych osobowych jest **CONCEPTFAB** (właściciel projektu TIMEFLOW).
-- Nazwa / forma prawna: `CONCEPTFAB`
-- Adres: `Marco Polo 2/21, 02-776 Warszawa, Polska`
-- E-mail kontaktowy: `office@conceptfab.com`
+### 1. Administrator danych
 
-## 2. Jakie dane zbieramy
+Administratorem danych osobowych jest **CONCEPTFAB** (właściciel projektu **TIMEFLOW**).
+- Nazwa / forma prawna: CONCEPTFAB
+- Adres: Marco Polo 2/21, 02-776 Warszawa, Polska
+- E-mail kontaktowy: office@conceptfab.com
+
+### 2. Jakie dane zbieramy
 
 W formularzu zgłoszenia do testów beta możemy zbierać:
 - imię / nick,
@@ -26,22 +28,22 @@ W formularzu zgłoszenia do testów beta możemy zbierać:
 - opis potrzeb i workflow (jeśli wpiszesz go dobrowolnie),
 - dane techniczne związane z wysłaniem formularza (np. data zgłoszenia, logi serwera).
 
-## 3. Cel i podstawa przetwarzania
-- obsługa zgłoszenia do testów beta i kontakt w sprawie dostępu do TIMEFLOW,
+### 3. Cel i podstawa przetwarzania
+- obsługa zgłoszenia do testów beta i kontakt w sprawie dostępu do **TIMEFLOW**,
 - organizacja i priorytetyzacja testów beta,
 - obrona przed nadużyciami i spamem (uzasadniony interes administratora).
 
 Podstawą przetwarzania jest zgoda użytkownika (art. 6 ust. 1 lit. a RODO) oraz uzasadniony interes administratora (art. 6 ust. 1 lit. f RODO) w zakresie bezpieczeństwa formularza.
 
-## 4. Jak długo przechowujemy dane
+### 4. Jak długo przechowujemy dane
 
-Dane z formularza przechowujemy przez czas potrzebny do obsługi testów beta oraz kontaktu w sprawie zgłoszenia, nie dłużej niż `[UZUPEŁNIJ np. 12 miesięcy]`, chyba że wcześniej wycofasz zgodę.
+Dane z formularza przechowujemy przez czas potrzebny do obsługi testów beta oraz kontaktu w sprawie zgłoszenia, nie dłużej niż 12 miesięcy, chyba że wcześniej wycofasz zgodę.
 
-## 5. Odbiorcy danych
+### 5. Odbiorcy danych
 
 Dane mogą być przetwarzane przez podmioty wspierające hosting formularza i utrzymanie strony (np. serwer / hosting), wyłącznie na podstawie odpowiednich umów i w zakresie niezbędnym do działania usługi.
 
-## 6. Twoje prawa
+### 6. Twoje prawa
 
 Masz prawo do:
 - dostępu do danych,
@@ -52,11 +54,12 @@ Masz prawo do:
 - wycofania zgody w dowolnym momencie (bez wpływu na zgodność wcześniejszego przetwarzania),
 - wniesienia skargi do Prezesa UODO.
 
-## 7. Dobrowolność podania danych
+### 7. Dobrowolność podania danych
 
 Podanie danych jest dobrowolne, ale brak imienia/nicku, adresu e-mail, branży lub zgody na kontakt uniemożliwi obsługę zgłoszenia do testów beta.
 
-## 8. Kontakt w sprawach prywatności
+### 8. Kontakt w sprawach prywatności
 
-W sprawach dotyczących danych osobowych skontaktuj się z administratorem przez adres e-mail: `office@conceptfab.com`.
-[← Wróć do strony TIMEFLOW](./)
+W sprawach dotyczących danych osobowych skontaktuj się z administratorem przez adres e-mail: office@conceptfab.com.
+
+[← Wróć na stronę główną](./index.html)

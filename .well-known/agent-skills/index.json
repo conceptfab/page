@@ -34,7 +34,7 @@
       "type": "documentation",
       "description": "Polityka prywatności i przetwarzania formularza.",
       "url": "https://timeflow.conceptfab.com/polityka-prywatnosci.md",
-      "sha256": "276d2e640c486da33dbe0740a6c0e163aaff7d03ce3cb7bd0da1002c30a9b496"
+      "sha256": "f47b43ff233187427f2c10b544f6e575e4f5dec93543a5a45b2785914d0ebc61"
     },
     {
       "name": "TIMEFLOW context (EN)",
@@ -69,7 +69,7 @@
       "type": "documentation",
       "description": "Privacy policy and form processing.",
       "url": "https://timeflow.conceptfab.com/en/privacy-policy.md",
-      "sha256": "a80389be450053745ffb6be409571e1ccf2a20dc96cde8625625fcb0296dea16"
+      "sha256": "66680d90906ccd84f40733b25a786e8a31b87946566761f9a7d6831e5aa69bd7"
     }
   ]
 }
