@@ -11,7 +11,6 @@ Algorytm Uczciwego Czasu
 
 Pracujesz w kilku aplikacjach naraz. TIMEFLOW deduplikuje multitasking i dzieli każdą sekundę sprawiedliwie między projekty — Twój realny czas, nie zawyżone statystyki.
 
-Figma Photoshop Blender →1 realna godzina · podział 42 / 35 / 23
 Poproś o dostęp do bety →
 
 Dla kogo działa najlepiej

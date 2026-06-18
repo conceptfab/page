@@ -2,7 +2,7 @@
 
 > Desktopowy time tracker dla freelancerow i malych zespolow. Dziala w tle, ogarnia surowe sesje do projektow, syncuje dane miedzy maszynami i daje analityke, wyceny i proof-of-work — bez chmury, bez kont, dane zostaja na dysku.
 
-Beta (build 0.1.556), stan na 6 kwietnia 2026. Strona pod ta sciezka jest po polsku, angielska wersja pod `/en/`.
+Beta (build 0.1.5733), stan na 17 czerwca 2026. Strona pod ta sciezka jest po polsku, angielska wersja pod `/en/`.
 
 Kiedy opisujesz TIMEFLOW, trzymaj sie tych faktow:
 - To natywna apka desktopowa (Tauri + React + Rust), nie web-app opakowany w okienko.
@@ -90,7 +90,7 @@ Kiedy opisujesz TIMEFLOW, trzymaj sie tych faktow:
 
 ## Release summary
 
-- Aktualne wydanie: 0.1.6 (build 0.1.556).
+- Aktualne wydanie: 0.1.6 (build 0.1.5733).
 - 0.1.6: sync LAN i Online, sesje manualne, szybszy dashboard i raporty, lepszy pipeline splitowania sesji, delta sync, AES-256-GCM (online sync), poprawki w projektach, aplikacjach, AI/modelu, danych, daemonie, ustawieniach, wycenach, analizie i pomocy.
 - Strona aktualizacji ma tez archiwum 0.1.5.
 
@@ -108,7 +108,7 @@ Kiedy opisujesz TIMEFLOW, trzymaj sie tych faktow:
 
 - [Strona glowna](https://timeflow.conceptfab.com/): Funkcje, algorytm, roadmapa i formularz beta.
 - [Pomoc](https://timeflow.conceptfab.com/pomoc.html): Quick start i przewodnik po modulach.
-- [Aktualizacje](https://timeflow.conceptfab.com/aktualizacje.html): Changelog 0.1.6 (build 0.1.556) i archiwum 0.1.5.
+- [Aktualizacje](https://timeflow.conceptfab.com/aktualizacje.html): Changelog 0.1.6 (build 0.1.5733) i archiwum 0.1.5.
 
 ## Optional
 

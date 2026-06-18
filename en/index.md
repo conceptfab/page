@@ -11,7 +11,6 @@ Fair Time Algorithm
 
 You work across several apps at once. TIMEFLOW deduplicates multitasking and splits every second fairly between projects — your real time, not inflated stats.
 
-Figma Photoshop Blender →1 real hour · split 42 / 35 / 23
 Request beta access →
 
 Who it works best for

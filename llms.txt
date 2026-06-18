@@ -2,14 +2,14 @@
 
 > Desktopowy time tracker dla freelancerow — chodzi w tle, sam przypisuje czas do projektow przez lokalne AI, syncuje dane miedzy maszynami (LAN albo online) i daje analityke, wyceny i raporty. Bez chmury, bez kont, bez wysylania danych na zewnatrz.
 
-Beta (build 0.1.556), Windows i macOS. Robi to CONCEPTFAB. Kluczowa rzecz: Fair Time Algorithm — nie liczy czasu podwojnie przy multitaskingu, dzieli sekundy uczciwie miedzy projekty.
+Beta (build 0.1.5733), Windows i macOS. Robi to CONCEPTFAB. Kluczowa rzecz: Fair Time Algorithm — nie liczy czasu podwojnie przy multitaskingu, dzieli sekundy uczciwie miedzy projekty.
 
 ## Primary
 
 - [TIMEFLOW full context](https://timeflow.conceptfab.com/llms-full.txt): Pelny opis produktu dla agentow AI — pozycjonowanie, mozliwosci, sync, prywatnosc, porownanie z alternatywami.
 - [Strona glowna](https://timeflow.conceptfab.com/): Co robi, jak dziala, algorytm, roadmapa i formularz beta.
 - [Pomoc](https://timeflow.conceptfab.com/pomoc.html): Quick start, opis modulow, daemon, dane i AI.
-- [Aktualizacje](https://timeflow.conceptfab.com/aktualizacje.html): Changelog 0.1.6 (build 0.1.556) — macOS dolacza obok Windows, sync LAN/Online, sesje manualne, archiwum 0.1.5.
+- [Aktualizacje](https://timeflow.conceptfab.com/aktualizacje.html): Changelog 0.1.6 (build 0.1.5733) — Windows i macOS rozwijane rownolegle (rownorzedne), menedzer projektow (PM) i panel klientow, caly dashboard z telefonu przez WebUI, sync LAN/Online, sesje manualne, archiwum 0.1.5.
 
 ## Optional
 

@@ -939,7 +939,7 @@ li {
   --showcase-shell-pad: 1rem;
   background: transparent;
   border: 0;
-  gap: 1rem;
+  gap: 1.5rem;
   padding: 0;
   display: grid;
 }
@@ -988,16 +988,7 @@ li {
 }
 
 .showcase-note-overlay {
-  color: #d5d7db;
-  margin-top: 0.7rem;
-  padding: 0.7rem 0.9rem;
-  font-size: clamp(0.9rem, 0.5vw + 0.85rem, 1.05rem);
-  line-height: 1.63;
-  background: var(--surface);
-  border: 1px solid var(--line-2);
-  border-left: 3px solid var(--accent);
-  border-radius: var(--radius-lg);
-  font-weight: 400;
+  display: none;
 }
 
 .showcase-note code,
@@ -1235,10 +1226,12 @@ li {
 }
 
 .shot-card.shot-main .shot-frame {
-  border-radius: var(--radius-lg);
+  border-radius: 12px;
   border: 1px solid var(--line-2);
   overflow: hidden;
-  box-shadow: var(--shadow-lg);
+  box-shadow:
+    0 28px 60px -22px rgba(0, 0, 0, 0.65),
+    0 0 90px -34px var(--accent);
 }
 
 .shot-caption {
@@ -2223,42 +2216,77 @@ li {
    WORKFLOW GRID
    ═══════════════════════════════════════════════════════ */
 .workflow-grid {
+  position: relative;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 1.5rem;
   display: grid;
 }
 
+/* Connecting line — desktop 3-col stepper only */
+@media (min-width: 961px) {
+  .workflow-grid::before {
+    content: '';
+    position: absolute;
+    top: 2.9rem;
+    left: 12%;
+    right: 12%;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      var(--accent) 0%,
+      var(--warm) 50%,
+      var(--purple) 100%
+    );
+    opacity: 0.5;
+    z-index: 0;
+  }
+}
+
 .workflow-step {
+  position: relative;
+  z-index: 1;
   background: var(--surface);
   border: 1px solid var(--line-2);
   border-radius: var(--radius-lg);
   align-content: start;
-  gap: 0.6rem;
-  padding: 1.25rem;
+  gap: 0.7rem;
+  padding: 1.5rem 1.25rem 1.25rem;
   display: grid;
-  transition: border-color 0.2s;
+  transition:
+    border-color 0.2s,
+    transform 0.2s;
   box-shadow: var(--shadow-whisper);
 }
 
 .workflow-step:hover {
   border-color: rgba(178, 182, 189, 0.5);
+  transform: translateY(-2px);
 }
 
 .step-num {
+  width: 2.8rem;
+  height: 2.8rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--surface-2);
+  border: 1.5px solid var(--accent);
   color: var(--accent);
   font-family: var(--font-brand);
   font-feature-settings: 'kern';
-  font-size: 2.2rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.02em;
   line-height: 1;
 }
 
 .workflow-step:nth-child(2) .step-num {
+  border-color: var(--warm);
   color: var(--warm);
 }
 
 .workflow-step:nth-child(3) .step-num {
+  border-color: var(--purple);
   color: var(--purple);
 }
 
@@ -3622,7 +3650,7 @@ li {
   }
 
   .step-num {
-    font-size: 1.8rem;
+    font-size: 1rem;
   }
 
   /* Grids → single column */
