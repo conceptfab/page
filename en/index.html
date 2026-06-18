@@ -142,8 +142,8 @@
       <a href="#stack">Stack</a>
       <a href="#faq">FAQ</a>
     </div>
-    <div class="lang-switch" aria-label="Language"><a href="../index.html" hreflang="pl" lang="pl">PL</a><span class="lang-sep">/</span><span class="lang-active">EN</span></div>
-      <a class="pill" href="#beta">Join beta</a>
+    <div class="nav-right"><div class="lang-switch" aria-label="Language"><a href="../index.html" hreflang="pl" lang="pl">PL</a><span class="lang-sep">/</span><span class="lang-active">EN</span></div>
+      <a class="pill" href="#beta">Join beta</a></div>
   </nav>
   <main>
 
@@ -170,12 +170,6 @@
       </div>
     </div>
     <div class="hero-foot">
-      <div class="legend">
-        <span class="k"><span class="sw" style="background:var(--accent)"></span>Figma</span>
-        <span class="k"><span class="sw" style="background:var(--accent-2)"></span>Photoshop</span>
-        <span class="k"><span class="sw" style="background:#fff"></span>Blender</span>
-        <span class="arrow">→</span><span>1 real hour · split&nbsp;42&nbsp;/&nbsp;35&nbsp;/&nbsp;23</span>
-      </div>
       <a class="cta-link" href="#beta">Request beta access →</a>
     </div>
   </section>
@@ -556,7 +550,7 @@
         <p class="lead-s">The main view shows the workload dashboard. Below are the key modules that build a freelancer's daily workflow: Projects, Sessions, Analysis, Estimates, and AI.</p>
       </div>
 
-      <figure style="margin:0;border:1px solid var(--line);border-radius:6px;overflow:hidden">
+      <figure class="gal-main" style="margin:0;border:1px solid var(--line);border-radius:6px;overflow:hidden">
         <picture>
           <source type="image/avif"
             srcset="../screens/dashboard-main_480.avif 480w, ../screens/dashboard-main_960.avif 960w, ../screens/dashboard-main.avif 1600w"
@@ -571,7 +565,7 @@
       </figure>
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1.2rem;margin-top:1.6rem">
-        <figure style="margin:0">
+        <figure class="gal-thumb" style="margin:0">
           <div style="border:1px solid var(--line);border-radius:6px;overflow:hidden">
             <picture>
               <source type="image/avif"
@@ -581,12 +575,12 @@
                 srcset="../screens/projects_480.webp 480w, ../screens/projects.webp 960w"
                 sizes="(max-width: 720px) 92vw, 340px"
                 width="1600" height="1000"
-                alt="TIMEFLOW Projects – project folders and auto-detection" loading="lazy" decoding="async" />
+                alt="TIMEFLOW Projects – project folders and auto-detection" loading="eager" decoding="async" />
             </picture>
           </div>
           <figcaption style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-top:0.7rem">Projects · folders + statuses</figcaption>
         </figure>
-        <figure style="margin:0">
+        <figure class="gal-thumb" style="margin:0">
           <div style="border:1px solid var(--line);border-radius:6px;overflow:hidden">
             <picture>
               <source type="image/avif"
@@ -596,12 +590,12 @@
                 srcset="../screens/sessions_480.webp 480w, ../screens/sessions.webp 960w"
                 sizes="(max-width: 720px) 92vw, 340px"
                 width="1600" height="1000"
-                alt="TIMEFLOW Sessions – grouped sessions with AI assignments" loading="lazy" decoding="async" />
+                alt="TIMEFLOW Sessions – grouped sessions with AI assignments" loading="eager" decoding="async" />
             </picture>
           </div>
           <figcaption style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-top:0.7rem">Sessions · sessions + assignments</figcaption>
         </figure>
-        <figure style="margin:0">
+        <figure class="gal-thumb" style="margin:0">
           <div style="border:1px solid var(--line);border-radius:6px;overflow:hidden">
             <picture>
               <source type="image/avif"
@@ -611,12 +605,12 @@
                 srcset="../screens/analysis_480.webp 480w, ../screens/analysis_960.webp 960w, ../screens/analysis.webp 1600w"
                 sizes="(max-width: 720px) 92vw, 340px"
                 width="1600" height="1000"
-                alt="TIMEFLOW Time Analysis – workload heatmap and charts" loading="lazy" decoding="async" />
+                alt="TIMEFLOW Time Analysis – workload heatmap and charts" loading="eager" decoding="async" />
             </picture>
           </div>
           <figcaption style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-top:0.7rem">Time Analysis · charts + heatmap</figcaption>
         </figure>
-        <figure style="margin:0">
+        <figure class="gal-thumb" style="margin:0">
           <div style="border:1px solid var(--line);border-radius:6px;overflow:hidden">
             <picture>
               <source type="image/avif"
@@ -626,12 +620,12 @@
                 srcset="../screens/estimates_480.webp 480w, ../screens/estimates_960.webp 960w, ../screens/estimates.webp 1600w"
                 sizes="(max-width: 720px) 92vw, 340px"
                 width="1600" height="1000"
-                alt="TIMEFLOW Estimates – valuing freelancer work" loading="lazy" decoding="async" />
+                alt="TIMEFLOW Estimates – valuing freelancer work" loading="eager" decoding="async" />
             </picture>
           </div>
           <figcaption style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-top:0.7rem">Estimates · rates + multipliers + valuation</figcaption>
         </figure>
-        <figure style="margin:0">
+        <figure class="gal-thumb" style="margin:0">
           <div style="border:1px solid var(--line);border-radius:6px;overflow:hidden">
             <picture>
               <source type="image/avif"
@@ -641,7 +635,7 @@
                 srcset="../screens/ai-model_480.webp 480w, ../screens/ai-model_960.webp 960w, ../screens/ai-model.webp 1600w"
                 sizes="(max-width: 720px) 92vw, 340px"
                 width="1600" height="1000"
-                alt="TIMEFLOW AI Model – assignment suggestions and auto_safe mode" loading="lazy" decoding="async" />
+                alt="TIMEFLOW AI Model – assignment suggestions and auto_safe mode" loading="eager" decoding="async" />
             </picture>
           </div>
           <figcaption style="font-family:var(--mono);font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-top:0.7rem">AI &amp; Model · suggestions + model</figcaption>
@@ -972,6 +966,24 @@
   <script src="../consent.min.js" defer></script>
   <script src="../script.min.js" defer></script>
   <script src="../webmcp.min.js" defer></script>
+  <script>
+  (function(){
+    var main=document.querySelector('.gal-main'); if(!main) return;
+    var mImg=main.querySelector('img'), mSrc=main.querySelector('source');
+    var thumbs=[].slice.call(document.querySelectorAll('.gal-thumb'));
+    thumbs.forEach(function(t){
+      t.addEventListener('click', function(){
+        var ti=t.querySelector('img'); if(!ti||!mImg) return;
+        var full=ti.getAttribute('src');
+        mImg.setAttribute('srcset',''); mImg.setAttribute('src',full);
+        mImg.setAttribute('alt', ti.getAttribute('alt')||'');
+        if(mSrc) mSrc.setAttribute('srcset', full.replace(/\.webp$/,'.avif'));
+        thumbs.forEach(function(x){x.classList.remove('is-active')});
+        t.classList.add('is-active');
+      });
+    });
+  })();
+  </script>
 </body>
 
 </html>
