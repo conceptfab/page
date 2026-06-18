@@ -37,6 +37,14 @@ body > nav { position: fixed; top: 0; left: 0; right: 0; z-index: 60; display: f
 .nav-links a:hover { color: var(--ink); }
 .pill { font-family: var(--sans); font-size: 0.85rem; font-weight: 500; color: #060708; background: var(--ink); text-decoration: none; padding: 0.55rem 1.25rem; border-radius: 999px; transition: transform 0.2s, opacity 0.2s; }
 .pill:hover { transform: translateY(-1px); opacity: 0.88; }
+body > nav { justify-content: flex-start; gap: 1.6rem; }
+.brand { margin-right: auto; }
+.lang-switch { display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.06em; }
+.lang-switch .lang-active { color: var(--ink); }
+.lang-switch a { color: var(--muted); text-decoration: none; transition: color .2s; }
+.lang-switch a:hover { color: var(--ink); }
+.lang-switch .lang-sep { color: var(--muted); opacity: .5; }
+@media (max-width: 640px) { .lang-switch { display: inline-flex; } }
 
 /* ── Hero ── */
 .hero { position: relative; min-height: 100vh; display: grid; grid-template-rows: 1fr auto; place-items: center; text-align: center; padding: 8rem clamp(1.4rem, 4vw, 3rem) 3rem; }
