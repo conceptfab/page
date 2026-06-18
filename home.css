@@ -49,8 +49,9 @@ body > nav { position: fixed; top: 0; left: 0; right: 0; z-index: 60; display: f
 .hero { position: relative; min-height: 100vh; display: grid; grid-template-rows: 1fr auto; place-items: center; text-align: center; padding: 8rem clamp(1.4rem, 4vw, 3rem) 3rem; }
 .hero::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(120% 90% at 50% 30%, transparent 55%, rgba(0, 0, 0, 0.55) 100%); }
 .stage { position: relative; width: 100%; display: grid; place-items: center; align-self: center; }
-.algo-anim { width: min(86vw, 640px); height: min(86vw, 640px); grid-area: 1 / 1; }
+.algo-anim { width: min(92vw, 840px); height: min(92vw, 840px); grid-area: 1 / 1; }
 .copy { grid-area: 1 / 1; position: relative; z-index: 5; max-width: 40rem; }
+.copy::before { content: ''; position: absolute; inset: -2.5rem -4rem; z-index: -1; pointer-events: none; background: radial-gradient(ellipse 62% 58% at 50% 52%, rgba(6,7,8,0.9) 0%, rgba(6,7,8,0.66) 46%, transparent 78%); }
 .eyebrow { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--accent-2); margin-bottom: 1.4rem; }
 h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(3.2rem, 8.5vw, 6.6rem); line-height: 0.96; }
 h1 em { font-style: italic; color: var(--accent-2); }
