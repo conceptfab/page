@@ -2,207 +2,185 @@
 <html lang="pl">
 
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Polityka prywatnosci TIMEFLOW: dane formularza beta, cookies i zasady przetwarzania." />
+  <meta name="theme-color" content="#0a0e14" />
+  <meta name="color-scheme" content="dark" />
   <meta name="robots" content="noindex,follow" />
   <title>TIMEFLOW | Polityka prywatności</title>
+  <meta name="description" content="Polityka prywatnosci TIMEFLOW: dane formularza beta, cookies i zasady przetwarzania." />
+  <style>*,*::before,*::after{box-sizing:border-box}html,body{margin:0}body{background:#060708;color:#f4f3f1;font-family:'Hanken Grotesk',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}img,svg{display:block;max-width:100%}a{color:inherit;text-decoration:none}</style>
+  <link rel="stylesheet" href="./home.min.css?v=4" />
   <link rel="canonical" href="https://timeflow.conceptfab.com/polityka-prywatnosci.html" />
   <link rel="alternate" hreflang="pl" href="https://timeflow.conceptfab.com/polityka-prywatnosci.html" />
   <link rel="alternate" hreflang="en" href="https://timeflow.conceptfab.com/en/privacy-policy.html" />
   <link rel="alternate" hreflang="x-default" href="https://timeflow.conceptfab.com/polityka-prywatnosci.html" />
   <link rel="author" href="https://timeflow.conceptfab.com/llms.txt" />
+  <link rel="icon" type="image/x-icon" href="./icons/icon.ico" />
+  <link rel="shortcut icon" type="image/x-icon" href="./icons/icon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="./icons/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="128x128" href="./icons/favicon-128.png" />
+  <link rel="icon" type="image/png" sizes="196x196" href="./icons/favicon-196x196.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="./icons/apple-touch-icon-152x152.png" />
   <style>
-    :root {
-      color-scheme: dark;
-      --bg: #0b0f13;
-      --panel: #111821;
-      --ink: #eef4fb;
-      --muted: #a5b1c1;
-      --line: rgba(255, 255, 255, 0.1);
-      --accent: #4bc8ff;
-    }
-
-    .tf-style {
-      font-weight: 600;
-    }
-
-    li {
-      font-weight: 200;
-      color: #fff;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font: 16px/1.55 Inter, system-ui, sans-serif;
-      background: radial-gradient(900px 400px at 10% -10%, rgba(75, 200, 255, 0.12), transparent 70%), var(--bg);
-      color: var(--ink);
-    }
-
-    .wrap {
-      width: min(880px, calc(100% - 2rem));
-      margin: 2rem auto;
-      padding: 1.1rem;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0.01)), var(--panel);
-    }
-
-    h1,
-    h2 {
-      line-height: 1.08;
-      letter-spacing: -0.02em;
-      margin: 0;
-    }
-
-    h1 {
-      font-size: clamp(1.6rem, 4vw, 2.2rem);
-      margin-bottom: 0.5rem;
-    }
-
-    h2 {
-      font-size: 1.05rem;
-      margin-top: 1.2rem;
-      margin-bottom: 0.35rem;
-    }
-
-    p,
-    li {
-      color: var(--muted);
-    }
-
-    ul {
-      margin: 0.35rem 0 0;
-      padding-left: 1.05rem;
-    }
-
-    .meta {
-      margin: 0 0 0.6rem;
-      font-size: 0.95rem;
-      color: var(--muted);
-    }
-
-    .note {
-      margin: 0.8rem 0 0.6rem;
-      padding: 0.75rem 0.85rem;
-      border-radius: 12px;
-      border: 1px solid rgba(255, 194, 102, 0.25);
-      background: rgba(255, 194, 102, 0.06);
-      color: #ffd89c;
-    }
-
-    a {
-      color: var(--accent);
-    }
-
-    a:hover,
-    a:focus-visible {
-      color: #8fe1ff;
-    }
-
-    .back {
-      display: inline-flex;
-      margin-top: 1rem;
-    }
-
-    code {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--line);
-      padding: 0.08rem 0.35rem;
-      border-radius: 6px;
-      color: var(--ink);
-    }
+    .pp h3 { font-family: var(--serif); font-weight: 400; font-size: 1.7rem; line-height: 1.15; margin: 0 0 0.8rem; }
+    .pp .row + .row { margin-top: 2.4rem; }
+    .pp p { margin: 0 0 1rem; max-width: 64ch; }
+    .pp ul { max-width: 64ch; }
+    .pp .field { font-family: var(--mono); font-size: 0.82rem; letter-spacing: 0.02em; padding: 0.12rem 0.45rem; border-radius: 4px; border: 1px solid var(--line); color: var(--ink); white-space: nowrap; }
   </style>
 </head>
 
 <body>
-  <main class="wrap">
-    <h1>Polityka prywatności <span class="tf-style">TIMEFLOW</span></h1>
-    <p class="meta">Data aktualizacji: 23 lutego 2026</p>
+  <nav>
+    <span class="brand">TIMEFLOW</span>
+    <div class="nav-links">
+      <a href="./index.html#funkcje">Funkcje</a>
+      <a href="./index.html#workflow">Jak działa</a>
+      <a href="./index.html#stack">Stack</a>
+      <a href="./index.html#faq">FAQ</a>
+    </div>
+    <div class="nav-right"><div class="lang-switch" aria-label="Jezyk"><span class="lang-active">PL</span><span class="lang-sep">/</span><a href="./en/privacy-policy.html" hreflang="en" lang="en">EN</a></div>
+      <a class="pill" href="./index.html#beta">Dołącz do bety</a></div>
+  </nav>
+  <main>
 
-    <p class="note">
-      To wersja robocza przygotowana do wdrożenia linku RODO na landing page. Przed publikacją
-      uzupełnij pełne dane administratora (nazwa firmy, adres, kontakt) i zweryfikuj dokument
-      z prawnikiem / inspektorem ochrony danych.
-    </p>
+  <!-- HEADER -->
+  <section class="section dark">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow-s">Polityka prywatności</p>
+        <h2 class="h2">Polityka prywatności <em>TIMEFLOW.</em></h2>
+        <p class="lead-s">Data aktualizacji: 23 lutego 2026.</p>
+        <p style="margin-top:1.6rem">
+          <a class="cta-link" href="./index.html">← Wróć na stronę główną</a>
+        </p>
+      </div>
+    </div>
+  </section>
 
-    <h2>1. Administrator danych</h2>
-    <p>
-      Administratorem danych osobowych jest <strong>CONCEPTFAB</strong> (właściciel projektu
-      <span class="tf-style">TIMEFLOW</span>).
-    </p>
-    <ul>
-      <li>Nazwa / forma prawna: <code>CONCEPTFAB</code></li>
-      <li>Adres: <code>Marco Polo 2/21, 02-776 Warszawa, Polska</code></li>
-      <li>E-mail kontaktowy: <code>office@conceptfab.com</code></li>
-    </ul>
+  <!-- TREŚĆ POLITYKI -->
+  <section class="section light">
+    <div class="wrap pp">
 
-    <h2>2. Jakie dane zbieramy</h2>
-    <p>W formularzu zgłoszenia do testów beta możemy zbierać:</p>
-    <ul>
-      <li>imię / nick,</li>
-      <li>adres e-mail,</li>
-      <li>branżę / rolę zawodową,</li>
-      <li>opis potrzeb i workflow (jeśli wpiszesz go dobrowolnie),</li>
-      <li>dane techniczne związane z wysłaniem formularza (np. data zgłoszenia, logi serwera).</li>
-    </ul>
+      <div class="row">
+        <h3>1. Administrator danych</h3>
+        <p>
+          Administratorem danych osobowych jest <strong>CONCEPTFAB</strong> (właściciel projektu
+          <strong>TIMEFLOW</strong>).
+        </p>
+        <ul>
+          <li>Nazwa / forma prawna: <span class="field">CONCEPTFAB</span></li>
+          <li>Adres: <span class="field">Marco Polo 2/21, 02-776 Warszawa, Polska</span></li>
+          <li>E-mail kontaktowy: <span class="field">office@conceptfab.com</span></li>
+        </ul>
+      </div>
 
-    <h2>3. Cel i podstawa przetwarzania</h2>
-    <ul>
-      <li>obsługa zgłoszenia do testów beta i kontakt w sprawie dostępu do <span class="tf-style">TIMEFLOW</span>,</li>
-      <li>organizacja i priorytetyzacja testów beta,</li>
-      <li>obrona przed nadużyciami i spamem (uzasadniony interes administratora).</li>
-    </ul>
-    <p>
-      Podstawą przetwarzania jest zgoda użytkownika (art. 6 ust. 1 lit. a RODO) oraz uzasadniony
-      interes administratora (art. 6 ust. 1 lit. f RODO) w zakresie bezpieczeństwa formularza.
-    </p>
+      <div class="row">
+        <h3>2. Jakie dane zbieramy</h3>
+        <p>W formularzu zgłoszenia do testów beta możemy zbierać:</p>
+        <ul>
+          <li>imię / nick,</li>
+          <li>adres e-mail,</li>
+          <li>branżę / rolę zawodową,</li>
+          <li>opis potrzeb i workflow (jeśli wpiszesz go dobrowolnie),</li>
+          <li>dane techniczne związane z wysłaniem formularza (np. data zgłoszenia, logi serwera).</li>
+        </ul>
+      </div>
 
-    <h2>4. Jak długo przechowujemy dane</h2>
-    <p>
-      Dane z formularza przechowujemy przez czas potrzebny do obsługi testów beta oraz kontaktu w
-      sprawie zgłoszenia, nie dłużej niż <code>[UZUPEŁNIJ np. 12 miesięcy]</code>, chyba że
-      wcześniej wycofasz zgodę.
-    </p>
+      <div class="row">
+        <h3>3. Cel i podstawa przetwarzania</h3>
+        <ul>
+          <li>obsługa zgłoszenia do testów beta i kontakt w sprawie dostępu do <strong>TIMEFLOW</strong>,</li>
+          <li>organizacja i priorytetyzacja testów beta,</li>
+          <li>obrona przed nadużyciami i spamem (uzasadniony interes administratora).</li>
+        </ul>
+        <p>
+          Podstawą przetwarzania jest zgoda użytkownika (art. 6 ust. 1 lit. a RODO) oraz uzasadniony
+          interes administratora (art. 6 ust. 1 lit. f RODO) w zakresie bezpieczeństwa formularza.
+        </p>
+      </div>
 
-    <h2>5. Odbiorcy danych</h2>
-    <p>
-      Dane mogą być przetwarzane przez podmioty wspierające hosting formularza i utrzymanie strony
-      (np. serwer / hosting), wyłącznie na podstawie odpowiednich umów i w zakresie niezbędnym do
-      działania usługi.
-    </p>
+      <div class="row">
+        <h3>4. Jak długo przechowujemy dane</h3>
+        <p>
+          Dane z formularza przechowujemy przez czas potrzebny do obsługi testów beta oraz kontaktu w
+          sprawie zgłoszenia, nie dłużej niż <span class="field">12 miesięcy</span>, chyba że
+          wcześniej wycofasz zgodę.
+        </p>
+      </div>
 
-    <h2>6. Twoje prawa</h2>
-    <p>Masz prawo do:</p>
-    <ul>
-      <li>dostępu do danych,</li>
-      <li>sprostowania danych,</li>
-      <li>usunięcia danych,</li>
-      <li>ograniczenia przetwarzania,</li>
-      <li>przenoszenia danych,</li>
-      <li>wycofania zgody w dowolnym momencie (bez wpływu na zgodność wcześniejszego przetwarzania),</li>
-      <li>wniesienia skargi do Prezesa UODO.</li>
-    </ul>
+      <div class="row">
+        <h3>5. Odbiorcy danych</h3>
+        <p>
+          Dane mogą być przetwarzane przez podmioty wspierające hosting formularza i utrzymanie strony
+          (np. serwer / hosting), wyłącznie na podstawie odpowiednich umów i w zakresie niezbędnym do
+          działania usługi.
+        </p>
+      </div>
 
-    <h2>7. Dobrowolność podania danych</h2>
-    <p>
-      Podanie danych jest dobrowolne, ale brak imienia/nicku, adresu e-mail, branży lub zgody na
-      kontakt uniemożliwi obsługę zgłoszenia do testów beta.
-    </p>
+      <div class="row">
+        <h3>6. Twoje prawa</h3>
+        <p>Masz prawo do:</p>
+        <ul>
+          <li>dostępu do danych,</li>
+          <li>sprostowania danych,</li>
+          <li>usunięcia danych,</li>
+          <li>ograniczenia przetwarzania,</li>
+          <li>przenoszenia danych,</li>
+          <li>wycofania zgody w dowolnym momencie (bez wpływu na zgodność wcześniejszego przetwarzania),</li>
+          <li>wniesienia skargi do Prezesa UODO.</li>
+        </ul>
+      </div>
 
-    <h2>8. Kontakt w sprawach prywatności</h2>
-    <p>
-      W sprawach dotyczących danych osobowych skontaktuj się z administratorem przez adres e-mail:
-      <code>office@conceptfab.com</code>.
-    </p>
+      <div class="row">
+        <h3>7. Dobrowolność podania danych</h3>
+        <p>
+          Podanie danych jest dobrowolne, ale brak imienia/nicku, adresu e-mail, branży lub zgody na
+          kontakt uniemożliwi obsługę zgłoszenia do testów beta.
+        </p>
+      </div>
 
-    <a class="back" href="./">← Wróć do strony <span class="tf-style">TIMEFLOW</span></a>
+      <div class="row">
+        <h3>8. Kontakt w sprawach prywatności</h3>
+        <p>
+          W sprawach dotyczących danych osobowych skontaktuj się z administratorem przez adres e-mail:
+          <span class="field">office@conceptfab.com</span>.
+        </p>
+      </div>
+
+      <p style="margin-top:3rem">
+        <a class="cta-link" href="./index.html">← Wróć na stronę główną</a>
+      </p>
+    </div>
+  </section>
+
   </main>
+
+
+  <footer>
+    <div style="max-width:var(--wrap);margin:0 auto;display:flex;flex-wrap:wrap;gap:1.4rem;justify-content:space-between;align-items:center">
+      <span class="brand" style="color:var(--ink)">TIMEFLOW <span style="color:var(--muted);font-weight:400;letter-spacing:0.05em">by CONCEPTFAB</span></span>
+      <nav aria-label="Skróty w stopce" style="display:flex;flex-wrap:wrap;gap:1.2rem;justify-content:center">
+        <a href="./index.html#funkcje">Funkcje</a>
+        <a href="./index.html#workflow">Jak działa</a>
+        <a href="./index.html#faq">FAQ</a>
+        <a href="./index.html#beta">Testy beta</a>
+        <a href="./index.html#stack">Stack</a>
+        <a href="./index.html#roadmap">Roadmapa</a>
+        <a href="./aktualizacje.html">Aktualizacje</a>
+        <a href="./pomoc.html">Pomoc</a>
+        <a href="./polityka-prywatnosci.html">Polityka prywatności</a>
+      </nav>
+      <span>© <span id="year"></span> TIMEFLOW</span>
+    </div>
+  </footer>
+
+  <script src="./consent.min.js" defer></script>
+  <script src="./script.min.js" defer></script>
+  <script src="./webmcp.min.js" defer></script>
 </body>
 
 </html>
